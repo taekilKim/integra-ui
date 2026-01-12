@@ -43,11 +43,11 @@ export function Sidebar({ className }: SidebarProps) {
           </div>
         </div>
 
-        {/* 그룹 3: 컴포넌트 (라벨, 체크박스 추가!) */}
+        // components/layout/sidebar.tsx (일부)
+
+        {/* 그룹 3: 컴포넌트 */}
         <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            컴포넌트
-          </h2>
+          {/* ... */}
           <div className="space-y-1">
             <Link href="/docs/components/button">
               <Button variant="ghost" className="w-full justify-start">
@@ -69,6 +69,19 @@ export function Sidebar({ className }: SidebarProps) {
                 Checkbox (체크박스)
               </Button>
             </Link>
+            
+            {/* ✨ 신규 추가된 컴포넌트 */}
+            <Link href="/docs/components/badge">
+              <Button variant="ghost" className="w-full justify-start">
+                Badge (뱃지)
+              </Button>
+            </Link>
+            <Link href="/docs/components/switch">
+              <Button variant="ghost" className="w-full justify-start">
+                Switch (스위치)
+              </Button>
+            </Link>
+            
             <Link href="/docs/components/card">
               <Button variant="ghost" className="w-full justify-start">
                 Card (카드)
