@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css"; // 이 파일에서 Pretendard를 @import로 불러옵니다.
+import { Header } from "@/components/layout/header"; // ✨ 헤더 컴포넌트 불러오기
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Integra UI",
@@ -13,21 +14,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      {/* 
-        <head> 태그 안에는 이제 Pretendard CDN 링크가 없습니다.
-        globals.css에서 @import로 불러오기 때문에 여기서는 필요 없어요.
-        만약 나중에 다른 외부 폰트나 CSS를 불러온다면 여기에 추가할 수 있습니다.
-      */}
       <head>
-        {/* head 태그는 비워두거나, 다른 메타 태그 등을 추가할 수 있습니다. */}
+        {/* globals.css에서 폰트를 불러오므로 여기는 비워둡니다. */}
       </head>
       
       {/* 
-        body에는 Tailwind의 `font-['Pretendard']` 클래스를 유지하여
-        Pretendard 폰트가 HTML 전체에 적용되도록 합니다.
+         ✨ 수정됨: 
+         1. min-h-screen flex flex-col: 전체 화면을 꽉 채우고 세로 정렬
+         2. Header 추가: 모든 페이지 상단에 고정
+         3. main: 본문 내용이 남은 공간을 차지하도록 flex-1 설정
       */}
-      <body className="font-['Pretendard'] antialiased">
-        {children}
+      <body className="font-['Pretendard'] antialiased min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">
+          {children}
+        </main>
       </body>
     </html>
   );
