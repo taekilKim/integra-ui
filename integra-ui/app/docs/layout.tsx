@@ -1,21 +1,77 @@
-// app/docs/layout.tsx
-import { Sidebar } from "@/components/layout/sidebar";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
-export default function DocsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export function Sidebar({ className }: SidebarProps) {
   return (
-    <div className="flex min-h-screen flex-col md:flex-row">
-      {/* 왼쪽: 사이드바 (모바일에서는 숨김 처리하거나 나중에 조정 가능) */}
-      <aside className="hidden md:block">
-        <Sidebar />
-      </aside>
+    <div className={cn("pb-12 w-64 border-r min-h-screen", className)}>
+      <div className="space-y-4 py-4">
+        
+        {/* 그룹 1: 시작하기 */}
+        <div className="px-3 py-2">
+          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            시작하기
+          </h2>
+          <div className="space-y-1">
+            <Link href="/docs">
+              <Button variant="ghost" className="w-full justify-start">
+                소개 (Introduction)
+              </Button>
+            </Link>
+            <Link href="/docs/installation">
+              <Button variant="ghost" className="w-full justify-start">
+                설치하기
+              </Button>
+            </Link>
+          </div>
+        </div>
 
-      {/* 오른쪽: 실제 문서 내용 */}
-      <div className="flex-1 lg:max-w-3xl px-6 py-6 md:px-10 md:py-10">
-        {children}
+        {/* 그룹 2: Foundations */}
+        <div className="px-3 py-2">
+          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            Foundations
+          </h2>
+          <div className="space-y-1">
+            <Link href="/docs/foundations/design-tokens">
+              <Button variant="ghost" className="w-full justify-start text-primary font-medium bg-primary/5">
+                Design Tokens (토큰)
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* 그룹 3: 컴포넌트 */}
+        <div className="px-3 py-2">
+          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            컴포넌트
+          </h2>
+          <div className="space-y-1">
+            <Link href="/docs/components/button">
+              <Button variant="ghost" className="w-full justify-start">
+                Button (버튼)
+              </Button>
+            </Link>
+            <Link href="/docs/components/input">
+              <Button variant="ghost" className="w-full justify-start">
+                Input (입력창)
+              </Button>
+            </Link>
+            {/* ✨ 여기에 라벨 추가했습니다 */}
+            <Link href="/docs/components/label">
+              <Button variant="ghost" className="w-full justify-start">
+                Label (라벨)
+              </Button>
+            </Link>
+            <Link href="/docs/components/card">
+              <Button variant="ghost" className="w-full justify-start">
+                Card (카드)
+              </Button>
+            </Link>
+          </div>
+        </div>
+
       </div>
     </div>
   );
