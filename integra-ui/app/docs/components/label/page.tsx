@@ -1,5 +1,5 @@
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox"; // 체크박스는 아직 없지만 예시용 (없으면 div로 대체됨)
+import { Checkbox } from "@/components/ui/checkbox"; // ✨ 이제 에러 안 남!
 
 export default function LabelDocsPage() {
   return (
@@ -18,11 +18,10 @@ export default function LabelDocsPage() {
         <h2 className="text-xl font-semibold tracking-tight">Preview</h2>
         <div className="flex min-h-[150px] items-center justify-center rounded-xl border bg-slate-50 p-10">
           
-          <div className="grid gap-1.5">
-            <Label htmlFor="email">Your Email Address</Label>
-            <div className="text-sm text-slate-500">
-                (여기에 Input이 들어갑니다)
-            </div>
+          <div className="flex items-center space-x-2">
+            {/* ✨ 진짜 Integra UI 체크박스 컴포넌트 사용 */}
+            <Checkbox id="terms" />
+            <Label htmlFor="terms">Accept terms and conditions</Label>
           </div>
 
         </div>
@@ -33,9 +32,14 @@ export default function LabelDocsPage() {
         <h2 className="text-xl font-semibold tracking-tight">Usage</h2>
         <div className="rounded-md bg-slate-950 p-4">
             <code className="text-white text-sm font-mono block">
+                import &#123; Checkbox &#125; from "@/components/ui/checkbox"
+                <br />
                 import &#123; Label &#125; from "@/components/ui/label"
                 <br /><br />
-                &lt;Label htmlFor="email"&gt;Your Email Address&lt;/Label&gt;
+                &lt;div className="flex items-center space-x-2"&gt;<br />
+                &nbsp;&nbsp;&lt;Checkbox id="terms" /&gt;<br />
+                &nbsp;&nbsp;&lt;Label htmlFor="terms"&gt;Accept terms&lt;/Label&gt;<br />
+                &lt;/div&gt;
             </code>
         </div>
       </section>
