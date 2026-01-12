@@ -28,14 +28,15 @@ export function Sidebar({ className }: SidebarProps) {
           </div>
         </div>
 
-        {/* 그룹 2: Foundations (토큰 복구!) */}
+        {/* 그룹 2: Foundations */}
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
             Foundations
           </h2>
           <div className="space-y-1">
             <Link href="/docs/foundations/design-tokens">
-              <Button variant="ghost" className="w-full justify-start text-primary font-medium bg-primary/5">
+              {/* bg-primary/5, text-primary 등 강제 스타일 제거 */}
+              <Button variant="ghost" className="w-full justify-start">
                 Design Tokens (토큰)
               </Button>
             </Link>
