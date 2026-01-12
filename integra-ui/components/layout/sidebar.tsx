@@ -1,4 +1,3 @@
-// components/layout/sidebar.tsx
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -29,7 +28,21 @@ export function Sidebar({ className }: SidebarProps) {
           </div>
         </div>
 
-        {/* 그룹 2: 컴포넌트 */}
+        {/* 그룹 2: Foundations (토큰 복구!) */}
+        <div className="px-3 py-2">
+          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            Foundations
+          </h2>
+          <div className="space-y-1">
+            <Link href="/docs/foundations/design-tokens">
+              <Button variant="ghost" className="w-full justify-start text-primary font-medium bg-primary/5">
+                Design Tokens (토큰)
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* 그룹 3: 컴포넌트 (라벨, 체크박스 추가!) */}
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
             컴포넌트
@@ -43,6 +56,16 @@ export function Sidebar({ className }: SidebarProps) {
             <Link href="/docs/components/input">
               <Button variant="ghost" className="w-full justify-start">
                 Input (입력창)
+              </Button>
+            </Link>
+            <Link href="/docs/components/label">
+              <Button variant="ghost" className="w-full justify-start">
+                Label (라벨)
+              </Button>
+            </Link>
+            <Link href="/docs/components/checkbox">
+              <Button variant="ghost" className="w-full justify-start">
+                Checkbox (체크박스)
               </Button>
             </Link>
             <Link href="/docs/components/card">
