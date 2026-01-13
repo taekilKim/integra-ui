@@ -25,14 +25,14 @@ export function Header() {
               문서
             </Link>
             <Link 
-              href="/docs/foundations/design-tokens" 
+              href="/docs/foundations" 
               className="transition-colors hover:text-primary text-slate-500"
             >
               Foundations
             </Link>
             {/* ✨ 다시 추가된 Components 링크 */}
             <Link 
-              href="/docs/components/button" 
+              href="/docs/components" 
               className="transition-colors hover:text-primary text-slate-500"
             >
               Components
