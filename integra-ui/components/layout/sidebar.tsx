@@ -46,21 +46,19 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
               <h2 className="px-12 text-12 font-semibold uppercase tracking-2 text-integra-gray-500">
                 {section.title}
               </h2>
-              <div className="space-y-4">
+              <div>
                 {section.items.map((item) => {
                   const isActive = pathname === item.href;
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={cn(
-                        "group flex w-full items-center rounded-8 px-12 py-8 transition-all",
-                        "text-12 font-medium", // 👈 cn이 다른 text- 컬러와 헷갈리지 않게 위치 조정
-
+                      className={`text-14 ${cn(
+                        "group flex w-full items-center rounded-8 px-12 py-8 transition-all font-medium",
                         isActive 
-                          ? "bg-integra-gray-50 text-integra-gray-900 font-medium" 
+                          ? "bg-integra-gray-50"
                           : "text-integra-gray-900 hover:bg-integra-gray-50"
-                      )}
+                      )}`}
                     >
                       {item.name}
                     </Link>
