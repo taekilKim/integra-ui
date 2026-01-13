@@ -42,8 +42,8 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
         <div className="space-y-32 pb-48">
           {sections.map((section) => (
             <div key={section.title} className="space-y-12">
-              {/* 섹션 타이틀: Gray 400 적용 */}
-              <h2 className="px-12 text-12 font-bold uppercase tracking-2 text-integra-gray-400">
+              {/* 섹션 타이틀 */}
+              <h2 className="px-12 text-12 font-semibold uppercase tracking-2 text-integra-gray-500">
                 {section.title}
               </h2>
               <div className="space-y-4">
@@ -55,12 +55,11 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       href={item.href}
                       className={cn(
                         "group flex w-full items-center rounded-8 px-12 py-8 transition-all",
-                        "text-14 font-medium", // 👈 cn이 다른 text- 컬러와 헷갈리지 않게 위치 조정
-                        // ✨ Active: Blue 50 배경 + Primary(Blue 500) 글자
-                        // ✨ Hover: Gray 50 배경
+                        "text-12 font-medium", // 👈 cn이 다른 text- 컬러와 헷갈리지 않게 위치 조정
+
                         isActive 
-                          ? "bg-integra-gray-100 text-integra-gray-900 font-bold" 
-                          : "text-integra-gray-500 hover:bg-integra-gray-50"
+                          ? "bg-integra-gray-50 text-integra-gray-900 font-medium" 
+                          : "text-integra-gray-900 hover:bg-integra-gray-50"
                       )}
                     >
                       {item.name}

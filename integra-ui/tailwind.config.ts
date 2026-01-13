@@ -15,46 +15,70 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  // ✨ 추가: 수치형 토큰 클래스들이 동적으로 조합되어도 빌드에 포함되도록 강제 설정
+  // 동적 클래스 생성을 위한 세이프리스트
   safelist: [
     {
-      // 폰트 사이즈 패턴
-      pattern: /text-(12|13|14|16|18|20|24|28|32|40|48|56|64|72|80|96|128|160)/,
+      pattern: /text-(12|13|14|15|16|18|20|24|28|32|40|48|56|64|72|80|96|128|160)/,
     },
     {
-      // 행간 패턴 (0px ~ 80px)
       pattern: /leading-(0|4|8|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80)/,
     },
     {
-      // 폰트 굵기 패턴
       pattern: /font-(regular|medium|semibold|bold)/,
     },
     {
-      // 곡률 패턴 (0px ~ 40px)
       pattern: /rounded-(0|4|8|12|16|20|24|28|32|36|40)/,
     },
     {
-      // 간격/너비/높이 패턴 (p, m, gap, w, h 등 주요 수치 400px까지)
       pattern: /(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-(0|4|8|12|16|20|24|28|32|40|48|56|64|80|120|160|200|240|280|320|400)/,
     },
   ],
   theme: {
     extend: {
-      fontFamily: { sans: ["Pretendard", "sans-serif"] },
+      fontFamily: {
+        sans: ["Pretendard", "sans-serif"],
+      },
       fontSize: {
-        "12": "12px", "13": "13px", "14": "14px", "16": "16px", "18": "18px",
-        "20": "20px", "24": "24px", "32": "32px", "40": "40px",
-        "48": "48px", "56": "56px", "64": "64px", "72": "72px",
-        "80": "80px", "96": "96px", "128": "128px", "160": "160px",
+        "12": "12px",
+        "13": "13px",
+        "14": "14px",
+        "15": "15px",
+        "16": "16px",
+        "18": "18px",
+        "20": "20px",
+        "24": "24px",
+        "28": "28px",
+        "32": "32px",
+        "40": "40px",
+        "48": "48px",
+        "56": "56px",
+        "64": "64px",
+        "72": "72px",
+        "80": "80px",
+        "96": "96px",
+        "128": "128px",
+        "160": "160px",
       },
       lineHeight: generate4pxScale(80),
-      // ✨ 레이아웃을 위해 400px까지 확장
+      letterSpacing: {
+        "0": "0",
+        "-1": "-0.01em",
+        "-2": "-0.02em",
+        "-3": "-0.03em",
+        "-4": "-0.04em",
+      },
+      // 일반 간격 (Padding, Margin, Gap, Width, Height)
       spacing: generate4pxScale(400),
+      
+      // ✨ 추가된 부분: 최대 너비 설정 (이게 있어야 max-w-720이 작동합니다)
+      maxWidth: {
+        ...generate4pxScale(1400), // 1400px까지 4px 단위로 max-w 생성
+      },
+
       borderRadius: {
         ...generate4pxScale(40),
         full: "9999px",
       },
-      // tailwind.config.ts의 colors 부분 수정
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -73,7 +97,15 @@ const config: Config = {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
-        // Integra UI 전용 팔레트 네임스페이스
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        // Integra UI 전용 팔레트
         integra: {
           gray: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--gray-${s}))`])),
           blue: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--blue-${s}))`])),
