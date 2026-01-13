@@ -83,6 +83,12 @@ export function Sidebar({ className }: SidebarProps) {
               </Button>
             </Link>
             
+            <Link href="/docs/components/select">
+              <Button variant="ghost" className="w-full justify-start">
+                Select (드롭다운)
+              </Button>
+            </Link>
+            
             <Link href="/docs/components/card">
               <Button variant="ghost" className="w-full justify-start">
                 Card (카드)
