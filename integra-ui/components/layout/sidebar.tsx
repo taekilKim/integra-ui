@@ -2,106 +2,36 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function Sidebar({ className }: SidebarProps) {
+export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("pb-12 w-64 border-r min-h-screen", className)}>
-      <div className="space-y-4 py-4">
-        
-        {/* 그룹 1: 시작하기 */}
-        <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            시작하기
-          </h2>
-          <div className="space-y-1">
-            <Link href="/docs">
-              <Button variant="ghost" className="w-full justify-start">
-                소개 (Introduction)
-              </Button>
-            </Link>
-            <Link href="/docs/installation">
-              <Button variant="ghost" className="w-full justify-start">
-                설치하기
-              </Button>
-            </Link>
+    <div className={cn("pb-48 w-280 border-r min-h-screen", className)}>
+      <div className="space-y-16 py-24">
+        {/* 시작하기 */}
+        <div className="px-12 py-8">
+          <h2 className="mb-8 px-16 text-12 font-bold uppercase tracking-1 text-slate-400">시작하기</h2>
+          <div className="space-y-4">
+            <Link href="/docs"><Button variant="ghost" className="w-full justify-start h-36 px-16 text-14">소개</Button></Link>
+            <Link href="/docs/installation"><Button variant="ghost" className="w-full justify-start h-36 px-16 text-14">설치하기</Button></Link>
           </div>
         </div>
-
-        {/* 그룹 2: Foundations */}
-        <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            Foundations
-          </h2>
-          <div className="space-y-1">
-            <Link href="/docs/foundations/design-tokens">
-              {/* bg-primary/5, text-primary 등 강제 스타일 제거 */}
-              <Button variant="ghost" className="w-full justify-start">
-                Design Tokens (토큰)
-              </Button>
-            </Link>
+        {/* Foundations */}
+        <div className="px-12 py-8">
+          <h2 className="mb-8 px-16 text-12 font-bold uppercase tracking-1 text-slate-400">Foundations</h2>
+          <div className="space-y-4">
+            <Link href="/docs/foundations/design-tokens"><Button variant="ghost" className="w-full justify-start h-36 px-16 text-14">Design Tokens</Button></Link>
           </div>
         </div>
-
-
-        {/* 그룹 3: 컴포넌트 */}
-        <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            컴포넌트
-          </h2>
-          <div className="space-y-1">
-            <Link href="/docs/components/button">
-              <Button variant="ghost" className="w-full justify-start">
-                Button (버튼)
-              </Button>
-            </Link>
-            <Link href="/docs/components/input">
-              <Button variant="ghost" className="w-full justify-start">
-                Input (입력창)
-              </Button>
-            </Link>
-            <Link href="/docs/components/textarea">
-              <Button variant="ghost" className="w-full justify-start">
-                Textarea (텍스트 영역)
-              </Button>
-            </Link>
-            <Link href="/docs/components/label">
-              <Button variant="ghost" className="w-full justify-start">
-                Label (라벨)
-              </Button>
-            </Link>
-            <Link href="/docs/components/checkbox">
-              <Button variant="ghost" className="w-full justify-start">
-                Checkbox (체크박스)
-              </Button>
-            </Link>
-            
-            {/* ✨ 신규 추가된 컴포넌트 */}
-            <Link href="/docs/components/badge">
-              <Button variant="ghost" className="w-full justify-start">
-                Badge (뱃지)
-              </Button>
-            </Link>
-            <Link href="/docs/components/switch">
-              <Button variant="ghost" className="w-full justify-start">
-                Switch (스위치)
-              </Button>
-            </Link>
-
-            <Link href="/docs/components/select">
-              <Button variant="ghost" className="w-full justify-start">
-                Select (드롭다운)
-              </Button>
-            </Link>
-            
-            <Link href="/docs/components/card">
-              <Button variant="ghost" className="w-full justify-start">
-                Card (카드)
-              </Button>
-            </Link>
+        {/* Components */}
+        <div className="px-12 py-8">
+          <h2 className="mb-8 px-16 text-12 font-bold uppercase tracking-1 text-slate-400">Components</h2>
+          <div className="space-y-4">
+            {["button", "input", "label", "checkbox", "badge", "switch", "select", "textarea", "card"].map((item) => (
+              <Link key={item} href={`/docs/components/${item}`}>
+                <Button variant="ghost" className="w-full justify-start h-36 px-16 text-14 capitalize">{item}</Button>
+              </Link>
+            ))}
           </div>
         </div>
-
       </div>
     </div>
   );
