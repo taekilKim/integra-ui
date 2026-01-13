@@ -26,11 +26,11 @@ export default function CardDocsPage() {
               <CardDescription>Integrate your design system easily.</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-14 text-slate-600">아토믹 토큰 시스템으로 제작된 카드 컴포넌트입니다.</p>
+              <p className="text-16 text-integra-gray-700">아토믹 토큰 시스템으로 제작된 카드 컴포넌트입니다.</p>
             </CardContent>
             <CardFooter className="justify-end gap-8">
-              <Button variant="outline" size="sm">Cancel</Button>
-              <Button size="sm">Confirm</Button>
+              <Button variant="tertiary" size="medium">Cancel</Button>
+              <Button size="medium">Confirm</Button>
             </CardFooter>
           </Card>
         </div>

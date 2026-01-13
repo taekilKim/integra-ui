@@ -36,7 +36,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/docs/foundations/design-tokens">
-              <Button variant="outline" className="h-48 px-32 text-16 leading-24 font-bold">
+              <Button variant="tertiary" className="h-48 px-32 text-16 leading-24 font-bold">
                 디자인 토큰 살펴보기
               </Button>
             </Link>
