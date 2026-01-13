@@ -150,7 +150,7 @@ export default function Home() {
               </p>
               <div className="pt-8">
                 <Link href="/docs/components/button">
-                    <Button variant="default" size="lg" className="h-48 px-24 gap-8">
+                    <Button variant="default" size="default" className="h-48 px-24 gap-8">
                         컴포넌트 전체보기 <ChevronRight className="w-16 h-16" />
                     </Button>
                 </Link>
