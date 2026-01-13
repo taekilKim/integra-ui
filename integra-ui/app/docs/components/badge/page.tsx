@@ -5,7 +5,7 @@ export default function BadgeDocsPage() {
   return (
     <div className="space-y-48 pb-80">
       <div className="space-y-16">
-        <div className="flex items-center gap-8 font-mono text-12 text-primary">
+        <div className="flex items-center gap-8 text-12 text-integra-gray-700">
             <span>Components</span>
             <span>/</span>
             <span className="font-bold">Badge</span>

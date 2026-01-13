@@ -11,7 +11,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
 
       {/* 2. 중앙 본문 영역 (너비 720px 제한 및 중앙 정렬) */}
       <main className="flex-1 min-w-0">
-        <div className="mx-auto max-w-720 px-24 py-48 md:px-48 md:py-80 lg:px-64">
+        <div className="mx-auto max-w-960 px-24 py-48 md:px-48 md:py-80 lg:px-64">
           {children}
         </div>
       </main>
