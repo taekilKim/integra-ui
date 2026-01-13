@@ -31,9 +31,9 @@ export function ButtonDemo() {
         
         {/* Appearance */}
         <div className="space-y-8">
-          <Label className="text-12 font-semibold text-integra-gray-500">Appearance</Label>
+          <Label className="fs-12 font-semibold text-integra-gray-500">Appearance</Label>
           <select 
-            className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 text-14 outline-none focus:ring-2 focus:ring-ring"
+            className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 fs-14 outline-none focus:ring-2 focus:ring-ring"
             value={appearance}
             onChange={(e) => setAppearance(e.target.value)}
           >
@@ -45,9 +45,9 @@ export function ButtonDemo() {
 
         {/* Variant */}
         <div className="space-y-8">
-          <Label className="text-12 font-semibold text-integra-gray-500">Variant</Label>
+          <Label className="fs-12 font-semibold text-integra-gray-500">Variant</Label>
           <select 
-            className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 text-14 outline-none focus:ring-2 focus:ring-ring"
+            className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 fs-14 outline-none focus:ring-2 focus:ring-ring"
             value={variant}
             onChange={(e) => setVariant(e.target.value)}
           >
@@ -59,9 +59,9 @@ export function ButtonDemo() {
 
         {/* Size */}
         <div className="space-y-8">
-          <Label className="text-12 font-semibold text-integra-gray-500">Size</Label>
+          <Label className="fs-12 font-semibold text-integra-gray-500">Size</Label>
           <select 
-            className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 text-14 outline-none focus:ring-2 focus:ring-ring"
+            className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 fs-14 outline-none focus:ring-2 focus:ring-ring"
             value={size}
             onChange={(e) => setSize(e.target.value)}
           >
@@ -73,7 +73,7 @@ export function ButtonDemo() {
 
         {/* State */}
         <div className="space-y-8">
-          <Label className="text-12 font-semibold text-integra-gray-500">State</Label>
+          <Label className="fs-12 font-semibold text-integra-gray-500">State</Label>
           <div className="flex items-center gap-8 h-40">
             <input 
               type="checkbox" 
@@ -82,7 +82,7 @@ export function ButtonDemo() {
               onChange={(e) => setIsDisabled(e.target.checked)}
               className="w-16 h-16 accent-primary"
             />
-            <label htmlFor="disabled-toggle" className="text-14 cursor-pointer select-none font-medium text-integra-gray-700">Disabled</label>
+            <label htmlFor="disabled-toggle" className="fs-14 cursor-pointer select-none font-medium text-integra-gray-700">Disabled</label>
           </div>
         </div>
 
@@ -90,8 +90,8 @@ export function ButtonDemo() {
 
       {/* 3. 코드 복사 영역: bg-integra-gray-900 (어두운 토큰 적용) */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto relative">
-        <div className="text-12 text-integra-gray-500 mb-8 font-mono">// Atomic Combination</div>
-        <code className="text-white text-14 font-mono">
+        <div className="fs-12 text-integra-gray-500 mb-8 font-mono">// Atomic Combination</div>
+        <code className="text-white fs-14 font-mono">
           &lt;Button <br/>
           &nbsp;&nbsp;appearance="{appearance}" <br/>
           &nbsp;&nbsp;variant="{variant}" <br/>
