@@ -43,7 +43,6 @@ export function Sidebar({ className }: SidebarProps) {
           </div>
         </div>
 
-        // components/layout/sidebar.tsx (일부)
 
         {/* 그룹 3: 컴포넌트 */}
         <div className="px-3 py-2">
