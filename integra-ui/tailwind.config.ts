@@ -1,9 +1,10 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin"; // 플러그인 추가
+import plugin from "tailwindcss/plugin";
 
-const generate4pxScale = (maxPx: number) => {
+// ✨ 2px 단위로 스케일을 생성하는 함수 (0px ~ 400px)
+const generate2pxScale = (maxPx: number) => {
   const scale: Record<string, string> = {};
-  for (let i = 0; i <= maxPx; i += 4) {
+  for (let i = 0; i <= maxPx; i += 2) {
     scale[i] = `${i}px`;
   }
   return scale;
@@ -16,24 +17,42 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  // 동적 클래스 생성을 위한 세이프리스트 (2px 단위 대응)
   safelist: [
-    // ✨ text- 대신 fs- 패턴으로 변경
     { pattern: /fs-(12|13|14|15|16|18|20|24|28|32|40|48|56|64|72|80|96|128|160)/ },
-    { pattern: /leading-(0|4|8|12|14|16|18|20|22|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80)/ },
+    { pattern: /leading-(0|2|4|6|8|10|12|14|16|18|20|22|24|26|28|30|32|34|36|38|40|44|48|52|56|60|64|68|72|76|80)/ },
     { pattern: /font-(regular|medium|semibold|bold)/ },
-    { pattern: /rounded-(0|4|8|12|14|16|20|24|28|32|36|40)/ },
-    { pattern: /(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-(0|4|8|12|14|16|20|24|28|32|40|48|56|64|80|120|160|200|240|280|320|400)/ },
+    { pattern: /rounded-(0|2|4|6|8|10|12|14|16|18|20|22|24|26|28|30|32|34|36|38|40)/ },
+    { pattern: /(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-(0|2|4|6|8|10|12|14|16|18|20|22|24|26|28|30|32|34|36|38|40|48|56|64|80|120|160|200|240|280|320|400)/ },
   ],
   theme: {
+    // ✨ [중요] extend 밖의 spacing에 선언하여 테일윈드 기본 rem 수치를 완전히 제거합니다.
+    spacing: {
+      ...generate2pxScale(400),
+      "full": "100%",
+      "screen": "100vh",
+      "min": "min-content",
+      "max": "max-content",
+      "fit": "fit-content",
+    },
     extend: {
       fontFamily: { sans: ["Pretendard", "sans-serif"] },
-      // 기존 fontSize는 제거하거나 그대로 두셔도 됩니다. 
-      // 우리는 fs- 라는 커스텀 유틸리티를 아래 플러그인에서 만들 것입니다.
-      lineHeight: generate4pxScale(80),
+      // 행간도 2px 단위로 정교하게 제어
+      lineHeight: generate2pxScale(80),
       letterSpacing: { "0": "0", "-1": "-0.01em", "-2": "-0.02em", "-3": "-0.03em", "-4": "-0.04em" },
-      spacing: generate4pxScale(400),
-      maxWidth: { ...generate4pxScale(1400) },
-      borderRadius: { ...generate4pxScale(40), "14": "14px", full: "9999px" },
+      maxWidth: { 
+        ...generate2pxScale(1400),
+        "none": "none",
+        "full": "100%",
+        "min": "min-content",
+        "max": "max-content",
+        "fit": "fit-content",
+      },
+      // 곡률도 2px 단위로 정교하게 제어
+      borderRadius: { 
+        ...generate2pxScale(40), 
+        full: "9999px" 
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -48,24 +67,23 @@ const config: Config = {
         integra: {
           gray: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--gray-${s}))`])),
           blue: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--blue-${s}))`])),
+          green: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--green-${s}))`])),
           red: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--red-${s}))`])),
-          // ... 다른 색상들 동일
+          orange: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--orange-${s}))`])),
+          violet: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--violet-${s}))`])),
+          grape: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--grape-${s}))`])),
         }
       },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
-    // ✨ fs-14 형태의 커스텀 폰트 사이즈 유틸리티 생성 플러그인
     plugin(function({ addUtilities }) {
       const fontSizes = [12, 13, 14, 15, 16, 18, 20, 24, 28, 32, 40, 48, 56, 64, 72, 80, 96, 128, 160];
-      
-      // ✨ acc 뒤에 : Record<string, { fontSize: string }> 타입을 명시하여 에러 해결
       const fontSizeUtilities = fontSizes.reduce((acc: Record<string, { fontSize: string }>, size) => {
         acc[`.fs-${size}`] = { fontSize: `${size}px` };
         return acc;
       }, {});
-
       addUtilities(fontSizeUtilities);
     })
   ],
