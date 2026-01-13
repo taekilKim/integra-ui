@@ -15,7 +15,7 @@ export default function ButtonDocsPage() {
         </div>
         <h1 className="text-40 font-semibold leading-48">Button</h1>
         <p className="text-18 text-integra-gray-700 leading-28">
-          사용자의 동작을 트리거하거나, 폼을 전송할 때 사용하는 핵심 컴포넌트입니다. 아토믹 토큰의 조합으로 정교한 크기와 스타일을 제공합니다.
+          사용자의 동작을 트리거하거나, 폼을 전송할 때 사용하는 핵심 컴포넌트입니다.<br></br>아토믹 토큰의 조합으로 정교한 크기와 스타일을 제공합니다.
         </p>
       </div>
 
