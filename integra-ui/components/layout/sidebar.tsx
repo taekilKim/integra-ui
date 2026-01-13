@@ -46,7 +46,9 @@ export function Sidebar({ className }: SidebarProps) {
 
         {/* 그룹 3: 컴포넌트 */}
         <div className="px-3 py-2">
-          {/* ... */}
+          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            컴포넌트
+          </h2>
           <div className="space-y-1">
             <Link href="/docs/components/button">
               <Button variant="ghost" className="w-full justify-start">
