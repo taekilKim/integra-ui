@@ -15,6 +15,29 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  // ✨ 추가: 수치형 토큰 클래스들이 동적으로 조합되어도 빌드에 포함되도록 강제 설정
+  safelist: [
+    {
+      // 폰트 사이즈 패턴
+      pattern: /text-(12|14|16|18|20|24|28|32|40|48|56|64|72|80|96|128|160)/,
+    },
+    {
+      // 행간 패턴 (0px ~ 80px)
+      pattern: /leading-(0|4|8|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80)/,
+    },
+    {
+      // 폰트 굵기 패턴
+      pattern: /font-(regular|medium|semibold|bold)/,
+    },
+    {
+      // 곡률 패턴 (0px ~ 40px)
+      pattern: /rounded-(0|4|8|12|16|20|24|28|32|36|40)/,
+    },
+    {
+      // 간격/너비/높이 패턴 (p, m, gap, w, h 등 주요 수치 400px까지)
+      pattern: /(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-(0|4|8|12|16|20|24|28|32|40|48|56|64|80|120|160|200|240|280|320|400)/,
+    },
+  ],
   theme: {
     extend: {
       fontFamily: { sans: ["Pretendard", "sans-serif"] },
