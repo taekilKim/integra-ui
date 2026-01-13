@@ -54,7 +54,8 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       key={item.href}
                       href={item.href}
                       className={cn(
-                        "group flex w-full items-center rounded-8 px-12 py-8 text-14 font-medium transition-all",
+                        "group flex w-full items-center rounded-8 px-12 py-8 transition-all",
+                        "text-14 font-medium", // 👈 cn이 다른 text- 컬러와 헷갈리지 않게 위치 조정
                         // ✨ Active: Blue 50 배경 + Primary(Blue 500) 글자
                         // ✨ Hover: Gray 50 배경
                         isActive 
