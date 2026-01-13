@@ -5,7 +5,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="flex min-h-screen w-full bg-white">
       {/* 1. 좌측 사이드바 */}
-      <aside className="hidden lg:block w-280 shrink-0">
+      <aside className="hidden lg:block w-280 shrink-0 border-r sticky top-56 h-[calc(100vh-56px)]">
         <Sidebar />
       </aside>
 
