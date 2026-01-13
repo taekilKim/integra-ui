@@ -1,20 +1,24 @@
-// components/ui/button.tsx
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-// 1. 버튼의 스타일 종류(Variants)를 정의하는 곳입니다.
-// components/ui/button.tsx 의 buttonVariants 부분을 아래처럼 바꾸세요
-
+/**
+ * [Integra UI - Button Atomic Design]
+ * 모든 수치는 tailwind.config.ts에 정의된 4px 그리드 토큰을 사용합니다.
+ * text-14: 14px 폰트
+ * h-40: 40px 높이
+ * rounded-8: 8px 곡률
+ */
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  // 공통 기본 스타일: 4px 그리드 기반의 정렬과 전역 곡률(8px) 적용
+  "inline-flex items-center justify-center whitespace-nowrap rounded-8 text-14 font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 tracking-0 leading-24",
   {
     variants: {
       variant: {
-        // bg-slate-900 -> bg-primary 로 변경 (이제 테마를 따릅니다!)
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        // Integra Blue 브랜드 컬러와 부드러운 그림자(shadow-integra) 적용
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-integra",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-integra",
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
@@ -23,10 +27,11 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        // 실무에서 가장 많이 쓰는 4px 배수 높이(32, 40, 48)로 규격화
+        default: "h-40 px-16 py-8", // 40px 높이, 16px 가로 여백
+        sm: "h-32 px-12 text-12 leading-20", // 32px 높이, 12px 가로 여백, 12px 폰트
+        lg: "h-48 px-32 text-16 leading-24 font-bold", // 48px 높이, 32px 가로 여백, 16px 폰트
+        icon: "h-40 w-40", // 40px 정정사각형
       },
     },
     defaultVariants: {
@@ -36,14 +41,12 @@ const buttonVariants = cva(
   }
 )
 
-// 2. 타입 정의 (HTML 버튼 속성 + 우리가 만든 Variant 속성)
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 
-// 3. 실제 컴포넌트 구현
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
     return (

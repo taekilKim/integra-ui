@@ -1,4 +1,3 @@
-// components/ui/label.tsx
 "use client"
 
 import * as React from "react"
@@ -11,7 +10,7 @@ const Label = React.forwardRef<
   <label
     ref={ref}
     className={cn(
-      "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+      "text-14 font-medium leading-20 tracking-0 peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
       className
     )}
     {...props}
