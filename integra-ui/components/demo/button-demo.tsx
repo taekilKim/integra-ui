@@ -16,7 +16,7 @@ export function ButtonDemo() {
       {/* 1. 프리뷰 영역: 실제 버튼이 보여지는 곳 */}
       <div className="min-h-160 flex items-center justify-center rounded-12 border border-slate-200 bg-slate-50/50 border-dashed">
         <Button variant={variant} size={size} disabled={isDisabled}>
-          Button Preview
+          버튼 라벨
         </Button>
       </div>
 
@@ -25,7 +25,7 @@ export function ButtonDemo() {
         
         {/* Variant 선택 */}
         <div className="space-y-8">
-          <Label className="text-12 font-bold text-slate-400 uppercase tracking-1">Variant</Label>
+          <Label className="text-12 font-bold text-integra-gray-500">Variant</Label>
           <select 
             className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 text-14 outline-none focus:ring-2 focus:ring-ring"
             value={variant}
@@ -42,7 +42,7 @@ export function ButtonDemo() {
 
         {/* Size 선택 */}
         <div className="space-y-8">
-          <Label className="text-12 font-bold text-slate-400 uppercase tracking-1">Size</Label>
+          <Label className="text-12 font-bold text-integra-gray-500">Size</Label>
           <select 
             className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 text-14 outline-none focus:ring-2 focus:ring-ring"
             value={size}
@@ -50,14 +50,14 @@ export function ButtonDemo() {
           >
             <option value="default">Default (40px)</option>
             <option value="sm">Small (32px)</option>
-            <option value="lg">Large (48px)</option>
+            <option value="md">Medium (48px)</option>
             <option value="icon">Icon (Square)</option>
           </select>
         </div>
 
         {/* 상태 선택 */}
         <div className="space-y-8">
-          <Label className="text-12 font-bold text-slate-400 uppercase tracking-1">State</Label>
+          <Label className="text-12 font-bold text-integra-gray-500">State</Label>
           <div className="flex items-center gap-8 h-40">
             <input 
               type="checkbox" 
@@ -77,7 +77,7 @@ export function ButtonDemo() {
         <div className="text-12 text-slate-500 mb-8 font-mono">// JSX Output</div>
         <code className="text-white text-14 font-mono">
           &lt;Button variant="{variant}" size="{size}" {isDisabled ? 'disabled' : ''}&gt;
-            Button Preview
+            버튼 라벨
           &lt;/Button&gt;
         </code>
       </div>

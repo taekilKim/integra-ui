@@ -13,13 +13,13 @@ export default function ButtonDocsPage() {
             <span>/</span>
             <span className="font-bold">Button</span>
         </div>
-        <h1 className="text-40 font-bold leading-48 tracking--4">Button</h1>
-        <p className="text-20 text-muted-foreground leading-32 tracking--1 max-w-600">
+        <h1 className="text-40 font-semibold leading-48">Button</h1>
+        <p className="text-18 text-integra-gray-700 leading-28">
           사용자의 동작을 트리거하거나, 폼을 전송할 때 사용하는 핵심 컴포넌트입니다. 아토믹 토큰의 조합으로 정교한 크기와 스타일을 제공합니다.
         </p>
       </div>
 
-      <hr className="border-slate-100" />
+      <hr className="border-integra-gray-100" />
 
       {/* 2. 인터랙티브 플레이그라운드 */}
       <section className="space-y-16">
@@ -40,9 +40,9 @@ export default function ButtonDocsPage() {
                 Integra UI의 버튼은 내부 패딩, 폰트 크기, 행간이 각각 독립된 토큰으로 구성됩니다.
             </p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Height:</strong> 32px(sm), 40px(default), 48px(lg)로 규격화되어 있습니다.</li>
-                <li><strong>Font:</strong> 가독성을 위해 12px(sm), 14px(default), 16px(lg) 폰트와 최적화된 행간이 자동 매칭됩니다.</li>
-                <li><strong>Radius:</strong> 기본적으로 8px(rounded-8) 곡률을 사용하여 부드러운 인상을 줍니다.</li>
+                <li><strong>Height:</strong> 32px(sm), 48px(md), 56px(default)로 규격화되어 있습니다.</li>
+                <li><strong>Font:</strong> 가독성을 위해 12px, 14px, 16px 폰트와 최적화된 행간이 자동 매칭됩니다.</li>
+                <li><strong>Radius:</strong> 기본적으로 16px(rounded-16) 곡률을 사용하여 부드러운 인상을 줍니다.</li>
             </ul>
         </div>
       </section>
@@ -55,7 +55,7 @@ export default function ButtonDocsPage() {
             <p className="text-blue-400">import &#123; Button &#125; from "@/components/ui/button"</p>
             <br />
             <p className="text-slate-500 mb-8">// Basic usage</p>
-            <p className="text-white">&lt;Button variant="default" size="default"&gt;Click me&lt;/Button&gt;</p>
+            <p className="text-white">&lt;Button variant="default" size="default"&gt;버튼 라벨&lt;/Button&gt;</p>
         </div>
       </section>
 
