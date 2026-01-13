@@ -6,43 +6,121 @@
 
 @layer base {
   :root {
-    /* Color Tokens (Integra Blue) */
+    /* Gray Scale (Figma Data) */
+    --gray-50: 210 18% 98%;
+    --gray-100: 210 14% 96%;
+    --gray-200: 210 11% 91%;
+    --gray-300: 210 10% 84%;
+    --gray-400: 211 11% 72%;
+    --gray-500: 213 10% 59%;
+    --gray-600: 214 10% 47%;
+    --gray-700: 215 14% 36%;
+    --gray-800: 216 19% 25%;
+    --gray-900: 217 23% 13%;
+
+    /* Blue Scale (Primary - Figma Data) */
+    --blue-50: 217 100% 96%;
+    --blue-100: 218 91% 89%;
+    --blue-200: 218 100% 84%;
+    --blue-300: 218 100% 73%;
+    --blue-400: 218 100% 67%;
+    --blue-500: 218 100% 58%; /* #2A7BFF - Integra UI Main */
+    --blue-600: 218 78% 53%;
+    --blue-700: 218 71% 41%;
+    --blue-800: 218 72% 32%;
+    --blue-900: 218 71% 25%;
+
+    /* Green Scale */
+    --green-50: 167 50% 98%;
+    --green-100: 165 67% 94%;
+    --green-200: 164 73% 86%;
+    --green-300: 163 65% 76%;
+    --green-400: 164 73% 47%;
+    --green-500: 164 91% 37%;
+    --green-600: 164 89% 32%;
+    --green-700: 167 76% 28%;
+    --green-800: 173 82% 22%;
+    --green-900: 175 81% 17%;
+
+    /* Red Scale */
+    --red-50: 0 100% 97%;
+    --red-100: 357 100% 92%;
+    --red-200: 357 97% 84%;
+    --red-300: 358 92% 76%;
+    --red-400: 355 88% 68%;
+    --red-500: 355 86% 60%;
+    --red-600: 355 77% 53%;
+    --red-700: 355 74% 47%;
+    --red-800: 354 75% 42%;
+    --red-900: 354 74% 37%;
+
+    /* Orange Scale */
+    --orange-50: 44 100% 95%;
+    --orange-100: 45 100% 88%;
+    --orange-200: 44 98% 77%;
+    --orange-300: 42 99% 65%;
+    --orange-400: 40 98% 56%;
+    --orange-500: 34 93% 50%;
+    --orange-600: 28 97% 44%;
+    --orange-700: 19 92% 37%;
+    --orange-800: 19 84% 31%;
+    --orange-900: 18 92% 21%;
+
+    /* Violet Scale */
+    --violet-50: 249 100% 97%;
+    --violet-100: 249 100% 95%;
+    --violet-200: 250 97% 92%;
+    --violet-300: 252 95% 85%;
+    --violet-400: 254 94% 76%;
+    --violet-500: 257 91% 66%;
+    --violet-600: 261 83% 58%;
+    --violet-700: 265 70% 50%;
+    --violet-800: 270 70% 42%;
+    --violet-900: 277 78% 25%;
+
+    /* Grape Scale */
+    --grape-50: 280 67% 96%;
+    --grape-100: 283 77% 92%;
+    --grape-200: 286 82% 86%;
+    --grape-300: 288 83% 78%;
+    --grape-400: 290 84% 71%;
+    --grape-500: 288 71% 64%;
+    --grape-600: 288 64% 57%;
+    --grape-700: 288 56% 52%;
+    --grape-800: 288 54% 46%;
+    --grape-900: 289 49% 40%;
+
+    /* Semantic Mappings */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --primary: 217 91% 60%; 
+    --foreground: var(--gray-900);
+    
+    /* ✨ Primary Color Mapping: Blue 500 */
+    --primary: var(--blue-500);
     --primary-foreground: 0 0% 100%;
-    
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--gray-100);
+    --secondary-foreground: var(--gray-900);
     
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 217 91% 60%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: var(--gray-100);
+    --muted-foreground: var(--gray-500);
+    
+    --accent: var(--gray-100);
+    --accent-foreground: var(--gray-900);
+    
+    --destructive: var(--red-600);
+    --destructive-foreground: 0 0% 100%;
 
-    /* Default Radius (8px) */
+    --border: var(--gray-200);
+    --input: var(--gray-200);
+    --ring: var(--blue-500);
+
     --radius: 0.5rem; 
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground antialiased font-sans;
-    /* 기본 행간 1.5 적용 */
-    line-height: 1.5;
-    letter-spacing: 0;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased font-sans; }
 }
 
 @layer utilities {
