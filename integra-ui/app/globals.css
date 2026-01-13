@@ -4,6 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer utilities {
+  /* 스크롤바 숨기기 유틸리티 */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* shadcn 스타일의 상하단 디졸브 마스크 효과 */
+  .mask-dissolve {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 32px,
+      black calc(100% - 32px),
+      transparent
+    );
+  }
+}
+
 @layer base {
   :root {
     /* Gray Scale (Figma Data) */

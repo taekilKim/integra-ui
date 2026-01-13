@@ -1,29 +1,64 @@
 "use client"
 
-import { cn } from "@/lib/utils";
+import * as React from "react"
+import { cn } from "@/lib/utils"
 
 export function TableOfContents() {
-  // 실제로는 h2, h3 태그를 파싱해야 하지만, 현재는 구조적 가이드만 제공합니다.
-  const items = [
-    { title: "Introduction", href: "#introduction" },
-    { title: "Usage", href: "#usage" },
-    { title: "Atomic Design Note", href: "#atomic-design-note" },
-    { title: "Props", href: "#props" },
-  ];
+  const [activeId, setActiveId] = React.useState<string>("");
+
+  // 페이지의 h2, h3 태그들을 찾아 목록 생성
+  const [headings, setHeadings] = React.useState<{ id: string, text: string, level: number }[]>([]);
+
+  React.useEffect(() => {
+    // 본문 내의 모든 h2, h3를 찾아 ID 부여 및 데이터 추출
+    const elements = Array.from(document.querySelectorAll("h2, h3"));
+    const headingData = elements.map((el) => {
+      if (!el.id) {
+        el.id = el.textContent?.toLowerCase().replace(/\s+/g, "-") || "";
+      }
+      return {
+        id: el.id,
+        text: el.textContent || "",
+        level: Number(el.tagName.replace("H", "")),
+      };
+    });
+    setHeadings(headingData);
+
+    // 스크롤 감지 로직
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: "0% 0% -80% 0%" }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  if (headings.length === 0) return null;
 
   return (
     <div className="space-y-16 py-32">
       <p className="text-12 font-bold uppercase tracking-2 text-slate-900 px-8">
         On This Page
       </p>
-      <div className="space-y-8">
-        {items.map((item) => (
+      <div className="space-y-4">
+        {headings.map((heading) => (
           <a
-            key={item.href}
-            href={item.href}
-            className="block px-8 py-4 text-13 text-slate-500 hover:text-primary transition-colors border-l border-transparent hover:border-primary/30"
+            key={heading.id}
+            href={`#${heading.id}`}
+            className={cn(
+              "block px-8 py-4 text-13 transition-colors border-l-2",
+              heading.level === 3 ? "pl-20" : "pl-8",
+              activeId === heading.id
+                ? "text-primary border-primary font-medium"
+                : "text-slate-500 border-transparent hover:text-slate-900"
+            )}
           >
-            {item.title}
+            {heading.text}
           </a>
         ))}
       </div>
