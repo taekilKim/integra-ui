@@ -56,7 +56,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       className={cn(
                         "group flex w-full items-center rounded-8 px-12 py-8 text-14 font-medium transition-colors",
                         isActive 
-                          ? "bg-primary/10 text-primary font-bold" 
+                          ? "bg-gray/10 text-gray900 font-bold" 
                           : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                       )}
                     >
