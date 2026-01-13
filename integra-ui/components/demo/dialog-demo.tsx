@@ -21,7 +21,7 @@ export function DialogDemo() {
       <div className="min-h-160 flex items-center justify-center rounded-12 border border-slate-200 bg-slate-50/50 border-dashed">
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline">Open Dialog</Button>
+            <Button variant="tertiary">Open Dialog</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -35,7 +35,7 @@ export function DialogDemo() {
             </div>
             <DialogFooter>
               <DialogClose asChild>
-                <Button variant="ghost">취소</Button>
+                <Button variant="tertiary">취소</Button>
               </DialogClose>
               <Button>완료</Button>
             </DialogFooter>
