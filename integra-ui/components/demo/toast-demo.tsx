@@ -11,7 +11,7 @@ export function ToastDemo() {
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-800 mx-auto border border-slate-200 shadow-integra rounded-16">
       <div className="min-h-160 flex items-center justify-center rounded-12 border border-slate-200 bg-slate-50/50 border-dashed gap-16">
         <Button
-          variant="outline"
+          variant="tertiary"
           onClick={() => {
             toast({
               title: "알림",
@@ -22,7 +22,8 @@ export function ToastDemo() {
           기본 토스트
         </Button>
         <Button
-          variant="destructive"
+          appearance="destructive"
+          variant="default"
           onClick={() => {
             toast({
               variant: "destructive",

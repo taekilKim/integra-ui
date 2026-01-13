@@ -29,8 +29,8 @@ export default function CardDocsPage() {
               <p className="text-16 text-integra-gray-700">아토믹 토큰 시스템으로 제작된 카드 컴포넌트입니다.</p>
             </CardContent>
             <CardFooter className="justify-end gap-8">
-              <Button variant="tertiary" size="medium">Cancel</Button>
-              <Button size="medium">Confirm</Button>
+              <Button appearance="text" size="default">Cancel</Button>
+              <Button size="default">Confirm</Button>
             </CardFooter>
           </Card>
         </div>

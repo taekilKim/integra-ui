@@ -12,7 +12,7 @@ export function PopoverDemo() {
       <div className="min-h-160 flex items-center justify-center rounded-12 border border-slate-200 bg-slate-50/50 border-dashed">
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline">Open Settings</Button>
+            <Button variant="tertiary">Open Settings</Button>
           </PopoverTrigger>
           <PopoverContent className="w-240">
             <div className="grid gap-16">

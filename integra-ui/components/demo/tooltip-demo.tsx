@@ -11,7 +11,7 @@ export function TooltipDemo() {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="outline">Hover me</Button>
+              <Button variant="tertiary">Hover me</Button>
             </TooltipTrigger>
             <TooltipContent>
               <p>Integra UI 아토믹 시스템 툴팁</p>
