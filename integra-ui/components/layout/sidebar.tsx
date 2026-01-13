@@ -54,7 +54,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       key={item.href}
                       href={item.href}
                       className={`text-14 ${cn(
-                        "group flex w-full items-center rounded-8 px-8 py-4 transition-all font-medium",
+                        "group flex w-full items-center rounded-8 px-8 py-8 transition-all font-medium",
                         isActive 
                           ? "bg-integra-gray-50"
                           : "text-integra-gray-900 hover:bg-integra-gray-50"
