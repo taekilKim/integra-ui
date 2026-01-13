@@ -41,9 +41,9 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
       <div className="sticky top-56 h-[calc(100vh-56px)] overflow-y-auto scrollbar-hide mask-dissolve py-32 px-24">
         <div className="space-y-32 pb-48">
           {sections.map((section) => (
-            <div key={section.title} className="space-y-12">
+            <div key={section.title} className="space-y-8">
               {/* 섹션 타이틀 */}
-              <h2 className="px-12 text-12 font-semibold uppercase tracking-2 text-integra-gray-500">
+              <h2 className="px-8 text-12 font-semibold uppercase tracking-2 text-integra-gray-500">
                 {section.title}
               </h2>
               <div>
@@ -54,7 +54,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       key={item.href}
                       href={item.href}
                       className={`text-14 ${cn(
-                        "group flex w-full items-center rounded-8 px-12 py-8 transition-all font-medium",
+                        "group flex w-full items-center rounded-8 px-8 py-4 transition-all font-medium",
                         isActive 
                           ? "bg-integra-gray-50"
                           : "text-integra-gray-900 hover:bg-integra-gray-50"
