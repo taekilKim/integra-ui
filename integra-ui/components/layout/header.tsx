@@ -10,14 +10,14 @@ export function Header() {
         {/* 왼쪽 영역: 로고 및 메인 메뉴 */}
         <div className="mr-16 flex items-center">
           <Link href="/" className="mr-32 flex items-center">
-            {/* text-20: 20px 폰트, tracking--2: 자간 -0.02em */}
-            <span className="font-bold text-20 tracking--2 text-primary">
+            {/* fs-20: 20px 폰트, tracking--2: 자간 -0.02em */}
+            <span className="font-bold fs-20 tracking--2 text-primary">
               Integra UI
             </span>
           </Link>
           
           {/* 네비게이션 메뉴: space-x-24: 메뉴 간격 24px */}
-          <nav className="hidden md:flex items-center space-x-24 text-14 font-medium">
+          <nav className="hidden md:flex items-center space-x-24 fs-14 font-medium">
             <Link 
               href="/docs" 
               className="transition-colors hover:text-primary text-slate-500"

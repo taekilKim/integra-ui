@@ -42,7 +42,7 @@ export function TableOfContents() {
 
   return (
     <div className="space-y-16 py-32">
-      <p className="text-12 font-bold uppercase tracking-2 text-slate-900 px-8">
+      <p className="fs-12 font-bold uppercase tracking-2 text-slate-900 px-8">
         On This Page
       </p>
       <div className="space-y-4">
@@ -51,7 +51,7 @@ export function TableOfContents() {
             key={heading.id}
             href={`#${heading.id}`}
             className={cn(
-              "block px-8 py-4 text-13 transition-colors border-l-2",
+              "block px-8 py-4 fs-13 transition-colors border-l-2",
               heading.level === 3 ? "pl-20" : "pl-8",
               activeId === heading.id
                 ? "text-primary border-primary font-medium"

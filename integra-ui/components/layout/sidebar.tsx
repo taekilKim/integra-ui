@@ -43,7 +43,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
           {sections.map((section) => (
             <div key={section.title} className="space-y-8">
               {/* 섹션 타이틀 */}
-              <h2 className="px-8 text-12 font-semibold tracking-2 text-integra-gray-500">
+              <h2 className="px-8 fs-12 font-semibold tracking-2 text-integra-gray-500">
                 {section.title}
               </h2>
               <div>
