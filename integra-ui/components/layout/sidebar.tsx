@@ -60,6 +60,11 @@ export function Sidebar({ className }: SidebarProps) {
                 Input (입력창)
               </Button>
             </Link>
+            <Link href="/docs/components/textarea">
+              <Button variant="ghost" className="w-full justify-start">
+                Textarea (텍스트 영역)
+              </Button>
+            </Link>
             <Link href="/docs/components/label">
               <Button variant="ghost" className="w-full justify-start">
                 Label (라벨)
@@ -82,7 +87,7 @@ export function Sidebar({ className }: SidebarProps) {
                 Switch (스위치)
               </Button>
             </Link>
-            
+
             <Link href="/docs/components/select">
               <Button variant="ghost" className="w-full justify-start">
                 Select (드롭다운)
