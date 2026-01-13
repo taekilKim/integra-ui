@@ -23,11 +23,11 @@ const buttonVariants = cva(
       // 3. 표준 규격 (Size) - 4px 그리드 수치 기반
       size: {
         // height 56px / font 18px / leading 24px / radius 16px / padding-v 16px
-        default: "h-56 px-20 py-16 text-18 leading-24 rounded-16", 
+        default: "h-56 px-20 py-16 fs-18 leading-24 rounded-16", 
         // height 48px / font 16px / leading 20px / radius 12px / padding-v 14px
-        medium: "h-48 px-12 py-14 text-16 leading-20 rounded-12",
+        medium: "h-48 px-12 py-14 fs-16 leading-20 rounded-12",
         // height 32px / font 12px / leading 16px / radius 8px / padding-v 8px
-        small: "h-32 px-8 py-8 text-12 leading-16 rounded-8",
+        small: "h-32 px-8 py-8 fs-12 leading-16 rounded-8",
       },
     },
     // ✨ 핵심: Appearance와 Variant의 조합 결과 정의

@@ -24,44 +24,45 @@ export default function DesignTokensPage() {
     <div className="space-y-80 pb-120">
       {/* 1. Header */}
       <div className="space-y-16">
-        <h1 className="text-40 font-bold leading-48 tracking--4 text-slate-900">Design Tokens</h1>
-        <p className="text-20 text-muted-foreground leading-32 tracking--1 max-w-800">
+        <h1 className="fs-40 font-bold leading-48 tracking--4 text-integra-gray-900">Design Tokens</h1>
+        <p className="fs-20 text-integra-gray-500 leading-32 tracking--1 max-w-800">
           Integra UI의 모든 원자(Atoms)는 <strong>4px 그리드</strong>를 엄격히 준수하며, 
           디자이너의 의도가 소수점 오차 없이 코드에 반영되도록 설계되었습니다.
         </p>
       </div>
 
-      <hr className="border-slate-100" />
+      <hr className="border-integra-gray-100" />
 
       {/* 2. Typography Section */}
       <section className="space-y-64">
         <div className="space-y-8">
-            <h2 className="text-32 font-bold leading-40 tracking--2 text-slate-900">1. Typography Atoms</h2>
-            <p className="text-16 text-slate-500 italic">폰트 속성을 개별적으로 조합하여 타이포그래피 시스템을 완성합니다.</p>
+            <h2 className="fs-32 font-bold leading-40 tracking--2 text-integra-gray-900">1. Typography Atoms</h2>
+            <p className="fs-16 text-integra-gray-500 italic">폰트 속성을 개별적으로 조합하여 타이포그래피 시스템을 완성합니다.</p>
         </div>
 
         <div className="grid gap-48">
           {/* 1-1. Font Size */}
           <div className="space-y-24">
             <div className="flex items-center gap-12">
-                <h3 className="text-18 font-bold uppercase tracking-2 text-primary">1-1. Font Size</h3>
-                <Badge variant="outline" className="text-12">Total {fontSizes.length} Tokens</Badge>
+                <h3 className="fs-18 font-bold uppercase tracking-2 text-primary">1-1. Font Size</h3>
+                <Badge variant="outline" className="fs-12 border-integra-gray-200 text-integra-gray-500">Total {fontSizes.length} Tokens</Badge>
             </div>
-            <div className="rounded-12 border border-slate-200 overflow-hidden shadow-sm">
+            <div className="rounded-12 border border-integra-gray-200 overflow-hidden shadow-sm">
               <table className="w-full text-left border-collapse">
-                <thead className="bg-slate-50 border-b border-slate-200">
-                  <tr className="text-12 font-bold text-slate-400">
+                <thead className="bg-integra-gray-50 border-b border-integra-gray-200">
+                  <tr className="fs-12 font-bold text-integra-gray-400">
                     <th className="px-24 py-16">Value (PX)</th>
                     <th className="px-24 py-16">Tailwind Class</th>
                     <th className="px-24 py-16">Preview</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y border-slate-100 text-14">
+                <tbody className="divide-y border-integra-gray-100 fs-14">
                   {fontSizes.map((size) => (
-                    <tr key={size} className="hover:bg-slate-50/50 transition-colors">
-                      <td className="px-24 py-16 font-mono font-medium">{size}px</td>
-                      <td className="px-24 py-16 font-mono text-blue-600 font-bold">.text-{size}</td>
-                      <td className="px-24 py-16" style={{ fontSize: `${size}px`, lineHeight: 1 }}>Integra UI</td>
+                    <tr key={size} className="hover:bg-integra-gray-50 transition-colors">
+                      <td className="px-24 py-16 font-mono font-medium text-integra-gray-700">{size}px</td>
+                      {/* ✨ .text- 대신 .fs- 접두사로 변경 */}
+                      <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.fs-{size}</td>
+                      <td className="px-24 py-16 text-integra-gray-900" style={{ fontSize: `${size}px`, lineHeight: 1 }}>Integra UI</td>
                     </tr>
                   ))}
                 </tbody>
@@ -69,13 +70,13 @@ export default function DesignTokensPage() {
             </div>
           </div>
 
-          {/* 💡 Design Tip Section */}
-          <Card className="p-32 bg-blue-50 border-blue-100 shadow-none space-y-16">
+          {/* 💡 Design Tip Section: integra-blue 토큰 적용 */}
+          <Card className="p-32 bg-integra-blue-50 border-integra-blue-100 shadow-none space-y-16">
             <div className="flex items-center gap-8 text-primary">
-                <span className="text-20">💡</span>
-                <h4 className="text-18 font-bold tracking--1">Why not strict 4px grid for Fonts?</h4>
+                <span className="fs-20">💡</span>
+                <h4 className="fs-18 font-bold tracking--1">Why not strict 4px grid for Fonts?</h4>
             </div>
-            <div className="space-y-12 text-14 text-blue-900/80 leading-24 tracking--1">
+            <div className="space-y-12 fs-14 text-integra-blue-900/80 leading-24 tracking--1">
                 <p>
                 Integra UI는 레이아웃(Spacing)과 형태(Radius)에는 엄격한 <strong>4px 그리드</strong>를 적용하지만, 
                 타이포그래피에는 <strong>2px 단위 혹은 특정 수치(13px, 15px)</strong>를 예외적으로 허용합니다. 그 이유는 다음과 같습니다.
@@ -93,13 +94,13 @@ export default function DesignTokensPage() {
 
           {/* 1-2. Font Weight */}
           <div className="space-y-16">
-            <h3 className="text-18 font-bold uppercase tracking-2 text-primary">1-2. Font Weight</h3>
+            <h3 className="fs-18 font-bold uppercase tracking-2 text-primary">1-2. Font Weight</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
               {fontWeights.map((w) => (
-                <div key={w.name} className="p-24 border border-slate-200 rounded-12 space-y-8 bg-white shadow-sm">
-                  <p className="text-12 text-slate-400 font-mono uppercase">{w.value}</p>
-                  <p className={`text-32 font-${w.name} leading-40 tracking-0 text-slate-900`}>Aa</p>
-                  <p className="text-14 font-mono text-blue-600 font-bold">.font-{w.name}</p>
+                <div key={w.name} className="p-24 border border-integra-gray-200 rounded-12 space-y-8 bg-white shadow-sm">
+                  <p className="fs-12 text-integra-gray-400 font-mono uppercase">{w.value}</p>
+                  <p className={`fs-32 font-${w.name} leading-40 tracking-0 text-integra-gray-900`}>Aa</p>
+                  <p className="fs-14 font-mono text-integra-blue-600 font-bold">.font-{w.name}</p>
                 </div>
               ))}
             </div>
@@ -108,16 +109,16 @@ export default function DesignTokensPage() {
           {/* 1-3. Line Height */}
           <div className="space-y-16">
             <div className="flex items-center gap-12">
-                <h3 className="text-18 font-bold uppercase tracking-2 text-primary">1-3. Line Height</h3>
-                <Badge variant="outline" className="text-12">Step: 4px</Badge>
+                <h3 className="fs-18 font-bold uppercase tracking-2 text-primary">1-3. Line Height</h3>
+                <Badge variant="outline" className="fs-12 border-integra-gray-200 text-integra-gray-500">Step: 4px</Badge>
             </div>
-            <p className="text-14 text-slate-600">수평 리듬과 수직 정렬을 위해 4px 배수 단위를 사용합니다. 기본 권장 행간은 1.5em(150%)입니다.</p>
-            <div className="p-24 bg-slate-50 rounded-12 border border-dashed border-slate-200">
+            <p className="fs-14 text-integra-gray-600 leading-20">수평 리듬과 수직 정렬을 위해 4px 배수 단위를 사용합니다. 기본 권장 행간은 1.5em(150%)입니다.</p>
+            <div className="p-24 bg-integra-gray-50 rounded-12 border border-dashed border-integra-gray-200">
                 <div className="flex flex-wrap gap-12">
                     {[16, 20, 24, 28, 32, 40, 48, 56, 64, 80].map(lh => (
-                        <div key={lh} className="bg-white border border-slate-200 px-16 py-8 rounded-8 shadow-sm">
-                            <span className="text-12 text-slate-400 mr-8 font-mono">{lh}px</span>
-                            <span className="text-14 font-mono text-blue-600 font-bold">.leading-{lh}</span>
+                        <div key={lh} className="bg-white border border-integra-gray-200 px-16 py-8 rounded-8 shadow-sm">
+                            <span className="fs-12 text-integra-gray-400 mr-8 font-mono">{lh}px</span>
+                            <span className="fs-14 font-mono text-integra-blue-600 font-bold">.leading-{lh}</span>
                         </div>
                     ))}
                 </div>
@@ -126,24 +127,24 @@ export default function DesignTokensPage() {
 
           {/* 1-4. Letter Spacing */}
           <div className="space-y-16">
-            <h3 className="text-18 font-bold uppercase tracking-2 text-primary">1-4. Letter Spacing</h3>
-            <div className="rounded-12 border border-slate-200 overflow-hidden shadow-sm">
+            <h3 className="fs-18 font-bold uppercase tracking-2 text-primary">1-4. Letter Spacing</h3>
+            <div className="rounded-12 border border-integra-gray-200 overflow-hidden shadow-sm">
               <table className="w-full text-left border-collapse">
-                <thead className="bg-slate-50 border-b border-slate-200">
-                  <tr className="text-12 font-bold text-slate-400">
+                <thead className="bg-integra-gray-50 border-b border-integra-gray-200">
+                  <tr className="fs-12 font-bold text-integra-gray-400">
                     <th className="px-24 py-16">Token</th>
                     <th className="px-24 py-16">Value (EM)</th>
                     <th className="px-24 py-16">Tailwind Class</th>
                     <th className="px-24 py-16">Description</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y border-slate-100 text-14">
+                <tbody className="divide-y border-integra-gray-100 fs-14">
                   {letterSpacings.map((ls) => (
-                    <tr key={ls.token}>
-                      <td className="px-24 py-16 font-mono font-medium">{ls.token}</td>
-                      <td className="px-24 py-16 font-mono">{ls.value}</td>
-                      <td className="px-24 py-16 font-mono text-blue-600 font-bold">.tracking-{ls.token}</td>
-                      <td className="px-24 py-16 text-slate-500">{ls.desc}</td>
+                    <tr key={ls.token} className="hover:bg-integra-gray-50 transition-colors">
+                      <td className="px-24 py-16 font-mono font-medium text-integra-gray-700">{ls.token}</td>
+                      <td className="px-24 py-16 font-mono text-integra-gray-600">{ls.value}</td>
+                      <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.tracking-{ls.token}</td>
+                      <td className="px-24 py-16 text-integra-gray-500">{ls.desc}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -156,45 +157,45 @@ export default function DesignTokensPage() {
       {/* 3. Layout Section */}
       <section className="space-y-64">
         <div className="space-y-8">
-            <h2 className="text-32 font-bold leading-40 tracking--2 text-slate-900">2. Layout & Geometry</h2>
-            <p className="text-16 text-slate-500 italic">여백과 곡률에 대한 엄격한 수치 가이드라인입니다.</p>
+            <h2 className="fs-32 font-bold leading-40 tracking--2 text-integra-gray-900">2. Layout & Geometry</h2>
+            <p className="fs-16 text-integra-gray-500 italic">여백과 곡률에 대한 엄격한 수치 가이드라인입니다.</p>
         </div>
 
         <div className="space-y-48">
           {/* 2-1. Spacing System */}
           <div className="space-y-24">
-            <h3 className="text-18 font-bold uppercase tracking-2 text-primary">2-1. Spacing (Padding / Margin / Gap)</h3>
+            <h3 className="fs-18 font-bold uppercase tracking-2 text-primary">2-1. Spacing (Padding / Margin / Gap)</h3>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
-                <div className="p-16 bg-slate-50 rounded-12 border border-slate-100">
-                    <p className="text-12 text-slate-400 font-bold uppercase mb-4">Unit</p>
-                    <p className="text-16 font-bold">Pixel (PX)</p>
+                <div className="p-16 bg-integra-gray-50 rounded-12 border border-integra-gray-100">
+                    <p className="fs-12 text-integra-gray-400 font-bold uppercase mb-4">Unit</p>
+                    <p className="fs-16 font-bold text-integra-gray-900">Pixel (PX)</p>
                 </div>
-                <div className="p-16 bg-slate-50 rounded-12 border border-slate-100">
-                    <p className="text-12 text-slate-400 font-bold uppercase mb-4">Min / Max</p>
-                    <p className="text-16 font-bold">0 px / 400 px</p>
+                <div className="p-16 bg-integra-gray-50 rounded-12 border border-integra-gray-100">
+                    <p className="fs-12 text-integra-gray-400 font-bold uppercase mb-4">Min / Max</p>
+                    <p className="fs-16 font-bold text-integra-gray-900">0 px / 400 px</p>
                 </div>
                 <div className="p-16 bg-primary/5 rounded-12 border border-primary/10">
-                    <p className="text-12 text-primary/60 font-bold uppercase mb-4">Grid Step</p>
-                    <p className="text-16 font-bold text-primary">4 px</p>
+                    <p className="fs-12 text-primary/60 font-bold uppercase mb-4">Grid Step</p>
+                    <p className="fs-16 font-bold text-primary">4 px</p>
                 </div>
-                <div className="p-16 bg-slate-50 rounded-12 border border-slate-100">
-                    <p className="text-12 text-slate-400 font-bold uppercase mb-4">Apply to</p>
-                    <p className="text-16 font-bold text-slate-700">W / H / P / M</p>
+                <div className="p-16 bg-integra-gray-50 rounded-12 border border-integra-gray-100">
+                    <p className="fs-12 text-integra-gray-400 font-bold uppercase mb-4">Apply to</p>
+                    <p className="fs-16 font-bold text-integra-gray-700">W / H / P / M</p>
                 </div>
             </div>
 
-            <Card className="p-32 border border-slate-200 rounded-16 space-y-32 bg-white shadow-sm overflow-hidden">
+            <Card className="p-32 border border-integra-gray-200 rounded-16 space-y-32 bg-white shadow-sm overflow-hidden">
                 <div className="flex items-end gap-4 h-80">
                     {[4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 100, 120, 160].map(s => (
-                        <div key={s} className="bg-primary/20 border border-primary/30 w-full group relative transition-colors hover:bg-primary/40" style={{ height: `${(s/160)*100}%` }}>
-                            <div className="absolute -top-24 left-1/2 -translate-x-1/2 text-10 font-mono font-bold hidden group-hover:block text-primary">{s}px</div>
+                        <div key={s} className="bg-integra-blue-500/20 border border-integra-blue-500/30 w-full group relative transition-colors hover:bg-integra-blue-500/40" style={{ height: `${(s/160)*100}%` }}>
+                            <div className="absolute -top-24 left-1/2 -translate-x-1/2 fs-10 font-mono font-bold hidden group-hover:block text-primary">{s}px</div>
                         </div>
                     ))}
                 </div>
-                <div className="flex justify-between items-center text-12 font-mono text-blue-600 font-bold">
+                <div className="flex justify-between items-center fs-12 font-mono text-integra-blue-600 font-bold">
                     <span>.p-4 (Smallest)</span>
-                    <span className="text-slate-200 px-40">● ● ● ● ● ● ● ● ● ● ● ●</span>
+                    <span className="text-integra-gray-200 px-40">● ● ● ● ● ● ● ● ● ● ● ●</span>
                     <span>.p-400 (Max Layout)</span>
                 </div>
             </Card>
@@ -202,32 +203,32 @@ export default function DesignTokensPage() {
 
           {/* 2-2. Border Radius */}
           <div className="space-y-24">
-            <h3 className="text-18 font-bold uppercase tracking-2 text-primary">2-2. Border Radius (곡률)</h3>
+            <h3 className="fs-18 font-bold uppercase tracking-2 text-primary">2-2. Border Radius (곡률)</h3>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
-                <div className="p-16 bg-slate-50 rounded-12 border border-slate-100">
-                    <p className="text-12 text-slate-400 font-bold uppercase mb-4">Unit</p>
-                    <p className="text-16 font-bold">Pixel (PX)</p>
+                <div className="p-16 bg-integra-gray-50 rounded-12 border border-integra-gray-100">
+                    <p className="fs-12 text-integra-gray-400 font-bold uppercase mb-4">Unit</p>
+                    <p className="fs-16 font-bold text-integra-gray-900">Pixel (PX)</p>
                 </div>
-                <div className="p-16 bg-slate-50 rounded-12 border border-slate-100">
-                    <p className="text-12 text-slate-400 font-bold uppercase mb-4">Min / Max</p>
-                    <p className="text-16 font-bold">0 px / 40 px</p>
+                <div className="p-16 bg-integra-gray-50 rounded-12 border border-integra-gray-100">
+                    <p className="fs-12 text-integra-gray-400 font-bold uppercase mb-4">Min / Max</p>
+                    <p className="fs-16 font-bold text-integra-gray-900">0 px / 40 px</p>
                 </div>
                 <div className="p-16 bg-primary/5 rounded-12 border border-primary/10">
-                    <p className="text-12 text-primary/60 font-bold uppercase mb-4">Grid Step</p>
-                    <p className="text-16 font-bold text-primary">4 px</p>
+                    <p className="fs-12 text-primary/60 font-bold uppercase mb-4">Grid Step</p>
+                    <p className="fs-16 font-bold text-primary">4 px</p>
                 </div>
-                <div className="p-16 bg-slate-50 rounded-12 border border-slate-100">
-                    <p className="text-12 text-slate-400 font-bold uppercase mb-4">Special</p>
-                    <p className="text-16 font-bold">full (9999px)</p>
+                <div className="p-16 bg-integra-gray-50 rounded-12 border border-integra-gray-100">
+                    <p className="fs-12 text-integra-gray-400 font-bold uppercase mb-4">Special</p>
+                    <p className="fs-16 font-bold text-integra-gray-700">full (9999px)</p>
                 </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-16">
                 {[0, 4, 8, 12, 16, 20, 24, 28, 32, 40].map(r => (
-                    <div key={r} className="p-16 border border-slate-200 rounded-12 flex flex-col items-center gap-12 bg-white shadow-sm hover:border-primary/50 transition-colors">
-                        <div className="h-48 w-48 bg-slate-50 border-2 border-dashed border-slate-200" style={{ borderRadius: `${r}px` }}></div>
-                        <p className="text-12 font-mono text-blue-600 font-bold">.rounded-{r}</p>
+                    <div key={r} className="p-16 border border-integra-gray-200 rounded-12 flex flex-col items-center gap-12 bg-white shadow-sm hover:border-primary/50 transition-colors">
+                        <div className="h-40 w-40 bg-integra-gray-50 border-2 border-dashed border-integra-gray-200" style={{ borderRadius: `${r}px` }}></div>
+                        <p className="fs-12 font-mono text-integra-blue-600 font-bold">.rounded-{r}</p>
                     </div>
                 ))}
             </div>

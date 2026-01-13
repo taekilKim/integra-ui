@@ -12,7 +12,7 @@ export function ButtonDemo() {
   const [isDisabled, setIsDisabled] = React.useState(false)
 
   return (
-    <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-800 mx-auto border border-integra-gray-200 shadow-integra rounded-16">
+    <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-full border border-integra-gray-200 shadow-integra rounded-16">
       
       {/* 1. 프리뷰 영역: bg-integra-gray-50 (투명도 조절 제거) */}
       <div className="min-h-200 flex items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed">
@@ -22,7 +22,7 @@ export function ButtonDemo() {
           size={size} 
           disabled={isDisabled}
         >
-          Button Preview
+          버튼 라벨
         </Button>
       </div>
 
@@ -31,7 +31,7 @@ export function ButtonDemo() {
         
         {/* Appearance */}
         <div className="space-y-8">
-          <Label className="text-12 font-bold text-integra-gray-400 uppercase tracking-1">Appearance</Label>
+          <Label className="text-12 font-semibold text-integra-gray-500">Appearance</Label>
           <select 
             className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 text-14 outline-none focus:ring-2 focus:ring-ring"
             value={appearance}
@@ -45,7 +45,7 @@ export function ButtonDemo() {
 
         {/* Variant */}
         <div className="space-y-8">
-          <Label className="text-12 font-bold text-integra-gray-400 uppercase tracking-1">Variant</Label>
+          <Label className="text-12 font-semibold text-integra-gray-500">Variant</Label>
           <select 
             className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 text-14 outline-none focus:ring-2 focus:ring-ring"
             value={variant}
@@ -59,7 +59,7 @@ export function ButtonDemo() {
 
         {/* Size */}
         <div className="space-y-8">
-          <Label className="text-12 font-bold text-integra-gray-400 uppercase tracking-1">Size</Label>
+          <Label className="text-12 font-semibold text-integra-gray-500">Size</Label>
           <select 
             className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 text-14 outline-none focus:ring-2 focus:ring-ring"
             value={size}
@@ -73,7 +73,7 @@ export function ButtonDemo() {
 
         {/* State */}
         <div className="space-y-8">
-          <Label className="text-12 font-bold text-integra-gray-400 uppercase tracking-1">State</Label>
+          <Label className="text-12 font-semibold text-integra-gray-500">State</Label>
           <div className="flex items-center gap-8 h-40">
             <input 
               type="checkbox" 
@@ -98,7 +98,7 @@ export function ButtonDemo() {
           &nbsp;&nbsp;size="{size}"<br/>
           &nbsp;&nbsp;{isDisabled ? 'disabled' : ''} <br/>
           &gt;<br/>
-          &nbsp;&nbsp;Button Preview<br/>
+          &nbsp;&nbsp;버튼 라벨<br/>
           &lt;/Button&gt;
         </code>
       </div>
