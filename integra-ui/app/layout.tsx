@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/header";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster" //
 
 export const metadata: Metadata = {
   title: "Integra UI",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <main className="flex-1">
           {children}
         </main>
+        <Toaster />
       </body>
     </html>
   );

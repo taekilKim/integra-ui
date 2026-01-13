@@ -6,7 +6,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   const components = [
     "button", "input", "textarea", "label", "checkbox", 
     "badge", "switch", "select", "accordion", "tabs", 
-    "dialog", "popover", "tooltip", "skeleton", "card"
+    "dialog", "popover", "tooltip", "toast", "skeleton", "card"
   ];
 
   return (
