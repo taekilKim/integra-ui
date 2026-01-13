@@ -25,9 +25,23 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
         <div className="px-12 py-8">
           <h2 className="mb-8 px-16 text-12 font-bold uppercase tracking-1 text-slate-400">Components</h2>
           <div className="space-y-4">
-            {["button", "input", "label", "checkbox", "badge", "switch", "select", "textarea", "card"].map((item) => (
+            {/* ✨ 여기에 "dialog"를 추가했습니다. */}
+            {[
+              "button", 
+              "input", 
+              "label", 
+              "checkbox", 
+              "badge", 
+              "switch", 
+              "select", 
+              "textarea", 
+              "dialog", 
+              "card"
+            ].map((item) => (
               <Link key={item} href={`/docs/components/${item}`}>
-                <Button variant="ghost" className="w-full justify-start h-36 px-16 text-14 capitalize">{item}</Button>
+                <Button variant="ghost" className="w-full justify-start h-36 px-16 text-14 capitalize">
+                  {item}
+                </Button>
               </Link>
             ))}
           </div>
