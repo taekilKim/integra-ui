@@ -44,12 +44,12 @@ export function Header() {
         <div className="flex flex-1 items-center justify-end">
           <nav className="flex items-center gap-8">
             <Link href="https://github.com" target="_blank" rel="noreferrer">
-              <Button variant="ghost" size="sm" className="h-32 px-12 text-14">
+              <Button variant="tertiary" size="small">
                 GitHub
               </Button>
             </Link>
             <Link href="/docs/installation">
-              <Button size="sm" className="h-32 px-12 text-14 shadow-integra">
+              <Button variant="default" size="small">
                 Get Started
               </Button>
             </Link>

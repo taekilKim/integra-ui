@@ -21,16 +21,16 @@ const config: Config = {
       pattern: /text-(12|13|14|15|16|18|20|24|28|32|40|48|56|64|72|80|96|128|160)/,
     },
     {
-      pattern: /leading-(0|4|8|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80)/,
+      pattern: /leading-(0|4|8|12|14|16|18|20|22|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80)/,
     },
     {
       pattern: /font-(regular|medium|semibold|bold)/,
     },
     {
-      pattern: /rounded-(0|4|8|12|16|20|24|28|32|36|40)/,
+      pattern: /rounded-(0|4|8|12|14|16|20|24|28|32|36|40)/,
     },
     {
-      pattern: /(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-(0|4|8|12|16|20|24|28|32|40|48|56|64|80|120|160|200|240|280|320|400)/,
+      pattern: /(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-(0|4|8|12|14|16|20|24|28|32|40|48|56|64|80|120|160|200|240|280|320|400)/,
     },
   ],
   theme: {
@@ -44,7 +44,7 @@ const config: Config = {
         "14": "14px",
         "15": "15px",
         "16": "16px",
-        "18": "18px",
+        "18": "18px", // ✨ 추가
         "20": "20px",
         "24": "24px",
         "28": "28px",
@@ -59,7 +59,12 @@ const config: Config = {
         "128": "128px",
         "160": "160px",
       },
-      lineHeight: generate4pxScale(80),
+      lineHeight: {
+        ...generate4pxScale(80),
+        "14": "14px", // ✨ 추가: 버튼 높이 보정용
+        "18": "18px", // ✨ 추가
+        "22": "22px", // ✨ 추가
+      },
       letterSpacing: {
         "0": "0",
         "-1": "-0.01em",
@@ -68,15 +73,18 @@ const config: Config = {
         "-4": "-0.04em",
       },
       // 일반 간격 (Padding, Margin, Gap, Width, Height)
-      spacing: generate4pxScale(400),
+      spacing: {
+        ...generate4pxScale(400),
+        "14": "14px", // ✨ 추가: 48px 버튼 높이 대응용
+      },
       
-      // ✨ 추가된 부분: 최대 너비 설정 (이게 있어야 max-w-720이 작동합니다)
       maxWidth: {
-        ...generate4pxScale(1400), // 1400px까지 4px 단위로 max-w 생성
+        ...generate4pxScale(1400),
       },
 
       borderRadius: {
         ...generate4pxScale(40),
+        "14": "14px", // ✨ 추가
         full: "9999px",
       },
       colors: {
@@ -105,7 +113,6 @@ const config: Config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        // Integra UI 전용 팔레트
         integra: {
           gray: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--gray-${s}))`])),
           blue: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--blue-${s}))`])),
