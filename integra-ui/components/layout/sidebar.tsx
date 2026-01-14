@@ -28,7 +28,8 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
       items: [
         "button", "input", "textarea", "label", "checkbox", 
         "badge", "switch", "select", "accordion", "tabs", 
-        "dialog", "popover", "tooltip", "toast", "skeleton", "card"
+        "dialog", "popover", "tooltip", "toast", "skeleton", 
+        "breadcrumb", "table", "card" // ✨ 브레드크럼, 테이블 누락 없이 추가
       ].map(item => ({
         name: item.charAt(0).toUpperCase() + item.slice(1),
         href: `/docs/components/${item}`
@@ -42,7 +43,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
         <div className="space-y-32 pb-48">
           {sections.map((section) => (
             <div key={section.title} className="space-y-8">
-              {/* 섹션 타이틀 */}
+              {/* 섹션 타이틀 규격 유지: fs-12 font-semibold text-integra-gray-500 */}
               <h2 className="px-8 fs-12 font-semibold tracking-2 text-integra-gray-500">
                 {section.title}
               </h2>
@@ -55,8 +56,9 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       href={item.href}
                       className={cn(
                         "group flex w-full items-center rounded-8 px-8 py-8 fs-14 transition-all font-medium",
+                        // ✨ 사용자 활성화 규격 유지: bg-integra-gray-50
                         isActive 
-                          ? "bg-integra-gray-50"
+                          ? "bg-integra-gray-50 text-integra-gray-900"
                           : "text-integra-gray-900 hover:bg-integra-gray-50"
                       )}
                     >
