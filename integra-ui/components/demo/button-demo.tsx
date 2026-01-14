@@ -12,7 +12,7 @@ export function ButtonDemo() {
   const [isDisabled, setIsDisabled] = React.useState(false)
 
   return (
-    <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-full border border-integra-gray-200 shadow-integra rounded-16">
+    <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16">
       
       {/* 1. 프리뷰 영역: bg-integra-gray-50 (투명도 조절 제거) */}
       <div className="min-h-200 flex items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed">

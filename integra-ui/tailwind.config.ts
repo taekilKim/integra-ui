@@ -1,12 +1,15 @@
 import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
 
-// ✨ 2px 단위로 스케일을 생성하는 함수 (0px ~ 400px)
+// 2px 단위로 스케일을 생성하는 함수 (0px ~ 400px)
 const generate2pxScale = (maxPx: number) => {
   const scale: Record<string, string> = {};
   for (let i = 0; i <= maxPx; i += 2) {
     scale[i] = `${i}px`;
   }
+  // 13, 15px 같은 홀수 수치 수동 추가
+  scale[13] = "13px";
+  scale[15] = "15px";
   return scale;
 };
 
@@ -17,16 +20,16 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  // 동적 클래스 생성을 위한 세이프리스트 (2px 단위 대응)
+  // ✨ 세이프리스트 강화: 정규식을 단순화하여 빌드 시 무조건 포함되게 합니다.
   safelist: [
-    { pattern: /fs-(12|13|14|15|16|18|20|24|28|32|40|48|56|64|72|80|96|128|160)/ },
-    { pattern: /leading-(0|2|4|6|8|10|12|14|16|18|20|22|24|26|28|30|32|34|36|38|40|44|48|52|56|60|64|68|72|76|80)/ },
-    { pattern: /font-(regular|medium|semibold|bold)/ },
-    { pattern: /rounded-(0|2|4|6|8|10|12|14|16|18|20|22|24|26|28|30|32|34|36|38|40)/ },
-    { pattern: /(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-(0|2|4|6|8|10|12|14|16|18|20|22|24|26|28|30|32|34|36|38|40|48|56|64|80|120|160|200|240|280|320|400)/ },
+    { pattern: /^fs-/ },
+    { pattern: /^leading-/ },
+    { pattern: /^rounded-/ },
+    { pattern: /^(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-/ },
+    { pattern: /^font-/ },
   ],
   theme: {
-    // ✨ [중요] extend 밖의 spacing에 선언하여 테일윈드 기본 rem 수치를 완전히 제거합니다.
+    // 테일윈드 기본 rem 수치를 제거하고 2px 그리드 주입
     spacing: {
       ...generate2pxScale(400),
       "full": "100%",
@@ -37,9 +40,15 @@ const config: Config = {
     },
     extend: {
       fontFamily: { sans: ["Pretendard", "sans-serif"] },
-      // 행간도 2px 단위로 정교하게 제어
-      lineHeight: generate2pxScale(80),
-      letterSpacing: { "0": "0", "-1": "-0.01em", "-2": "-0.02em", "-3": "-0.03em", "-4": "-0.04em" },
+      // 행간 범위를 160px까지 확장 (대형 폰트 대응)
+      lineHeight: generate2pxScale(160),
+      letterSpacing: { 
+        "0": "0", 
+        "-1": "-0.01em", 
+        "-2": "-0.02em", 
+        "-3": "-0.03em", 
+        "-4": "-0.04em" 
+      },
       maxWidth: { 
         ...generate2pxScale(1400),
         "none": "none",
@@ -48,9 +57,8 @@ const config: Config = {
         "max": "max-content",
         "fit": "fit-content",
       },
-      // 곡률도 2px 단위로 정교하게 제어
       borderRadius: { 
-        ...generate2pxScale(40), 
+        ...generate2pxScale(80), 
         full: "9999px" 
       },
       colors: {
@@ -84,6 +92,7 @@ const config: Config = {
         acc[`.fs-${size}`] = { fontSize: `${size}px` };
         return acc;
       }, {});
+      // ✨ addUtilities를 통해 등록하여 Tailwind의 기본 리셋(Preflight)보다 높은 우선순위를 갖게 합니다.
       addUtilities(fontSizeUtilities);
     })
   ],
