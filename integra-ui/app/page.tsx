@@ -3,11 +3,11 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TokenExperience } from "@/components/landing/token-experience";
-import { ArrowRight, Type, Ruler, BookOpen, ChevronRight } from "lucide-react";
+import { ArrowRight, Type, Ruler, BookOpen } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white overflow-x-hidden">
       
       {/* 1. Hero Section: 고정 아이덴티티 */}
       <section className="flex flex-col items-center justify-center pt-120 pb-120 text-center px-24 md:pt-160 md:pb-160">
@@ -28,13 +28,11 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-16 justify-center pt-16">
             <Link href="/docs/installation">
-              {/* 핵심 액션: Primary 적용 */}
               <Button appearance="default" variant="default" className="h-56 px-32 fs-16 font-bold gap-8 shadow-lg shadow-primary/20">
                 지금 바로 시작하기 <ArrowRight className="w-20 h-20" />
               </Button>
             </Link>
             <Link href="/docs/foundations/design-tokens">
-              {/* 보조 액션: Grayscale 적용 (Shadcn Style) */}
               <Button appearance="default" variant="tertiary" className="h-56 px-32 fs-16 font-bold border border-integra-gray-200">
                 디자인 토큰 살펴보기
               </Button>
@@ -56,7 +54,7 @@ export default function Home() {
             <div className="max-w-800 mx-auto text-center space-y-32">
                 <h2 className="fs-36 md:fs-48 font-bold tracking--3 text-integra-gray-900 leading-48 md:leading-64">
                     폰트 설정, 간격 조정...<br />
-                    <span className="text-integra-gray-300 font-medium italic block mt-8">반복되는 세팅에 지쳐있지는 않으신가요?</span>
+                    <span className="text-integra-gray-300 font-medium italic block mt-8 leading-40">반복되는 세팅에 지쳐있지는 않으신가요?</span>
                 </h2>
                 <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
                     Integra UI는 단순한 UI 라이브러리가 아닙니다. <br/>
@@ -72,12 +70,27 @@ export default function Home() {
         <div className="container px-24 md:px-64 mx-auto">
           <div className="grid md:grid-cols-3 gap-32">
             {[
-              { icon: <Type />, title: "Pretendard First", desc: "한글 가독성에 최적화된 폰트 환경을<br />별도의 설정 없이 즉시 제공합니다." },
-              { icon: <Ruler />, title: "Strict 4px Grid", desc: "모든 간격과 크기는 4px의 배수입니다.<br />소수점 오차 없는 정밀한 UI를 완성하세요." },
-              { icon: <BookOpen />, title: "Atomic Tokens", desc: "속성을 원자 단위로 분리했습니다.<br />피그마의 변수를 코드로 그대로 옮기세요." }
+              { 
+                icon: <Type className="w-full h-full" />, 
+                title: "Pretendard First", 
+                desc: "한글 가독성에 최적화된 폰트 환경을<br />별도의 설정 없이 즉시 제공합니다." 
+              },
+              { 
+                icon: <Ruler className="w-full h-full" />, 
+                title: "Strict 4px Grid", 
+                desc: "모든 간격과 크기는 4px의 배수입니다.<br />소수점 오차 없는 정밀한 UI를 완성하세요." 
+              },
+              { 
+                icon: <BookOpen className="w-full h-full" />, 
+                title: "Atomic Tokens", 
+                desc: "속성을 원자 단위로 분리했습니다.<br />피그마의 변수를 코드로 그대로 옮기세요." 
+              }
             ].map((f, i) => (
               <div key={i} className="p-32 rounded-24 border border-integra-gray-200 bg-white shadow-sm space-y-24">
-                <div className="w-40 h-40 text-primary">{React.cloneElement(f.icon as React.ReactElement, { className: "w-full h-full" })}</div>
+                {/* ✨ 에러 지점 해결: cloneElement 대신 직접 렌더링 */}
+                <div className="w-40 h-40 text-primary">
+                  {f.icon}
+                </div>
                 <div className="space-y-8">
                   <h3 className="fs-20 font-bold text-integra-gray-900">{f.title}</h3>
                   <p className="fs-15 text-integra-gray-500 leading-24" dangerouslySetInnerHTML={{ __html: f.desc }} />
@@ -90,7 +103,7 @@ export default function Home() {
 
       {/* 5. Footer */}
       <footer className="py-80 bg-white">
-        <div className="container px-24 md:px-64 mx-auto flex flex-col md:flex-row justify-between items-center gap-32 text-integra-gray-400 font-medium">
+        <div className="container px-24 md:px-64 mx-auto flex flex-col md:flex-row justify-between items-center gap-32 text-integra-gray-400 font-medium border-t border-integra-gray-100 pt-80">
             <div className="text-center md:text-left space-y-8">
                 <p className="fs-16 text-integra-gray-900 font-bold">Integra UI</p>
                 <p className="fs-14">Atomic Design System for Korean Makers.</p>
