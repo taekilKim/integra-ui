@@ -12,7 +12,7 @@ export default function ButtonDocsPage() {
             <span>/</span>
             <span className="font-bold">Button</span>
         </div>
-        <h1 className="fs-36 font-bold leading-48 text-integra-gray-900">Button</h1>
+        <h1 className="font-bold leading-48 text-integra-gray-900">Button</h1>
         <p className="fs-20 text-integra-gray-500 leading-32">
           사용자의 동작을 트리거하거나, 폼을 전송할 때 사용하는 핵심 컴포넌트입니다.<br></br>아토믹 토큰의 조합으로 정교한 크기와 스타일을 제공합니다.
         </p>
