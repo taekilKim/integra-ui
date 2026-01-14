@@ -10,7 +10,7 @@ export function Header() {
         
         {/* 왼쪽 영역: 로고 및 메인 메뉴 */}
         <div className="flex items-center">
-          <Link href="/" className="mr-32 flex items-center gap-12 group">
+          <Link href="/" className="mr-32 flex items-center gap-4 group">
             {/* 로고 컨테이너 */}
             <div className="relative w-24 h-24 transition-all group-hover:opacity-70">
               <Image
@@ -21,7 +21,7 @@ export function Header() {
               />
             </div>
             {/* fs-20, tracking--4: 수치형 폰트 토큰 적용 */}
-            <span className="font-bold fs-20 tracking--4 text-integra-gray-900 leading-none">
+            <span className="font-semibold fs-14 tracking--4 text-integra-gray-900 leading-none">
               Integra UI
             </span>
           </Link>
