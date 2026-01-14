@@ -1,9 +1,17 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 export default function DesignTokensPage() {
   // 모든 폰트 사이즈 토큰 (12px ~ 160px)
-  const fontSizes = [12, 13, 14, 15, 16, 18, 20, 24, 28, 32, 40, 48, 56, 64, 72, 80, 96, 128, 160];
+  const fontSizes = [12, 13, 14, 15, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 80, 96, 128, 160];
   
   const fontWeights = [
     { name: "regular", value: 400 },
@@ -22,11 +30,22 @@ export default function DesignTokensPage() {
 
   return (
     <div className="space-y-80 pb-120">
-      {/* 1. Header */}
+      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 */}
       <div className="space-y-16">
-        <h1 className="fs-40 font-bold leading-48 tracking--4 text-integra-gray-900">Design Tokens</h1>
-        <p className="fs-20 text-integra-gray-500 leading-32 tracking--1 max-w-800">
-          Integra UI의 모든 원자(Atoms)는 <strong>4px 그리드</strong>를 엄격히 준수하며, 
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/docs/foundations">Foundations</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Design Tokens</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900">Design Tokens</h1>
+        <p className="fs-20 text-integra-gray-500 leading-32">
+          Integra UI의 모든 원자(Atoms)는 <strong>4px 그리드</strong>를 엄격히 준수하며,<br />
           디자이너의 의도가 소수점 오차 없이 코드에 반영되도록 설계되었습니다.
         </p>
       </div>
@@ -60,7 +79,7 @@ export default function DesignTokensPage() {
                   {fontSizes.map((size) => (
                     <tr key={size} className="hover:bg-integra-gray-50 transition-colors">
                       <td className="px-24 py-16 font-mono font-medium text-integra-gray-700">{size}px</td>
-                      {/* ✨ .text- 대신 .fs- 접두사로 변경 */}
+                      {/* ✨ SAI: .fs- 접두사 명시 */}
                       <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.fs-{size}</td>
                       <td className="px-24 py-16 text-integra-gray-900" style={{ fontSize: `${size}px`, lineHeight: 1 }}>Integra UI</td>
                     </tr>
@@ -70,7 +89,7 @@ export default function DesignTokensPage() {
             </div>
           </div>
 
-          {/* 💡 Design Tip Section: integra-blue 토큰 적용 */}
+          {/* 💡 Design Tip Section: integra-blue 토큰 적용 및 투명도 제거 */}
           <Card className="p-32 bg-integra-blue-50 border-integra-blue-100 shadow-none space-y-16">
             <div className="flex items-center gap-8 text-primary">
                 <span className="fs-20">💡</span>
@@ -97,7 +116,7 @@ export default function DesignTokensPage() {
             <h3 className="fs-18 font-bold uppercase tracking-2 text-primary">1-2. Font Weight</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
               {fontWeights.map((w) => (
-                <div key={w.name} className="p-24 border border-integra-gray-200 rounded-12 space-y-8 bg-white shadow-sm">
+                <div key={w.name} className="p-24 border border-integra-gray-200 rounded-12 space-y-8 bg-white shadow-sm hover:border-primary/50 transition-colors">
                   <p className="fs-12 text-integra-gray-400 font-mono uppercase">{w.value}</p>
                   <p className={`fs-32 font-${w.name} leading-40 tracking-0 text-integra-gray-900`}>Aa</p>
                   <p className="fs-14 font-mono text-integra-blue-600 font-bold">.font-{w.name}</p>
@@ -188,14 +207,14 @@ export default function DesignTokensPage() {
             <Card className="p-32 border border-integra-gray-200 rounded-16 space-y-32 bg-white shadow-sm overflow-hidden">
                 <div className="flex items-end gap-4 h-80">
                     {[4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 100, 120, 160].map(s => (
-                        <div key={s} className="bg-integra-blue-500/20 border border-integra-blue-500/30 w-full group relative transition-colors hover:bg-integra-blue-500/40" style={{ height: `${(s/160)*100}%` }}>
+                        <div key={s} className="bg-integra-blue-100 border border-integra-blue-200 w-full group relative transition-colors hover:bg-primary/20" style={{ height: `${(s/160)*100}%` }}>
                             <div className="absolute -top-24 left-1/2 -translate-x-1/2 fs-10 font-mono font-bold hidden group-hover:block text-primary">{s}px</div>
                         </div>
                     ))}
                 </div>
                 <div className="flex justify-between items-center fs-12 font-mono text-integra-blue-600 font-bold">
                     <span>.p-4 (Smallest)</span>
-                    <span className="text-integra-gray-200 px-40">● ● ● ● ● ● ● ● ● ● ● ●</span>
+                    <span className="text-integra-gray-200 px-40 text-center">━━━━━━━━━━━━━━━━━━</span>
                     <span>.p-400 (Max Layout)</span>
                 </div>
             </Card>

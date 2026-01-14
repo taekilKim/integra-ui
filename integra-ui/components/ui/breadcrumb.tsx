@@ -17,8 +17,9 @@ const BreadcrumbList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ol
     ref={ref}
+    // ✨ leading-16을 추가하여 12px 폰트의 수직 정렬을 4px 그리드(16px)에 맞춤
     className={cn(
-      "flex flex-wrap items-center gap-8 break-words fs-12 text-integra-gray-500",
+      "flex flex-wrap items-center gap-8 break-words fs-12 leading-16 text-integra-gray-500",
       className
     )}
     {...props}
@@ -48,7 +49,8 @@ const BreadcrumbLink = React.forwardRef<
   return (
     <Comp
       ref={ref}
-      className={cn("transition-colors hover:text-integra-gray-900", className)}
+      // ✨ 호버 시 transition-all로 통일감 부여
+      className={cn("transition-all hover:text-integra-gray-900", className)}
       {...props}
     />
   )
@@ -78,6 +80,7 @@ const BreadcrumbSeparator = ({
   <li
     role="presentation"
     aria-hidden="true"
+    // ✨ 아이콘 크기 14px (2px scale) 및 색상 gray-300 고정
     className={cn("[&>svg]:w-14 [&>svg]:h-14 text-integra-gray-300", className)}
     {...props}
   >

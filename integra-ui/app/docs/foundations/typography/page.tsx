@@ -1,4 +1,12 @@
 import { Card } from "@/components/ui/card";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 export default function TypographyPage() {
   const styles = [
@@ -14,40 +22,66 @@ export default function TypographyPage() {
   ];
 
   return (
-    <div className="space-y-48 pb-80">
+    <div className="space-y-48 pb-120">
+      
+      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 규격 준수 */}
       <div className="space-y-16">
-        <h1 className="text-40 font-bold leading-48 tracking--4">Typography Styles</h1>
-        <p className="text-20 text-muted-foreground leading-32 tracking--1 max-w-800">
-          아토믹 토큰을 조합하여 사전 정의된 텍스트 스타일 가이드입니다. 일관된 계층 구조를 위해 아래 스타일 사용을 권장합니다.
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/docs/foundations">Foundations</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Typography</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900">Typography Styles</h1>
+        <p className="fs-20 text-integra-gray-500 leading-32">
+          아토믹 토큰을 조합하여 사전 정의된 텍스트 스타일 가이드입니다.<br />
+          일관된 계층 구조와 최적의 가독성을 위해 아래 스타일 사용을 권장합니다.
         </p>
       </div>
 
-      <hr />
+      <hr className="border-integra-gray-100" />
 
-      <section className="space-y-32">
+      {/* 2. 타이포그래피 스타일 리스트 */}
+      <section className="space-y-48">
         {styles.map((style) => (
           <div key={style.name} className="group space-y-12">
-            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-8 border-b border-slate-50 pb-16">
-              <div className="space-y-4">
-                <p className="text-14 font-bold text-primary uppercase tracking-1">{style.name}</p>
-                <p className={`text-${style.size} font-${style.weight} leading-${style.lh} tracking--1 text-slate-900`}>
+            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-16 border-b border-integra-gray-50 pb-24">
+              <div className="space-y-8">
+                {/* fs-14 및 integra-blue 토큰 적용 */}
+                <p className="fs-14 font-bold text-primary uppercase tracking-1">{style.name}</p>
+                {/* ✨ SAI: text- 대신 fs- 접두사 사용 */}
+                <p className={`fs-${style.size} font-${style.weight} leading-${style.lh} tracking--1 text-integra-gray-900 transition-all group-hover:text-primary`}>
                   가나다라마바사 Integra UI
                 </p>
               </div>
-              <div className="bg-slate-50 p-12 rounded-8 border text-12 font-mono text-slate-500 space-y-2 min-w-200">
-                <p>Class: .text-{style.size} .leading-{style.lh} .font-{style.weight}</p>
-                <p className="text-primary/60 italic">{style.desc}</p>
+              
+              {/* 토큰 명세 카드: bg-integra-gray-50 적용 */}
+              <div className="bg-integra-gray-50 p-16 rounded-12 border border-integra-gray-100 fs-12 font-mono text-integra-gray-500 space-y-4 min-w-240">
+                <div className="flex justify-between">
+                    <span className="font-bold text-integra-gray-400">Class</span>
+                    <span className="text-blue-600">.fs-{style.size} .leading-{style.lh} .font-{style.weight}</span>
+                </div>
+                <div className="flex justify-between border-t border-integra-gray-200 pt-4 mt-4">
+                    <span className="font-bold text-integra-gray-400">Usage</span>
+                    <span className="text-integra-gray-600 italic">{style.desc}</span>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </section>
 
-      <section className="p-32 bg-slate-900 rounded-16 text-white space-y-16">
-        <h3 className="text-20 font-bold">Designer Tip</h3>
-        <p className="text-14 leading-24 opacity-80">
-          한글은 영문에 비해 획이 복잡하여 행간(Line Height)을 <strong>최소 1.5배 이상</strong> 확보하는 것이 좋습니다. <br/>
-          Integra UI의 타이포 가이드는 이 황금 비율을 4px 그리드 안에서 완벽하게 구현했습니다.
+      {/* 3. 디자이너 팁 섹션: bg-integra-gray-900 및 SAI 텍스트 규격 적용 */}
+      <section className="p-40 bg-integra-gray-900 rounded-24 text-white space-y-16 shadow-integra">
+        <h3 className="fs-24 font-bold tracking--1">Designer Tip</h3>
+        <p className="fs-16 leading-28 opacity-80 font-medium">
+          한글은 영문에 비해 획이 복잡하고 밀도가 높아, 행간(Line Height)을 <strong>최소 1.5배 이상</strong> 확보하는 것이 시각적 피로도를 줄이는 핵심입니다.<br />
+          Integra UI의 타이포 가이드는 4px 그리드 시스템 안에서 이 황금 비율을 엄격하게 구현했습니다.
         </p>
       </section>
     </div>

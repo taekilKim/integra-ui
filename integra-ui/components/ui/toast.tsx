@@ -14,6 +14,7 @@ const ToastViewport = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Viewport
     ref={ref}
+    // [Base Layout] p-16, max-w-400: SAI 규격 준수
     className={cn(
       "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-16 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-400",
       className
@@ -28,8 +29,10 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "border bg-white text-slate-950",
-        destructive: "destructive group border-destructive bg-destructive text-destructive-foreground",
+        // [Default] border-integra-gray-100 및 bg-white 적용
+        default: "border-integra-gray-100 bg-white text-integra-gray-900",
+        // [Destructive] red-500 배경 및 흰색 글자
+        destructive: "destructive group border-integra-red-500 bg-integra-red-500 text-white",
       },
     },
     defaultVariants: {
@@ -60,7 +63,12 @@ const ToastAction = React.forwardRef<
   <ToastPrimitives.Action
     ref={ref}
     className={cn(
-      "inline-flex h-32 shrink-0 items-center justify-center rounded-8 border bg-transparent px-12 text-12 font-bold ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:hover:border-destructive group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground group-[.destructive]:focus:ring-destructive",
+      // [Layout] h-32, rounded-8, px-12, fs-12 적용
+      "inline-flex h-32 shrink-0 items-center justify-center rounded-8 border bg-transparent px-12 fs-12 font-bold ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+      // [Colors: Default Context]
+      "border-integra-gray-200 text-integra-gray-900 hover:bg-integra-gray-50",
+      // [Colors: Destructive Context]
+      "group-[.destructive]:border-white/30 group-[.destructive]:hover:border-white group-[.destructive]:hover:bg-white group-[.destructive]:hover:text-integra-red-500 group-[.destructive]:focus:ring-integra-red-400",
       className
     )}
     {...props}
@@ -75,7 +83,12 @@ const ToastClose = React.forwardRef<
   <ToastPrimitives.Close
     ref={ref}
     className={cn(
-      "absolute right-8 top-8 rounded-4 p-4 text-slate-950/50 opacity-0 transition-opacity hover:text-slate-950 focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600",
+      // [Layout] h-24, w-24, rounded-4
+      "absolute right-8 top-8 rounded-4 p-4 transition-all outline-none",
+      // [Colors] integra-gray-400에서 호버 시 900으로 진해짐
+      "text-integra-gray-400 hover:text-integra-gray-900 focus:ring-2 focus:ring-primary",
+      // [Destructive Context Colors]
+      "group-[.destructive]:text-white/70 group-[.destructive]:hover:text-white group-[.destructive]:focus:ring-white",
       className
     )}
     toast-close=""
@@ -92,7 +105,8 @@ const ToastTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Title
     ref={ref}
-    className={cn("text-14 font-bold leading-20 tracking--1", className)}
+    // [SAI Typography] fs-14, leading-20 적용
+    className={cn("fs-14 font-bold leading-20 tracking--1", className)}
     {...props}
   />
 ))
@@ -104,7 +118,8 @@ const ToastDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn("text-13 opacity-90 leading-20", className)}
+    // [SAI Typography] fs-13, leading-20 적용
+    className={cn("fs-13 text-integra-gray-600 leading-20 tracking-0 group-[.destructive]:text-white/90", className)}
     {...props}
   />
 ))

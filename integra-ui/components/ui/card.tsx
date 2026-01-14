@@ -7,8 +7,9 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
+    // ✨ SAI: border-integra-gray-100 및 text-integra-gray-900 적용
     className={cn(
-      "rounded-16 border bg-card text-card-foreground shadow-integra",
+      "rounded-16 border border-integra-gray-100 bg-white text-integra-gray-900 shadow-integra",
       className
     )}
     {...props}
@@ -22,6 +23,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
+    // p-24, space-y-4: 4px 그리드 규격 유지
     className={cn("flex flex-col space-y-4 p-24", className)}
     {...props}
   />
@@ -34,8 +36,9 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
+    // ✨ SAI: fs-24 및 leading-32 적용
     className={cn(
-      "text-24 font-bold leading-32 tracking--2",
+      "fs-24 font-bold leading-32 tracking--2 text-integra-gray-900",
       className
     )}
     {...props}
@@ -49,7 +52,8 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-14 text-muted-foreground leading-20", className)}
+    // ✨ SAI: fs-14 및 text-integra-gray-500 적용
+    className={cn("fs-14 text-integra-gray-500 leading-20", className)}
     {...props}
   />
 ))
