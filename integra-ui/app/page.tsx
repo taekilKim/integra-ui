@@ -138,7 +138,7 @@ export default function Home() {
                 추가적인 외부 자원이 필요 없는 <br />
                 <span className="text-primary font-bold">독립적인 디자인 시스템</span>
               </h2>
-              <p className="fs-18 text-integra-gray-600 leading-32 tracking--1">
+              <p className="fs-18 text-integra-gray-700 leading-32 tracking--1">
                 필요한 라이브러리를 찾아서 헤매지 마세요.<br />
                 Integra UI는 세세한 토큰 단위부터 모두 갖춰진 디자인 시스템입니다.<br />
                 디자인 토큰을 이용해 원하는 대로 뜯고 고칠 수 있는 진정한 자유를 누리세요.
