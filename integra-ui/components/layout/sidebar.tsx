@@ -35,7 +35,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
         "button", "input", "textarea", "label", "checkbox", 
         "badge", "switch", "select", "accordion", "tabs", 
         "dialog", "popover", "tooltip", "toast", "skeleton", 
-        "breadcrumb", "table", "card"
+        "breadcrumb", "table","radio-group", "checkbox-list", "card"
       ].map(item => ({
         // 첫 글자 대문자화 및 특수 케이스 처리
         name: item.charAt(0).toUpperCase() + item.slice(1),
