@@ -20,7 +20,7 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  // ✨ 세이프리스트: 이제 모든 fs- 클래스를 빌드에 포함합니다.
+  // SAI 원칙: 동적 클래스 빌드 포함 보장
   safelist: [
     { pattern: /^fs-/ },
     { pattern: /^leading-/ },
@@ -29,6 +29,7 @@ const config: Config = {
     { pattern: /^font-/ },
   ],
   theme: {
+    // 테일윈드 기본 rem 단위를 제거하고 2px 수치형 그리드 주입
     spacing: {
       ...generate2pxScale(400),
       "full": "100%",
@@ -65,16 +66,31 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
-        secondary: { DEFAULT: "hsl(var(--secondary))", foreground: "hsl(var(--secondary-foreground))" },
-        destructive: { DEFAULT: "hsl(var(--destructive))", foreground: "hsl(var(--destructive-foreground))" },
-        muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
-        accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
+        
+        /* ✨ SAI 시맨틱 컬러 엔진 (State 기반 자동 연동) */
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          hover: "hsl(var(--primary-hover))",
+          active: "hsl(var(--primary-active))",
+          foreground: "hsl(var(--primary-foreground))",
+          subtle: "hsl(var(--primary-subtle))",
+          "subtle-hover": "hsl(var(--primary-subtle-hover))",
+          "subtle-foreground": "hsl(var(--primary-subtle-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          hover: "hsl(var(--destructive-hover))",
+          foreground: "hsl(var(--destructive-foreground))",
+          subtle: "hsl(var(--destructive-subtle))",
+          "subtle-hover": "hsl(var(--destructive-subtle-hover))",
+        },
+
+        // 원자 단위 컬러 팔레트 (Figma 데이터 기반)
         integra: {
           gray: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--gray-${s}))`])),
           blue: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--blue-${s}))`])),
           green: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--green-${s}))`])),
-          red: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--red-${s}))`])),
+          red: Object.fromEntries([50, 100, 500, 600].map(s => [s, `hsl(var(--red-${s}))`])),
           orange: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--orange-${s}))`])),
           violet: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--violet-${s}))`])),
           grape: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `hsl(var(--grape-${s}))`])),
@@ -85,19 +101,15 @@ const config: Config = {
   plugins: [
     require("tailwindcss-animate"),
     plugin(function({ addUtilities }) {
-      // ✨ 12px부터 160px까지 2px 단위로 모든 클래스 자동 생성
       const fsUtils: Record<string, { fontSize: string }> = {};
-      
-      // 12px ~ 160px 짝수 생성
+      // 12px ~ 160px 모든 짝수 사이즈 fs- 클래스 자동 생성
       for (let i = 12; i <= 160; i += 2) {
         fsUtils[`.fs-${i}`] = { fontSize: `${i}px` };
       }
-      
-      // 특수 홀수 사이즈 추가
+      // 특수 홀수 사이즈 수동 추가
       [13, 15].forEach(size => {
         fsUtils[`.fs-${size}`] = { fontSize: `${size}px` };
       });
-
       addUtilities(fsUtils);
     })
   ],
