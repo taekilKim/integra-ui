@@ -9,11 +9,25 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 
+/**
+ * [Integra UI - Dialog Document SAI Version]
+ * 화면 위에 레이어를 띄워 중요한 정보를 전달하거나 상호작용을 유도하는 오버레이 문서입니다.
+ */
 export default function DialogDocsPage() {
+  // 1. 다이얼로그 전용 디자인 토큰 데이터
+  const designTokens = [
+    { property: "Max Width (최대 너비)", class: "max-w-{px}", value: "max-w-400" },
+    { property: "Padding (내부 여백)", class: "p-{px}", value: "p-24" },
+    { property: "Element Gap (요소 간격)", class: "gap-{px}", value: "gap-16" },
+    { property: "Border Radius (곡률)", class: "rounded-{px}", value: "rounded-16" },
+    { property: "Title Font Size (제목)", class: "fs-{px}", value: "fs-20" },
+    { property: "Description Font Size (설명)", class: "fs-{px}", value: "fs-14" },
+  ];
+
   return (
-    <div className="space-y-48 pb-80">
+    <div className="space-y-64 pb-120">
       
-      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 */}
+      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 규격 준수 */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -26,10 +40,14 @@ export default function DialogDocsPage() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900">Dialog (Modal)</h1>
-        <p className="fs-20 text-integra-gray-500 leading-32">
+        
+        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">
+          Dialog (Modal)
+        </h1>
+        
+        <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
           사용자의 집중이 필요한 중요한 작업을 수행하거나 정보를 표시할 때 사용하는 오버레이 컴포넌트입니다.<br />
-          화면의 흐름을 제어하며 명확한 의사결정을 유도하는 아토믹 레이어입니다.
+          화면의 흐름을 명확히 제어하며 아토믹 토큰의 정밀한 정렬을 공유합니다.
         </p>
       </div>
 
@@ -39,36 +57,66 @@ export default function DialogDocsPage() {
       <section className="space-y-16">
         <div className="flex items-center justify-between">
             <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Playground</h2>
-            <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500">Interactive</Badge>
+            <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500 font-medium">Interactive</Badge>
         </div>
         <DialogDemo />
       </section>
 
-      {/* 3. 아토믹 설계 원리 설명: bg-integra-gray-50 및 fs- 접두사 적용 */}
+      {/* 3. 디자인 토큰 섹션: 수치와 클래스의 1:1 매칭 명세 */}
+      <section className="space-y-24">
+        <div className="space-y-8">
+            <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">디자인 토큰</h2>
+            <p className="fs-16 text-integra-gray-500">다이얼로그의 안정적인 비례를 결정하는 아토믹 클래스와 실제 수치 명세입니다.</p>
+        </div>
+        <div className="rounded-12 border border-integra-gray-100 overflow-hidden shadow-sm">
+            <table className="w-full text-left border-collapse">
+                <thead className="bg-integra-gray-50 border-b border-integra-gray-200">
+                    <tr className="fs-12 font-bold text-integra-gray-400">
+                        <th className="px-24 py-16">속성 (Property)</th>
+                        <th className="px-24 py-16">토큰 클래스</th>
+                        <th className="px-24 py-16">Value</th>
+                    </tr>
+                </thead>
+                <tbody className="divide-y border-integra-gray-100 fs-14">
+                    {designTokens.map((token) => (
+                        <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
+                            <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
+                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                            <td className="px-24 py-16 font-mono text-integra-gray-900">{token.value}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+      </section>
+
+      {/* 4. 아토믹 설계 원리 설명: bg-integra-gray-50 적용 */}
       <section className="space-y-16 p-32 bg-integra-gray-50 rounded-16 border border-integra-gray-100">
         <h2 className="fs-20 font-bold leading-24 tracking--1 text-integra-gray-900">Atomic Design Note</h2>
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
-            <p>Integra UI의 다이얼로그는 카드 및 다른 인풋 요소와 원자적 정렬을 공유합니다.</p>
+            <p>다이얼로그는 시각적 집중도와 레이어의 위계를 원자 단위로 관리합니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Width:</strong> 기본 400px(max-w-400)로 설정되어 최적의 가독성 범위를 유지합니다.</li>
-                <li><strong>Spacing:</strong> 내부 패딩 24px(p-24)과 요소 간 간격 16px(gap-16)을 사용합니다.</li>
-                <li><strong>Radius:</strong> 16px(rounded-16)을 적용하여 부드럽고 안정적인 인상을 줍니다.</li>
+                <li><strong>Width Constraint:</strong> 기본 400px(max-w-400)로 제한하여 정보 전달의 효율성과 가독성 범위를 확보합니다.</li>
+                <li><strong>Spacing System:</strong> 카드 시스템과 동일한 24px(p-24) 여백을 사용하여 조형적 통일성을 유지합니다.</li>
+                <li><strong>Depth Vision:</strong> 16px(rounded-16) 곡률과 <code>shadow-integra</code> 토큰을 통해 명확한 부유감을 형성합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 4. 사용법: bg-integra-gray-900 및 표준 코드 스타일 적용 */}
+      {/* 5. 사용법 */}
       <section className="space-y-16">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-            <p className="text-integra-gray-500 mb-8">// Import the components</p>
-            <p className="text-blue-400">import &#123; Dialog, DialogContent, DialogTrigger &#125; from "@/components/ui/dialog"</p>
+        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
+            <p className="text-integra-gray-500 mb-8">// Import components</p>
+            <p className="text-integra-blue-400">import &#123; Dialog, DialogContent, DialogTrigger &#125; from "@/components/ui/dialog"</p>
             <br />
-            <p className="text-integra-gray-500 mb-8">// Basic usage</p>
-            <p className="text-white">&lt;Dialog&gt;<br />
-            &nbsp;&nbsp;&lt;DialogTrigger&gt;Open&lt;/DialogTrigger&gt;<br />
-            &nbsp;&nbsp;&lt;DialogContent&gt;...&lt;/DialogContent&gt;<br />
-            &lt;/Dialog&gt;</p>
+            <p className="text-integra-gray-500 mb-8">// Integration Example</p>
+            <p className="text-white">
+              &lt;Dialog&gt;<br />
+              &nbsp;&nbsp;&lt;DialogTrigger&gt;Open&lt;/DialogTrigger&gt;<br />
+              &nbsp;&nbsp;&lt;DialogContent&gt;...&lt;/DialogContent&gt;<br />
+              &lt;/Dialog&gt;
+            </p>
         </div>
       </section>
 
