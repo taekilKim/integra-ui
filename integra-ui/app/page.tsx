@@ -12,15 +12,15 @@ export default function Home() {
       {/* 1. Hero Section: Shadcn-like High Contrast */}
       <section className="flex flex-col items-center justify-center pt-120 pb-120 text-center px-24 md:pt-160 md:pb-160">
         <div className="space-y-32 max-w-1000 mx-auto">
-          <Badge variant="secondary" className="rounded-full px-16 py-4 fs-14 font-medium bg-integra-gray-50 text-integra-gray-600">
-            🎉 Integra UI v1.0 is now available
+          <Badge variant="secondary" className="rounded-full px-16 py-8 fs-14 font-medium bg-integra-gray-50 text-integra-gray-600">
+            Integra UI v1.0 is now available
           </Badge>
-          <h1 className="fs-48 font-bold leading-56 tracking--4 sm:fs-64 sm:leading-72 md:fs-80 md:leading-88 text-integra-gray-900">
+          <h1 className="fs-48 font-bold leading-60 tracking--4 sm:fs-64 sm:leading-72 md:fs-80 md:leading-88 text-integra-gray-900">
             한국 디자이너를 위한 <br />
-            <span className="text-primary">가장 직관적인 디자인 시스템</span>
+            가장 직관적인 디자인 시스템
           </h1>
-          <p className="mx-auto max-w-600 fs-18 text-integra-gray-500 sm:fs-20 leading-32 tracking--1">
-            피그마의 수치가 곧 코드가 되는 혁신적인 경험.<br />
+          <p className="mx-auto max-w-600 fs-18 text-integra-gray-700 sm:fs-20 leading-32 tracking--1">
+            피그마의 수치가 곧 코드가 되는 혁신적인 경험<br />
             복잡한 설정 없이 아토믹 토큰으로 제품의 본질에 집중하세요.
           </p>
           <div className="flex flex-col sm:flex-row gap-16 justify-center pt-16">
@@ -30,8 +30,8 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/docs/components">
-              <Button appearance="default" variant="tertiary" size="default" className="border border-integra-gray-200">
-                컴포넌트 살펴보기
+              <Button appearance="text" variant="tertiary" size="default" className="border border-integra-gray-200">
+                컴포넌트 둘러보기
               </Button>
             </Link>
           </div>
@@ -43,10 +43,10 @@ export default function Home() {
         <div className="container px-24 md:px-64 mx-auto space-y-80">
           <div className="text-center space-y-16">
             <h2 className="fs-32 md:fs-40 font-bold tracking--3 text-integra-gray-900 leading-40 md:leading-48">
-                이미 준비된 아토믹 피스
+                이미 준비된 완성형 컴포넌트
             </h2>
-            <p className="fs-18 text-integra-gray-500 leading-28 tracking--1">
-                모든 컴포넌트는 4px 그리드 시스템 위에서 완벽하게 정렬되어 있습니다.
+            <p className="fs-18 text-integra-gray-700 leading-28 tracking--1">
+                디자인 환경에서 가장 많이 사용하는 4px 그리드 디자인 시스템을 완벽하게 적용했습니다
             </p>
           </div>
           <ComponentShowcase />
@@ -63,15 +63,15 @@ export default function Home() {
               </div>
               <h2 className="fs-32 md:fs-40 font-bold leading-40 md:leading-52 tracking--3 text-integra-gray-900">
                 번역이 필요 없는 <br />
-                <span className="text-primary font-bold">디자이너와 개발자의 언어</span>
+                디자이너와 개발자의 언어
               </h2>
-              <p className="fs-18 text-integra-gray-600 leading-32 tracking--1">
-                "버튼 곡률 조금만 더 둥글게 해주세요" 대신 "rounded-12로 바꿔주세요"라고 말하세요.<br />
-                추상적인 단어를 해석하는 시간을 아껴 실제 제품의 문제를 해결하는 데 집중할 수 있습니다.
+              <p className="fs-18 text-integra-gray-700 leading-32 tracking--1">
+                "R값을 혹시 더 줄일 수 있을까요?" 대신 "rounded-12로 바꿔주세요"라고 전달해보세요.<br />
+                추상적인 토큰과 코드를 해석하는 시간을 아껴 실제 제품의 문제를 해결하는 데 집중할 수 있습니다.
               </p>
-              <ul className="space-y-16 pt-8">
+              <ul className="space-y-8 pt-8">
                 {["피그마 수치와 클래스명 1:1 매칭", "커뮤니케이션 오해 소지 0%", "신입 개발자도 즉시 이해하는 수치형 토큰"].map(item => (
-                  <li key={item} className="flex items-center gap-12 fs-15 text-integra-gray-700 font-medium">
+                  <li key={item} className="flex items-center gap-12 fs-16 text-integra-gray-700 font-medium">
                     <Check className="w-16 h-16 text-primary" /> {item}
                   </li>
                 ))}
@@ -103,15 +103,24 @@ export default function Home() {
             </div>
             <h2 className="fs-32 md:fs-40 font-bold leading-40 md:leading-52 tracking--3 text-integra-gray-900">
               한글 가독성의 임계점을 넘는 <br />
-              <span className="text-integra-gray-400 font-bold">2px 단위 타이포그래피</span>
+              <span className="font-bold">2px 단위 타이포그래피</span>
             </h2>
             <p className="fs-18 text-integra-gray-600 leading-32 tracking--1">
-              한글은 영문보다 획이 복잡합니다. 12px은 작고 14px은 클 때, 우리는 <strong>fs-13</strong>을 선택합니다.<br />
-              최적의 판독성을 위해 4px 그리드 원칙을 유연하게 적용하여 가장 정갈한 한글 렌더링을 제공합니다.
+              항상 우리는 영문에 맞춰진 디자인 시스템의 타이포그라피 스케일을 사용했습니다.<br />
+              때문에 맞지 않는 행간, 어색한 폰트 사이즈때문에 개발자와 항상 불필요한 토론을 해야 했죠.<br />
+              이제는 한국어 본문에 최적화된 2px 단위의 세밀한 타이포그래피 스케일을 자유롭게 사용하세요.
             </p>
             <div className="pt-24 flex justify-center gap-16">
-                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-13 font-bold shadow-sm">fs-13 (고밀도)</div>
-                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-15 font-bold shadow-sm">fs-15 (본문 최적화)</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-12 font-bold shadow-sm">12px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-13 font-bold shadow-sm">13px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-14 font-bold shadow-sm">14px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-15 font-bold shadow-sm">15px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-16 font-bold shadow-sm">16px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-18 font-bold shadow-sm">18px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-20 font-bold shadow-sm">20px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-22 font-bold shadow-sm">22px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-24 font-bold shadow-sm">24px</div>
+                <div className="px-24 py-12 rounded-8 bg-white border border-integra-gray-200 fs-26 font-bold shadow-sm">26px</div>
             </div>
           </div>
         </div>
@@ -126,18 +135,18 @@ export default function Home() {
                 <Box className="w-24 h-24" />
               </div>
               <h2 className="fs-32 md:fs-40 font-bold leading-40 md:leading-52 tracking--3 text-integra-gray-900">
-                의존성 없는 <br />
-                <span className="text-primary font-bold">코드 소유권의 확보</span>
+                추가적인 외부 자원이 필요 없는 <br />
+                <span className="text-primary font-bold">독립적인 디자인 시스템</span>
               </h2>
               <p className="fs-18 text-integra-gray-600 leading-32 tracking--1">
-                Integra UI는 라이브러리에 설치하는 블랙박스가 아닙니다.<br />
-                아토믹한 코드를 당신의 프로젝트에 직접 복사하세요. 라이브러리 업데이트에 휘둘리지 않고<br />
-                원하는 대로 뜯고 고칠 수 있는 진정한 자유를 누리세요.
+                필요한 라이브러리를 찾아서 헤매지 마세요.<br />
+                Integra UI는 세세한 토큰 단위부터 모두 갖춰진 디자인 시스템입니다.<br />
+                디자인 토큰을 이용해 원하는 대로 뜯고 고칠 수 있는 진정한 자유를 누리세요.
               </p>
               <div className="pt-8">
                 <Link href="/docs/installation">
-                    <Button appearance="default" variant="tertiary" size="medium" className="gap-8 border border-integra-gray-200">
-                      설치 가이드 확인 <ChevronRight className="w-16 h-16" />
+                    <Button appearance="outlined" variant="default" size="default" className="gap-8">
+                      설치 가이드 보러가기 <ChevronRight className="w-16 h-16" />
                     </Button>
                 </Link>
               </div>
