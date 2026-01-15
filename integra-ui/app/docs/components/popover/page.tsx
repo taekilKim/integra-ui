@@ -1,5 +1,6 @@
 import { PopoverDemo } from "@/components/demo/popover-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,17 +13,40 @@ import {
 /**
  * [Integra UI - Popover Document SAI Version]
  * 특정 요소에 인접하여 부가 정보나 기능을 제공하는 오버레이 컴포넌트 문서입니다.
+ * 고도화된 CodeBlock을 통해 정교한 조립 가이드를 제공합니다.
  */
 export default function PopoverDocsPage() {
   // 1. 팝오버 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Width (고정 너비)", class: "w-{px}", value: "w-280" },
-    { property: "Padding (내부 여백)", class: "p-{px}", value: "p-16" },
-    { property: "Border Radius (곡률)", class: "rounded-{px}", value: "rounded-12" },
-    { property: "Border Color (테두리)", class: "border-{token}", value: "border-integra-gray-100" },
-    { property: "Shadow (그림자)", class: "shadow-{token}", value: "shadow-integra" },
-    { property: "Title Font Size (제목)", class: "fs-{px}", value: "fs-14" },
+    { property: "Width (고정 너비)", class: "w-280", value: "280px" },
+    { property: "Padding (내부 여백)", class: "p-16", value: "16px" },
+    { property: "Border Radius (곡률)", class: "rounded-12", value: "12px" },
+    { property: "Border Color (테두리)", class: "border-integra-gray-100", value: "Gray 100" },
+    { property: "Shadow (그림자)", class: "shadow-integra", value: "SAI Soft Shadow" },
+    { property: "Title Font Size (제목)", class: "fs-14", value: "14px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import { 
+  Popover, 
+  PopoverContent, 
+  PopoverTrigger 
+} from "@/components/ui/popover"`;
+
+  const usageCode = `<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="tertiary">Open Popover</Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-280">
+    <div className="grid gap-16">
+      <div className="space-y-4">
+        <h4 className="fs-14 font-bold leading-20">Dimensions</h4>
+        <p className="fs-12 text-integra-gray-500">Set the width and height.</p>
+      </div>
+      {/* Content here */}
+    </div>
+  </PopoverContent>
+</Popover>`;
 
   return (
     <div className="space-y-64 pb-120">
@@ -81,7 +105,7 @@ export default function PopoverDocsPage() {
                     {designTokens.map((token) => (
                         <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
                             <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
-                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.{token.class}</td>
                             <td className="px-24 py-16 font-mono text-integra-gray-900">{token.value}</td>
                         </tr>
                     ))}
@@ -103,20 +127,15 @@ export default function PopoverDocsPage() {
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import components</p>
-            <p className="text-integra-blue-400">import &#123; Popover, PopoverContent, PopoverTrigger &#125; from "@/components/ui/popover"</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Basic usage</p>
-            <p className="text-white">
-              &lt;Popover&gt;<br />
-              &nbsp;&nbsp;&lt;PopoverTrigger&gt;Open&lt;/PopoverTrigger&gt;<br />
-              &nbsp;&nbsp;&lt;PopoverContent&gt;Content...&lt;/PopoverContent&gt;<br />
-              &lt;/Popover&gt;
-            </p>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Components</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Usage Example</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

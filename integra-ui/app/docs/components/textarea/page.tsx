@@ -1,5 +1,6 @@
 import { TextareaDemo } from "@/components/demo/textarea-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,17 +13,33 @@ import {
 /**
  * [Integra UI - Textarea Document SAI Version]
  * 멀티라인 텍스트 입력을 위한 표준 폼 컴포넌트 문서입니다.
+ * 고도화된 CodeBlock을 통해 정교한 조립법을 안내합니다.
  */
 export default function TextareaDocsPage() {
   // 1. 텍스트에어리어 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Min Height (최소 높이)", class: "min-h-{px}", value: "min-h-80" },
-    { property: "Font Size (글자 크기)", class: "fs-{px}", value: "fs-14" },
-    { property: "Line Height (행간)", class: "leading-{px}", value: "leading-24" },
-    { property: "Border Radius (곡률)", class: "rounded-{px}", value: "rounded-8" },
-    { property: "Padding V (상하 여백)", class: "py-{px}", value: "py-8" },
-    { property: "Padding H (좌우 여백)", class: "px-{px}", value: "px-12" },
+    { property: "Min Height (최소 높이)", class: ".min-h-80", value: "80px" },
+    { property: "Font Size (글자 크기)", class: ".fs-14", value: "14px" },
+    { property: "Line Height (행간)", class: ".leading-24", value: "24px" },
+    { property: "Border Radius (곡률)", class: ".rounded-8", value: "8px" },
+    { property: "Padding V (상하 여백)", class: ".py-8", value: "8px" },
+    { property: "Padding H (좌우 여백)", class: ".px-12", value: "12px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import { Textarea } from "@/components/ui/textarea"`;
+
+  const usageCode = `<div className="grid w-full gap-8">
+  <Label htmlFor="message">Your Message</Label>
+  <Textarea 
+    id="message" 
+    placeholder="Type your message here." 
+    className="min-h-120"
+  />
+  <p className="fs-12 text-integra-gray-500">
+    문의 내용을 상세히 적어주세요.
+  </p>
+</div>`;
 
   return (
     <div className="space-y-64 pb-120">
@@ -96,22 +113,22 @@ export default function TextareaDocsPage() {
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <p>텍스트 영역은 콘텐츠의 양에 유연하게 반응하며 일관된 정렬 리듬을 유지합니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Spatial Minimum:</strong> 80px(min-h-80)의 최소 높이를 원자로 정의하여 사용자에게 명확한 입력 가시성을 보장합니다.</li>
-                <li><strong>Typography Focus:</strong> 긴 문장이 뭉쳐 보이지 않도록 1.7배에 달하는 24px(leading-24) 행간을 엄격히 적용합니다.</li>
-                <li><strong>Radius Consistency:</strong> 인풋 시스템 표준인 8px(rounded-8) 곡률을 유지하여 폼 레이아웃의 시각적 통일감을 부여합니다.</li>
+                <li><strong>Spatial Minimum:</strong> 80px(.min-h-80)의 최소 높이를 원자로 정의하여 사용자에게 명확한 입력 가시성을 보장합니다.</li>
+                <li><strong>Typography Focus:</strong> 긴 문장이 답답해 보이지 않도록 1.7배(24px) 행간을 엄격히 적용하여 가독성을 높였습니다.</li>
+                <li><strong>Radius Consistency:</strong> 인풋 시스템 표준인 8px(.rounded-8) 곡률을 공유하여 폼 레이아웃의 시각적 통일감을 부여합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import the component</p>
-            <p className="text-integra-blue-400">import &#123; Textarea &#125; from "@/components/ui/textarea"</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Basic usage</p>
-            <p className="text-white">&lt;Textarea placeholder="Type your message here." /&gt;</p>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Component</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Usage Example</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

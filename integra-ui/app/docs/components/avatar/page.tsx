@@ -1,6 +1,6 @@
-import { AccordionDemo } from "@/components/demo/accordion-demo";
+import { AvatarDemo } from "@/components/demo/avatar-demo";
 import { Badge } from "@/components/ui/badge";
-import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
+import { CodeBlock } from "@/components/layout/code-block";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -10,26 +10,19 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 
-export default function AccordionDocsPage() {
+export default function AvatarDocsPage() {
   const designTokens = [
-    { property: "Trigger Height (항목 높이)", class: "h-56", value: "56px" },
-    { property: "Trigger Font Size (제목)", class: "fs-16", value: "16px" },
-    { property: "Content Font Size (본문)", class: "fs-14", value: "14px" },
-    { property: "Content Line Height (행간)", class: "leading-24", value: "24px" },
-    { property: "Item Padding V (상하 여백)", class: "py-16", value: "16px" },
-    { property: "Border Color (구분선)", class: "border-integra-gray-100", value: "Gray 100" },
+    { property: "Size (크기)", class: "w-40 h-40", value: "40px" },
+    { property: "Border Radius (곡률)", class: "rounded-full", value: "9999px" },
+    { property: "Background (배경)", class: "bg-integra-gray-100", value: "Gray 100" },
+    { property: "Font Size (폴백)", class: "fs-14", value: "14px" },
+    { property: "Font Weight (폴백)", class: "font-bold", value: "700" },
   ];
 
-  const codeSnippet = `import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
-
-<Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Is it accessible?</AccordionTrigger>
-    <AccordionContent>
-      Yes. It adheres to the WAI-ARIA design pattern.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>`;
+  const codeSnippet = `<Avatar>
+  <AvatarImage src="/user.png" alt="User" />
+  <AvatarFallback>JD</AvatarFallback>
+</Avatar>`;
 
   return (
     <div className="space-y-64 pb-120">
@@ -37,13 +30,13 @@ export default function AccordionDocsPage() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem><BreadcrumbLink href="/docs/components">Components</BreadcrumbLink></BreadcrumbItem>
-            <BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>Accordion</BreadcrumbPage></BreadcrumbItem>
+            <BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>Avatar</BreadcrumbPage></BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">Accordion</h1>
+        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">Avatar</h1>
         <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
-          좁은 공간에 많은 정보를 담거나<br />
-          자주 묻는 질문(FAQ)처럼 정보를 계층적으로 노출할 때 유용합니다.
+          사용자를 나타내는 프로필 이미지나 아이콘을 표시하는 원자 컴포넌트입니다.<br />
+          이미지 로드 실패 시 이름의 이니셜 등을 보여주는 폴백 시스템을 내장하고 있습니다.
         </p>
       </div>
 
@@ -54,7 +47,7 @@ export default function AccordionDocsPage() {
             <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Playground</h2>
             <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500 font-medium">Interactive</Badge>
         </div>
-        <AccordionDemo />
+        <AvatarDemo />
       </section>
 
       <section className="space-y-24">
@@ -82,11 +75,9 @@ export default function AccordionDocsPage() {
       <section className="space-y-16 p-32 bg-integra-gray-50 rounded-16 border border-integra-gray-100">
         <h2 className="fs-20 font-bold leading-24 tracking--1 text-integra-gray-900">Atomic Design Note</h2>
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
-            <p>어코디언은 정보의 밀도와 펼침 애니메이션의 조화를 원자적으로 제어합니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Padding:</strong> 트리거 영역은 상하 16px(py-16)의 여백을 가져 56px의 안정적인 터치 영역을 형성합니다.</li>
-                <li><strong>Typography:</strong> 질문(Trigger)은 16px Bold로 강조하고, 답변(Content)은 14px Regular로 위계를 분리합니다.</li>
-                <li><strong>Line Height:</strong> 본문의 가독성을 위해 1.7배에 가까운 24px(leading-24) 행간을 엄격히 적용합니다.</li>
+                <li><strong>Geometric Rule:</strong> 40px(h-40) 표준 크기를 사용하여 다른 폼 요소들과의 시각적 선상 정렬을 유지합니다.</li>
+                <li><strong>Safe Fallback:</strong> 이미지가 없는 경우 <code>gray-100</code> 배경과 <code>gray-500</code> 텍스트 원자를 사용하여 중립적인 인상을 유지합니다.</li>
             </ul>
         </div>
       </section>

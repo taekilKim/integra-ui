@@ -1,5 +1,6 @@
 import { DialogDemo } from "@/components/demo/dialog-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,17 +13,49 @@ import {
 /**
  * [Integra UI - Dialog Document SAI Version]
  * 화면 위에 레이어를 띄워 중요한 정보를 전달하거나 상호작용을 유도하는 오버레이 문서입니다.
+ * 고도화된 CodeBlock을 통해 정교한 조립법을 안내합니다.
  */
 export default function DialogDocsPage() {
   // 1. 다이얼로그 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Max Width (최대 너비)", class: "max-w-{px}", value: "max-w-400" },
-    { property: "Padding (내부 여백)", class: "p-{px}", value: "p-24" },
-    { property: "Element Gap (요소 간격)", class: "gap-{px}", value: "gap-16" },
-    { property: "Border Radius (곡률)", class: "rounded-{px}", value: "rounded-16" },
-    { property: "Title Font Size (제목)", class: "fs-{px}", value: "fs-20" },
-    { property: "Description Font Size (설명)", class: "fs-{px}", value: "fs-14" },
+    { property: "Max Width (최대 너비)", class: "max-w-400", value: "400px" },
+    { property: "Padding (내부 여백)", class: "p-24", value: "24px" },
+    { property: "Element Gap (요소 간격)", class: "gap-16", value: "16px" },
+    { property: "Border Radius (곡률)", class: "rounded-16", value: "16px" },
+    { property: "Title Font Size (제목)", class: "fs-20", value: "20px" },
+    { property: "Description Font Size (설명)", class: "fs-14", value: "14px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import { 
+  Dialog, 
+  DialogContent, 
+  DialogDescription, 
+  DialogFooter, 
+  DialogHeader, 
+  DialogTitle, 
+  DialogTrigger,
+  DialogClose
+} from "@/components/ui/dialog"`;
+
+  const usageCode = `<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="default">Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <Button variant="tertiary">Cancel</Button>
+      <Button appearance="destructive">Continue</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`;
 
   return (
     <div className="space-y-64 pb-120">
@@ -81,7 +114,7 @@ export default function DialogDocsPage() {
                     {designTokens.map((token) => (
                         <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
                             <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
-                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.{token.class}</td>
                             <td className="px-24 py-16 font-mono text-integra-gray-900">{token.value}</td>
                         </tr>
                     ))}
@@ -98,25 +131,20 @@ export default function DialogDocsPage() {
             <ul className="list-disc pl-20 space-y-4">
                 <li><strong>Width Constraint:</strong> 기본 400px(max-w-400)로 제한하여 정보 전달의 효율성과 가독성 범위를 확보합니다.</li>
                 <li><strong>Spacing System:</strong> 카드 시스템과 동일한 24px(p-24) 여백을 사용하여 조형적 통일성을 유지합니다.</li>
-                <li><strong>Depth Vision:</strong> 16px(rounded-16) 곡률과 <code>shadow-integra</code> 토큰을 통해 명확한 부유감을 형성합니다.</li>
+                <li><strong>Depth Vision:</strong> 16px(rounded-16) 곡률과 <code>shadow-integra</code> 토큰을 통해 본문과 분리된 명확한 레이어를 형성합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import components</p>
-            <p className="text-integra-blue-400">import &#123; Dialog, DialogContent, DialogTrigger &#125; from "@/components/ui/dialog"</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Integration Example</p>
-            <p className="text-white">
-              &lt;Dialog&gt;<br />
-              &nbsp;&nbsp;&lt;DialogTrigger&gt;Open&lt;/DialogTrigger&gt;<br />
-              &nbsp;&nbsp;&lt;DialogContent&gt;...&lt;/DialogContent&gt;<br />
-              &lt;/Dialog&gt;
-            </p>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Components</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Usage Example</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

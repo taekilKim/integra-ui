@@ -1,5 +1,6 @@
 import { ToastDemo } from "@/components/demo/toast-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -11,23 +12,35 @@ import {
 
 /**
  * [Integra UI - Toast Document SAI Version]
- * 사용자 액션에 대한 피드백을 비침습적으로 전달하는 알림 시스템 문서입니다.
+ * 사용자 액션에 대한 피드백을 전달하는 알림 시스템 문서입니다.
+ * 고도화된 CodeBlock을 통해 Hook 기반 호출 방식을 안내합니다.
  */
 export default function ToastDocsPage() {
   // 1. 토스트 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Max Width (최대 너비)", class: "max-w-{px}", value: "max-w-400" },
-    { property: "Padding (내부 여백)", class: "p-{px}", value: "p-16" },
-    { property: "Border Radius (곡률)", class: "rounded-{px}", value: "rounded-12" },
-    { property: "Title Font Size (제목)", class: "fs-{px}", value: "fs-14" },
-    { property: "Desc Font Size (설명)", class: "fs-{px}", value: "fs-13" },
-    { property: "Line Height (행간)", class: "leading-{px}", value: "leading-20" },
+    { property: "Max Width (최대 너비)", class: ".max-w-400", value: "400px" },
+    { property: "Padding (내부 여백)", class: ".p-16", value: "16px" },
+    { property: "Border Radius (곡률)", class: ".rounded-12", value: "12px" },
+    { property: "Title Font Size (제목)", class: ".fs-14", value: "14px" },
+    { property: "Desc Font Size (설명)", class: ".fs-13", value: "13px" },
+    { property: "Line Height (행간)", class: ".leading-20", value: "20px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import { useToast } from "@/hooks/use-toast"`;
+  
+  const usageCode = `const { toast } = useToast()
+
+toast({
+  title: "Success",
+  description: "Your changes have been saved successfully.",
+  // variant: "destructive", // For error states
+})`;
 
   return (
     <div className="space-y-64 pb-120">
       
-      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 규격 준수 */}
+      {/* 1. 헤더 섹션: 표준 규격 준수 */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -96,27 +109,22 @@ export default function ToastDocsPage() {
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <p>토스트는 제한된 공간 내에서 정보 밀도를 극대화하도록 설계된 원자들의 집합입니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Placement Strategy:</strong> 데스크탑에서는 우측 하단, 모바일에서는 상단 중앙(max-w-400)에 고정되어 시각적 간섭을 최소화합니다.</li>
-                <li><strong>Hybrid Typography:</strong> 제목은 14px(fs-14) Bold를 사용하여 시인성을 확보하고, 설명은 정보 밀도를 높이기 위해 13px(fs-13) Regular 토큰을 전략적으로 사용합니다.</li>
-                <li><strong>Soft Overlay:</strong> 12px(rounded-12) 곡률과 <code>shadow-integra</code>를 조합하여 본문과 분리된 부드러운 오버레이 레이어를 형성합니다.</li>
+                <li><strong>Placement Strategy:</strong> 데스크탑에서는 우측 하단, 모바일에서는 상단 중앙(.max-w-400)에 고정되어 시각적 간섭을 최소화합니다.</li>
+                <li><strong>Hybrid Typography:</strong> 제목은 14px(.fs-14) Bold를 사용하여 시인성을 확보하고, 설명은 정보 밀도를 높이기 위해 13px(.fs-13) Regular 토큰을 전략적으로 사용합니다.</li>
+                <li><strong>Elevation:</strong> 12px(.rounded-12) 곡률과 <code>shadow-integra</code>를 조합하여 본문과 분리된 명확한 레이어 위계를 형성합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Use custom hook to trigger toast</p>
-            <p className="text-integra-blue-400">import &#123; useToast &#125; from "@/hooks/use-toast"</p>
-            <br />
-            <p className="text-white">
-              const &#123; toast &#125; = useToast();<br /><br />
-              toast(&#123;<br />
-              &nbsp;&nbsp;title: "Success",<br />
-              &nbsp;&nbsp;description: "Changes have been saved."<br />
-              &#125;);
-            </p>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Hook</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Trigger Toast</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

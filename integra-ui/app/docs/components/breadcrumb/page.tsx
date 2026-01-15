@@ -1,13 +1,14 @@
 import { BreadcrumbDemo } from "@/components/demo/breadcrumb-demo"
 import {
   Breadcrumb,
+  BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { Badge } from "@/components/ui/badge"
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 
 /**
  * [Integra UI - Breadcrumb Document SAI Version]
@@ -16,16 +17,38 @@ import { Badge } from "@/components/ui/badge"
 export default function BreadcrumbDocsPage() {
   // 1. 브레드크럼 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Font Size (글자 크기)", class: "fs-{px}", value: "fs-12" },
-    { property: "Line Height (행간)", class: "leading-{px}", value: "leading-16" },
-    { property: "Item Gap (항목 간격)", class: "gap-{px}", value: "gap-8" },
-    { property: "Separator Size (구분자 크기)", class: "[&>svg]:w-{px}", value: "14px" },
-    { property: "Link Color (기본 경로)", class: "text-{token}", value: "integra-gray-500" },
-    { property: "Page Color (현재 페이지)", class: "text-{token}", value: "integra-gray-900" },
+    { property: "Font Size (글자 크기)", class: "fs-12", value: "12px" },
+    { property: "Line Height (행간)", class: "leading-16", value: "16px" },
+    { property: "Item Gap (항목 간격)", class: "gap-8", value: "8px" },
+    { property: "Separator Size (구분자 크기)", class: "[&>svg]:w-14", value: "14px" },
+    { property: "Link Color (기본 경로)", class: "text-integra-gray-500", value: "Gray 500" },
+    { property: "Page Color (현재 페이지)", class: "text-integra-gray-900", value: "Gray 900" },
   ];
 
+  // 2. 코드 스니펫 정의
+  const usageCode = `import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>`;
+
   return (
-    <div className="space-y-64 pb-80">
+    <div className="space-y-64 pb-120">
       
       {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 규격 준수 */}
       <div className="space-y-16">
@@ -77,7 +100,7 @@ export default function BreadcrumbDocsPage() {
                     {designTokens.map((token) => (
                         <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
                             <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
-                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.{token.class}</td>
                             <td className="px-24 py-16 font-mono text-integra-gray-900">{token.value}</td>
                         </tr>
                     ))}
@@ -101,14 +124,12 @@ export default function BreadcrumbDocsPage() {
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import components</p>
-            <code className="block text-integra-blue-400">
-              import &#123; Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator &#125; from "@/components/ui/breadcrumb"
-            </code>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">Installation & Usage</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

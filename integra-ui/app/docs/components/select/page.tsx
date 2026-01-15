@@ -1,5 +1,6 @@
 import { SelectDemo } from "@/components/demo/select-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -11,18 +12,39 @@ import {
 
 /**
  * [Integra UI - Select Document SAI Version]
- * 선택 목록을 제공하는 드롭다운 컴포넌트 문서입니다.
+ * 목록 중 하나의 값을 선택하는 표준 드롭다운 컴포넌트 문서입니다.
+ * 고도화된 CodeBlock을 통해 정교한 조립법을 안내합니다.
  */
 export default function SelectDocsPage() {
   // 1. 셀렉트 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Trigger Height (높이)", class: "h-{px}", value: "h-40" },
-    { property: "Font Size (글자 크기)", class: "fs-{px}", value: "fs-14" },
-    { property: "Border Radius (곡률)", class: "rounded-{px}", value: "rounded-8" },
+    { property: "Trigger Height (높이)", class: "h-40", value: "40px" },
+    { property: "Font Size (글자 크기)", class: "fs-14", value: "14px" },
+    { property: "Border Radius (곡률)", class: "rounded-8", value: "8px" },
     { property: "Trigger Padding (내부 여백)", class: "px-12 py-8", value: "12px / 8px" },
-    { property: "Content Shadow (그림자)", class: "shadow-{token}", value: "shadow-integra" },
+    { property: "Content Shadow (그림자)", class: "shadow-integra", value: "SAI Soft Shadow" },
     { property: "Item Padding (항목 여백)", class: "pl-32 pr-8 py-8", value: "32px / 8px / 8px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"`;
+
+  const usageCode = `<Select>
+  <SelectTrigger className="w-180">
+    <SelectValue placeholder="Theme" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Light</SelectItem>
+    <SelectItem value="dark">Dark</SelectItem>
+    <SelectItem value="system">System</SelectItem>
+  </SelectContent>
+</Select>`;
 
   return (
     <div className="space-y-64 pb-120">
@@ -81,7 +103,7 @@ export default function SelectDocsPage() {
                     {designTokens.map((token) => (
                         <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
                             <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
-                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.{token.class}</td>
                             <td className="px-24 py-16 font-mono text-integra-gray-900">{token.value}</td>
                         </tr>
                     ))}
@@ -103,24 +125,15 @@ export default function SelectDocsPage() {
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import the components</p>
-            <p className="text-integra-blue-400">import &#123; Select, SelectContent, SelectItem, SelectTrigger, SelectValue &#125; from "@/components/ui/select"</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Basic usage</p>
-            <p className="text-white">
-              &lt;Select&gt;<br />
-              &nbsp;&nbsp;&lt;SelectTrigger className="w-180"&gt;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;SelectValue placeholder="Theme" /&gt;<br />
-              &nbsp;&nbsp;&lt;/SelectTrigger&gt;<br />
-              &nbsp;&nbsp;&lt;SelectContent&gt;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;SelectItem value="light"&gt;Light&lt;/SelectItem&gt;<br />
-              &nbsp;&nbsp;&lt;/SelectContent&gt;<br />
-              &lt;/Select&gt;
-            </p>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Components</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Usage Example</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

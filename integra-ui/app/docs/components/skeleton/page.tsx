@@ -1,5 +1,6 @@
 import { SkeletonDemo } from "@/components/demo/skeleton-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -11,23 +12,35 @@ import {
 
 /**
  * [Integra UI - Skeleton Document SAI Version]
- * 콘텐츠가 로드되기 전의 레이아웃 뼈대를 시각화하는 아토믹 컴포넌트 문서입니다.
+ * 데이터 로딩 중 레이아웃의 뼈대를 보여주는 아토믹 컴포넌트 문서입니다.
+ * 고도화된 CodeBlock을 통해 정교한 조립법을 안내합니다.
  */
 export default function SkeletonDocsPage() {
   // 1. 스켈레톤 전용 디자인 토큰 데이터
   const designTokens = [
     { property: "Animation (애니메이션)", class: "animate-pulse", value: "2s / Pulse" },
-    { property: "Background (배경색)", class: "bg-{token}", value: "integra-gray-100" },
-    { property: "Default Radius (곡률)", class: "rounded-{px}", value: "rounded-8" },
+    { property: "Background (배경색)", class: "bg-integra-gray-100", value: "Gray 100" },
+    { property: "Default Radius (곡률)", class: "rounded-8", value: "8px" },
     { property: "Circle Radius (원형)", class: "rounded-full", value: "9999px" },
-    { property: "Text Skeleton Height", class: "h-{px}", value: "h-12 / h-16" },
-    { property: "Avatar Skeleton Size", class: "w-{px} h-{px}", value: "w-48 h-48" },
+    { property: "Text Skeleton Height", class: "h-12 / h-16", value: "12px / 16px" },
+    { property: "Avatar Skeleton Size", class: "w-48 h-48", value: "48px x 48px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import { Skeleton } from "@/components/ui/skeleton"`;
+
+  const usageCode = `<div className="flex items-center gap-16">
+  <Skeleton className="h-48 w-48 rounded-full" />
+  <div className="space-y-8 flex-1">
+    <Skeleton className="h-16 w-120" />
+    <Skeleton className="h-12 w-full" />
+  </div>
+</div>`;
 
   return (
     <div className="space-y-64 pb-120">
       
-      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 규격 준수 */}
+      {/* 1. 헤더 섹션: 표준 규격 준수 */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -81,7 +94,7 @@ export default function SkeletonDocsPage() {
                     {designTokens.map((token) => (
                         <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
                             <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
-                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.{token.class}</td>
                             <td className="px-24 py-16 font-mono text-integra-gray-900">{token.value}</td>
                         </tr>
                     ))}
@@ -96,22 +109,22 @@ export default function SkeletonDocsPage() {
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <p>스켈레톤은 실제 컴포넌트의 기하학적 원자 구조를 그대로 복제하여 설계합니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Animation:</strong> <code>animate-pulse</code> 토큰을 사용하여 인지적 부담이 적은 부드러운 점멸 효과를 제공합니다.</li>
-                <li><strong>Color:</strong> <code>integra-gray-100</code> 토큰을 표준 배경색으로 사용하여 정갈하고 중립적인 로딩 상태를 구현합니다.</li>
-                <li><strong>Radius:</strong> 텍스트는 4px, 일반 박스는 8px, 프로필은 full 토큰을 사용하여 원본의 조형미를 유지합니다.</li>
+                <li><strong>Animation Strategy:</strong> <code>animate-pulse</code> 토큰을 사용하여 인지적 부하가 적은 부드러운 점멸 효과를 제공합니다.</li>
+                <li><strong>Neutral Color:</strong> <code>integra-gray-100</code> 토큰을 사용하여 어떤 배경 위에서도 중립적인 로딩 상태를 유지합니다.</li>
+                <li><strong>Proportional Radius:</strong> 콘텐츠 원자의 형태에 따라 4px, 8px, full 토큰을 유연하게 조합하여 원본의 조형미를 계승합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import the component</p>
-            <p className="text-integra-blue-400">import &#123; Skeleton &#125; from "@/components/ui/skeleton"</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Basic usage</p>
-            <p className="text-white">&lt;Skeleton className="h-48 w-48 rounded-full" /&gt;</p>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Component</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Usage Example</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

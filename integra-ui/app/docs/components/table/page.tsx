@@ -1,5 +1,6 @@
 import { TableDemo } from "@/components/demo/table-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,22 +13,51 @@ import {
 /**
  * [Integra UI - Table Document SAI Version]
  * 대량의 데이터를 행과 열의 구조로 정렬하여 보여주는 데이터 그리드 문서입니다.
+ * 고도화된 CodeBlock을 통해 정교한 조립 가이드를 제공합니다.
  */
 export default function TableDocsPage() {
   // 1. 테이블 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Header Height (헤더 높이)", class: "h-{px}", value: "h-44" },
-    { property: "Cell Padding V (상하 여백)", class: "py-{px}", value: "py-12" },
-    { property: "Cell Padding H (좌우 여백)", class: "px-{px}", value: "px-16" },
-    { property: "Border Color (구분선)", class: "border-{token}", value: "border-integra-gray-100" },
-    { property: "Header Font Size (헤더 글자)", class: "fs-{px}", value: "fs-12" },
-    { property: "Body Font Size (본문 글자)", class: "fs-{px}", value: "fs-14" },
+    { property: "Header Height (헤더 높이)", class: ".h-44", value: "44px" },
+    { property: "Cell Padding V (상하 여백)", class: ".py-12", value: "12px" },
+    { property: "Cell Padding H (좌우 여백)", class: ".px-16", value: "16px" },
+    { property: "Border Color (구분선)", class: ".border-integra-gray-100", value: "Gray 100" },
+    { property: "Header Font Size (헤더 글자)", class: ".fs-12", value: "12px" },
+    { property: "Body Font Size (본문 글자)", class: ".fs-14", value: "14px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"`;
+
+  const usageCode = `<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead className="w-100">Invoice</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead className="text-right">Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell className="font-medium">INV-001</TableCell>
+      <TableCell>Paid</TableCell>
+      <TableCell className="text-right">$250.00</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>`;
 
   return (
     <div className="space-y-64 pb-120">
       
-      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 규격 준수 */}
+      {/* 1. 헤더 섹션: 표준 규격 준수 */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -96,21 +126,22 @@ export default function TableDocsPage() {
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <p>테이블은 정보의 리듬과 가독성을 위해 가장 정교한 아토믹 계산이 필요한 영역입니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Vertical Rhythm:</strong> 각 셀은 12px의 상하 패딩(py-12)을 사용하여 데이터 간의 간섭을 최소화하고 가독성을 확보합니다.</li>
+                <li><strong>Vertical Rhythm:</strong> 각 셀은 12px의 상하 패딩(py-12)을 사용하여 데이터 간의 간섭을 최소화하고 시각적 질서를 확보합니다.</li>
                 <li><strong>Typography Hierarchy:</strong> 헤더는 12px Bold를 사용하여 데이터와의 위계를 분리하고, 본문 셀은 14px Regular 스타일을 사용합니다.</li>
-                <li><strong>Border Consistency:</strong> <code>integra-gray-100</code> 토큰의 1px 선을 사용하여 데이터 간의 경계를 명확히 하되 시각적 노이즈는 최소화합니다.</li>
+                <li><strong>Strict Borders:</strong> <code>integra-gray-100</code> 토큰의 1px 선을 사용하여 데이터 간의 경계를 명확히 하되 디자인 노이즈를 최소화합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import components</p>
-            <code className="block text-integra-blue-400">
-              import &#123; Table, TableHeader, TableBody, TableRow, TableHead, TableCell &#125; from "@/components/ui/table"
-            </code>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Components</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Usage Example</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

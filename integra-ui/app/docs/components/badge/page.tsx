@@ -1,5 +1,6 @@
 import { BadgeDemo } from "@/components/demo/badge-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -9,21 +10,32 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 
+/**
+ * [Integra UI - Badge Document SAI Version]
+ * 상태나 카테고리를 강조하는 초소형 원자 컴포넌트 문서입니다.
+ */
 export default function BadgeDocsPage() {
   // 1. 뱃지 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Font Size (글자 크기)", class: "fs-{px}", value: "fs-12" },
-    { property: "Line Height (행간)", class: "leading-{px}", value: "leading-16" },
-    { property: "Border Radius (곡률)", class: "rounded-{px}", value: "rounded-full" },
-    { property: "Padding V (상하 여백)", class: "py-{px}", value: "py-2" },
-    { property: "Padding H (좌우 여백)", class: "px-{px}", value: "px-8" },
+    { property: "Font Size (글자 크기)", class: "fs-12", value: "12px" },
+    { property: "Line Height (행간)", class: "leading-16", value: "16px" },
+    { property: "Border Radius (곡률)", class: "rounded-full", value: "9999px" },
+    { property: "Padding V (상하 여백)", class: "py-2", value: "2px" },
+    { property: "Padding H (좌우 여백)", class: "px-8", value: "8px" },
     { property: "Border Width (선 두께)", class: "border", value: "1px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import { Badge } from "@/components/ui/badge"`;
+  const usageCode = `<Badge variant="default">Status</Badge>
+<Badge variant="secondary">In Progress</Badge>
+<Badge variant="outline">Draft</Badge>
+<Badge variant="destructive">Error</Badge>`;
 
   return (
     <div className="space-y-64 pb-120">
       
-      {/* 1. 헤더 섹션: 표준 규격 준수 및 설명글 정화 */}
+      {/* 1. 헤더 섹션: 표준 규격 준수 */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -38,7 +50,7 @@ export default function BadgeDocsPage() {
         </Breadcrumb>
         <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">Badge</h1>
         <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
-          상태, 카테고리, 태그 등을 시괄적으로 강조하여 표시하는 요소입니다.<br />
+          상태, 카테고리, 태그 등을 시각적으로 강조하여 표시하는 요소입니다.<br />
           텍스트 흐름을 방해하지 않는 정교한 아토믹 규격으로 설계되었습니다.
         </p>
       </div>
@@ -54,7 +66,7 @@ export default function BadgeDocsPage() {
         <BadgeDemo />
       </section>
 
-      {/* 3. 디자인 토큰 섹션: 수치와 클래스의 1:1 매칭 명세 */}
+      {/* 3. 디자인 토큰 섹션 */}
       <section className="space-y-24">
         <div className="space-y-8">
             <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">디자인 토큰</h2>
@@ -73,7 +85,7 @@ export default function BadgeDocsPage() {
                     {designTokens.map((token) => (
                         <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
                             <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
-                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">.{token.class}</td>
                             <td className="px-24 py-16 font-mono text-integra-gray-900">{token.value}</td>
                         </tr>
                     ))}
@@ -88,22 +100,22 @@ export default function BadgeDocsPage() {
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <p>Integra UI의 뱃지는 정보의 중요도에 따라 4가지 원자적 변형을 제공합니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Optical Balance:</strong> 가독성을 유지하면서 메인 텍스트와 충돌하지 않도록 12px(fs-12) 규격을 기본으로 사용합니다.</li>
+                <li><strong>Optical Balance:</strong> 가독성을 유지하면서 메인 텍스트와 시각적 충돌을 피하는 12px(fs-12) 규격을 표준으로 사용합니다.</li>
                 <li><strong>Padding:</strong> 2px 단위 정밀 제어를 통해 상하 2px(py-2)의 타이트한 여백을 구현했습니다.</li>
                 <li><strong>Shape Identity:</strong> <code>rounded-full</code> 토큰을 사용하여 버튼(Rounded-8/16)과 확연히 구분되는 인상을 줍니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import the component</p>
-            <p className="text-integra-blue-400">import &#123; Badge &#125; from "@/components/ui/badge"</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Basic usage</p>
-            <p className="text-white">&lt;Badge variant="default"&gt;Status&lt;/Badge&gt;</p>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Basic usage</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 

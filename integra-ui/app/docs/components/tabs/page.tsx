@@ -1,5 +1,6 @@
 import { TabsDemo } from "@/components/demo/tabs-demo";
 import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,22 +13,39 @@ import {
 /**
  * [Integra UI - Tabs Document SAI Version]
  * 동일 맥락의 콘텐츠를 그룹화하여 전환하는 내비게이션 컴포넌트 문서입니다.
+ * 고도화된 CodeBlock을 통해 정교한 조립 가이드를 제공합니다.
  */
 export default function TabsDocsPage() {
   // 1. 탭 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "List Height (전체 높이)", class: "h-{px}", value: "h-40" },
-    { property: "List Radius (외곽 곡률)", class: "rounded-{px}", value: "rounded-8" },
-    { property: "Trigger Radius (내부 곡률)", class: "rounded-{px}", value: "rounded-4" },
-    { property: "Trigger Padding (내부 여백)", class: "px-12 py-4", value: "12px / 4px" },
-    { property: "Font Size (글자 크기)", class: "fs-{px}", value: "fs-14" },
-    { property: "Content Margin (본문 간격)", class: "mt-{px}", value: "mt-8" },
+    { property: "List Height (전체 높이)", class: ".h-40", value: "40px" },
+    { property: "List Radius (외곽 곡률)", class: ".rounded-8", value: "8px" },
+    { property: "Trigger Radius (내부 곡률)", class: ".rounded-4", value: "4px" },
+    { property: "Trigger Padding (내부 여백)", class: ".px-12 .py-4", value: "12px / 4px" },
+    { property: "Font Size (글자 크기)", class: ".fs-14", value: "14px" },
+    { property: "Content Margin (본문 간격)", class: ".mt-8", value: "8px" },
   ];
+
+  // 2. 코드 스니펫 정의
+  const importCode = `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"`;
+
+  const usageCode = `<Tabs defaultValue="account" className="w-400">
+  <TabsList className="grid w-full grid-cols-2">
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account" className="py-16">
+    Manage your account settings here.
+  </TabsContent>
+  <TabsContent value="password" className="py-16">
+    Change your password here.
+  </TabsContent>
+</Tabs>`;
 
   return (
     <div className="space-y-64 pb-120">
       
-      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 및 설명글 줄바꿈 규격 준수 */}
+      {/* 1. 헤더 섹션: 표준 규격 준수 */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -96,29 +114,22 @@ export default function TabsDocsPage() {
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <p>탭은 정보의 밀도와 시각적 위계를 원자 단위로 제어하는 컴포넌트입니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Height Logic:</strong> 탭 리스트의 전체 높이는 40px(h-40)로 설정되어 버튼/인풋 규격과 시각적 평형을 이룹니다.</li>
-                <li><strong>Hierarchical Radius:</strong> 외곽 컨테이너는 8px(rounded-8), 내부의 선택 아이템은 4px(rounded-4)의 중첩 곡률을 사용합니다.</li>
-                <li><strong>Semantic States:</strong> 활성화된 탭은 <code>bg-white</code>와 <code>gray-900</code> 토큰을 사용하여 배경과의 명확한 대비를 형성합니다.</li>
+                <li><strong>Vertical Alignment:</strong> 탭 리스트의 전체 높이는 40px(h-40)로 설정되어 버튼 및 인풋 규격과 완벽한 수평 리듬을 이룹니다.</li>
+                <li><strong>Nested Radius:</strong> 외곽 컨테이너는 8px(rounded-8), 내부의 선택 아이템은 4px(rounded-4)의 중첩 곡률을 사용하여 조형적 안정감을 부여합니다.</li>
+                <li><strong>Interaction Standard:</strong> 활성화된 탭은 <code>bg-white</code>와 <code>text-integra-gray-900</code> 토큰을 조합하여 시각적 대비를 명확히 합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. 사용법 */}
-      <section className="space-y-16">
+      {/* 5. 사용법: CodeBlock 적용 */}
+      <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import the components</p>
-            <p className="text-integra-blue-400">import &#123; Tabs, TabsList, TabsTrigger, TabsContent &#125; from "@/components/ui/tabs"</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Basic usage</p>
-            <p className="text-white">
-              &lt;Tabs defaultValue="account"&gt;<br />
-              &nbsp;&nbsp;&lt;TabsList&gt;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;TabsTrigger value="account"&gt;Account&lt;/TabsTrigger&gt;<br />
-              &nbsp;&nbsp;&lt;/TabsList&gt;<br />
-              &nbsp;&nbsp;&lt;TabsContent value="account"&gt;Content...&lt;/TabsContent&gt;<br />
-              &lt;/Tabs&gt;
-            </p>
+        <div className="space-y-16">
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Components</p>
+          <CodeBlock code={importCode} />
+          
+          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Usage Example</p>
+          <CodeBlock code={usageCode} />
         </div>
       </section>
 
