@@ -10,30 +10,20 @@ import {
 } from "@/components/ui/breadcrumb";
 
 export default function ButtonDocsPage() {
-  // 1. 사이즈별 적용된 원자(Atoms) 데이터
-  const appliedAtoms = [
-    { property: "Height (높이)", default: "56px", medium: "48px", small: "32px" },
-    { property: "Font Size (글자 크기)", default: "18px", medium: "16px", small: "12px" },
-    { property: "Line Height (행간)", default: "24px", medium: "20px", small: "16px" },
-    { property: "Border Radius (곡률)", default: "16px", medium: "12px", small: "8px" },
-    { property: "Padding V (상하 여백)", default: "16px", medium: "14px", small: "8px" },
-    { property: "Padding H (좌우 여백)", default: "20px", medium: "12px", small: "8px" },
-  ];
-
-  // 2. 스타일 변경을 위해 제어하는 시맨틱(Semantic) 토큰 데이터
-  const stylingTokens = [
-    { name: "--primary", desc: "버튼의 주조색 (Main Background)", ref: "blue-500" },
-    { name: "--primary-hover", desc: "마우스 호버 시 배경색", ref: "blue-600" },
-    { name: "--primary-foreground", desc: "버튼 내부 글자 및 아이콘 색상", ref: "white" },
-    { name: "--primary-subtle", desc: "Secondary 위계의 연한 배경색", ref: "blue-50" },
-    { name: "--destructive", desc: "위험/삭제 상태의 주조색", ref: "red-500" },
-    { name: "--radius", desc: "시스템 전체 곡률의 기준점", ref: "8px" },
+  // 1. 사이즈별 디자인 토큰 및 클래스 매핑 데이터
+  const designTokens = [
+    { property: "Height (높이)", class: "h-{px}", default: "h-56", medium: "h-48", small: "h-32" },
+    { property: "Font Size (글자 크기)", class: "fs-{px}", default: "fs-18", medium: "fs-16", small: "fs-12" },
+    { property: "Line Height (행간)", class: "leading-{px}", default: "leading-24", medium: "leading-20", small: "leading-16" },
+    { property: "Border Radius (곡률)", class: "rounded-{px}", default: "rounded-16", medium: "rounded-12", small: "rounded-8" },
+    { property: "Padding V (상하 여백)", class: "py-{px}", default: "py-16", medium: "py-14", small: "py-8" },
+    { property: "Padding H (좌우 여백)", class: "px-{px}", default: "px-20", medium: "px-12", small: "px-8" },
   ];
 
   return (
     <div className="space-y-64 pb-120">
       
-      {/* 1. Header Section */}
+      {/* 1. Header Section: 표준 규격 준수 */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -68,29 +58,31 @@ export default function ButtonDocsPage() {
         <ButtonDemo />
       </section>
 
-      {/* 3. Applied Tokens Section: 원자 단위 수치 명세 */}
+      {/* 3. 디자인 토큰 섹션: 수치와 클래스의 1:1 매칭 명세 */}
       <section className="space-y-24">
         <div className="space-y-8">
-            <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Applied Tokens</h2>
-            <p className="fs-16 text-integra-gray-500">각 사이즈 규격에 적용된 Integra UI 아토믹 원자들의 상세 수치입니다.</p>
+            <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">디자인 토큰</h2>
+            <p className="fs-16 text-integra-gray-500">각 사이즈 규격에 적용된 아토믹 클래스와 실제 수치 명세입니다.</p>
         </div>
         <div className="rounded-12 border border-integra-gray-100 overflow-hidden shadow-sm">
             <table className="w-full text-left border-collapse">
                 <thead className="bg-integra-gray-50 border-b border-integra-gray-200">
                     <tr className="fs-12 font-bold text-integra-gray-400">
-                        <th className="px-24 py-16">Property</th>
-                        <th className="px-24 py-16">Default (56)</th>
-                        <th className="px-24 py-16">Medium (48)</th>
-                        <th className="px-24 py-16">Small (32)</th>
+                        <th className="px-24 py-16">속성 (Property)</th>
+                        <th className="px-24 py-16">토큰 클래스</th>
+                        <th className="px-24 py-16">Default (56px)</th>
+                        <th className="px-24 py-16">Medium (48px)</th>
+                        <th className="px-24 py-16">Small (32px)</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y border-integra-gray-100 fs-14">
-                    {appliedAtoms.map((atom) => (
-                        <tr key={atom.property} className="hover:bg-integra-gray-50/50">
-                            <td className="px-24 py-16 font-medium text-integra-gray-700">{atom.property}</td>
-                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{atom.default}</td>
-                            <td className="px-24 py-16 font-mono text-integra-gray-500">{atom.medium}</td>
-                            <td className="px-24 py-16 font-mono text-integra-gray-500">{atom.small}</td>
+                    {designTokens.map((token) => (
+                        <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
+                            <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
+                            <td className="px-24 py-16 font-mono text-blue-600 font-bold">{token.class}</td>
+                            <td className="px-24 py-16 font-mono text-integra-gray-900">{token.default}</td>
+                            <td className="px-24 py-16 font-mono text-integra-gray-500">{token.medium}</td>
+                            <td className="px-24 py-16 font-mono text-integra-gray-500">{token.small}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -98,35 +90,7 @@ export default function ButtonDocsPage() {
         </div>
       </section>
 
-      {/* 4. Styling Tokens Section: 시맨틱 제어 가이드 */}
-      <section className="space-y-24">
-        <div className="space-y-8">
-            <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Styling Tokens</h2>
-            <p className="fs-16 text-integra-gray-500">버튼의 시각적 스타일을 커스텀하기 위해 <code>globals.css</code>에서 제어하는 시맨틱 토큰 리스트입니다.</p>
-        </div>
-        <div className="rounded-12 border border-integra-gray-100 overflow-hidden shadow-sm">
-            <table className="w-full text-left border-collapse">
-                <thead className="bg-integra-gray-50 border-b border-integra-gray-200">
-                    <tr className="fs-12 font-bold text-integra-gray-400">
-                        <th className="px-24 py-16">Token Name</th>
-                        <th className="px-24 py-16">Description</th>
-                        <th className="px-24 py-16">Default Value</th>
-                    </tr>
-                </thead>
-                <tbody className="divide-y border-integra-gray-100 fs-14">
-                    {stylingTokens.map((token) => (
-                        <tr key={token.name} className="hover:bg-integra-gray-50/50">
-                            <td className="px-24 py-16 font-mono font-bold text-primary">{token.name}</td>
-                            <td className="px-24 py-16 text-integra-gray-700">{token.desc}</td>
-                            <td className="px-24 py-16 text-integra-gray-400 italic">var(--{token.ref})</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-      </section>
-
-      {/* 5. Atomic Design Note */}
+      {/* 4. Atomic Design Note */}
       <section className="space-y-16 p-32 bg-integra-gray-50 rounded-16 border border-integra-gray-100">
         <h2 className="fs-20 font-bold leading-24 tracking--1 text-integra-gray-900">Atomic Design Note</h2>
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
@@ -141,10 +105,11 @@ export default function ButtonDocsPage() {
         </div>
       </section>
 
-      {/* 6. Usage */}
+      {/* 5. Usage */}
       <section className="space-y-16">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
         <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
+            <p className="text-integra-gray-500 mb-8">// Import component</p>
             <code className="block">import &#123; Button &#125; from "@/components/ui/button"</code>
         </div>
       </section>
