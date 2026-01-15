@@ -62,12 +62,12 @@ const buttonVariants = cva(
       {
         appearance: "outlined",
         variant: "secondary",
-        className: "border-integra-gray-200 text-primary hover:bg-integra-gray-50 disabled:border-integra-gray-200 disabled:text-integra-gray-300",
+        className: "border-integra-gray-300 text-primary hover:bg-integra-gray-50 disabled:border-integra-gray-200 disabled:text-integra-gray-300",
       },
       {
         appearance: "outlined",
         variant: "tertiary",
-        className: "border-integra-gray-200 text-integra-gray-500 hover:bg-integra-gray-50 disabled:border-integra-gray-200 disabled:text-integra-gray-300",
+        className: "border-integra-gray-300 text-integra-gray-700 hover:bg-integra-gray-50 disabled:border-integra-gray-200 disabled:text-integra-gray-300",
       },
 
       // --- [Appearance: Destructive] ---

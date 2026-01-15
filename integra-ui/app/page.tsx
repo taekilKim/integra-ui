@@ -15,7 +15,7 @@ export default function Home() {
           <Badge variant="secondary" className="rounded-full px-16 py-8 fs-14 font-medium bg-integra-gray-50 text-integra-gray-600">
             Integra UI v1.0 is now available
           </Badge>
-          <h1 className="fs-48 font-bold leading-60 tracking--4 sm:fs-64 sm:leading-72 md:fs-80 md:leading-88 text-integra-gray-900">
+          <h1 className="fs-48 font-bold leading-60 tracking--4 sm:fs-64 sm:leading-72 md:fs-80 md:leading-96 text-integra-gray-900">
             한국 디자이너를 위한 <br />
             가장 직관적인 디자인 시스템
           </h1>
