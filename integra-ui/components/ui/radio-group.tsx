@@ -2,33 +2,42 @@
 
 import * as React from "react"
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
+import { Circle } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-const RadioGroup = RadioGroupPrimitive.Root
-
-const RadioGroupItem = React.forwardRef<
+const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <RadioGroupPrimitive.Root
-    ref={ref}
-    className={cn(
-      "aspect-square h-16 w-16 shrink-0 cursor-pointer rounded-full border ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-      "bg-white data-[state=unchecked]:bg-white data-[state=unchecked]:border-integra-gray-200",
-      "data-[state=checked]:bg-primary data-[state=checked]:border-primary",
-      className
-    )}
-    {...props}
-  >
-    <RadioGroupPrimitive.Indicator className="flex items-center justify-center h-full w-full relative">
-      {/* 내부 선택 원 (Dot) */}
-      <div className="h-8 w-8 rounded-full bg-white shadow-sm" />
-    </RadioGroupPrimitive.Indicator>
-  </RadioGroupPrimitive.Root>
-))
-RadioGroupItem.displayName = RadioGroupPrimitive.Root.displayName
+>(({ className, ...props }, ref) => {
+  return (
+    <RadioGroupPrimitive.Root
+      className={cn("grid gap-8", className)}
+      {...props}
+      ref={ref}
+    />
+  )
+})
+RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
 
-// ✨ RadioGroupIndicator와 Text 관련 내보내기 구조를 Radix 표준에 맞게 수정합니다.
-const RadioGroupIndicator = RadioGroupPrimitive.Indicator
+const RadioGroupItem = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
+>(({ className, ...props }, ref) => {
+  return (
+    <RadioGroupPrimitive.Item
+      ref={ref}
+      className={cn(
+        "aspect-square h-16 w-16 rounded-full border border-integra-gray-300 text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary",
+        className
+      )}
+      {...props}
+    >
+      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
+        <Circle className="h-10 w-10 fill-current text-current" />
+      </RadioGroupPrimitive.Indicator>
+    </RadioGroupPrimitive.Item>
+  )
+})
+RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
 
-export { RadioGroup, RadioGroupItem, RadioGroupIndicator }
+export { RadioGroup, RadioGroupItem }
