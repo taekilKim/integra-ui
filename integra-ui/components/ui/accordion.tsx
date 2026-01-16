@@ -17,6 +17,7 @@ const AccordionItem = React.forwardRef<
     {...props}
   />
 ))
+// ✨ displayName을 안전한 문자열로 변경
 AccordionItem.displayName = "AccordionItem"
 
 const AccordionTrigger = React.forwardRef<
@@ -33,12 +34,12 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       {children}
-      {/* 아이콘 색상을 integra-gray-400으로 정화 */}
       <ChevronDown className="h-16 w-16 shrink-0 text-integra-gray-400 transition-transform duration-200" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
+// ✨ displayName을 안전한 문자열로 변경
+AccordionTrigger.displayName = "AccordionTrigger"
 
 const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
@@ -46,15 +47,13 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="overflow-hidden fs-14 leading-24 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    className="overflow-hidden fs-14 leading-24 text-integra-gray-600 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    {/* 본문 텍스트 색상을 integra-gray-600으로 정화 */}
-    <div className={cn("pb-16 pt-0 text-integra-gray-600", className)}>
-      {children}
-    </div>
+    <div className={cn("pb-16 pt-0", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ))
-AccordionContent.displayName = AccordionPrimitive.Content.displayName
+// ✨ displayName을 안전한 문자열로 변경
+AccordionContent.displayName = "AccordionContent"
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
