@@ -12,20 +12,21 @@ import {
 
 export default function AvatarDocsPage() {
   const designTokens = [
-    { property: "Size (크기)", class: "w-40 h-40", value: "40px" },
-    { property: "Border Radius (곡률)", class: "rounded-full", value: "9999px" },
-    { property: "Background (배경)", class: "bg-integra-gray-100", value: "Gray 100" },
-    { property: "Font Size (폴백)", class: "fs-14", value: "14px" },
-    { property: "Font Weight (폴백)", class: "font-bold", value: "700" },
+    { property: "Size (크기)", class: "h-{px} w-{px}", value: "40px / 48px" },
+    { property: "Border Radius", class: "rounded-full", value: "9999px" },
+    { property: "Fallback Background", class: "bg-{token}", value: "integra-gray-100" },
   ];
 
-  const codeSnippet = `<Avatar>
-  <AvatarImage src="/user.png" alt="User" />
-  <AvatarFallback>JD</AvatarFallback>
+  const codeSnippet = `import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <AvatarFallback>CN</AvatarFallback>
 </Avatar>`;
 
   return (
     <div className="space-y-64 pb-120">
+      
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -35,8 +36,7 @@ export default function AvatarDocsPage() {
         </Breadcrumb>
         <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">Avatar</h1>
         <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
-          사용자를 나타내는 프로필 이미지나 아이콘을 표시하는 원자 컴포넌트입니다.<br />
-          이미지 로드 실패 시 이름의 이니셜 등을 보여주는 폴백 시스템을 내장하고 있습니다.
+          사용자를 나타내는 이미지 요소입니다. 이미지가 로드되지 않을 때를 대비한 텍스트 폴백(Fallback)을 지원합니다.
         </p>
       </div>
 
@@ -45,7 +45,7 @@ export default function AvatarDocsPage() {
       <section className="space-y-16">
         <div className="flex items-center justify-between">
             <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Playground</h2>
-            <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500 font-medium">Interactive</Badge>
+            <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500 font-medium">Static Preview</Badge>
         </div>
         <AvatarDemo />
       </section>
@@ -76,8 +76,8 @@ export default function AvatarDocsPage() {
         <h2 className="fs-20 font-bold leading-24 tracking--1 text-integra-gray-900">Atomic Design Note</h2>
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Geometric Rule:</strong> 40px(h-40) 표준 크기를 사용하여 다른 폼 요소들과의 시각적 선상 정렬을 유지합니다.</li>
-                <li><strong>Safe Fallback:</strong> 이미지가 없는 경우 <code>gray-100</code> 배경과 <code>gray-500</code> 텍스트 원자를 사용하여 중립적인 인상을 유지합니다.</li>
+                <li><strong>Shape:</strong> <code>rounded-full</code> 토큰을 사용하여 인물 정보임을 직관적으로 전달합니다.</li>
+                <li><strong>Fallback:</strong> 이미지가 없을 때 <code>bg-integra-gray-100</code> 배경과 이니셜 텍스트를 자동으로 표시하여 레이아웃 깨짐을 방지합니다.</li>
             </ul>
         </div>
       </section>
@@ -86,6 +86,7 @@ export default function AvatarDocsPage() {
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
         <CodeBlock code={codeSnippet} />
       </section>
+
     </div>
   );
 }
