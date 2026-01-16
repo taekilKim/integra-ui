@@ -51,7 +51,7 @@ export default function Home() {
                 디자인 환경에서 가장 많이 사용하는 4px 그리드 디자인 시스템을 완벽하게 적용했습니다
             </p>
           </div>
-          <ComponentShowcase />
+          
         </div>
       </section>
 
