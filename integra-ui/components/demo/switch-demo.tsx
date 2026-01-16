@@ -4,6 +4,7 @@ import * as React from "react"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
 import { Card } from "@/components/ui/card"
+import { Playground } from "@/components/layout/playground"
 
 export function SwitchDemo() {
   const [isDisabled, setIsDisabled] = React.useState(false)
@@ -12,7 +13,7 @@ export function SwitchDemo() {
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
       
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
-      <div className="min-h-160 flex items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-24">
+      <Playground>
         <div className="flex items-center gap-16">
           <Switch id="demo-switch" disabled={isDisabled} />
           {/* 비활성화 시 text-integra-gray-300 토큰으로 명확히 구분 */}
@@ -23,7 +24,7 @@ export function SwitchDemo() {
             Airplane Mode
           </Label>
         </div>
-      </div>
+      </Playground>
 
       {/* 2. 컨트롤러 영역: border-integra-gray-100 적용 */}
       <div className="pt-24 border-t border-integra-gray-100 flex items-center gap-8">

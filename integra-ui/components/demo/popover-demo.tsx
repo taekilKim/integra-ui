@@ -6,13 +6,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Card } from "@/components/ui/card"
+import { Playground } from "@/components/layout/playground"
 
 export function PopoverDemo() {
   return (
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
       
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
-      <div className="min-h-160 flex items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-24">
+      <Playground>
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="tertiary">Open Settings</Button>
@@ -33,7 +34,7 @@ export function PopoverDemo() {
             </div>
           </PopoverContent>
         </Popover>
-      </div>
+      </Playground>
 
       {/* 2. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">

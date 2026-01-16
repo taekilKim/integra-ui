@@ -4,6 +4,7 @@ import * as React from "react"
 import { Badge } from "@/components/ui/badge"
 import { Label } from "@/components/ui/label"
 import { Card } from "@/components/ui/card"
+import { Playground } from "@/components/layout/playground"
 
 export function BadgeDemo() {
   const [variant, setVariant] = React.useState<any>("default")
@@ -12,9 +13,9 @@ export function BadgeDemo() {
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
       
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
-      <div className="min-h-160 flex items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-24">
+      <Playground>
         <Badge variant={variant}>Badge Preview</Badge>
-      </div>
+      </Playground>
 
       {/* 2. 컨트롤러 영역: border-integra-gray-100 적용 */}
       <div className="grid grid-cols-1 gap-24 pt-24 border-t border-integra-gray-100">

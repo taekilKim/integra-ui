@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/table"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Playground } from "@/components/layout/playground"
 
 const invoices = [
   { id: "INV-001", status: "Paid", method: "Credit Card", amount: "$250.00" },
@@ -24,7 +25,7 @@ export function TableDemo() {
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
       
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
-      <div className="min-h-160 flex items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-24 md:p-40">
+      <Playground>
         <div className="w-full rounded-12 border border-integra-gray-100 overflow-hidden bg-white shadow-sm">
           <Table>
             <TableHeader className="bg-integra-gray-50/50">
@@ -51,7 +52,7 @@ export function TableDemo() {
             </TableBody>
           </Table>
         </div>
-      </div>
+      </Playground>
 
       {/* 2. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
