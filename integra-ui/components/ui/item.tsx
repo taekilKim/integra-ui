@@ -1,28 +1,23 @@
-"use client" // ✨ 빌드 안정성 확보를 위한 클라이언트 컴포넌트 선언
+"use client"
 
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-/**
- * [Integra UI - Item Molecule SAI Version]
- * 모든 리스트, 메뉴, 드롭다운의 기초가 되는 원자적 컨테이너입니다.
- */
 const itemVariants = cva(
-  // [Base Styles] fs-14, font-medium, rounded-8 등 SAI 토큰 적용
   "inline-flex items-center justify-start text-left w-full rounded-8 fs-14 leading-20 font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        // Default: 기본 상태, 호버 및 선택 시 gray-50 배경
         default: "bg-transparent text-integra-gray-900 hover:bg-integra-gray-50 data-[state=on]:bg-integra-gray-50",
-        // Ghost: 보조 텍스트, 호버 및 선택 시 색상 강조
         ghost: "bg-transparent text-integra-gray-600 hover:bg-integra-gray-50 hover:text-integra-gray-900 data-[state=on]:bg-integra-gray-50 data-[state=on]:text-integra-gray-900",
       },
       size: {
         default: "h-40 px-12",
         sm: "h-32 px-8 fs-13",
+        // ✨ 신규: Dropdown Menu 전용 사이즈
+        menu: "h-32 px-8 fs-14 rounded-4",
       },
     },
     defaultVariants: {

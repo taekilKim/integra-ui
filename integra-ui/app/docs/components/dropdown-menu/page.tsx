@@ -1,121 +1,78 @@
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuLabel, 
-  DropdownMenuSeparator, 
-  DropdownMenuTrigger 
-} from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { CodeBlock } from "@/components/layout/code-block" // ✨ 추가
-import { 
-  Breadcrumb, 
-  BreadcrumbList, 
-  BreadcrumbItem, 
-  BreadcrumbLink, 
-  BreadcrumbSeparator, 
-  BreadcrumbPage 
-} from "@/components/ui/breadcrumb"
+import { DropdownMenuDemo } from "@/components/demo/dropdown-menu-demo";
+import { Badge } from "@/components/ui/badge";
+import { CodeBlock } from "@/components/layout/code-block";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 /**
  * [Integra UI - Dropdown Menu Document SAI Version]
- * 다양한 액션과 옵션을 오버레이 형태로 제공하는 컴포넌트 문서입니다.
- * 고도화된 CodeBlock을 통해 정교한 조립 가이드를 제공합니다.
+ * 액션 목록을 제공하는 오버레이 컴포넌트 문서입니다.
  */
 export default function DropdownMenuDocsPage() {
-  // 1. 드롭다운 전용 디자인 토큰 데이터
+  // 1. 드롭다운 메뉴 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Min Width (최소 너비)", class: "min-w-160", value: "160px" },
-    { property: "Item Height (아이템 높이)", class: "h-32", value: "32px" },
-    { property: "Font Size (글자)", class: "fs-14", value: "14px" },
-    { property: "Border Radius (곡률)", class: "rounded-8", value: "8px" },
-    { property: "Shadow (그림자)", class: "shadow-integra", value: "SAI Soft Shadow" },
-    { property: "Separator Margin", class: "my-4", value: "4px" },
+    { property: "Content Min Width", class: "min-w-{px}", value: "min-w-160" },
+    { property: "Content Padding", class: "p-{px}", value: "p-4" },
+    { property: "Content Radius", class: "rounded-{px}", value: "rounded-8" },
+    { property: "Item Height", class: "h-{px}", value: "h-32 (Item-menu)" },
+    { property: "Item Font Size", class: "fs-{px}", value: "fs-14 (Item-menu)" },
+    { property: "Shortcut Font Size", class: "fs-{px}", value: "fs-12" },
   ];
 
-  // 2. 코드 스니펫 정의
-  const importCode = `import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuLabel, 
-  DropdownMenuSeparator, 
-  DropdownMenuTrigger 
-} from "@/components/ui/dropdown-menu"`;
+  const codeSnippet = `import { DropdownMenu, DropdownMenuTrigger, ... } from "@/components/ui/dropdown-menu"
 
-  const usageCode = `<DropdownMenu>
+<DropdownMenu>
   <DropdownMenuTrigger asChild>
-    <Button variant="tertiary">Open</Button>
+    <Button variant="outline">Open</Button>
   </DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>My Account</DropdownMenuLabel>
     <DropdownMenuSeparator />
     <DropdownMenuItem>Profile</DropdownMenuItem>
     <DropdownMenuItem>Settings</DropdownMenuItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Logout</DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>`;
 
   return (
     <div className="space-y-64 pb-120">
       
-      {/* 1. 헤더 섹션: 표준 규격 준수 */}
+      {/* 1. 헤더 섹션 */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/docs/components">Components</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Dropdown Menu</BreadcrumbPage>
-            </BreadcrumbItem>
+            <BreadcrumbItem><BreadcrumbLink href="/docs/components">Components</BreadcrumbLink></BreadcrumbItem>
+            <BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>Dropdown Menu</BreadcrumbPage></BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        
-        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">
-          Dropdown Menu
-        </h1>
-        
+        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">Dropdown Menu</h1>
         <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
-          사용자에게 관련 액션이나 옵션의 리스트를 오버레이 형태로 제공합니다.<br />
-          정밀한 간격과 시각적 위계를 통해 복잡한 기능들을 깔끔하게 그룹화합니다.
+          사용자가 선택할 수 있는 액션 목록을 표시하는 오버레이 컴포-넌트입니다.<br />
+          Select와 달리 '명령 실행'에 초점을 맞추어 설계되었습니다.
         </p>
       </div>
 
       <hr className="border-integra-gray-100" />
 
-      {/* 2. 인터랙티브 프리뷰: max-w-960 적용 */}
+      {/* 2. 플레이그라운드 */}
       <section className="space-y-16">
         <div className="flex items-center justify-between">
-            <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Preview</h2>
-            <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500 font-medium">Static Preview</Badge>
+            <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Playground</h2>
+            <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500 font-medium">Interactive</Badge>
         </div>
-        <div className="flex min-h-160 items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-40 max-w-960 mx-auto w-full">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button appearance="outlined" variant="default">Open Menu</Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-integra-red-500 focus:bg-integra-red-50 focus:text-integra-red-500">Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+        <DropdownMenuDemo />
       </section>
 
       {/* 3. 디자인 토큰 섹션 */}
       <section className="space-y-24">
         <div className="space-y-8">
             <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">디자인 토큰</h2>
-            <p className="fs-16 text-integra-gray-500">드롭다운의 고밀도 레이아웃을 결정하는 아토믹 클래스와 실제 수치 명세입니다.</p>
+            <p className="fs-16 text-integra-gray-500">드롭다운 메뉴의 레이아웃과 타이포그래피를 결정하는 아토믹 클래스 명세입니다.</p>
         </div>
         <div className="rounded-12 border border-integra-gray-100 overflow-hidden shadow-sm">
             <table className="w-full text-left border-collapse">
@@ -139,31 +96,21 @@ export default function DropdownMenuDocsPage() {
         </div>
       </section>
 
-      {/* 4. Atomic Design Note */}
+      {/* 4. 아토믹 설계 원리 */}
       <section className="space-y-16 p-32 bg-integra-gray-50 rounded-16 border border-integra-gray-100">
         <h2 className="fs-20 font-bold leading-24 tracking--1 text-integra-gray-900">Atomic Design Note</h2>
-        <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
-            <p>드롭다운 메뉴는 고밀도의 상호작용 원자들이 정교하게 나열된 집합체입니다.</p>
-            <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Compact Sizing:</strong> 각 메뉴 아이템은 32px(h-32)의 정밀한 높이를 유지하여 좁은 공간에서도 탐색 효율을 높입니다.</li>
-                <li><strong>Separator Rhythm:</strong> 4px 그리드 정렬을 위해 Separator는 상하 4px(my-4)의 여백을 가져 총 8px의 간격을 형성합니다.</li>
-                <li><strong>Interactive Feedback:</strong> 호버(Focus) 시 <code>integra-gray-50</code> 토큰을 사용하여 인지적 명확성을 제공합니다.</li>
-            </ul>
-        </div>
+        <ul className="list-disc pl-20 space-y-8 fs-15 text-integra-gray-600 leading-24 tracking--1">
+            <li><strong>Molecule Inheritance (분자 상속):</strong> <code>DropdownMenuItem</code>은 <code>Item</code> 컴포-넌트의 <code>ghost</code>, <code>menu</code> 스타일을 상속받아 시스템 전체의 시각적 일관성을 유지합니다.</li>
+            <li><strong>Visual Hierarchy:</strong> 메뉴 제목(<code>Label</code>)은 <code>fs-12</code> + <code>font-bold</code> 토큰을, 단축키(<code>Shortcut</code>)는 <code>fs-12</code> + <code>gray-400</code> 토큰을 사용하여 정보의 위계를 명확히 구분합니다.</li>
+            <li><strong>Contextual Layer:</strong> 드롭다운 메뉴(<code>Content</code>)는 <code>shadow-integra</code>와 <code>rounded-8</code> 토큰을 통해 본문과 분리된 부유형 레이어임을 시각화합니다.</li>
+        </ul>
       </section>
 
-      {/* 5. Usage Section: CodeBlock 적용 */}
+      {/* 5. 사용법 */}
       <section className="space-y-24">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="space-y-16">
-          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase">1. Import Components</p>
-          <CodeBlock code={importCode} />
-          
-          <p className="fs-14 text-integra-gray-500 font-medium tracking-1 uppercase mt-32">2. Usage Example</p>
-          <CodeBlock code={usageCode} />
-        </div>
+        <CodeBlock code={codeSnippet} />
       </section>
-
     </div>
   );
 }
