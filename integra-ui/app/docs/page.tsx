@@ -15,11 +15,11 @@ export default function IntroductionPage() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+              <BreadcrumbLink href="/docs">시작하기</BreadcrumbLink> {/* Docs -> 시작하기 */}
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>소개</BreadcrumbPage>
+              <BreadcrumbPage>Integra UI 소개</BreadcrumbPage> {/* 소개 -> Integra UI 소개 */}
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>

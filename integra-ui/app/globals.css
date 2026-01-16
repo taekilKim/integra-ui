@@ -6,48 +6,114 @@
 
 @layer base {
   :root {
-    /* 1. Base Atoms (Figma Palette) */
-    --gray-50: 210 18% 98%; --gray-100: 210 14% 96%; --gray-200: 210 11% 91%;
-    --gray-300: 210 10% 84%; --gray-400: 211 11% 72%; --gray-500: 213 10% 59%;
-    --gray-600: 214 10% 47%; --gray-700: 215 14% 36%; --gray-800: 216 19% 25%;
-    --gray-900: 217 23% 13%;
+    /* --- 1. Gray Scale --- */
+    --gray-50: #f9fafb;
+    --gray-100: #f2f4f6;
+    --gray-200: #e5e8eb;
+    --gray-300: #d1d6db;
+    --gray-400: #b0b8c1;
+    --gray-500: #8b95a1;
+    --gray-600: #6b7684;
+    --gray-700: #4e5968;
+    --gray-800: #333d4b;
+    --gray-900: #191f28;
 
-    --blue-50: 217 100% 96%; --blue-100: 218 91% 89%; --blue-200: 218 100% 84%;
-    --blue-300: 218 100% 73%; --blue-400: 218 100% 67%; --blue-500: 218 100% 58%;
-    --blue-600: 218 78% 53%; --blue-700: 218 71% 41%;
+    /* --- 2. Blue Scale (Primary) --- */
+    --blue-50: #eaf2ff;
+    --blue-100: #c7dbfd;
+    --blue-200: #abcaff;
+    --blue-300: #75a8ff;
+    --blue-400: #5594ff;
+    --blue-500: #2a79ff;
+    --blue-600: #266ee8;
+    --blue-700: #1e56b5;
+    --blue-800: #17438c;
+    --blue-900: #12336b;
 
-    --red-50: 0 100% 97%; --red-100: 357 100% 92%; --red-500: 355 86% 60%;
-    --red-600: 355 77% 53%;
+    /* --- 3. Green Scale --- */
+    --green-50: #f8fefd;
+    --green-100: #e7f9f4;
+    --green-200: #c6f3e7;
+    --green-300: #9ae9d3;
+    --green-400: #20ce9f;
+    --green-500: #09b687;
+    --green-600: #099b74;
+    --green-700: #108061;
+    --green-800: #0a6656;
+    --green-900: #084f42;
 
-    /* 2. ✨ SAI Semantic Mapping (수정의 요충지) */
-    /* 브랜드 주조색 세트 */
+    /* --- 4. Red Scale --- */
+    --red-50: #ffeeee;
+    --red-100: #ffd4d6;
+    --red-200: #feafb4;
+    --red-300: #fb8890;
+    --red-400: #f66570;
+    --red-500: #f04452;
+    --red-600: #e42939;
+    --red-700: #d22030;
+    --red-800: #bc1b2a;
+    --red-900: #a51926;
+
+    /* --- 5. Orange Scale --- */
+    --orange-50: #fff8e3;
+    --orange-100: #ffefbf;
+    --orange-200: #fedf89;
+    --orange-300: #fec84b;
+    --orange-400: #fdb022;
+    --orange-500: #f79009;
+    --orange-600: #dc6803;
+    --orange-700: #b54708;
+    --orange-800: #93370d;
+    --orange-900: #652104;
+
+    /* --- 6. Violet Scale --- */
+    --violet-50: #f3f1ff;
+    --violet-100: #e9e5ff;
+    --violet-200: #ddd6fe;
+    --violet-300: #c3b5fd;
+    --violet-400: #a48afb;
+    --violet-500: #875bf7;
+    --violet-600: #7839ee;
+    --violet-700: #6927da;
+    --violet-800: #5720b7;
+    --violet-900: #330e72;
+
+    /* --- 7. Grape Scale --- */
+    --grape-50: #f8f0fc;
+    --grape-100: #f3d9fa;
+    --grape-200: #eebefa;
+    --grape-300: #e599f7;
+    --grape-400: #da77f2;
+    --grape-500: #cc5de8;
+    --grape-600: #be4bdb;
+    --grape-700: #ae3ec9;
+    --grape-800: #9c36b5;
+    --grape-900: #862e9c;
+
+    /* --- Semantic Mappings (역할 정의) --- */
     --primary: var(--blue-500);
     --primary-hover: var(--blue-600);
     --primary-active: var(--blue-700);
-    --primary-foreground: 0 0% 100%; /* 대비가 낮으면 var(--gray-900)으로 교체 */
+    --primary-foreground: #ffffff; /* JSON Default White */
     
-    /* 보조/연한 배경 세트 */
     --primary-subtle: var(--blue-50);
     --primary-subtle-hover: var(--blue-100);
     --primary-subtle-foreground: var(--blue-500);
 
-    /* 파괴/경고 세트 */
     --destructive: var(--red-500);
     --destructive-hover: var(--red-600);
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: #ffffff;
     --destructive-subtle: var(--red-50);
     --destructive-subtle-hover: var(--red-100);
 
-    /* 중립/레이아웃 토큰 */
-    --background: 0 0% 100%;
+    --background: #ffffff;
     --foreground: var(--gray-900);
     --border: var(--gray-200);
     --input: var(--gray-200);
     --ring: var(--primary);
-    --radius: 8px;
+    --radius: 8px; /* Layout Radius 2 (8px) */
   }
 
-  /* SAI: 제목 태그 리셋 */
   h1, h2, h3, h4, h5, h6 {
     font-size: unset; font-weight: unset; line-height: unset; letter-spacing: unset;
   }
