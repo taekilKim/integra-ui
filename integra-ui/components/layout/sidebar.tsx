@@ -28,7 +28,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
       items: [
         "button", "item", "input", "textarea", "label", "checkbox", 
         "badge", "switch", "toggle", "select", "accordion", "tabs", 
-        "dialog", "popover", "dropdown-menu", "tooltip", "toast", 
+        "dialog", "popover", "dropdown-menu", "tooltip", "alert", "toast", 
         "skeleton", "avatar", "breadcrumb", "table", "radio-group", "card"
       ].map(item => ({
         // 하이픈 제거 및 첫 글자 대문자화 (예: radio-group -> Radio Group)
