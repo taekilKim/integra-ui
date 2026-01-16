@@ -27,7 +27,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
       title: "Components",
       items: [
         "button", "item", "input", "textarea", "label", "checkbox", 
-        "badge", "switch", "select", "accordion", "tabs", 
+        "badge", "switch", "toggle", "select", "accordion", "tabs", 
         "dialog", "popover", "dropdown-menu", "tooltip", "toast", 
         "skeleton", "avatar", "breadcrumb", "table", "radio-group", "card"
       ].map(item => ({
