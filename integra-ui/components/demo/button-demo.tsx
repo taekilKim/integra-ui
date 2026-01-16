@@ -4,6 +4,7 @@ import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
+import { Playground } from "@/components/layout/playground" 
 
 /**
  * [Integra UI - Button Demo SAI Version]
@@ -19,8 +20,8 @@ export function ButtonDemo() {
   return (
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
       
-      {/* 1. 프리뷰 영역: bg-integra-gray-50 적용 */}
-      <div className="min-h-200 flex items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-24">
+      {/* ✨ 1. 프리뷰 영역: Playground 컴포넌트로 교체 */}
+      <Playground>
         <Button 
           appearance={appearance} 
           variant={variant} 
@@ -29,7 +30,7 @@ export function ButtonDemo() {
         >
           버튼 라벨
         </Button>
-      </div>
+      </Playground>
 
       {/* 2. 컨트롤러 영역: 4열 그리드 구성 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 pt-24 border-t border-integra-gray-100">
