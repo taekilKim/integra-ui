@@ -1,3 +1,5 @@
+"use client";
+
 import { ItemDemo } from "@/components/demo/item-demo";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
