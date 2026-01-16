@@ -14,9 +14,7 @@ export function ToggleDemo() {
 
   return (
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
-      {/* 프리뷰 */}
       <Playground className="flex-col md:flex-row gap-32 items-center justify-center">
-        {/* 예시 1: 단일 토글 */}
         <div className="flex flex-col items-center gap-12">
           <p className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Single Toggle</p>
           <Toggle size={size} variant={variant} aria-label="Toggle bold">
@@ -24,7 +22,6 @@ export function ToggleDemo() {
           </Toggle>
         </div>
         
-        {/* 예시 2: 토글 그룹 (다중 선택) */}
         <div className="flex flex-col items-center gap-12">
           <p className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Multiple Group</p>
           <ToggleGroup type="multiple" size={size} variant={variant}>
@@ -40,7 +37,6 @@ export function ToggleDemo() {
           </ToggleGroup>
         </div>
 
-        {/* 예시 3: 토글 그룹 (단일 선택) */}
         <div className="flex flex-col items-center gap-12">
           <p className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Single Group</p>
           <ToggleGroup type="single" defaultValue="center" size={size} variant={variant}>
@@ -51,7 +47,6 @@ export function ToggleDemo() {
         </div>
       </Playground>
 
-      {/* 컨트롤러 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-24 pt-24 border-t border-integra-gray-100">
         <div className="space-y-8">
           <Label className="fs-12 font-semibold text-integra-gray-500 uppercase tracking-1">Size</Label>
@@ -78,7 +73,6 @@ export function ToggleDemo() {
         </div>
       </div>
 
-      {/* 코드 */}
       <div className="rounded-12 bg-integra-gray-900 p-24 font-mono fs-14 leading-24 text-white">
         <code className="block text-integra-gray-500 mb-8">// Single Toggle</code>
         <code>&lt;Toggle size="{size}" variant="{variant}"&gt;...&lt;/Toggle&gt;</code>
