@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { Toggle } from "@/components/ui/toggle"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Playground } from "@/components/layout/playground"
@@ -15,19 +16,38 @@ export function ToggleDemo() {
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
       {/* 프리뷰 */}
       <Playground className="flex-col md:flex-row gap-32 items-center justify-center">
-        {/* 단일 토글 */}
-        <Toggle size={size} variant={variant} aria-label="Toggle bold">
-          <Bold className="h-16 w-16" />
-        </Toggle>
+        {/* 예시 1: 단일 토글 */}
+        <div className="flex flex-col items-center gap-12">
+          <p className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Single Toggle</p>
+          <Toggle size={size} variant={variant} aria-label="Toggle bold">
+            <Bold className="h-16 w-16" />
+          </Toggle>
+        </div>
         
-        {/* 토글 그룹 */}
-        <div className="inline-flex items-center gap-4 p-4 rounded-12 bg-integra-gray-50 border border-integra-gray-100">
-          <Toggle size={size} variant={variant} aria-label="Toggle italic">
-            <Italic className="h-16 w-16" />
-          </Toggle>
-          <Toggle size={size} variant={variant} aria-label="Toggle underline">
-            <Underline className="h-16 w-16" />
-          </Toggle>
+        {/* 예시 2: 토글 그룹 (다중 선택) */}
+        <div className="flex flex-col items-center gap-12">
+          <p className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Multiple Group</p>
+          <ToggleGroup type="multiple" size={size} variant={variant}>
+            <ToggleGroupItem value="bold" aria-label="Toggle bold">
+              <Bold className="h-16 w-16" />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="italic" aria-label="Toggle italic">
+              <Italic className="h-16 w-16" />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="underline" aria-label="Toggle underline">
+              <Underline className="h-16 w-16" />
+            </ToggleGroupItem>
+          </ToggleGroup>
+        </div>
+
+        {/* 예시 3: 토글 그룹 (단일 선택) */}
+        <div className="flex flex-col items-center gap-12">
+          <p className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Single Group</p>
+          <ToggleGroup type="single" defaultValue="center" size={size} variant={variant}>
+            <ToggleGroupItem value="left">Left</ToggleGroupItem>
+            <ToggleGroupItem value="center">Center</ToggleGroupItem>
+            <ToggleGroupItem value="right">Right</ToggleGroupItem>
+          </ToggleGroup>
         </div>
       </Playground>
 
@@ -60,7 +80,11 @@ export function ToggleDemo() {
 
       {/* 코드 */}
       <div className="rounded-12 bg-integra-gray-900 p-24 font-mono fs-14 leading-24 text-white">
+        <code className="block text-integra-gray-500 mb-8">// Single Toggle</code>
         <code>&lt;Toggle size="{size}" variant="{variant}"&gt;...&lt;/Toggle&gt;</code>
+        <br/><br/>
+        <code className="block text-integra-gray-500 mb-8">// Toggle Group</code>
+        <code>&lt;ToggleGroup type="multiple"&gt;...&lt;/ToggleGroup&gt;</code>
       </div>
     </Card>
   )

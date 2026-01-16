@@ -10,13 +10,10 @@ const toggleVariants = cva(
   {
     variants: {
       variant: {
-        // 기본: 배경 없는 상태, 활성화 시 Gray 100
         default: "bg-transparent text-integra-gray-700 hover:bg-integra-gray-50 data-[state=on]:bg-integra-gray-100 data-[state=on]:text-integra-gray-900",
-        // 외곽선: 테두리가 있는 형태
         outline: "border border-integra-gray-200 bg-transparent hover:bg-integra-gray-50 data-[state=on]:bg-integra-gray-100",
       },
       size: {
-        // ✨ Button과 유사한 3단계 Size 규격
         default: "h-40 px-12 fs-14 rounded-8",
         sm: "h-32 px-8 fs-13 rounded-4",
         lg: "h-48 px-16 fs-15 rounded-12",
