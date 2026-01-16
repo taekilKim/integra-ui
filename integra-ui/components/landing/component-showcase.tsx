@@ -6,144 +6,144 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { MoreHorizontal } from "lucide-react"
 
 export function ComponentShowcase() {
-  // ✨ 인터랙션을 위한 상태 관리
-  const [isEmailEnabled, setIsEmailEnabled] = React.useState(true);
-  const [isTermsAgreed, setIsTermsAgreed] = React.useState(false);
-
-  const SpecTag = ({ children }: { children: React.ReactNode }) => (
-    <span className="fs-10 font-mono font-bold bg-primary/10 text-primary px-6 py-2 rounded-4 tracking-0">
-      {children}
-    </span>
-  );
+  const [switchState, setSwitchState] = React.useState(true);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-32">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32">
       
-      {/* 1. Button Architecture (Large) */}
-      <Card className="lg:col-span-2 border-integra-gray-100 bg-white shadow-sm overflow-hidden">
-        <CardHeader className="p-32 pb-16">
-          <div className="flex justify-between items-start">
-            <div className="space-y-4">
-              <CardTitle className="fs-18 font-bold text-integra-gray-900">Button Architecture</CardTitle>
-              <CardDescription className="fs-14 text-integra-gray-500">4가지 어피어런스와 3가지 표준 규격</CardDescription>
+      {/* 1. Module: User Profile (Avatar, Dropdown, Button) */}
+      <Card className="lg:col-span-2 border-integra-gray-100 bg-white shadow-sm p-32 space-y-24 flex flex-col justify-between">
+        <div className="flex justify-between items-start">
+            <div className="flex items-center gap-16">
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <div className="space-y-4">
+                <p className="fs-16 font-bold text-integra-gray-900">Shadcn</p>
+                <p className="fs-13 text-integra-gray-500">Lead Designer @ Vercel</p>
+              </div>
             </div>
-            <SpecTag>.fs-18 .rounded-16</SpecTag>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button appearance="text" variant="secondary" size="small" className="w-32 h-32 p-0">
+                  <MoreHorizontal className="w-16 h-16" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem>Edit Profile</DropdownMenuItem>
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+        </div>
+        <div className="flex justify-between items-center">
+          <div className="flex -space-x-12">
+            <Avatar className="w-32 h-32 border-2 border-white"><AvatarImage src="https://github.com/vercel.png" /></Avatar>
+            <Avatar className="w-32 h-32 border-2 border-white"><AvatarImage src="https://github.com/nextjs.png" /></Avatar>
+            <Avatar className="w-32 h-32 border-2 border-white"><AvatarFallback>+3</AvatarFallback></Avatar>
           </div>
-        </CardHeader>
-        <CardContent className="p-32 pt-16 flex flex-wrap gap-12 items-center">
-          <Button appearance="default" variant="default" size="default">Primary 56px</Button>
-          <Button appearance="outlined" variant="default" size="medium">Outlined 48px</Button>
-          <Button appearance="destructive" variant="secondary" size="small">Destructive 32px</Button>
-          <Button appearance="text" variant="tertiary" size="small">Text Tertiary</Button>
-        </CardContent>
+          <Button appearance="default" variant="default" size="medium">Follow</Button>
+        </div>
       </Card>
 
-      {/* 2. Feedback & Animation */}
-      <Card className="border-integra-gray-100 bg-white shadow-sm">
+      {/* 2. Module: Form & Controls (Switch, Input, Checkbox) */}
+      <Card className="lg:col-span-2 border-integra-gray-100 bg-white shadow-sm">
         <CardHeader className="p-32 pb-16">
-          <CardTitle className="fs-18 font-bold text-integra-gray-900">Feedback Loop</CardTitle>
-        </CardHeader>
-        <CardContent className="p-32 pt-16 space-y-24">
-          <div className="flex items-center gap-16">
-            <Skeleton className="h-48 w-48 rounded-full" />
-            <div className="space-y-8 flex-1">
-              <Skeleton className="h-16 w-80 rounded-4" />
-              <Skeleton className="h-12 w-full rounded-4" />
-            </div>
-          </div>
-          <div className="flex gap-8">
-            <Badge variant="default" className="fs-12">SAI v1.0</Badge>
-            <Badge variant="outline" className="fs-12">2px Scale</Badge>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* 3. Form Controls (Interactive) */}
-      <Card className="border-integra-gray-100 bg-white shadow-sm">
-        <CardHeader className="p-32 pb-16">
-          <CardTitle className="fs-18 font-bold text-integra-gray-900">Form Controls</CardTitle>
+          <CardTitle className="fs-18 font-bold">Form Controls</CardTitle>
+          <CardDescription className="fs-14 text-integra-gray-500">Interactive form elements</CardDescription>
         </CardHeader>
         <CardContent className="p-32 pt-16 space-y-24">
           <div className="space-y-8">
-            <Label className="fs-12 text-integra-gray-500">Email Address</Label>
-            <Input placeholder="hello@integra.ui" className="h-40" disabled={!isEmailEnabled} />
+            <Label className="fs-12 text-integra-gray-500">Project Name</Label>
+            <Input placeholder="Integra UI" className="h-40" disabled={!switchState} />
           </div>
           <div className="flex items-center justify-between p-16 rounded-12 bg-integra-gray-50 border border-integra-gray-100">
-            <Label htmlFor="email-toggle" className="fs-14 font-medium">Enable Input</Label>
-            <Switch id="email-toggle" checked={isEmailEnabled} onCheckedChange={setIsEmailEnabled} />
-          </div>
-          <div className="flex items-center gap-8 px-4">
-            <Checkbox id="terms-agree" checked={isTermsAgreed} onCheckedChange={(val) => setIsTermsAgreed(!!val)} />
-            <Label htmlFor="terms-agree" className="fs-13 text-integra-gray-600">Agree to atomic rules</Label>
+            <Label htmlFor="input-toggle" className="fs-14 font-medium">Enable Input</Label>
+            <Switch id="input-toggle" checked={switchState} onCheckedChange={setSwitchState} />
           </div>
         </CardContent>
       </Card>
 
-      {/* 4. Overlays & Selection */}
-      <Card className="border-integra-gray-100 bg-white shadow-sm">
+      {/* 3. Module: Data Table (Table, Badge) */}
+      <Card className="lg:col-span-4 border-integra-gray-100 bg-white shadow-sm">
         <CardHeader className="p-32 pb-16">
-          <CardTitle className="fs-18 font-bold text-integra-gray-900">Selection & Overlays</CardTitle>
+          <CardTitle className="fs-18 font-bold">Data Management</CardTitle>
+          <CardDescription className="fs-14 text-integra-gray-500">A clean and precise data grid</CardDescription>
         </CardHeader>
-        <CardContent className="p-32 pt-16 space-y-24">
-          <Select>
-            <SelectTrigger className="h-40 bg-white">
-              <SelectValue placeholder="Choose Atom" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="radius">Radius</SelectItem>
-              <SelectItem value="spacing">Spacing</SelectItem>
-              <SelectItem value="typo">Typography</SelectItem>
-            </SelectContent>
-          </Select>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button appearance="outlined" variant="tertiary" size="small" className="w-full border-integra-gray-200">Hover for Detail</Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p className="fs-12 leading-16 text-white">Atomic Tooltip .fs-12</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+        <CardContent className="p-32 pt-0">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Invoice</TableHead><TableHead>Status</TableHead><TableHead>Method</TableHead><TableHead className="text-right">Amount</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-medium">INV-001</TableCell>
+                <TableCell><Badge variant="default" className="bg-integra-green-500 hover:bg-integra-green-600">Paid</Badge></TableCell>
+                <TableCell>Credit Card</TableCell>
+                <TableCell className="text-right font-mono">$250.00</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">INV-002</TableCell>
+                <TableCell><Badge variant="secondary" className="bg-integra-orange-100 text-integra-orange-700">Pending</Badge></TableCell>
+                <TableCell>PayPal</TableCell>
+                <TableCell className="text-right font-mono">$150.00</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </CardContent>
       </Card>
-
-      {/* 5. Information Structure */}
-      <Card className="border-integra-gray-100 bg-white shadow-sm">
+      
+      {/* 4. Module: Settings Panel (Radio, Select, Tabs, Accordion) */}
+      <Card className="lg:col-span-2 border-integra-gray-100 bg-white shadow-sm">
         <CardHeader className="p-32 pb-16">
-          <CardTitle className="fs-18 font-bold text-integra-gray-900">Information</CardTitle>
+          <CardTitle className="fs-18 font-bold">Preferences Panel</CardTitle>
+          <CardDescription className="fs-14 text-integra-gray-500">Selection and Information Structure</CardDescription>
         </CardHeader>
-        <CardContent className="p-32 pt-16 space-y-24">
+        <CardContent className="p-32 pt-16 space-y-32">
+          <div className="space-y-12">
+            <Label className="fs-12 text-integra-gray-500">View Mode</Label>
+            <RadioGroup defaultValue="compact" className="flex gap-16">
+              <div className="flex items-center gap-8"><RadioGroupItem value="compact" id="r1" /><Label htmlFor="r1" className="fs-14">Compact</Label></div>
+              <div className="flex items-center gap-8"><RadioGroupItem value="comfortable" id="r2" /><Label htmlFor="r2" className="fs-14">Comfortable</Label></div>
+            </RadioGroup>
+          </div>
           <Tabs defaultValue="ui" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="ui" className="fs-13">Interface</TabsTrigger>
-              <TabsTrigger value="token" className="fs-13">Atoms</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 h-40">
+              <TabsTrigger value="ui" className="fs-14">Interface</TabsTrigger>
+              <TabsTrigger value="token" className="fs-14">Tokens</TabsTrigger>
             </TabsList>
           </Tabs>
           <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="1" className="border-b-0 border-t-0">
-              <AccordionTrigger className="py-8 fs-14 border-b border-integra-gray-100">Why Numerical?</AccordionTrigger>
-              <AccordionContent className="pt-12 fs-13 text-integra-gray-500">
-                1:1 매핑을 통해 디자인과 코드의 간극을 줄이기 위함입니다.
+            <AccordionItem value="1" className="border-b-0">
+              <AccordionTrigger className="py-8 fs-15">Advanced Settings</AccordionTrigger>
+              <AccordionContent className="pt-4 fs-14 text-integra-gray-600">
+                Manage your workspace tokens.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </CardContent>
       </Card>
 
-      {/* 6. The Core Vision (이전 버전 복구) */}
-      <Card className="lg:col-span-3 bg-integra-gray-900 border-0 shadow-2xl relative overflow-hidden">
+      {/* ✨ 5. Module: Core Vision (사용자 요청 버전 복구) ✨ */}
+      <Card className="lg:col-span-2 bg-integra-gray-900 border-0 shadow-2xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50" />
-        <CardContent className="p-48 md:p-80 relative z-10 flex flex-col md:flex-row items-center justify-between gap-48">
+        <CardContent className="p-48 md:p-64 relative z-10 flex flex-col md:flex-row items-center justify-between gap-48 h-full">
           <div className="space-y-24 max-w-500 text-left">
             <h3 className="fs-32 md:fs-40 font-bold leading-40 md:leading-48 text-white tracking--3">
               디자이너의 수치를 <br />
