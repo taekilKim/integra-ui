@@ -120,9 +120,14 @@
 }
 
 @layer base {
-  * { @apply border-border; }
   body { 
-    @apply bg-background text-integra-gray-900 antialiased font-sans fs-16 leading-24 tracking-0; 
+    /* 1. Tailwind 기본 유틸리티는 @apply 유지 */
+    @apply bg-background text-integra-gray-900 antialiased font-sans;
+    
+    /* 2. 커스텀/동적 유틸리티는 표준 CSS로 직접 작성 (에러 방지) */
+    font-size: 16px;       /* == fs-16 */
+    line-height: 24px;     /* == leading-24 */
+    letter-spacing: 0px;   /* == tracking-0 */
   }
 }
 

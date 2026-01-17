@@ -1,10 +1,14 @@
 import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
 
+// 2px 단위로 스케일을 생성하는 함수 (0px ~ 400px)
 const generate2pxScale = (maxPx: number) => {
   const scale: Record<string, string> = {};
-  for (let i = 0; i <= maxPx; i += 2) { scale[i] = `${i}px`; }
-  scale[13] = "13px"; scale[15] = "15px";
+  for (let i = 0; i <= maxPx; i += 2) {
+    scale[i] = `${i}px`;
+  }
+  scale[13] = "13px";
+  scale[15] = "15px";
   return scale;
 };
 
@@ -16,21 +20,45 @@ const config: Config = {
     "./src/**/*.{ts,tsx}",
   ],
   safelist: [
-    { pattern: /^fs-/ }, { pattern: /^leading-/ }, { pattern: /^rounded-/ },
+    { pattern: /^fs-/ },
+    { pattern: /^leading-/ },
+    { pattern: /^rounded-/ },
     { pattern: /^(p|m|gap|w|h|px|py|pl|pr|pt|pb|mx|my|ml|mr|mt|mb)-/ },
     { pattern: /^font-/ },
   ],
   theme: {
     spacing: {
       ...generate2pxScale(400),
-      "full": "100%", "screen": "100vh", "min": "min-content", "max": "max-content", "fit": "fit-content",
+      "full": "100%",
+      "screen": "100vh",
+      "min": "min-content",
+      "max": "max-content",
+      "fit": "fit-content",
     },
     extend: {
       fontFamily: { sans: ["Pretendard", "sans-serif"] },
       lineHeight: generate2pxScale(160),
-      borderRadius: { ...generate2pxScale(80), full: "9999px" },
+      letterSpacing: { 
+        "0": "0", 
+        "-1": "-0.01em", 
+        "-2": "-0.02em", 
+        "-3": "-0.03em", 
+        "-4": "-0.04em" 
+      },
+      maxWidth: { 
+        ...generate2pxScale(1400),
+        "none": "none",
+        "full": "100%",
+        "min": "min-content",
+        "max": "max-content",
+        "fit": "fit-content",
+      },
+      borderRadius: { 
+        ...generate2pxScale(80), 
+        full: "9999px" 
+      },
       colors: {
-        // ✨ hsl() 래퍼 제거 -> var(...) 직접 사용
+        // ✨ [수정됨] hsl() 래퍼를 제거하고 var(...)를 직접 호출합니다.
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
@@ -53,7 +81,16 @@ const config: Config = {
           subtle: "var(--destructive-subtle)",
           "subtle-hover": "var(--destructive-subtle-hover)",
         },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
+        },
 
+        // ✨ [수정됨] Integra Palette도 hsl() 제거
         integra: {
           gray: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `var(--gray-${s})`])),
           blue: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(s => [s, `var(--blue-${s})`])),
@@ -70,8 +107,12 @@ const config: Config = {
     require("tailwindcss-animate"),
     plugin(function({ addUtilities }) {
       const fsUtils: Record<string, { fontSize: string }> = {};
-      for (let i = 12; i <= 160; i += 2) { fsUtils[`.fs-${i}`] = { fontSize: `${i}px` }; }
-      [13, 15].forEach(size => { fsUtils[`.fs-${size}`] = { fontSize: `${size}px` }; });
+      for (let i = 12; i <= 160; i += 2) {
+        fsUtils[`.fs-${i}`] = { fontSize: `${i}px` };
+      }
+      [13, 15].forEach(size => {
+        fsUtils[`.fs-${size}`] = { fontSize: `${size}px` };
+      });
       addUtilities(fsUtils);
     })
   ],
