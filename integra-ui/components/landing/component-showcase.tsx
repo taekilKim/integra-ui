@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -17,15 +17,21 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { MoreHorizontal } from "lucide-react"
+import { MoreHorizontal, Mail, Lock } from "lucide-react"
 
 export function ComponentShowcase() {
   const [switchState, setSwitchState] = React.useState(true);
 
+  const SpecTag = ({ children }: { children: React.ReactNode }) => (
+    <span className="fs-10 font-mono font-bold bg-primary/10 text-primary px-6 py-2 rounded-4 tracking-0">
+      {children}
+    </span>
+  );
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32">
       
-      {/* 1. Module: User Profile (Avatar, Dropdown, Button) */}
+      {/* 1. Module: User Profile */}
       <Card className="lg:col-span-2 border-integra-gray-100 bg-white shadow-sm p-32 space-y-24 flex flex-col justify-between">
         <div className="flex justify-between items-start">
             <div className="flex items-center gap-16">
@@ -40,6 +46,7 @@ export function ComponentShowcase() {
             </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
+                {/* ✨ size="icon" 대신 size="small" + w-32 h-32 p-0 사용 */}
                 <Button appearance="text" variant="secondary" size="small" className="w-32 h-32 p-0">
                   <MoreHorizontal className="w-16 h-16" />
                 </Button>
@@ -52,19 +59,21 @@ export function ComponentShowcase() {
         </div>
         <div className="flex justify-between items-center">
           <div className="flex -space-x-12">
-            <Avatar className="w-32 h-32 border-2 border-white"><AvatarImage src="https://github.com/vercel.png" /></Avatar>
-            <Avatar className="w-32 h-32 border-2 border-white"><AvatarImage src="https://github.com/nextjs.png" /></Avatar>
+            <Avatar className="w-32 h-32 border-2 border-white"><AvatarImage src="https://github.com/vercel.png" /><AvatarFallback>V</AvatarFallback></Avatar>
+            <Avatar className="w-32 h-32 border-2 border-white"><AvatarImage src="https://github.com/nextjs.png" /><AvatarFallback>N</AvatarFallback></Avatar>
             <Avatar className="w-32 h-32 border-2 border-white"><AvatarFallback>+3</AvatarFallback></Avatar>
           </div>
           <Button appearance="default" variant="default" size="medium">Follow</Button>
         </div>
       </Card>
 
-      {/* 2. Module: Form & Controls (Switch, Input, Checkbox) */}
+      {/* 2. Module: Form & Controls */}
       <Card className="lg:col-span-2 border-integra-gray-100 bg-white shadow-sm">
         <CardHeader className="p-32 pb-16">
-          <CardTitle className="fs-18 font-bold">Form Controls</CardTitle>
-          <CardDescription className="fs-14 text-integra-gray-500">Interactive form elements</CardDescription>
+          <div className="flex justify-between items-center">
+             <CardTitle className="fs-18 font-bold">Form Controls</CardTitle>
+             <SpecTag>.gap-24</SpecTag>
+          </div>
         </CardHeader>
         <CardContent className="p-32 pt-16 space-y-24">
           <div className="space-y-8">
@@ -78,30 +87,27 @@ export function ComponentShowcase() {
         </CardContent>
       </Card>
 
-      {/* 3. Module: Data Table (Table, Badge) */}
-      <Card className="lg:col-span-4 border-integra-gray-100 bg-white shadow-sm">
+      {/* 3. Module: Data Table */}
+      <Card className="lg:col-span-3 border-integra-gray-100 bg-white shadow-sm">
         <CardHeader className="p-32 pb-16">
           <CardTitle className="fs-18 font-bold">Data Management</CardTitle>
-          <CardDescription className="fs-14 text-integra-gray-500">A clean and precise data grid</CardDescription>
         </CardHeader>
         <CardContent className="p-32 pt-0">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Invoice</TableHead><TableHead>Status</TableHead><TableHead>Method</TableHead><TableHead className="text-right">Amount</TableHead>
+                <TableHead>Invoice</TableHead><TableHead>Status</TableHead><TableHead className="text-right">Amount</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               <TableRow>
                 <TableCell className="font-medium">INV-001</TableCell>
                 <TableCell><Badge variant="default" className="bg-integra-green-500 hover:bg-integra-green-600">Paid</Badge></TableCell>
-                <TableCell>Credit Card</TableCell>
                 <TableCell className="text-right font-mono">$250.00</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">INV-002</TableCell>
                 <TableCell><Badge variant="secondary" className="bg-integra-orange-100 text-integra-orange-700">Pending</Badge></TableCell>
-                <TableCell>PayPal</TableCell>
                 <TableCell className="text-right font-mono">$150.00</TableCell>
               </TableRow>
             </TableBody>
@@ -109,41 +115,32 @@ export function ComponentShowcase() {
         </CardContent>
       </Card>
       
-      {/* 4. Module: Settings Panel (Radio, Select, Tabs, Accordion) */}
-      <Card className="lg:col-span-2 border-integra-gray-100 bg-white shadow-sm">
+      {/* 4. Module: Settings Panel */}
+      <Card className="lg:col-span-1 border-integra-gray-100 bg-white shadow-sm">
         <CardHeader className="p-32 pb-16">
-          <CardTitle className="fs-18 font-bold">Preferences Panel</CardTitle>
-          <CardDescription className="fs-14 text-integra-gray-500">Selection and Information Structure</CardDescription>
+          <CardTitle className="fs-18 font-bold text-integra-gray-900">Preferences</CardTitle>
         </CardHeader>
         <CardContent className="p-32 pt-16 space-y-32">
           <div className="space-y-12">
             <Label className="fs-12 text-integra-gray-500">View Mode</Label>
             <RadioGroup defaultValue="compact" className="flex gap-16">
               <div className="flex items-center gap-8"><RadioGroupItem value="compact" id="r1" /><Label htmlFor="r1" className="fs-14">Compact</Label></div>
-              <div className="flex items-center gap-8"><RadioGroupItem value="comfortable" id="r2" /><Label htmlFor="r2" className="fs-14">Comfortable</Label></div>
+              <div className="flex items-center gap-8"><RadioGroupItem value="comfortable" id="r2" /><Label htmlFor="r2" className="fs-14">Wide</Label></div>
             </RadioGroup>
           </div>
           <Tabs defaultValue="ui" className="w-full">
             <TabsList className="grid w-full grid-cols-2 h-40">
-              <TabsTrigger value="ui" className="fs-14">Interface</TabsTrigger>
-              <TabsTrigger value="token" className="fs-14">Tokens</TabsTrigger>
+              <TabsTrigger value="ui" className="fs-13">Interface</TabsTrigger>
+              <TabsTrigger value="token" className="fs-13">Tokens</TabsTrigger>
             </TabsList>
           </Tabs>
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="1" className="border-b-0">
-              <AccordionTrigger className="py-8 fs-15">Advanced Settings</AccordionTrigger>
-              <AccordionContent className="pt-4 fs-14 text-integra-gray-600">
-                Manage your workspace tokens.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
         </CardContent>
       </Card>
 
-      {/* ✨ 5. Module: Core Vision (사용자 요청 버전 복구) ✨ */}
-      <Card className="lg:col-span-2 bg-integra-gray-900 border-0 shadow-2xl relative overflow-hidden">
+      {/* 5. The Core Vision (Shadcn Dark Style) */}
+      <Card className="lg:col-span-4 bg-integra-gray-900 border-0 shadow-2xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50" />
-        <CardContent className="p-48 md:p-64 relative z-10 flex flex-col md:flex-row items-center justify-between gap-48 h-full">
+        <CardContent className="p-48 md:p-80 relative z-10 flex flex-col md:flex-row items-center justify-between gap-48">
           <div className="space-y-24 max-w-500 text-left">
             <h3 className="fs-32 md:fs-40 font-bold leading-40 md:leading-48 text-white tracking--3">
               디자이너의 수치를 <br />

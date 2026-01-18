@@ -32,7 +32,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/docs/components">
-              <Button appearance="text" variant="tertiary" size="default" className="border border-integra-gray-200">
+              <Button appearance="outlined" variant="tertiary" size="default">
                 컴포넌트 둘러보기
               </Button>
             </Link>
