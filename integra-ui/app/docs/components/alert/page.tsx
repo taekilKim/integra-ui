@@ -27,7 +27,7 @@ export default function AlertDocsPage() {
 
   // 2. Usage 코드 스니펫
   const codeSnippet = `import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
-import { Info } from "lucide-react"
+import { Info } from "@phosphor-icons/react"
 
 <Alert variant="success">
   <Info className="h-16 w-16" />

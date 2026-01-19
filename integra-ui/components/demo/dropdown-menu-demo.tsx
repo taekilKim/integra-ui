@@ -13,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Playground } from "@/components/layout/playground"
-import { User, CreditCard, Settings, LogOut } from "lucide-react"
+import { User, CreditCard, Gear, SignOut } from "@phosphor-icons/react"
 
 export function DropdownMenuDemo() {
   return (
@@ -37,13 +37,13 @@ export function DropdownMenuDemo() {
                 <span>Billing</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Settings className="mr-8 h-16 w-16" />
+                <Gear className="mr-8 h-16 w-16" />
                 <span>Settings</span>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <LogOut className="mr-8 h-16 w-16" />
+              <SignOut className="mr-8 h-16 w-16" />
               <span>Log out</span>
             </DropdownMenuItem>
           </DropdownMenuContent>

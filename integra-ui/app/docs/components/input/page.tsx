@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
-import { Mail, Lock } from "lucide-react";
+import { EnvelopeSimple, Lock } from "@phosphor-icons/react";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -42,7 +42,7 @@ export default function InputDocsPage() {
 
   const authPatternCode = `/* Icon + Input (Email/Password) */
 <div className="relative">
-  <Mail className="absolute left-12 top-12 w-16 h-16 text-integra-gray-400" />
+  <EnvelopeSimple className="absolute left-12 top-12 w-16 h-16 text-integra-gray-400" />
   <Input className="pl-40" type="email" placeholder="name@example.com" />
 </div>`;
 
@@ -130,7 +130,7 @@ export default function InputDocsPage() {
                 <div className="space-y-8">
                   <Label className="fs-12 text-integra-gray-500">Email Address (Icon Pattern)</Label>
                   <div className="relative">
-                    <Mail className="absolute left-12 top-12 w-16 h-16 text-integra-gray-400" />
+                    <EnvelopeSimple className="absolute left-12 top-12 w-16 h-16 text-integra-gray-400" />
                     <Input className="pl-40" placeholder="hello@integra.ui" type="email" />
                   </div>
                 </div>

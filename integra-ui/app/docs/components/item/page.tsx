@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CodeBlock } from "@/components/layout/code-block";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
-import { MoreHorizontal } from "lucide-react";
+import { DotsThree } from "@phosphor-icons/react";
 
 /**
  * [Integra UI - Item Document SAI Version]
@@ -143,7 +143,7 @@ export default function ItemDocsPage() {
                     <Item className="h-48">
                         <span className="flex-1 fs-14">Settings</span>
                         <Button size="small" variant="tertiary" className="w-32 h-32 p-0">
-                            <MoreHorizontal className="w-16 h-16" />
+                            <DotsThree className="w-16 h-16" />
                         </Button>
                     </Item>
                 </div>

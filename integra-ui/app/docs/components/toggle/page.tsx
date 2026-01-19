@@ -5,7 +5,7 @@ import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbS
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Toggle } from "@/components/ui/toggle";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Bold, Italic } from "lucide-react";
+import { TextB, TextItalic } from "@phosphor-icons/react";
 
 export default function ToggleDocsPage() {
   const baseTokens = [
@@ -26,17 +26,17 @@ export default function ToggleDocsPage() {
   const codeSnippet = `import { Toggle } from "@/components/ui/toggle"
 
 <Toggle aria-label="Toggle bold">
-  <Bold className="h-16 w-16" />
+  <TextB className="h-16 w-16" />
 </Toggle>`;
   
   const groupCodeSnippet = `import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 <ToggleGroup type="multiple">
   <ToggleGroupItem value="bold">
-    <Bold className="h-16 w-16" />
+    <TextB className="h-16 w-16" />
   </ToggleGroupItem>
   <ToggleGroupItem value="italic">
-    <Italic className="h-16 w-16" />
+    <TextItalic className="h-16 w-16" />
   </ToggleGroupItem>
 </ToggleGroup>`;
 

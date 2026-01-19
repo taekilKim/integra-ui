@@ -112,6 +112,7 @@
     --input: var(--gray-200);
     --ring: var(--primary);
     --radius: 8px; /* Layout Radius 2 (8px) */
+    --overlay: rgba(0, 0, 0, 0.5); /* Overlay background for modals/sheets */
   }
 
   h1, h2, h3, h4, h5, h6 {

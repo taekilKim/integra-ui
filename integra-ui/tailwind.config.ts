@@ -64,6 +64,7 @@ const config: Config = {
         ring: "var(--ring)",
         background: "var(--background)",
         foreground: "var(--foreground)",
+        overlay: "var(--overlay)",
         
         primary: {
           DEFAULT: "var(--primary)",

@@ -5,7 +5,7 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ComponentShowcase } from "@/components/landing/component-showcase";
-import { ArrowRight, Check, MessageSquare, PenTool, Box, ChevronRight } from "lucide-react";
+import { ArrowRight, Check, ChatTeardropText, PencilLine, Cube, CaretRight } from "@phosphor-icons/react";
 
 export default function Home() {
   return (
@@ -61,7 +61,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-80 items-center">
             <div className="space-y-32">
               <div className="inline-flex p-12 bg-integra-blue-50 rounded-12 text-primary">
-                <MessageSquare className="w-24 h-24" />
+                <ChatTeardropText className="w-24 h-24" />
               </div>
               <h2 className="fs-32 md:fs-40 font-bold leading-40 md:leading-52 tracking--3 text-integra-gray-900">
                 번역이 필요 없는 <br />
@@ -101,7 +101,7 @@ export default function Home() {
         <div className="container px-24 md:px-64 mx-auto">
           <div className="text-center max-w-800 mx-auto space-y-32">
             <div className="inline-flex p-12 bg-white rounded-12 text-integra-gray-900 border border-integra-gray-100 shadow-sm">
-              <PenTool className="w-24 h-24" />
+              <PencilLine className="w-24 h-24" />
             </div>
             <h2 className="fs-32 md:fs-40 font-bold leading-40 md:leading-52 tracking--3 text-integra-gray-900">
               한글 가독성의 임계점을 넘는 <br />
@@ -134,7 +134,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row-reverse items-center gap-80">
             <div className="flex-1 space-y-32">
               <div className="inline-flex p-12 bg-primary/10 rounded-12 text-primary">
-                <Box className="w-24 h-24" />
+                <Cube className="w-24 h-24" />
               </div>
               <h2 className="fs-32 md:fs-40 font-bold leading-40 md:leading-52 tracking--3 text-integra-gray-900">
                 추가적인 외부 자원이 필요 없는 <br />
@@ -148,7 +148,7 @@ export default function Home() {
               <div className="pt-8">
                 <Link href="/docs/installation">
                     <Button appearance="outlined" variant="default" size="default" className="gap-8">
-                      설치 가이드 보러가기 <ChevronRight className="w-16 h-16" />
+                      설치 가이드 보러가기 <CaretRight className="w-16 h-16" />
                     </Button>
                 </Link>
               </div>

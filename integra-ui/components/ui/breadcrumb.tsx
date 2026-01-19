@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ChevronRight, MoreHorizontal } from "lucide-react"
+import { CaretRight, DotsThree } from "@phosphor-icons/react"
 import { Slot } from "@radix-ui/react-slot"
 import { cn } from "@/lib/utils"
 
@@ -86,7 +86,7 @@ const BreadcrumbSeparator = ({
     className={cn("[&>svg]:w-14 [&>svg]:h-14 text-integra-gray-300", className)}
     {...props}
   >
-    {children ?? <ChevronRight />}
+    {children ?? <CaretRight />}
   </li>
 )
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator"

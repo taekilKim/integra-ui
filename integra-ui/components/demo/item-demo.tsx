@@ -5,7 +5,7 @@ import { Item } from "@/components/ui/item"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { Check, Mail, Settings, User } from "lucide-react"
+import { Check, EnvelopeSimple, Gear, User } from "@phosphor-icons/react"
 import { Playground } from "@/components/layout/playground"
 
 export function ItemDemo() {
@@ -39,7 +39,7 @@ export function ItemDemo() {
             data-state={selected === "settings" ? "on" : "off"}
             onClick={() => setSelected("settings")}
           >
-            <Settings className="w-16 h-16 mr-8 text-integra-gray-500" />
+            <Gear className="w-16 h-16 mr-8 text-integra-gray-500" />
             <span className="flex-1">Settings</span>
             {selected === "settings" && <Check className="w-16 h-16 text-primary" />}
           </Item>

@@ -6,7 +6,7 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import { Card } from "@/components/ui/card";
-import { Palette, Type, Ruler, ArrowRight, Layers, Box } from "lucide-react";
+import { Palette, TextAa, Ruler, ArrowRight, Stack, Cube } from "@phosphor-icons/react";
 
 /**
  * [Integra UI - Foundations Intro SAI Version]
@@ -67,7 +67,7 @@ export default function FoundationsIntro() {
           <Card className="h-full border-integra-gray-200 shadow-sm hover:border-primary/50 hover:shadow-md transition-all p-32 space-y-24 bg-white">
             <div className="flex items-start justify-between">
               <div className="p-12 rounded-12 bg-integra-gray-100 text-integra-gray-700">
-                <Type className="w-24 h-24" />
+                <TextAa className="w-24 h-24" />
               </div>
               <ArrowRight className="w-20 h-20 text-integra-gray-300 group-hover:text-primary transition-colors" />
             </div>
@@ -122,7 +122,7 @@ export default function FoundationsIntro() {
           {/* Principle 1 */}
           <div className="p-32 rounded-16 bg-integra-gray-50 border border-integra-gray-100 space-y-16">
             <div className="flex items-center gap-12">
-                <Layers className="w-20 h-20 text-primary" />
+                <Stack className="w-20 h-20 text-primary" />
                 <h3 className="fs-18 font-bold text-integra-gray-900">감각이 아닌 수치로</h3>
             </div>
             <p className="fs-15 text-integra-gray-600 leading-24">
@@ -134,7 +134,7 @@ export default function FoundationsIntro() {
           {/* Principle 2 */}
           <div className="p-32 rounded-16 bg-integra-gray-50 border border-integra-gray-100 space-y-16">
             <div className="flex items-center gap-12">
-                <Box className="w-20 h-20 text-primary" />
+                <Cube className="w-20 h-20 text-primary" />
                 <h3 className="fs-18 font-bold text-integra-gray-900">예측 가능한 확장</h3>
             </div>
             <p className="fs-15 text-integra-gray-600 leading-24">
