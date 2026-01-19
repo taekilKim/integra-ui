@@ -12,23 +12,31 @@ import {
 /**
  * [Integra UI - Button Document SAI Version]
  * 트리거 및 폼 전송을 위한 핵심 컴포넌트 문서입니다.
- * Shape, Size, Appearance, Variant의 4차원 아토믹 조합을 명세합니다.
+ * 복합적인 Shape, Size, Appearance, Variant 조합에 따른 상세 토큰 명세를 제공합니다.
  */
 export default function ButtonDocsPage() {
-  // 1. 버튼 전용 디자인 토큰 데이터 (Shape 포함)
-  const appliedAtoms = [
-    { property: "Height (높이)", default: "56px", medium: "48px", small: "32px" },
-    { property: "Radius (Rect/Squircle)", default: "16px", medium: "12px", small: "8px" },
-    { property: "Radius (Circle)", default: "9999px", medium: "9999px", small: "9999px" },
-    { property: "Icon Size (Svg)", default: "24px", medium: "20px", small: "16px" },
-    { property: "Padding H (Rect Only)", default: "20px", medium: "12px", small: "8px" },
-    { property: "Font Size (Text)", default: "18px", medium: "16px", small: "12px" },
+  
+  // 1. 레이아웃 및 형태 관련 토큰 (Geometry)
+  const layoutTokens = [
+    { property: "Height (높이)", class: "h-{px}", default: "h-56", medium: "h-48", small: "h-32" },
+    { property: "Padding X (Rect Shape)", class: "px-{px}", default: "px-20", medium: "px-12", small: "px-8" },
+    { property: "Width (Icon Shape)", class: "w-{px}", default: "w-56", medium: "w-48", small: "w-32" },
+    { property: "Radius (Rect/Square)", class: "rounded-{px}", default: "rounded-16", medium: "rounded-12", small: "rounded-8" },
+    { property: "Radius (Circle)", class: "rounded-full", default: "9999px", medium: "9999px", small: "9999px" },
+  ];
+
+  // 2. 타이포그래피 및 콘텐츠 관련 토큰 (Content)
+  const contentTokens = [
+    { property: "Font Size", class: "fs-{px}", default: "fs-18", medium: "fs-16", small: "fs-12" },
+    { property: "Line Height", class: "leading-{px}", default: "leading-24", medium: "leading-20", small: "leading-16" },
+    { property: "Icon Size (SVG)", class: "w-{px} h-{px}", default: "24px", medium: "20px", small: "16px" },
+    { property: "Font Weight", class: "font-{weight}", default: "Semibold", medium: "Semibold", small: "Semibold" },
   ];
 
   return (
     <div className="space-y-64 pb-120">
       
-      {/* 1. 헤더 섹션: 표준 Breadcrumb 적용 */}
+      {/* 1. Header */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -48,13 +56,13 @@ export default function ButtonDocsPage() {
         
         <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
           사용자의 동작을 트리거하거나 폼을 전송할 때 사용하는 핵심 컴포넌트입니다.<br />
-          Shape 속성을 통해 텍스트 버튼과 아이콘 버튼(원형/스쿼클)을 통합 관리합니다.
+          Shape, Size, Appearance의 조합을 통해 시스템 내 모든 위계와 형태를 커버합니다.
         </p>
       </div>
 
       <hr className="border-integra-gray-100" />
 
-      {/* 2. 인터랙티브 플레이그라운드 */}
+      {/* 2. Playground */}
       <section className="space-y-16">
         <div className="flex items-center justify-between">
             <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Playground</h2>
@@ -63,61 +71,96 @@ export default function ButtonDocsPage() {
         <ButtonDemo />
       </section>
 
-      {/* 3. 디자인 토큰 섹션 */}
-      <section className="space-y-24">
+      {/* 3. Detailed Design Tokens */}
+      <section className="space-y-48">
         <div className="space-y-8">
-            <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">디자인 토큰</h2>
-            <p className="fs-16 text-integra-gray-500">Shape와 Size 조합에 따른 정밀 규격 명세입니다.</p>
+            <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">디자인 토큰 상세</h2>
+            <p className="fs-16 text-integra-gray-500">버튼의 크기(Size)와 형태(Shape)에 따라 변경되는 정밀한 아토믹 수치입니다.</p>
         </div>
-        <div className="rounded-12 border border-integra-gray-100 overflow-hidden shadow-sm">
-            <table className="w-full text-left border-collapse">
-                <thead className="bg-integra-gray-50 border-b border-integra-gray-200">
-                    <tr className="fs-12 font-bold text-integra-gray-400">
-                        <th className="px-24 py-16">Property</th>
-                        <th className="px-24 py-16">Default (56)</th>
-                        <th className="px-24 py-16">Medium (48)</th>
-                        <th className="px-24 py-16">Small (32)</th>
-                    </tr>
-                </thead>
-                <tbody className="divide-y border-integra-gray-100 fs-14">
-                    {appliedAtoms.map((atom) => (
-                        <tr key={atom.property} className="hover:bg-integra-gray-50/50 transition-colors">
-                            <td className="px-24 py-16 font-medium text-integra-gray-700">{atom.property}</td>
-                            <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{atom.default}</td>
-                            <td className="px-24 py-16 font-mono text-integra-gray-500">{atom.medium}</td>
-                            <td className="px-24 py-16 font-mono text-integra-gray-500">{atom.small}</td>
+
+        {/* 3-1. Geometry Spec */}
+        <div className="space-y-16">
+            <h3 className="fs-18 font-bold text-integra-gray-700">1. Geometry & Layout</h3>
+            <div className="rounded-12 border border-integra-gray-100 overflow-hidden shadow-sm">
+                <table className="w-full text-left border-collapse">
+                    <thead className="bg-integra-gray-50 border-b border-integra-gray-200">
+                        <tr className="fs-12 font-bold text-integra-gray-400">
+                            <th className="px-24 py-16">Property</th>
+                            <th className="px-24 py-16">Class Syntax</th>
+                            <th className="px-24 py-16">Default (56)</th>
+                            <th className="px-24 py-16">Medium (48)</th>
+                            <th className="px-24 py-16">Small (32)</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody className="divide-y border-integra-gray-100 fs-14">
+                        {layoutTokens.map((token) => (
+                            <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
+                                <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
+                                <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                                <td className="px-24 py-16 font-mono text-integra-gray-900">{token.default}</td>
+                                <td className="px-24 py-16 font-mono text-integra-gray-500">{token.medium}</td>
+                                <td className="px-24 py-16 font-mono text-integra-gray-500">{token.small}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {/* 3-2. Content Spec */}
+        <div className="space-y-16">
+            <h3 className="fs-18 font-bold text-integra-gray-700">2. Typography & Icon</h3>
+            <div className="rounded-12 border border-integra-gray-100 overflow-hidden shadow-sm">
+                <table className="w-full text-left border-collapse">
+                    <thead className="bg-integra-gray-50 border-b border-integra-gray-200">
+                        <tr className="fs-12 font-bold text-integra-gray-400">
+                            <th className="px-24 py-16">Property</th>
+                            <th className="px-24 py-16">Class Syntax</th>
+                            <th className="px-24 py-16">Default (56)</th>
+                            <th className="px-24 py-16">Medium (48)</th>
+                            <th className="px-24 py-16">Small (32)</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y border-integra-gray-100 fs-14">
+                        {contentTokens.map((token) => (
+                            <tr key={token.property} className="hover:bg-integra-gray-50/50 transition-colors">
+                                <td className="px-24 py-16 font-medium text-integra-gray-700">{token.property}</td>
+                                <td className="px-24 py-16 font-mono text-integra-blue-600 font-bold">{token.class}</td>
+                                <td className="px-24 py-16 font-mono text-integra-gray-900">{token.default}</td>
+                                <td className="px-24 py-16 font-mono text-integra-gray-500">{token.medium}</td>
+                                <td className="px-24 py-16 font-mono text-integra-gray-500">{token.small}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
       </section>
 
-      {/* 4. 아토믹 설계 원리 설명 */}
+      {/* 4. Atomic Design Note */}
       <section className="space-y-16 p-32 bg-integra-gray-50 rounded-16 border border-integra-gray-100">
         <h2 className="fs-20 font-bold leading-24 tracking--1 text-integra-gray-900">Atomic Design Note</h2>
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
-            <p>Integra UI의 버튼은 독립된 원자(Size, Shape, Appearance)를 조합하여 완성됩니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Height Strategy:</strong> 32px, 48px, 56px 규격을 엄격히 준수하여 수직 리듬을 형성합니다.</li>
-                <li><strong>Shape System:</strong> <code>shape="circle"</code>은 <code>rounded-full</code>을, <code>shape="square"</code>는 버튼 크기에 비례하는 스쿼클 곡률(8/12/16px)을 자동 적용합니다.</li>
-                <li><strong>Semantic Hover:</strong> <code>primary-hover</code> 토큰을 사용하여 브랜드 컬러 변경 시 호버 상태가 자동 동기화됩니다.</li>
+                <li><strong>Shape System:</strong> <code>shape="square"</code>는 버튼 높이와 동일한 너비를 가져 정사각(Squircle) 비율을 유지하며, <code>shape="circle"</code>은 완전한 원형을 만듭니다.</li>
+                <li><strong>Padding Logic:</strong> 텍스트 버튼은 좌우 패딩을 사용하여 라벨 길이에 유동적으로 반응하지만, 아이콘 버튼은 패딩을 제거하고 고정 너비(w)를 사용하여 중앙 정렬을 보장합니다.</li>
+                <li><strong>Semantic Colors:</strong> 모든 색상은 <code>primary-hover</code>, <code>destructive-subtle</code> 등 역할 기반 토큰으로 연결되어 테마 변경에 자동 대응합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. 사용법 */}
+      {/* 5. Usage */}
       <section className="space-y-16">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
         <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
             <p className="text-integra-gray-500 mb-8">// Import component</p>
             <p className="text-integra-blue-400">import &#123; Button &#125; from "@/components/ui/button"</p>
             <br />
-            <p className="text-integra-gray-500 mb-8">// Basic usage</p>
-            <p className="text-white">&lt;Button appearance="default" variant="default"&gt;Click me&lt;/Button&gt;</p>
+            <p className="text-integra-gray-500 mb-8">// Text Button (Solid)</p>
+            <p className="text-white">&lt;Button appearance="default" variant="default"&gt;Confirm&lt;/Button&gt;</p>
             <br />
-            <p className="text-integra-gray-500 mb-8">// Icon button (Squircle)</p>
-            <p className="text-white">&lt;Button shape="square" size="medium" variant="tertiary"&gt;&lt;Icon /&gt;&lt;/Button&gt;</p>
+            <p className="text-integra-gray-500 mb-8">// Icon Button (Squircle / Secondary)</p>
+            <p className="text-white">&lt;Button shape="square" appearance="default" variant="secondary"&gt;&lt;Icon /&gt;&lt;/Button&gt;</p>
         </div>
       </section>
 
