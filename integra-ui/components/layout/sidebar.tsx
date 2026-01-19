@@ -30,7 +30,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
         "badge", "switch", "toggle", "select", "accordion", "tabs", 
         "dialog", "popover", "dropdown-menu", "tooltip", "alert", "toast", 
         "scroll-area", "separator", "skeleton", "slider", "sheet", "avatar",
-        "breadcrumb", "table", "radio-group", "card"
+        "breadcrumb", "pagination", "table", "radio-group", "card"
       ].map(item => ({
         // 하이픈 제거 및 첫 글자 대문자화 (예: radio-group -> Radio Group)
         name: item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
