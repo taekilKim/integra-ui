@@ -1,3 +1,5 @@
+"use client"
+
 import { ItemDemo } from "@/components/demo/item-demo";
 import { Badge } from "@/components/ui/badge";
 import { Item } from "@/components/ui/item";

@@ -1,3 +1,5 @@
+"use client"
+
 import { ToggleDemo } from "@/components/demo/toggle-demo";
 import { Badge } from "@/components/ui/badge";
 import { CodeBlock } from "@/components/layout/code-block";

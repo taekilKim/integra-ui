@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import { 
   Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage 

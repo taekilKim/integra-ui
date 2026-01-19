@@ -1,3 +1,5 @@
+"use client"
+
 import { AlertDemo } from "@/components/demo/alert-demo";
 import { Badge } from "@/components/ui/badge";
 import { CodeBlock } from "@/components/layout/code-block";
