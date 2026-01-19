@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDown } from "lucide-react"
+import { CaretDown } from "@phosphor-icons/react"
 import { cn } from "@/lib/utils"
 
 const Accordion = AccordionPrimitive.Root
@@ -17,7 +17,6 @@ const AccordionItem = React.forwardRef<
     {...props}
   />
 ))
-// ✨ displayName을 안전한 문자열로 변경
 AccordionItem.displayName = "AccordionItem"
 
 const AccordionTrigger = React.forwardRef<
@@ -34,11 +33,10 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       {children}
-      <ChevronDown className="h-16 w-16 shrink-0 text-integra-gray-400 transition-transform duration-200" />
+      <CaretDown className="h-16 w-16 shrink-0 text-integra-gray-400 transition-transform duration-200" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
-// ✨ displayName을 안전한 문자열로 변경
 AccordionTrigger.displayName = "AccordionTrigger"
 
 const AccordionContent = React.forwardRef<
@@ -53,7 +51,6 @@ const AccordionContent = React.forwardRef<
     <div className={cn("pb-16 pt-0", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ))
-// ✨ displayName을 안전한 문자열로 변경
 AccordionContent.displayName = "AccordionContent"
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
