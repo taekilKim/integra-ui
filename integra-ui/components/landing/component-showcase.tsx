@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { CreditCard, Mail, User, Plus, Bell, Check, Clock } from "lucide-react"
+import { CreditCard, EnvelopeSimple, User, Plus, Bell, Check, Clock } from "@phosphor-icons/react"
 
 export function ComponentShowcase() {
   return (

@@ -4,7 +4,7 @@ import * as React from "react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Card } from "@/components/ui/card"
 import { Playground } from "@/components/layout/playground"
-import { Info, AlertTriangle, CheckCircle, XCircle } from "lucide-react"
+import { Info, Warning, CheckCircle, XCircle } from "@phosphor-icons/react"
 
 export function AlertDemo() {
   return (
@@ -27,7 +27,7 @@ export function AlertDemo() {
 
         {/* Warning */}
         <Alert variant="warning">
-          <AlertTriangle />
+          <Warning />
           <AlertTitle>Warning</AlertTitle>
           <AlertDescription>Your session is about to expire.</AlertDescription>
         </Alert>

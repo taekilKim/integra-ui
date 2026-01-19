@@ -6,7 +6,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Playground } from "@/components/layout/playground"
-import { Bold, Italic, Underline } from "lucide-react"
+import { TextB, TextItalic, TextUnderline } from "@phosphor-icons/react"
 
 export function ToggleDemo() {
   const [size, setSize] = React.useState<any>("default");
@@ -18,7 +18,7 @@ export function ToggleDemo() {
         <div className="flex flex-col items-center gap-12">
           <p className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Single Toggle</p>
           <Toggle size={size} variant={variant} aria-label="Toggle bold">
-            <Bold className="h-16 w-16" />
+            <TextB className="h-16 w-16" />
           </Toggle>
         </div>
         
@@ -26,13 +26,13 @@ export function ToggleDemo() {
           <p className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Multiple Group</p>
           <ToggleGroup type="multiple" size={size} variant={variant}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
-              <Bold className="h-16 w-16" />
+              <TextB className="h-16 w-16" />
             </ToggleGroupItem>
             <ToggleGroupItem value="italic" aria-label="Toggle italic">
-              <Italic className="h-16 w-16" />
+              <TextItalic className="h-16 w-16" />
             </ToggleGroupItem>
             <ToggleGroupItem value="underline" aria-label="Toggle underline">
-              <Underline className="h-16 w-16" />
+              <TextUnderline className="h-16 w-16" />
             </ToggleGroupItem>
           </ToggleGroup>
         </div>

@@ -3,7 +3,7 @@
 import * as React from "react"
 import * as ToastPrimitives from "@radix-ui/react-toast"
 import { cva, type VariantProps } from "class-variance-authority"
-import { X } from "lucide-react"
+import { X } from "@phosphor-icons/react"
 import { cn } from "@/lib/utils"
 
 const ToastProvider = ToastPrimitives.Provider
@@ -68,7 +68,7 @@ const ToastAction = React.forwardRef<
       // [Colors: Default Context]
       "border-integra-gray-200 text-integra-gray-900 hover:bg-integra-gray-50",
       // [Colors: Destructive Context]
-      "group-[.destructive]:border-white/30 group-[.destructive]:hover:border-white group-[.destructive]:hover:bg-white group-[.destructive]:hover:text-integra-red-500 group-[.destructive]:focus:ring-integra-red-400",
+      "group-[.destructive]:border-integra-red-100 group-[.destructive]:hover:border-white group-[.destructive]:hover:bg-white group-[.destructive]:hover:text-integra-red-500 group-[.destructive]:focus:ring-integra-red-400",
       className
     )}
     {...props}
@@ -88,7 +88,7 @@ const ToastClose = React.forwardRef<
       // [Colors] integra-gray-400에서 호버 시 900으로 진해짐
       "text-integra-gray-400 hover:text-integra-gray-900 focus:ring-2 focus:ring-primary",
       // [Destructive Context Colors]
-      "group-[.destructive]:text-white/70 group-[.destructive]:hover:text-white group-[.destructive]:focus:ring-white",
+      "group-[.destructive]:text-integra-red-50 group-[.destructive]:hover:text-white group-[.destructive]:focus:ring-white",
       className
     )}
     toast-close=""
@@ -119,7 +119,7 @@ const ToastDescription = React.forwardRef<
   <ToastPrimitives.Description
     ref={ref}
     // [SAI Typography] fs-13, leading-20 적용
-    className={cn("fs-13 text-integra-gray-600 leading-20 tracking-0 group-[.destructive]:text-white/90", className)}
+    className={cn("fs-13 text-integra-gray-600 leading-20 tracking-0 group-[.destructive]:text-white", className)}
     {...props}
   />
 ))

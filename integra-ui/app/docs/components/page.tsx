@@ -11,7 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card } from "@/components/ui/card";
-import { Layers, MousePointer2, Zap } from "lucide-react";
+import { Stack, Cursor, Lightning } from "@phosphor-icons/react";
 
 export default function ComponentsIntro() {
   // 컴포넌트 갤러리 데이터
@@ -74,9 +74,9 @@ export default function ComponentsIntro() {
 
   // 설계 원칙 데이터
   const principles = [
-    { title: "Radix UI Core", icon: <Layers className="w-20 h-20" />, desc: "검증된 접근성과 키보드 인터랙션을 기본으로 제공합니다." },
-    { title: "Atomic Tokens", icon: <Zap className="w-20 h-20" />, desc: "모든 컴포넌트는 4px 그리드 토큰으로 정교하게 조립됩니다." },
-    { title: "Copy-Paste DX", icon: <MousePointer2 className="w-20 h-20" />, desc: "설치 없이 코드를 복사하여 완전한 소유권을 가집니다." },
+    { title: "Radix UI Core", icon: <Stack className="w-20 h-20" />, desc: "검증된 접근성과 키보드 인터랙션을 기본으로 제공합니다." },
+    { title: "Atomic Tokens", icon: <Lightning className="w-20 h-20" />, desc: "모든 컴포넌트는 4px 그리드 토큰으로 정교하게 조립됩니다." },
+    { title: "Copy-Paste DX", icon: <Cursor className="w-20 h-20" />, desc: "설치 없이 코드를 복사하여 완전한 소유권을 가집니다." },
   ];
 
   return (

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Playground } from "@/components/layout/playground" // ✨ 필수: Playground 임포트
-import { Plus } from "lucide-react"
+import { Plus } from "@phosphor-icons/react"
 
 export function ButtonDemo() {
   const [appearance, setAppearance] = React.useState<any>("default")
