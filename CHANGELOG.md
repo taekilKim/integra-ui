@@ -2,8 +2,12 @@
 
 모든 작업 내역은 SAI(Strict Atomic Integra UI) 원칙을 준수하여 기록됩니다.
 
+### **v1.3.0**
+- **Feature:** `Calendar` 컴포넌트 시스템 구축 (`ui`, `demo`, `docs`).
+  - `react-day-picker` 기반의 아토믹 달력.
+  - SAI 토큰(`h-36`, `rounded-8`, `primary`)을 적용하여 커스텀 스타일링.
 
-### **v1.2.7 (Current)**
+### **v1.2.7 **
 - **Brand Identity:** 기하학적 'i' 모티프의 벡터 로고(`icon.svg`) 및 파비콘 적용.
 - **Header Refactor:** 로고 적용, `slate` 컬러 제거 및 SAI 토큰 기반 디자인 정화.
 
