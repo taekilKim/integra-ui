@@ -32,20 +32,20 @@ function Calendar({
                 nav: "space-x-4 flex items-center",
                 button_previous: cn(
                     buttonVariants({ variant: "tertiary", appearance: "outlined" }),
-                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute left-4"
+                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute left-4 z-10"
                 ),
                 button_next: cn(
                     buttonVariants({ variant: "tertiary", appearance: "outlined" }),
-                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute right-4"
+                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute right-4 z-10"
                 ),
                 month_grid: "w-full border-collapse",
-                weekdays: "flex",
+                weekdays: "flex justify-center",
                 weekday: "text-integra-gray-500 rounded-8 w-40 font-normal fs-13",
-                week: "flex w-full mt-8",
+                week: "flex w-full mt-8 justify-center",
                 day: "h-40 w-40 text-center fs-14 p-0 relative [&:has([aria-selected].range_end)]:rounded-r-8 [&:has([aria-selected].outside)]:bg-integra-gray-50/50 [&:has([aria-selected])]:bg-integra-gray-50 first:[&:has([aria-selected])]:rounded-l-8 last:[&:has([aria-selected])]:rounded-r-8 focus-within:relative focus-within:z-20",
                 day_button: cn(
-                    buttonVariants({ appearance: "text" }),
-                    "h-40 w-40 p-0 font-normal rounded-12 aria-selected:opacity-100 hover:bg-integra-gray-100"
+                    buttonVariants({ variant: "tertiary", appearance: "text" }),
+                    "h-40 w-40 p-0 font-normal rounded-12 aria-selected:opacity-100 hover:bg-integra-gray-100 text-integra-gray-900"
                 ),
                 range_end: "range_end",
                 selected:
