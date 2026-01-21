@@ -27,42 +27,36 @@ function Calendar({
             classNames={{
                 months: "flex flex-col sm:flex-row space-y-16 sm:space-x-16 sm:space-y-0",
                 month: "space-y-16",
-                caption: "flex justify-center pt-4 relative items-center",
-                // [Caption Label] fs-16 font-semibold: 명확한 년월 표시
+                month_caption: "flex justify-center pt-4 relative items-center",
                 caption_label: "fs-16 font-semibold text-integra-gray-900",
                 nav: "space-x-4 flex items-center",
-                // [Nav Button] h-28 w-28: 컴팩트한 네비게이션 버튼 (opacity 활용)
-                nav_button: cn(
+                button_previous: cn(
                     buttonVariants({ variant: "tertiary", appearance: "outlined" }),
-                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100"
+                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute left-4"
                 ),
-                nav_button_previous: "absolute left-4",
-                nav_button_next: "absolute right-4",
-                table: "w-full border-collapse",
-                head_row: "flex",
-                // [Head Cell] fs-13 text-integra-gray-500: 요일 헤더
-                head_cell:
-                    "text-integra-gray-500 rounded-8 w-40 font-normal fs-13",
-                row: "flex w-full mt-8",
-                // [Cell] w-40, h-40: 40px 터치 타겟 확보 (SAI Strict)
-                cell: "h-40 w-40 text-center fs-14 p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-8 [&:has([aria-selected].day-outside)]:bg-integra-gray-50/50 [&:has([aria-selected])]:bg-integra-gray-50 first:[&:has([aria-selected])]:rounded-l-8 last:[&:has([aria-selected])]:rounded-r-8 focus-within:relative focus-within:z-20",
-                day: cn(
+                button_next: cn(
+                    buttonVariants({ variant: "tertiary", appearance: "outlined" }),
+                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute right-4"
+                ),
+                month_grid: "w-full border-collapse",
+                weekdays: "flex",
+                weekday: "text-integra-gray-500 rounded-8 w-40 font-normal fs-13",
+                week: "flex w-full mt-8",
+                day: "h-40 w-40 text-center fs-14 p-0 relative [&:has([aria-selected].range_end)]:rounded-r-8 [&:has([aria-selected].outside)]:bg-integra-gray-50/50 [&:has([aria-selected])]:bg-integra-gray-50 first:[&:has([aria-selected])]:rounded-l-8 last:[&:has([aria-selected])]:rounded-r-8 focus-within:relative focus-within:z-20",
+                day_button: cn(
                     buttonVariants({ appearance: "text" }),
-                    // [Day Button] w-40, h-40, rounded-12: 터치하기 편한 원형에 가까운 스퀘어클
                     "h-40 w-40 p-0 font-normal rounded-12 aria-selected:opacity-100 hover:bg-integra-gray-100"
                 ),
-                day_range_end: "day-range-end",
-                // [State: Selected] primary 브랜드 컬러 적용
-                day_selected:
+                range_end: "range_end",
+                selected:
                     "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
-                // [State: Today] text-primary로 강조
-                day_today: "bg-integra-gray-50 text-integra-gray-900",
-                day_outside:
-                    "day-outside text-integra-gray-400 opacity-50 aria-selected:bg-integra-gray-50/50 aria-selected:text-integra-gray-500 aria-selected:opacity-30",
-                day_disabled: "text-integra-gray-300 opacity-50",
-                day_range_middle:
+                today: "bg-integra-gray-50 text-integra-gray-900",
+                outside:
+                    "outside text-integra-gray-400 opacity-50 aria-selected:bg-integra-gray-50/50 aria-selected:text-integra-gray-500 aria-selected:opacity-30",
+                disabled: "text-integra-gray-300 opacity-50",
+                range_middle:
                     "aria-selected:bg-integra-gray-50 aria-selected:text-integra-gray-900",
-                day_hidden: "invisible",
+                hidden: "invisible",
                 ...classNames,
             }}
             components={{
