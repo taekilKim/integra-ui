@@ -26,12 +26,12 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
     {
       title: "Components",
       items: [
-        "button", "item", "input", "textarea", "label", "checkbox",
-        "badge", "switch", "toggle", "select", "accordion", "tabs",
-        "dialog", "popover", "dropdown-menu", "tooltip", "alert", "toast",
-        "scroll-area", "separator", "skeleton", "slider", "sheet", "avatar",
-        "breadcrumb", "pagination", "table", "radio-group", "card", "calendar",
-        "command", "date-picker"
+        "accordion", "alert", "avatar", "badge", "breadcrumb", "button",
+        "calendar", "card", "checkbox", "command", "date-picker", "dialog",
+        "dropdown-menu", "input", "item", "label", "pagination", "popover",
+        "radio-group", "scroll-area", "select", "separator", "sheet",
+        "skeleton", "slider", "switch", "table", "tabs", "textarea",
+        "toast", "toggle", "tooltip"
       ].map(item => ({
         // 하이픈 제거 및 첫 글자 대문자화 (예: radio-group -> Radio Group)
         name: item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
