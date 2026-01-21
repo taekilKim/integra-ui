@@ -27,7 +27,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
       title: "Components",
       items: [
         "accordion", "alert", "avatar", "badge", "breadcrumb", "button",
-        "calendar", "card", "checkbox", "command", "date-picker", "dialog",
+        "calendar", "card", "checkbox", "date-picker", "dialog",
         "dropdown-menu", "input", "item", "label", "pagination", "popover",
         "radio-group", "scroll-area", "select", "separator", "sheet",
         "skeleton", "slider", "switch", "table", "tabs", "textarea",
