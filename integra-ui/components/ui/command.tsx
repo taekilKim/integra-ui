@@ -121,7 +121,7 @@ const CommandItem = React.forwardRef<
         // [Command Item] rounded-8 outline-none: 호버 및 선택 시 스타일
         // data-[selected=true]: bg-integra-gray-100 (표준 호버)
         className={cn(
-            "relative flex cursor-default select-none items-center rounded-8 px-8 py-6 fs-14 outline-none data-[disabled]:pointer-events-none data-[selected=true]:bg-integra-gray-50 data-[selected=true]:text-integra-gray-900 data-[disabled]:opacity-50",
+            "relative flex cursor-default select-none items-center rounded-8 px-8 py-6 fs-14 outline-none data-[disabled]:pointer-events-none aria-selected:bg-integra-gray-50 aria-selected:text-integra-gray-900 data-[selected=true]:bg-integra-gray-50 data-[selected=true]:text-integra-gray-900 data-[disabled]:opacity-50",
             className
         )}
         {...props}

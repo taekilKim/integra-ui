@@ -38,7 +38,7 @@ function Calendar({
                 ),
                 nav_button_previous: "absolute left-4",
                 nav_button_next: "absolute right-4",
-                table: "w-full border-collapse space-y-4",
+                table: "w-full border-collapse",
                 head_row: "flex",
                 // [Head Cell] fs-13 text-integra-gray-500: 요일 헤더
                 head_cell:
