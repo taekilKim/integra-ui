@@ -26,11 +26,12 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
     {
       title: "Components",
       items: [
-        "button", "item", "input", "textarea", "label", "checkbox", 
-        "badge", "switch", "toggle", "select", "accordion", "tabs", 
-        "dialog", "popover", "dropdown-menu", "tooltip", "alert", "toast", 
+        "button", "item", "input", "textarea", "label", "checkbox",
+        "badge", "switch", "toggle", "select", "accordion", "tabs",
+        "dialog", "popover", "dropdown-menu", "tooltip", "alert", "toast",
         "scroll-area", "separator", "skeleton", "slider", "sheet", "avatar",
-        "breadcrumb", "pagination", "table", "radio-group", "card"
+        "breadcrumb", "pagination", "table", "radio-group", "card", "calendar",
+        "command", "date-picker"
       ].map(item => ({
         // 하이픈 제거 및 첫 글자 대문자화 (예: radio-group -> Radio Group)
         name: item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
@@ -57,7 +58,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       href={item.href}
                       className={cn(
                         "group flex w-full items-center rounded-8 px-8 py-8 fs-14 transition-all font-medium",
-                        isActive 
+                        isActive
                           ? "bg-integra-gray-50 text-integra-gray-900"
                           : "text-integra-gray-600 hover:bg-integra-gray-50 hover:text-integra-gray-900"
                       )}
