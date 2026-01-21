@@ -1,4 +1,5 @@
 import { CommandDemo } from "@/components/demo/command-demo";
+import { CommandDialogDemo } from "@/components/demo/command-dialog-demo";
 import { Playground } from "@/components/layout/playground";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -60,6 +61,19 @@ export default function CommandDocsPage() {
                 <div className="max-w-960">
                     <Playground>
                         <CommandDemo />
+                    </Playground>
+                </div>
+            </section>
+
+            {/* 2.1 Dialog Demo */}
+            <section className="space-y-16">
+                <div className="flex items-center justify-between">
+                    <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Dialog Example</h2>
+                    <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500 font-medium">Interactive</Badge>
+                </div>
+                <div className="max-w-960">
+                    <Playground>
+                        <CommandDialogDemo />
                     </Playground>
                 </div>
             </section>

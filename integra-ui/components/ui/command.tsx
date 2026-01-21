@@ -7,6 +7,7 @@ import { MagnifyingGlass } from "@phosphor-icons/react"
 
 import { cn } from "@/lib/utils"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { itemVariants } from "@/components/ui/item"
 
 const Command = React.forwardRef<
     React.ElementRef<typeof CommandPrimitive>,
@@ -118,10 +119,13 @@ const CommandItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <CommandPrimitive.Item
         ref={ref}
-        // [Command Item] rounded-8 outline-none: 호버 및 선택 시 스타일
-        // data-[selected=true]: bg-integra-gray-100 (표준 호버)
+        // [Command Item] Use itemVariants for consistency
+        // data-[selected=true]: cmdk specific active state mapping to hover style
         className={cn(
-            "relative flex cursor-default select-none items-center rounded-8 px-8 py-6 fs-14 outline-none data-[disabled]:pointer-events-none aria-selected:bg-integra-gray-50 aria-selected:text-integra-gray-900 data-[selected=true]:bg-integra-gray-50 data-[selected=true]:text-integra-gray-900 data-[disabled]:opacity-50",
+            itemVariants({ variant: "default" }),
+            "h-auto px-8 py-6 relative cursor-default select-none outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+            "data-[selected=true]:bg-integra-gray-50 data-[selected=true]:text-integra-gray-900",
+            "aria-selected:bg-integra-gray-50 aria-selected:text-integra-gray-900", // Fallback for some implementations
             className
         )}
         {...props}
