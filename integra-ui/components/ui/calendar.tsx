@@ -24,19 +24,22 @@ function Calendar({
         <DayPicker
             showOutsideDays={showOutsideDays}
             className={cn("p-16", className)}
+            captionLayout="dropdown"
+            fromYear={1900}
+            toYear={new Date().getFullYear() + 10}
             classNames={{
                 months: "flex flex-col sm:flex-row space-y-16 sm:space-y-0",
                 month: "space-y-16",
                 month_caption: "flex justify-center pt-4 relative items-center",
-                caption_label: "fs-16 font-semibold text-integra-gray-900",
+                caption_label: "fs-16 font-semibold text-integra-gray-900 hidden", // Hide default label when dropdown is active
                 nav: "space-x-4 flex items-center",
                 button_previous: cn(
                     buttonVariants({ variant: "tertiary", appearance: "outlined" }),
-                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute left-4 z-10"
+                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute left-4 top-4 z-10"
                 ),
                 button_next: cn(
                     buttonVariants({ variant: "tertiary", appearance: "outlined" }),
-                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute right-4 z-10"
+                    "h-28 w-28 bg-transparent p-0 opacity-50 hover:opacity-100 absolute right-4 top-4 z-10"
                 ),
                 month_grid: "w-full border-collapse",
                 weekdays: "flex justify-center",
@@ -57,6 +60,9 @@ function Calendar({
                 range_middle:
                     "aria-selected:bg-integra-gray-50 aria-selected:text-integra-gray-900",
                 hidden: "invisible",
+                dropdown: "bg-transparent font-medium p-2 hover:bg-integra-gray-50 rounded-4 cursor-pointer text-integra-gray-900",
+                dropdown_month: "mr-4",
+                dropdown_year: "",
                 ...classNames,
             }}
             components={{
