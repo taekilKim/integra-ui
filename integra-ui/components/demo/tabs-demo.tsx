@@ -16,27 +16,27 @@ export function TabsDemo() {
       <Playground>
         <Tabs defaultValue="account" className="w-400">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="account" className="fs-14">Account</TabsTrigger>
-            <TabsTrigger value="password" className="fs-14">Password</TabsTrigger>
+            <TabsTrigger value="account" className="fs-14">이름 변경</TabsTrigger>
+            <TabsTrigger value="password" className="fs-14">비밀번호 변경</TabsTrigger>
           </TabsList>
           
           <TabsContent value="account" className="space-y-16 py-16">
             <div className="space-y-8">
-              <Label className="fs-14 text-integra-gray-900">Name</Label>
+              <Label className="fs-14 text-integra-gray-900">이름</Label>
               <Input defaultValue="Integra UI" className="fs-14" />
             </div>
             <Button appearance="default" variant="default" className="w-full">
-              Save changes
+              저장
             </Button>
           </TabsContent>
           
           <TabsContent value="password" className="space-y-16 py-16">
             <div className="space-y-8">
-              <Label className="fs-14 text-integra-gray-900">Current Password</Label>
+              <Label className="fs-14 text-integra-gray-900">현재 비밀번호</Label>
               <Input type="password" placeholder="••••••••" className="fs-14" />
             </div>
             <Button appearance="default" variant="default" className="w-full">
-              Update password
+              비밀번호 변경
             </Button>
           </TabsContent>
         </Tabs>

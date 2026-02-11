@@ -21,7 +21,7 @@ export function SwitchDemo() {
             htmlFor="demo-switch" 
             className={`fs-14 ${isDisabled ? "text-integra-gray-300" : "text-integra-gray-900"}`}
           >
-            Airplane Mode
+            스위치 켜기
           </Label>
         </div>
       </Playground>
