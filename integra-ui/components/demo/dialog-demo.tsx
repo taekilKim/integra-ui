@@ -23,7 +23,7 @@ export function DialogDemo() {
       <Playground>
         <Dialog>
           <DialogTrigger asChild>
-            <Button size="small" variant="tertiary" appearance="outlined">다이얼로그 열기</Button>
+            <Button size="medium" variant="tertiary" appearance="outlined">다이얼로그 열기</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>

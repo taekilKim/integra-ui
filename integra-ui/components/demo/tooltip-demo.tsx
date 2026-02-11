@@ -15,7 +15,7 @@ export function TooltipDemo() {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button appearance="default" variant="tertiary">Hover me</Button>
+              <Button size="medium" variant="tertiary" appearance="outlined">마우스를 올려주세요</Button>
             </TooltipTrigger>
             <TooltipContent>
               {/* fs-12 및 leading-16 적용 */}

@@ -13,10 +13,11 @@ export function ToastDemo() {
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
       
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
-      <Playground>
+      <Playground className="gap-24 flex flex-col">
         <Button
-          appearance="default"
+          size="medium"
           variant="tertiary"
+          appearance="outlined"
           onClick={() => {
             toast({
               title: "알림",
@@ -27,8 +28,9 @@ export function ToastDemo() {
           기본 토스트
         </Button>
         <Button
+          size="medium"
+          variant="secondary"
           appearance="destructive"
-          variant="default"
           onClick={() => {
             toast({
               variant: "destructive",

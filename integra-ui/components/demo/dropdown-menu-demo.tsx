@@ -21,7 +21,7 @@ export function DropdownMenuDemo() {
       <Playground>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button appearance="outlined" variant="default">Open Menu</Button>
+            <Button size="medium" variant="tertiary" appearance="outlined">드롭다운 메뉴 열기</Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-240">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>

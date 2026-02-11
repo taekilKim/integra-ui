@@ -16,7 +16,7 @@ export function PopoverDemo() {
       <Playground>
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="tertiary">Open Settings</Button>
+            <Button size="medium" variant="tertiary" appearance="outlined">팝오버 열기</Button>
           </PopoverTrigger>
           <PopoverContent className="w-240 p-16">
             <div className="grid gap-16">

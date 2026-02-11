@@ -19,8 +19,8 @@ export function SliderDemo() {
           onValueChange={(vals) => setValue(vals[0])}
           className="w-3/4 max-w-320"
         />
-        <Badge variant="outline" className="fs-12 font-mono border-integra-gray-200">
-          Current Value: {value}
+        <Badge variant="outline" className="fs-12 border-integra-gray-200">
+          현재 슬라이더 값 : {value}
         </Badge>
       </Playground>
       <div className="rounded-12 bg-integra-gray-900 p-24 font-mono fs-14 leading-24 text-white">

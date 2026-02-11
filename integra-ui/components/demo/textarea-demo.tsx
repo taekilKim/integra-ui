@@ -15,10 +15,10 @@ export function TextareaDemo() {
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
       <Playground>
         <div className="grid w-full gap-8">
-          <Label htmlFor="demo-textarea" className="fs-14 text-integra-gray-900">Your Message</Label>
+          <Label htmlFor="demo-textarea" className="fs-14 text-integra-gray-900">텍스트 에어리어</Label>
           <Textarea 
             id="demo-textarea" 
-            placeholder="Type here..." 
+            placeholder="자유롭게 작성해주세요." 
             disabled={isDisabled} 
             className="min-h-120 fs-14" 
           />

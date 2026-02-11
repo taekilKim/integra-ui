@@ -23,18 +23,18 @@ export function SheetDemo() {
       {/* 프리뷰 영역 */}
       <div className="min-h-240 flex flex-col items-center justify-center gap-24 rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-24">
         <div className="flex flex-wrap gap-16 justify-center">
-          {["top", "bottom", "left", "right"].map((side) => (
+          {["상단에서 열리기", "하단에서 열리기", "왼쪽에서 열리기", "오른쪽에서 열리기"].map((side) => (
             <Sheet key={side}>
               <SheetTrigger asChild>
-                <Button appearance="outlined" variant="default" className="min-w-80 capitalize">
+                <Button size="medium" variant="tertiary" appearance="outlined">
                   {side}
                 </Button>
               </SheetTrigger>
               <SheetContent side={side as any}>
                 <SheetHeader>
-                  <SheetTitle>Edit Profile</SheetTitle>
+                  <SheetTitle>프로필 편집</SheetTitle>
                   <SheetDescription>
-                    Make changes to your profile here. Click save when you're done.
+                    프로필 정보를 업데이트하고 변경 사항을 저장하세요.
                   </SheetDescription>
                 </SheetHeader>
                 <div className="grid gap-24 py-24">
@@ -49,16 +49,13 @@ export function SheetDemo() {
                 </div>
                 <SheetFooter>
                   <SheetClose asChild>
-                    <Button type="submit" appearance="default" variant="default">Save changes</Button>
+                    <Button type="submit" appearance="default" variant="default">저장</Button>
                   </SheetClose>
                 </SheetFooter>
               </SheetContent>
             </Sheet>
           ))}
         </div>
-        <Badge variant="secondary" className="fs-12 bg-white border border-integra-gray-200">
-          Click any button to open sheet
-        </Badge>
       </div>
 
       {/* 코드 영역 */}
