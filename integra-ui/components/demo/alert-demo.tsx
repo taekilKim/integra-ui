@@ -14,29 +14,29 @@ export function AlertDemo() {
         {/* Default */}
         <Alert variant="default">
           <Info />
-          <AlertTitle>Information</AlertTitle>
-          <AlertDescription>This is a standard informational message.</AlertDescription>
+          <AlertTitle>안내</AlertTitle>
+          <AlertDescription>새로운 버전의 업데이트가 준비되었습니다.</AlertDescription>
         </Alert>
 
         {/* Success */}
         <Alert variant="success">
           <CheckCircle />
-          <AlertTitle>Success</AlertTitle>
-          <AlertDescription>Your changes have been saved successfully.</AlertDescription>
+          <AlertTitle>성공</AlertTitle>
+          <AlertDescription>변경 사항이 성공적으로 저장되었습니다.</AlertDescription>
         </Alert>
 
         {/* Warning */}
         <Alert variant="warning">
           <Warning />
-          <AlertTitle>Warning</AlertTitle>
-          <AlertDescription>Your session is about to expire.</AlertDescription>
+          <AlertTitle>주의</AlertTitle>
+          <AlertDescription>세션이 곧 만료됩니다. 작업을 저장해주세요.</AlertDescription>
         </Alert>
 
         {/* Destructive */}
         <Alert variant="destructive">
           <XCircle />
-          <AlertTitle>Error</AlertTitle>
-          <AlertDescription>Failed to upload the file.</AlertDescription>
+          <AlertTitle>오류</AlertTitle>
+          <AlertDescription>파일 업로드에 실패했습니다. 네트워크를 확인해주세요.</AlertDescription>
         </Alert>
 
       </Playground>
