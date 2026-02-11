@@ -36,14 +36,14 @@ const DialogContent = React.forwardRef<
       ref={ref}
       // ✨ 중요: 수치형 토큰(left-50)과 충돌하지 않도록 [50%] 브래킷 문법 사용
       className={cn(
-        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-400 translate-x-[-50%] translate-y-[-50%] gap-16 border border-integra-gray-100 bg-white p-24 shadow-integra duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 rounded-16 outline-none",
+        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-400 translate-x-[-50%] translate-y-[-50%] gap-16 border border-integra-gray-100 bg-white p-20 shadow-integra duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 rounded-24 outline-none",
         className
       )}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-16 top-16 rounded-4 text-integra-gray-400 transition-opacity hover:text-integra-gray-900 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
-        <X className="h-16 w-16" />
+      <DialogPrimitive.Close className="absolute right-24 top-24 rounded-4 text-integra-gray-500 transition-opacity hover:text-integra-gray-900 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
+        <X className="h-24 w-24" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
@@ -80,8 +80,8 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    // ✨ SAI: fs-14 및 text-integra-gray-500 적용
-    className={cn("fs-14 text-integra-gray-500 leading-20", className)}
+    // ✨ SAI: fs-16 및 text-integra-gray-500 적용
+    className={cn("fs-16 text-integra-gray-500 leading-20", className)}
     {...props}
   />
 ))

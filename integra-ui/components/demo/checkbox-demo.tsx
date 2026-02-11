@@ -21,7 +21,7 @@ export function CheckboxDemo() {
             htmlFor="demo-checkbox" 
             className={isDisabled ? "text-integra-gray-300" : "text-integra-gray-900"}
           >
-            Accept terms and conditions
+            다음 로그인할 때 이 장치 기억하기
           </Label>
         </div>
       </Playground>

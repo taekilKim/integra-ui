@@ -27,7 +27,7 @@ export function ButtonDemo() {
           disabled={isDisabled}
         >
           {/* Shape가 default(직사각형)면 텍스트, 아니면 아이콘 렌더링 */}
-          {shape === "default" ? "Button Label" : <Plus />}
+          {shape === "default" ? "버튼 라벨" : <Plus />}
         </Button>
       </Playground>
 

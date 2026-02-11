@@ -23,7 +23,7 @@ export function DialogDemo() {
       <Playground>
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="tertiary">Open Dialog</Button>
+            <Button size="small" variant="tertiary" appearance="outlined">다이얼로그 열기</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -33,14 +33,14 @@ export function DialogDemo() {
               </DialogDescription>
             </DialogHeader>
             {/* fs-14 적용 및 text-integra-gray-500 적용 */}
-            <div className="py-16 fs-14 text-integra-gray-500">
+            <div className="py-16 fs-16 text-integra-gray-700">
                 (여기에 폼 요소를 추가할 수 있습니다)
             </div>
             <DialogFooter>
               <DialogClose asChild>
-                <Button variant="tertiary">취소</Button>
+                <Button appearance="text" variant="secondary">취소</Button>
               </DialogClose>
-              <Button>완료</Button>
+              <Button>저장</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
