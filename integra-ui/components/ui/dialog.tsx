@@ -36,7 +36,7 @@ const DialogContent = React.forwardRef<
       ref={ref}
       // ✨ 중요: 수치형 토큰(left-50)과 충돌하지 않도록 [50%] 브래킷 문법 사용
       className={cn(
-        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-400 translate-x-[-50%] translate-y-[-50%] gap-16 border border-integra-gray-100 bg-white p-20 shadow-integra duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 rounded-24 outline-none",
+        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-400 translate-x-[-50%] translate-y-[-50%] gap-16 border border-integra-gray-100 bg-white p-24 shadow-integra duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 rounded-24 outline-none",
         className
       )}
       {...props}
