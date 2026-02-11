@@ -1,5 +1,8 @@
 import { ButtonDemo } from "@/components/demo/button-demo";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { CodeBlock } from "@/components/layout/code-block";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -32,6 +35,50 @@ export default function ButtonDocsPage() {
     { property: "Icon Size (SVG)", class: "w-{px} h-{px}", default: "24px", medium: "20px", small: "16px" },
     { property: "Font Weight", class: "font-{weight}", default: "Semibold", medium: "Semibold", small: "Semibold" },
   ];
+
+  const buttonGroupLayouts = [
+    {
+      title: "1개짜리 (전체 너비)",
+      layout: "single-fill" as const,
+      code: '<ButtonGroup layout="single-fill"><Button>확인</Button></ButtonGroup>',
+      buttons: ["확인"],
+    },
+    {
+      title: "2개짜리 (너비 fit-content)",
+      layout: "double-fit" as const,
+      code: '<ButtonGroup layout="double-fit"><Button appearance="text" variant="secondary">취소</Button><Button>저장</Button></ButtonGroup>',
+      buttons: ["취소", "저장"],
+    },
+    {
+      title: "2개짜리 (전체 너비, 5:5)",
+      layout: "double-fill-5-5" as const,
+      code: '<ButtonGroup layout="double-fill-5-5"><Button appearance="text" variant="secondary">이전</Button><Button>다음</Button></ButtonGroup>',
+      buttons: ["이전", "다음"],
+    },
+    {
+      title: "2개짜리 (전체 너비, 3:7)",
+      layout: "double-fill-3-7" as const,
+      code: '<ButtonGroup layout="double-fill-3-7"><Button appearance="text" variant="secondary">취소</Button><Button>완료</Button></ButtonGroup>',
+      buttons: ["취소", "완료"],
+    },
+  ];
+
+  const usageCode = `import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
+
+// Text Button (Solid)
+<Button appearance="default" variant="default">Confirm</Button>
+
+// Icon Button (Squircle / Secondary)
+<Button shape="square" appearance="default" variant="secondary">
+  <Icon />
+</Button>
+
+// Dialog/Card Action Group (3:7)
+<ButtonGroup layout="double-fill-3-7">
+  <Button appearance="text" variant="secondary">취소</Button>
+  <Button>완료</Button>
+</ButtonGroup>`;
 
   return (
     <div className="space-y-64 pb-120">
@@ -142,26 +189,45 @@ export default function ButtonDocsPage() {
         <h2 className="fs-20 font-bold leading-24 tracking--1 text-integra-gray-900">Atomic Design Note</h2>
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Shape System:</strong> <code>shape="square"</code>는 버튼 높이와 동일한 너비를 가져 정사각(Squircle) 비율을 유지하며, <code>shape="circle"</code>은 완전한 원형을 만듭니다.</li>
+                <li><strong>Shape System:</strong> <code>shape=&apos;square&apos;</code>는 버튼 높이와 동일한 너비를 가져 정사각(Squircle) 비율을 유지하며, <code>shape=&apos;circle&apos;</code>은 완전한 원형을 만듭니다.</li>
                 <li><strong>Padding Logic:</strong> 텍스트 버튼은 좌우 패딩을 사용하여 라벨 길이에 유동적으로 반응하지만, 아이콘 버튼은 패딩을 제거하고 고정 너비(w)를 사용하여 중앙 정렬을 보장합니다.</li>
                 <li><strong>Semantic Colors:</strong> 모든 색상은 <code>primary-hover</code>, <code>destructive-subtle</code> 등 역할 기반 토큰으로 연결되어 테마 변경에 자동 대응합니다.</li>
             </ul>
         </div>
       </section>
 
-      {/* 5. Usage */}
+      {/* 5. Button Group Extension */}
+      <section className="space-y-24">
+        <div className="space-y-8">
+          <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">버튼 그룹 확장</h2>
+          <p className="fs-16 text-integra-gray-500">
+            카드/다이얼로그 푸터에서 버튼 개수와 폭 정책을 하드코딩하지 않고 레이아웃 프리셋으로 재사용합니다.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          {buttonGroupLayouts.map((item) => (
+            <div key={item.layout} className="rounded-12 border border-integra-gray-100 bg-white p-16 space-y-12">
+              <p className="fs-14 font-bold text-integra-gray-700">{item.title}</p>
+              <div className="rounded-8 border border-dashed border-integra-gray-200 bg-integra-gray-50 p-12">
+                <ButtonGroup layout={item.layout}>
+                  <Button appearance={item.layout === "single-fill" ? "default" : "text"} variant={item.layout === "single-fill" ? "default" : "secondary"} size="small">
+                    {item.buttons[0]}
+                  </Button>
+                  {item.buttons[1] && (
+                    <Button size="small">{item.buttons[1]}</Button>
+                  )}
+                </ButtonGroup>
+              </div>
+              <p className="font-mono fs-12 text-integra-gray-500 break-all">{item.code}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 6. Usage */}
       <section className="space-y-16">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
-        <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 shadow-2xl text-white">
-            <p className="text-integra-gray-500 mb-8">// Import component</p>
-            <p className="text-integra-blue-400">import &#123; Button &#125; from "@/components/ui/button"</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Text Button (Solid)</p>
-            <p className="text-white">&lt;Button appearance="default" variant="default"&gt;Confirm&lt;/Button&gt;</p>
-            <br />
-            <p className="text-integra-gray-500 mb-8">// Icon Button (Squircle / Secondary)</p>
-            <p className="text-white">&lt;Button shape="square" appearance="default" variant="secondary"&gt;&lt;Icon /&gt;&lt;/Button&gt;</p>
-        </div>
+        <CodeBlock code={usageCode} />
       </section>
 
     </div>

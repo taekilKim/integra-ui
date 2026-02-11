@@ -12,6 +12,7 @@ import {
   DialogClose
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
 import { Card } from "@/components/ui/card"
 import { Playground } from "@/components/layout/playground"
 
@@ -37,10 +38,12 @@ export function DialogDemo() {
                 (여기에 폼 요소를 추가할 수 있습니다)
             </div>
             <DialogFooter>
-              <DialogClose asChild>
-                <Button appearance="text" variant="secondary">취소</Button>
-              </DialogClose>
-              <Button>저장</Button>
+              <ButtonGroup layout="double-fit">
+                <DialogClose asChild>
+                  <Button appearance="text" variant="secondary">취소</Button>
+                </DialogClose>
+                <Button>저장</Button>
+              </ButtonGroup>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -48,7 +51,7 @@ export function DialogDemo() {
 
       {/* 2. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// 다이얼로그 구조 예시</p>
+        <p className="text-integra-gray-500 mb-8">{"// 다이얼로그 구조 예시"}</p>
         <code className="block">
           &lt;Dialog&gt;<br/>
           &nbsp;&nbsp;&lt;DialogTrigger&gt;열기&lt;/DialogTrigger&gt;<br/>

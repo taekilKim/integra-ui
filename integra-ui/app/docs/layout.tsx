@@ -1,5 +1,6 @@
 import { Sidebar } from "@/components/layout/sidebar";
 import { TableOfContents } from "@/components/layout/toc";
+import { DocsContentExtensions } from "@/components/layout/docs-content-extensions";
 
 /**
  * [Integra UI - Docs Layout SAI Version]
@@ -27,6 +28,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       <main className="flex-1 min-w-0">
         <div className="mx-auto max-w-960 px-24 py-48 md:px-48 md:py-80 lg:px-64">
           {children}
+          <DocsContentExtensions />
         </div>
       </main>
 

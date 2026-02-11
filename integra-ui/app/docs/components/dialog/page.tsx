@@ -36,7 +36,9 @@ export default function DialogDocsPage() {
   DialogTitle, 
   DialogTrigger,
   DialogClose
-} from "@/components/ui/dialog"`;
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"`;
 
   const usageCode = `<Dialog>
   <DialogTrigger asChild>
@@ -51,8 +53,10 @@ export default function DialogDocsPage() {
       </DialogDescription>
     </DialogHeader>
     <DialogFooter>
-      <Button variant="tertiary">Cancel</Button>
-      <Button appearance="destructive">Continue</Button>
+      <ButtonGroup layout="double-fill-3-7">
+        <Button variant="tertiary">Cancel</Button>
+        <Button appearance="destructive">Continue</Button>
+      </ButtonGroup>
     </DialogFooter>
   </DialogContent>
 </Dialog>`;

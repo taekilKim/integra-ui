@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
 import { Badge } from "@/components/ui/badge";
 import { CodeBlock } from "@/components/layout/code-block";
 import {
@@ -35,7 +36,9 @@ export default function CardDocsPage() {
   CardDescription, 
   CardContent, 
   CardFooter 
-} from "@/components/ui/card"`;
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"`;
 
   const usageCode = `<Card className="w-320">
   <CardHeader>
@@ -47,9 +50,11 @@ export default function CardDocsPage() {
       아토믹 토큰 시스템으로 제작된 카드 컴포넌트입니다.
     </p>
   </CardContent>
-  <CardFooter className="justify-end gap-8">
-    <Button appearance="text" variant="secondary" size="small">Cancel</Button>
-    <Button appearance="default" variant="default" size="small">Confirm</Button>
+  <CardFooter>
+    <ButtonGroup layout="double-fit">
+      <Button appearance="text" variant="secondary" size="small">Cancel</Button>
+      <Button appearance="default" variant="default" size="small">Confirm</Button>
+    </ButtonGroup>
   </CardFooter>
 </Card>`;
 
@@ -87,15 +92,17 @@ export default function CardDocsPage() {
         <div className="flex min-h-240 items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-40 max-w-960 mx-auto w-full">
           <Card className="w-320 bg-white shadow-integra">
             <CardHeader>
-              <CardTitle className="fs-24">Project Card</CardTitle>
-              <CardDescription className="fs-14">Integrate your design system easily.</CardDescription>
+              <CardTitle className="fs-24">프로젝트 카드</CardTitle>
+              <CardDescription className="fs-14">디자인 시스템을 손쉽게 통합하세요.</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="fs-16 text-integra-gray-700 leading-24 font-medium">아토믹 토큰 시스템으로 제작된 카드 컴포넌트입니다.</p>
             </CardContent>
-            <CardFooter className="justify-end gap-8">
-              <Button appearance="text" variant="secondary" size="small">Cancel</Button>
-              <Button appearance="default" variant="default" size="small">Confirm</Button>
+            <CardFooter>
+              <ButtonGroup layout="double-fit">
+                <Button appearance="text" variant="secondary" size="small">Cancel</Button>
+                <Button appearance="default" variant="default" size="small">Confirm</Button>
+              </ButtonGroup>
             </CardFooter>
           </Card>
         </div>

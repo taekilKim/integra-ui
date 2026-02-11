@@ -151,6 +151,36 @@ export default function ComponentsIntro() {
             ))}
         </div>
       </section>
+
+      {/* 4. Documentation Structure */}
+      <section className="space-y-24">
+        <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">문서 구성 표준</h2>
+        <p className="fs-16 text-integra-gray-500 leading-28">
+          모든 컴포넌트 문서는 핵심(필수)과 확장(선택) 정보를 분리하고, 상태/스펙/사용사례를 같은 순서로 제공합니다.
+        </p>
+        <div className="grid gap-16 md:grid-cols-2">
+          <Card className="border-integra-gray-200 p-24 space-y-10">
+            <p className="fs-12 uppercase tracking-2 text-integra-gray-500">Step 1</p>
+            <h3 className="fs-18 font-bold text-integra-gray-900">Essential</h3>
+            <p className="fs-14 text-integra-gray-600">가장 먼저 알아야 할 기본 API, 기본 변형, 기본 접근성 규칙을 제시합니다.</p>
+          </Card>
+          <Card className="border-integra-gray-200 p-24 space-y-10">
+            <p className="fs-12 uppercase tracking-2 text-integra-gray-500">Step 2</p>
+            <h3 className="fs-18 font-bold text-integra-gray-900">Optional</h3>
+            <p className="fs-14 text-integra-gray-600">고급 옵션과 확장 패턴을 분리해 프로젝트별 채택 여부를 쉽게 판단하게 합니다.</p>
+          </Card>
+          <Card className="border-integra-gray-200 p-24 space-y-10">
+            <p className="fs-12 uppercase tracking-2 text-integra-gray-500">Step 3</p>
+            <h3 className="fs-18 font-bold text-integra-gray-900">States & Spec</h3>
+            <p className="fs-14 text-integra-gray-600">상태 전이와 토큰 수치를 테이블/카드 형태로 제공해 구현 누락을 줄입니다.</p>
+          </Card>
+          <Card className="border-integra-gray-200 p-24 space-y-10">
+            <p className="fs-12 uppercase tracking-2 text-integra-gray-500">Step 4</p>
+            <h3 className="fs-18 font-bold text-integra-gray-900">Use Cases</h3>
+            <p className="fs-14 text-integra-gray-600">실무 시나리오와 조합 레시피를 함께 제공해 복붙 가능한 출발점을 만듭니다.</p>
+          </Card>
+        </div>
+      </section>
     </div>
   );
 }
