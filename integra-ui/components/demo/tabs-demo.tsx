@@ -23,7 +23,7 @@ export function TabsDemo() {
           <TabsContent value="account" className="space-y-16 py-16">
             <div className="space-y-8">
               <Label className="fs-14 text-integra-gray-900">이름</Label>
-              <Input defaultValue="Integra UI" className="fs-14" />
+              <Input defaultValue="홍길동" className="fs-14" />
             </div>
             <Button appearance="default" variant="default" className="w-full">
               저장
@@ -44,11 +44,11 @@ export function TabsDemo() {
 
       {/* 2. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Tabs Structure</p>
+        <p className="text-integra-gray-500 mb-8">// 탭 구조 예시</p>
         <code className="block">
           &lt;Tabs defaultValue="account"&gt;<br />
           &nbsp;&nbsp;&lt;TabsList&gt;<br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&lt;TabsTrigger value="account"&gt;Account&lt;/TabsTrigger&gt;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;TabsTrigger value="account"&gt;계정 정보&lt;/TabsTrigger&gt;<br />
           &nbsp;&nbsp;&lt;/TabsList&gt;<br />
           &nbsp;&nbsp;&lt;TabsContent value="account"&gt;...&lt;/TabsContent&gt;<br />
           &lt;/Tabs&gt;

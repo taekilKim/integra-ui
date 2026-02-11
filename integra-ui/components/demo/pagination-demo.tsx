@@ -45,7 +45,7 @@ export function PaginationDemo() {
       </Playground>
 
       <div className="rounded-12 bg-integra-gray-900 p-24 font-mono fs-14 leading-24 text-white mt-32">
-        <p className="text-integra-gray-500 mb-8">// Atomic Pagination</p>
+        <p className="text-integra-gray-500 mb-8">// 페이지네이션 구조 예시</p>
         <code>&lt;Pagination&gt;...&lt;/Pagination&gt;</code>
       </div>
     </Card>

@@ -21,24 +21,24 @@ export function BadgeDemo() {
       <div className="grid grid-cols-1 gap-24 pt-24 border-t border-integra-gray-100">
         <div className="space-y-8">
           {/* fs-12 적용 및 text-integra-gray-400 적용 */}
-          <Label className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Variant</Label>
-          <select 
+          <Label className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">변형</Label>
+          <select
             className="w-full h-40 rounded-8 border border-input bg-background px-12 py-8 fs-14 text-integra-gray-900 outline-none focus:ring-2 focus:ring-ring"
             value={variant}
             onChange={(e) => setVariant(e.target.value)}
           >
-            <option value="default">Default</option>
-            <option value="secondary">Secondary</option>
-            <option value="outline">Outline</option>
-            <option value="destructive">Destructive</option>
+            <option value="default">기본</option>
+            <option value="secondary">보조</option>
+            <option value="outline">아웃라인</option>
+            <option value="destructive">경고</option>
           </select>
         </div>
       </div>
 
       {/* 3. 코드 영역: bg-integra-gray-900 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Badge Combination</p>
-        <code>&lt;Badge variant="{variant}"&gt;Badge Preview&lt;/Badge&gt;</code>
+        <p className="text-integra-gray-500 mb-8">// 배지 조합 예시</p>
+        <code>&lt;Badge variant="{variant}"&gt;배지 미리보기&lt;/Badge&gt;</code>
       </div>
     </Card>
   )

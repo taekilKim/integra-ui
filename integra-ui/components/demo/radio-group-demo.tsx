@@ -18,13 +18,13 @@ export function RadioGroupDemo() {
           <div className="flex items-center gap-8">
             <RadioGroupItem value="option-1" id="r1" />
             <Label htmlFor="r1" className={`fs-14 ${isDisabled ? "text-integra-gray-300" : "text-integra-gray-900"}`}>
-              Option One (Default)
+              옵션 1 (기본값)
             </Label>
           </div>
           <div className="flex items-center gap-8">
             <RadioGroupItem value="option-2" id="r2" />
             <Label htmlFor="r2" className={`fs-14 ${isDisabled ? "text-integra-gray-300" : "text-integra-gray-900"}`}>
-              Option Two (Selection)
+              옵션 2 (선택)
             </Label>
           </div>
         </RadioGroup>
@@ -43,13 +43,13 @@ export function RadioGroupDemo() {
           htmlFor="radio-disabled-toggle" 
           className="fs-14 font-medium text-integra-gray-700 cursor-pointer select-none"
         >
-          Disabled State
+          비활성화 상태
         </Label>
       </div>
 
       {/* 3. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Radio Group Setup</p>
+        <p className="text-integra-gray-500 mb-8">// 라디오 그룹 설정 예시</p>
         <code>
           &lt;RadioGroup defaultValue="option-1" {isDisabled ? 'disabled' : ''}&gt;<br />
           &nbsp;&nbsp;&lt;RadioGroupItem value="option-1" id="r1" /&gt;<br />

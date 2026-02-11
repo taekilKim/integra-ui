@@ -19,15 +19,15 @@ export function BreadcrumbDemo() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+              <BreadcrumbLink href="/docs">문서</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/docs/components">Components</BreadcrumbLink>
+              <BreadcrumbLink href="/docs/components">컴포넌트</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+              <BreadcrumbPage>브레드크럼</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -35,7 +35,7 @@ export function BreadcrumbDemo() {
 
       {/* 코드 영역 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Navigation</p>
+        <p className="text-integra-gray-500 mb-8">// 브레드크럼 구조 예시</p>
         <code className="block">
           &lt;Breadcrumb&gt;<br/>
           &nbsp;&nbsp;&lt;BreadcrumbList&gt;<br/>

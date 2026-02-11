@@ -22,19 +22,19 @@ export default function ComponentsIntro() {
       name: "Button", 
       desc: "이벤트 트리거 및 액션 실행", 
       href: "/docs/components/button",
-      preview: <Button appearance="default" variant="default" size="medium">Button</Button> 
+      preview: <Button appearance="default" variant="default" size="medium">버튼</Button>
     },
     { 
       name: "Input", 
       desc: "텍스트 데이터 입력 필드", 
       href: "/docs/components/input",
-      preview: <div className="w-full max-w-200"><Input placeholder="Email" className="h-40 bg-white" /></div> 
+      preview: <div className="w-full max-w-200"><Input placeholder="이메일" className="h-40 bg-white" /></div>
     },
     { 
       name: "Badge", 
       desc: "상태 및 카테고리 표시", 
       href: "/docs/components/badge",
-      preview: <Badge variant="secondary">New</Badge> 
+      preview: <Badge variant="secondary">신규</Badge>
     },
     { 
       name: "Switch", 
@@ -58,7 +58,7 @@ export default function ComponentsIntro() {
       name: "Checkbox", 
       desc: "다중 선택 제어", 
       href: "/docs/components/checkbox",
-      preview: <div className="flex items-center gap-8"><Checkbox id="c1" checked /><label htmlFor="c1" className="fs-14">Agree</label></div> 
+      preview: <div className="flex items-center gap-8"><Checkbox id="c1" checked /><label htmlFor="c1" className="fs-14">동의</label></div>
     },
     { 
       name: "Skeleton", 
@@ -89,15 +89,15 @@ export default function ComponentsIntro() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+              <BreadcrumbLink href="/docs">문서</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Components</BreadcrumbPage>
+              <BreadcrumbPage>컴포넌트</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">Components</h1>
+        <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">컴포넌트</h1>
         <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
           Integra UI의 핵심인 22종의 아토믹 컴포넌트 컬렉션입니다.<br />
           아래 갤러리에서 원하는 컴포넌트를 선택하여 상세 가이드를 확인하세요.
@@ -108,7 +108,7 @@ export default function ComponentsIntro() {
 
       {/* 2. Component Gallery (Showcase Grid) */}
       <section className="space-y-32">
-        <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Gallery</h2>
+        <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">갤러리</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
           {components.map((c) => (
             <Link key={c.name} href={c.href} className="group block h-full">
@@ -131,7 +131,7 @@ export default function ComponentsIntro() {
           {/* More Components Placeholder */}
           <Link href="/docs/components/table" className="group block h-full">
               <Card className="h-full border border-dashed border-integra-gray-200 shadow-none flex items-center justify-center p-24 hover:border-integra-gray-300 hover:bg-integra-gray-50 transition-all">
-                  <span className="fs-14 font-medium text-integra-gray-400 group-hover:text-integra-gray-600">View All Components →</span>
+                  <span className="fs-14 font-medium text-integra-gray-400 group-hover:text-integra-gray-600">모든 컴포넌트 보기 →</span>
               </Card>
           </Link>
         </div>

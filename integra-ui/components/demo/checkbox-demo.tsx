@@ -37,14 +37,14 @@ export function CheckboxDemo() {
             className="w-16 h-16 accent-primary"
           />
           <Label htmlFor="disabled-checkbox-toggle" className="fs-14 font-medium text-integra-gray-700 cursor-pointer">
-            Disabled State
+            비활성화 상태
           </Label>
         </div>
       </div>
 
       {/* 3. 코드 영역: bg-integra-gray-900 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Checkbox State</p>
+        <p className="text-integra-gray-500 mb-8">// 체크박스 상태 예시</p>
         <code>&lt;Checkbox {isDisabled ? 'disabled' : ''} /&gt;</code>
       </div>
     </Card>

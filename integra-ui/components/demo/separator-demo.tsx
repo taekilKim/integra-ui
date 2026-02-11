@@ -11,30 +11,30 @@ export function SeparatorDemo() {
       {/* 1. 프리뷰 영역: Playground 적용 */}
       <Playground>
         <div className="space-y-4 text-center">
-          <h4 className="fs-14 font-bold text-integra-gray-900">Integra UI</h4>
-          <p className="fs-13 text-integra-gray-500">Atomic Design System</p>
-          
+          <h4 className="fs-14 font-bold text-integra-gray-900">인테그라</h4>
+          <p className="fs-13 text-integra-gray-500">아토믹 디자인 시스템</p>
+
           <Separator className="my-16" />
-          
+
           <div className="flex h-20 items-center justify-center gap-16 fs-12 text-integra-gray-900">
-            <div>Blog</div>
+            <div>블로그</div>
             <Separator orientation="vertical" />
-            <div>Docs</div>
+            <div>문서</div>
             <Separator orientation="vertical" />
-            <div>Source</div>
+            <div>소스코드</div>
           </div>
         </div>
       </Playground>
 
       {/* 2. 코드 영역 */}
       <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Divider</p>
+        <p className="text-integra-gray-500 mb-8">// 구분선 구조 예시</p>
         <code className="block">
           &lt;div&gt;<br/>
-          &nbsp;&nbsp;Title<br/>
+          &nbsp;&nbsp;제목<br/>
           &nbsp;&nbsp;&lt;Separator className="my-16" /&gt;<br/>
           &nbsp;&nbsp;&lt;div className="flex h-20"&gt;<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;Link &lt;Separator orientation="vertical" /&gt; Link<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;링크 &lt;Separator orientation="vertical" /&gt; 링크<br/>
           &nbsp;&nbsp;&lt;/div&gt;<br/>
           &lt;/div&gt;
         </code>

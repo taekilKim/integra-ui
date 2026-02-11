@@ -24,27 +24,27 @@ export function DropdownMenuDemo() {
             <Button size="medium" variant="tertiary" appearance="outlined">드롭다운 메뉴 열기</Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-240">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuLabel>내 계정</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <User className="mr-8 h-16 w-16" />
-                <span>Profile</span>
+                <span>프로필</span>
                 <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <CreditCard className="mr-8 h-16 w-16" />
-                <span>Billing</span>
+                <span>결제 관리</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Gear className="mr-8 h-16 w-16" />
-                <span>Settings</span>
+                <span>설정</span>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <SignOut className="mr-8 h-16 w-16" />
-              <span>Log out</span>
+              <span>로그아웃</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

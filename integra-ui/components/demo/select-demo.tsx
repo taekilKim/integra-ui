@@ -15,15 +15,15 @@ export function SelectDemo() {
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
       <Playground>
         <div className="grid w-full max-w-200 gap-8">
-          <Label className="fs-14 text-integra-gray-900">Framework</Label>
+          <Label className="fs-14 text-integra-gray-900">직무</Label>
           <Select disabled={isDisabled}>
             <SelectTrigger className="bg-white">
-              <SelectValue placeholder="Select one" />
+              <SelectValue placeholder="선택하세요" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="next">Next.js</SelectItem>
-              <SelectItem value="react">React</SelectItem>
-              <SelectItem value="vue">Vue</SelectItem>
+              <SelectItem value="designer">프로덕트 디자이너</SelectItem>
+              <SelectItem value="developer">프론트엔드 개발자</SelectItem>
+              <SelectItem value="pm">프로덕트 매니저</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -42,13 +42,13 @@ export function SelectDemo() {
           htmlFor="select-disabled-toggle" 
           className="fs-14 font-medium text-integra-gray-700 cursor-pointer select-none"
         >
-          Disabled State
+          비활성화 상태
         </Label>
       </div>
 
       {/* 3. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Select Setup</p>
+        <p className="text-integra-gray-500 mb-8">// 셀렉트 설정 예시</p>
         <code>&lt;Select {isDisabled ? 'disabled' : ''}&gt;...&lt;/Select&gt;</code>
       </div>
     </Card>

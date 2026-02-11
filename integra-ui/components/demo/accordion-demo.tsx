@@ -14,7 +14,7 @@ export function AccordionDemo() {
             <AccordionTrigger>아토믹 디자인 시스템이란 무엇인가요?</AccordionTrigger>
             <AccordionContent>
               디자인 요소를 원자(Atoms), 분자(Molecules), 유기체(Organisms) 단위로 나누어 관리하는 설계 방법론입니다.<br />
-              Integra UI는 특히 원자 단위의 수치 토큰 제어에 집중하여 소수점 없는 정밀한 구현을 지원합니다.
+              인테그라는 특히 원자 단위의 수치 토큰 제어에 집중하여 소수점 없는 정밀한 구현을 지원합니다.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -27,14 +27,14 @@ export function AccordionDemo() {
         </Accordion>
       </Playground>
 
-      {/* 코드 Output */}
+      {/* 코드 출력 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Accordion</p>
+        <p className="text-integra-gray-500 mb-8">// 아코디언 구조 예시</p>
         <code className="block">
           &lt;Accordion type="single" collapsible&gt;<br />
           &nbsp;&nbsp;&lt;AccordionItem value="1"&gt;<br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&lt;AccordionTrigger&gt;Title&lt;/AccordionTrigger&gt;<br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&lt;AccordionContent&gt;Content&lt;/AccordionContent&gt;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;AccordionTrigger&gt;질문&lt;/AccordionTrigger&gt;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;AccordionContent&gt;답변&lt;/AccordionContent&gt;<br />
           &nbsp;&nbsp;&lt;/AccordionItem&gt;<br />
           &lt;/Accordion&gt;
         </code>

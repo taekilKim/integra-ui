@@ -19,7 +19,7 @@ export function TooltipDemo() {
             </TooltipTrigger>
             <TooltipContent>
               {/* fs-12 및 leading-16 적용 */}
-              <p className="fs-12 leading-16">Integra UI 아토믹 시스템 툴팁</p>
+              <p className="fs-12 leading-16">인테그라 아토믹 시스템 툴팁</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
@@ -27,12 +27,12 @@ export function TooltipDemo() {
 
       {/* 2. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Tooltip Setup</p>
+        <p className="text-integra-gray-500 mb-8">// 툴팁 설정 예시</p>
         <code className="block">
           &lt;TooltipProvider&gt;<br/>
           &nbsp;&nbsp;&lt;Tooltip&gt;<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&lt;TooltipTrigger&gt;Hover&lt;/TooltipTrigger&gt;<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&lt;TooltipContent&gt;Text&lt;/TooltipContent&gt;<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;TooltipTrigger&gt;마우스 오버&lt;/TooltipTrigger&gt;<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;TooltipContent&gt;툴팁 내용&lt;/TooltipContent&gt;<br/>
           &nbsp;&nbsp;&lt;/Tooltip&gt;<br/>
           &lt;/TooltipProvider&gt;
         </code>

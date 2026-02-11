@@ -15,9 +15,9 @@ import { Badge } from "@/components/ui/badge"
 import { Playground } from "@/components/layout/playground"
 
 const invoices = [
-  { id: "INV-001", status: "Paid", method: "Credit Card", amount: "$250.00" },
-  { id: "INV-002", status: "Pending", method: "PayPal", amount: "$150.00" },
-  { id: "INV-003", status: "Unpaid", method: "Bank Transfer", amount: "$350.00" },
+  { id: "INV-001", status: "결제 완료", method: "신용카드", amount: "₩250,000" },
+  { id: "INV-002", status: "대기중", method: "계좌이체", amount: "₩150,000" },
+  { id: "INV-003", status: "미결제", method: "가상계좌", amount: "₩350,000" },
 ]
 
 export function TableDemo() {
@@ -30,10 +30,10 @@ export function TableDemo() {
           <Table>
             <TableHeader className="bg-integra-gray-50/50">
               <TableRow>
-                <TableHead className="fs-12 text-integra-gray-500 font-bold uppercase tracking-1">Invoice</TableHead>
-                <TableHead className="fs-12 text-integra-gray-500 font-bold uppercase tracking-1">Status</TableHead>
-                <TableHead className="fs-12 text-integra-gray-500 font-bold uppercase tracking-1">Method</TableHead>
-                <TableHead className="text-right fs-12 text-integra-gray-500 font-bold uppercase tracking-1">Amount</TableHead>
+                <TableHead className="fs-12 text-integra-gray-500 font-bold uppercase tracking-1">주문번호</TableHead>
+                <TableHead className="fs-12 text-integra-gray-500 font-bold uppercase tracking-1">상태</TableHead>
+                <TableHead className="fs-12 text-integra-gray-500 font-bold uppercase tracking-1">결제 수단</TableHead>
+                <TableHead className="text-right fs-12 text-integra-gray-500 font-bold uppercase tracking-1">금액</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -41,7 +41,7 @@ export function TableDemo() {
                 <TableRow key={invoice.id} className="hover:bg-integra-gray-50/50 transition-colors">
                   <TableCell className="fs-14 font-medium text-integra-gray-900">{invoice.id}</TableCell>
                   <TableCell>
-                    <Badge variant={invoice.status === "Paid" ? "default" : "secondary"} className="fs-12">
+                    <Badge variant={invoice.status === "결제 완료" ? "default" : "secondary"} className="fs-12">
                       {invoice.status}
                     </Badge>
                   </TableCell>
@@ -56,7 +56,7 @@ export function TableDemo() {
 
       {/* 2. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Table Structure</p>
+        <p className="text-integra-gray-500 mb-8">// 테이블 구조 예시</p>
         <code className="block">
           &lt;Table&gt;<br />
           &nbsp;&nbsp;&lt;TableHeader&gt;<br />

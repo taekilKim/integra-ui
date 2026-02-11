@@ -22,12 +22,12 @@ export function PopoverDemo() {
             <div className="grid gap-16">
               <div className="space-y-4">
                 {/* fs-14, fs-12 및 전용 컬러 토큰 적용 */}
-                <h4 className="font-bold leading-16 fs-14 text-integra-gray-900">Dimensions</h4>
+                <h4 className="font-bold leading-16 fs-14 text-integra-gray-900">크기 조절</h4>
                 <p className="fs-12 text-integra-gray-500">레이아웃의 크기를 조절하세요.</p>
               </div>
               <div className="grid gap-8">
                 <div className="flex items-center gap-16">
-                  <Label htmlFor="width" className="fs-12 text-integra-gray-700">Width</Label>
+                  <Label htmlFor="width" className="fs-12 text-integra-gray-700">너비</Label>
                   <Input id="width" defaultValue="100%" className="h-32 fs-12 px-8" />
                 </div>
               </div>
@@ -38,12 +38,12 @@ export function PopoverDemo() {
 
       {/* 2. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Popover Setup</p>
+        <p className="text-integra-gray-500 mb-8">// 팝오버 설정 예시</p>
         <code className="block">
           &lt;Popover&gt;<br/>
-          &nbsp;&nbsp;&lt;PopoverTrigger&gt;Open&lt;/PopoverTrigger&gt;<br/>
+          &nbsp;&nbsp;&lt;PopoverTrigger&gt;열기&lt;/PopoverTrigger&gt;<br/>
           &nbsp;&nbsp;&lt;PopoverContent className="w-240"&gt;<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;Content...<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;내용...<br/>
           &nbsp;&nbsp;&lt;/PopoverContent&gt;<br/>
           &lt;/Popover&gt;
         </code>

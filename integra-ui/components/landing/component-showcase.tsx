@@ -29,7 +29,7 @@ export function ComponentShowcase() {
           <Tabs defaultValue="card" className="w-full">
             <TabsList className="grid w-full grid-cols-2 h-40">
               <TabsTrigger value="card" className="fs-14">카드</TabsTrigger>
-              <TabsTrigger value="paypal" className="fs-14">페이팔</TabsTrigger>
+              <TabsTrigger value="paypal" className="fs-14">간편결제</TabsTrigger>
             </TabsList>
             <TabsContent value="card" className="space-y-16 pt-16">
               <div className="space-y-8">
@@ -57,14 +57,14 @@ export function ComponentShowcase() {
                   </Select>
                 </div>
                 <div className="space-y-8">
-                  <Label className="fs-12 text-integra-gray-700">CVC</Label>
+                  <Label className="fs-12 text-integra-gray-700">보안코드</Label>
                   <Input placeholder="123" className="h-40" />
                 </div>
               </div>
             </TabsContent>
             <TabsContent value="paypal" className="pt-16">
                 <div className="p-40 border border-dashed border-integra-gray-200 rounded-12 flex items-center justify-center text-integra-gray-400 bg-integra-gray-50">
-                    <span className="fs-14">페이팔은 사용할 수 없습니다</span>
+                    <span className="fs-14">간편결제는 준비 중입니다</span>
                 </div>
             </TabsContent>
           </Tabs>
@@ -81,8 +81,8 @@ export function ComponentShowcase() {
         <CardContent className="p-24 pt-0 space-y-24">
           <div className="space-y-16">
             {[
-              { name: "김민수", email: "minsu@example.com", role: "소유자" },
-              { name: "이지은", email: "jieun@example.com", role: "멤버" },
+              { name: "김민수", email: "minsu@integra.co.kr", role: "소유자" },
+              { name: "이지은", email: "jieun@integra.co.kr", role: "멤버" },
             ].map((member, i) => (
               <div key={i} className="flex items-center justify-between space-x-16">
                 <div className="flex items-center space-x-12">

@@ -24,7 +24,7 @@ export function SkeletonDemo() {
 
       {/* 2. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Skeleton Preview</p>
+        <p className="text-integra-gray-500 mb-8">// 스켈레톤 미리보기 예시</p>
         <code className="block">
           &lt;div className="flex items-center gap-16"&gt;<br/>
           &nbsp;&nbsp;&lt;Skeleton className="h-48 w-48 rounded-full" /&gt;<br/>

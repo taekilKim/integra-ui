@@ -38,14 +38,14 @@ export function TextareaDemo() {
           htmlFor="textarea-disabled-toggle" 
           className="fs-14 font-medium text-integra-gray-700 cursor-pointer select-none"
         >
-          Disabled State
+          비활성화 상태
         </Label>
       </div>
 
       {/* 3. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Textarea Setup</p>
-        <code>&lt;Textarea placeholder="Type here..." {isDisabled ? 'disabled' : ''} /&gt;</code>
+        <p className="text-integra-gray-500 mb-8">// 텍스트 영역 설정 예시</p>
+        <code>&lt;Textarea placeholder="내용을 입력하세요..." {isDisabled ? 'disabled' : ''} /&gt;</code>
       </div>
     </Card>
   )

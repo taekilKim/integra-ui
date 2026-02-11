@@ -14,7 +14,7 @@ export function DatePickerDemo() {
             <DatePicker
                 date={date}
                 setDate={setDate}
-                placeholder="Ex) 1995.05.24"
+                placeholder="예) 1995.05.24"
             />
         </div>
     )

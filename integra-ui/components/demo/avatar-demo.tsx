@@ -17,31 +17,31 @@ export function AvatarDemo() {
         {/* 기본 아바타 (이미지 있음) */}
         <div className="flex flex-col items-center gap-12">
           <Avatar className="h-48 w-48 shadow-sm">
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src="https://github.com/shadcn.png" alt="사용자 프로필 이미지" />
+            <AvatarFallback>김민</AvatarFallback>
           </Avatar>
-          <span className="fs-12 text-integra-gray-500 font-medium">Image Source</span>
+          <span className="fs-12 text-integra-gray-500 font-medium">이미지 소스</span>
         </div>
 
         {/* 폴백 아바타 (이미지 없음 -> 텍스트 표시) */}
         <div className="flex flex-col items-center gap-12">
           <Avatar className="h-48 w-48 shadow-sm">
             <AvatarFallback className="bg-integra-blue-50 text-primary font-bold fs-16">
-              JD
+              박지
             </AvatarFallback>
           </Avatar>
-          <span className="fs-12 text-integra-gray-500 font-medium">Text Fallback</span>
+          <span className="fs-12 text-integra-gray-500 font-medium">텍스트 폴백</span>
         </div>
 
       </Playground>
 
       {/* 코드 영역 */}
       <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Avatar</p>
+        <p className="text-integra-gray-500 mb-8">// 아바타 구조 예시</p>
         <code className="block">
           &lt;Avatar className="h-48 w-48"&gt;<br/>
           &nbsp;&nbsp;&lt;AvatarImage src="..." /&gt;<br/>
-          &nbsp;&nbsp;&lt;AvatarFallback&gt;CN&lt;/AvatarFallback&gt;<br/>
+          &nbsp;&nbsp;&lt;AvatarFallback&gt;김민&lt;/AvatarFallback&gt;<br/>
           &lt;/Avatar&gt;
         </code>
       </div>

@@ -16,7 +16,7 @@ export function InputDemo() {
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
       <Playground>
         <div className="grid w-full max-w-320 gap-8">
-          <Label htmlFor="demo-input" className="fs-14 text-integra-gray-900">Email Address</Label>
+          <Label htmlFor="demo-input" className="fs-14 text-integra-gray-900">이메일 주소</Label>
           <Input id="demo-input" placeholder={placeholder} disabled={isDisabled} />
         </div>
       </Playground>
@@ -24,7 +24,7 @@ export function InputDemo() {
       {/* 2. 컨트롤러 영역: border-integra-gray-100 적용 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-24 pt-24 border-t border-integra-gray-100">
         <div className="space-y-8">
-          <Label className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">Placeholder</Label>
+          <Label className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">플레이스홀더</Label>
           <Input 
             value={placeholder} 
             onChange={(e) => setPlaceholder(e.target.value)} 
@@ -40,14 +40,14 @@ export function InputDemo() {
             className="w-16 h-16 accent-primary"
           />
           <Label htmlFor="input-disabled-toggle" className="fs-14 font-medium text-integra-gray-700 cursor-pointer select-none">
-            Disabled
+            비활성화
           </Label>
         </div>
       </div>
 
       {/* 3. 코드 영역: bg-integra-gray-900 및 fs-14 적용 */}
       <div className="rounded-8 bg-integra-gray-900 p-20 overflow-x-auto font-mono fs-14 leading-24 text-white">
-        <p className="text-integra-gray-500 mb-8">// Atomic Input Setup</p>
+        <p className="text-integra-gray-500 mb-8">// 인풋 설정 예시</p>
         <code>&lt;Input placeholder="{placeholder}" {isDisabled ? 'disabled' : ''} /&gt;</code>
       </div>
     </Card>
