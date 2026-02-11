@@ -14,7 +14,7 @@ export function BadgeDemo() {
       
       {/* 1. 프리뷰 영역: bg-integra-gray-50 및 border-integra-gray-200 적용 */}
       <Playground>
-        <Badge variant={variant}>badge</Badge>
+        <Badge variant={variant}>배지 라벨</Badge>
       </Playground>
 
       {/* 2. 컨트롤러 영역: border-integra-gray-100 적용 */}
