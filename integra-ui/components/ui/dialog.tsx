@@ -68,7 +68,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     // ✨ SAI: fs-20 및 text-integra-gray-900 적용
-    className={cn("fs-20 font-bold leading-24 tracking--1 text-integra-gray-900", className)}
+    className={cn("fs-20 font-bold leading-28 tracking--1 text-integra-gray-900", className)}
     {...props}
   />
 ))
@@ -81,7 +81,7 @@ const DialogDescription = React.forwardRef<
   <DialogPrimitive.Description
     ref={ref}
     // ✨ SAI: fs-16 및 text-integra-gray-500 적용
-    className={cn("fs-16 text-integra-gray-500 leading-20", className)}
+    className={cn("fs-16 text-integra-gray-500 leading-24", className)}
     {...props}
   />
 ))
