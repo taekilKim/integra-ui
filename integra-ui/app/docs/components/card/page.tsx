@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
@@ -18,14 +21,28 @@ import {
  * 고도화된 CodeBlock을 통해 정교한 조립법을 안내합니다.
  */
 export default function CardDocsPage() {
+  const [buttonGroupLayout, setButtonGroupLayout] = useState<
+    "double-fit" | "single-fill" | "double-fill-5-5" | "double-fill-3-7"
+  >("double-fit");
+
+  const buttonGroupOptions: {
+    label: string;
+    value: "double-fit" | "single-fill" | "double-fill-5-5" | "double-fill-3-7";
+  }[] = [
+    { label: "Double Fit", value: "double-fit" },
+    { label: "Single Fill (100%)", value: "single-fill" },
+    { label: "Double Fill 5:5", value: "double-fill-5-5" },
+    { label: "Double Fill 3:7", value: "double-fill-3-7" },
+  ];
+
   // 1. 카드 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Border Radius (곡률)", class: "rounded-16", value: "16px" },
+    { property: "Border Radius (곡률)", class: "rounded-24", value: "24px" },
     { property: "Container Padding (내부 여백)", class: "p-24", value: "24px" },
     { property: "Border Color (테두리)", class: "border-integra-gray-100", value: "Gray 100" },
     { property: "Shadow (그림자)", class: "shadow-integra", value: "SAI Soft Shadow" },
-    { property: "Title Font Size (제목)", class: "fs-24", value: "24px" },
-    { property: "Description Font Size (설명)", class: "fs-14", value: "14px" },
+    { property: "Title Font Size (제목)", class: "fs-20", value: "20px" },
+    { property: "Description Font Size (설명)", class: "fs-16", value: "16px" },
   ];
 
   // 2. 코드 스니펫 정의
@@ -89,17 +106,30 @@ import { ButtonGroup } from "@/components/ui/button-group"`;
             <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Playground</h2>
             <Badge variant="outline" className="fs-12 px-8 py-2 border-integra-gray-200 text-integra-gray-500 font-medium">Static Preview</Badge>
         </div>
+        <div className="flex flex-wrap items-center gap-8">
+          {buttonGroupOptions.map((option) => (
+            <Button
+              key={option.value}
+              size="small"
+              appearance={buttonGroupLayout === option.value ? "default" : "text"}
+              variant={buttonGroupLayout === option.value ? "default" : "secondary"}
+              onClick={() => setButtonGroupLayout(option.value)}
+            >
+              {option.label}
+            </Button>
+          ))}
+        </div>
         <div className="flex min-h-240 items-center justify-center rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-40 max-w-960 mx-auto w-full">
           <Card className="w-320 bg-white shadow-integra">
             <CardHeader>
-              <CardTitle className="fs-24">프로젝트 카드</CardTitle>
-              <CardDescription className="fs-14">디자인 시스템을 손쉽게 통합하세요.</CardDescription>
+              <CardTitle>프로젝트 카드</CardTitle>
+              <CardDescription>디자인 시스템을 손쉽게 통합하세요.</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="fs-16 text-integra-gray-700 leading-24 font-medium">아토믹 토큰 시스템으로 제작된 카드 컴포넌트입니다.</p>
             </CardContent>
             <CardFooter>
-              <ButtonGroup layout="double-fit">
+              <ButtonGroup layout={buttonGroupLayout}>
                 <Button appearance="text" variant="secondary" size="small">Cancel</Button>
                 <Button appearance="default" variant="default" size="small">Confirm</Button>
               </ButtonGroup>
@@ -143,7 +173,7 @@ import { ButtonGroup } from "@/components/ui/button-group"`;
             <p>카드는 시스템 전체의 입체감과 질서를 결정하는 원자들의 집합입니다.</p>
             <ul className="list-disc pl-20 space-y-4">
                 <li><strong>Padding:</strong> 모든 방향에 24px(p-24)의 넉넉한 여백을 제공하여 콘텐츠의 호흡을 확보합니다.</li>
-                <li><strong>Radius:</strong> 16px(rounded-16)을 사용하여 큰 컨테이너 특유의 부드럽고 안정적인 인상을 줍니다.</li>
+                <li><strong>Radius:</strong> 24px(rounded-24)을 사용하여 다이얼로그와 동일한 표면 규격을 유지합니다.</li>
                 <li><strong>Depth:</strong> Integra 고유의 <code>shadow-integra</code> 토큰을 사용하여 본문과 분리된 명확한 레이어를 형성합니다.</li>
             </ul>
         </div>

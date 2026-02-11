@@ -297,7 +297,7 @@ function ComponentDocumentationExtension({ slug }: { slug: string }) {
       </section>
 
       <section className="space-y-16">
-        <h3 className="fs-20 font-bold text-integra-gray-900">Usage (Do / Don't)</h3>
+        <h3 className="fs-20 font-bold text-integra-gray-900">Usage (Do / Don&apos;t)</h3>
         <div className="grid gap-12 md:grid-cols-2">
           {profile.usageGuides.map((item, idx) => (
             <div
@@ -502,7 +502,7 @@ export function DocsContentExtensions() {
 
   if (pathname.startsWith("/docs/components/")) {
     const slug = pathname.replace("/docs/components/", "")
-    if (slug && slug !== "page") {
+    if (slug && slug !== "page" && slug !== "button") {
       return <ComponentDocumentationExtension slug={slug} />
     }
   }

@@ -80,6 +80,48 @@ import { ButtonGroup } from "@/components/ui/button-group"
   <Button>완료</Button>
 </ButtonGroup>`;
 
+  const essentials = [
+    "CTA 우선순위(Primary 1개)를 먼저 고정합니다.",
+    "버튼 레이블은 행동 중심 동사로 짧게 작성합니다.",
+    "파괴적 액션은 반드시 Destructive 위계로 분리합니다.",
+  ];
+
+  const optionals = [
+    "아이콘 전용 버튼은 툴팁 또는 aria-label을 필수로 제공합니다.",
+    "ButtonGroup 비율(5:5, 3:7)은 특정 플로우에서만 사용합니다.",
+    "로딩 스피너는 제출형 버튼에서만 사용합니다.",
+  ];
+
+  const properties = [
+    { property: "Type", values: "Primary / Secondary / Tertiary / Text / Icon" },
+    { property: "Size", values: "L / M / S" },
+    { property: "State", values: "default / hover / disabled / loading" },
+    { property: "Color", values: "default / invert" },
+    { property: "Icon", values: "left / right / none" },
+  ];
+
+  const states = [
+    { state: "Default", description: "중립/기본 상호작용", intent: "일상 작업" },
+    { state: "Hover / Focus", description: "행동 가능성 강조", intent: "탐색 보조" },
+    { state: "Pressed", description: "입력 처리 중 피드백", intent: "즉각 반응" },
+    { state: "Loading", description: "중복 제출 방지", intent: "처리 상태 전달" },
+    { state: "Disabled", description: "조건 미충족", intent: "오입력 예방" },
+  ];
+
+  const specs = [
+    { key: "Height", value: "32 / 48 / 56", note: "Small / Medium / Default" },
+    { key: "Min Width", value: "80", note: "텍스트 버튼 기준" },
+    { key: "Icon Gap", value: "8", note: "텍스트-아이콘 간격" },
+    { key: "Corner Radius", value: "8 / 12 / 16", note: "크기와 비례" },
+  ];
+
+  const usageGuide = [
+    { type: "Do", text: "버튼 레이블은 수행할 행동을 바로 이해할 수 있게 작성합니다." },
+    { type: "Do", text: "주요 액션은 한 화면에서 하나의 Primary만 유지합니다." },
+    { type: "Don't", text: "Tertiary/Text 버튼을 full width 핵심 CTA로 사용하지 않습니다." },
+    { type: "Don't", text: "버튼 위계를 3단계 이상 혼용해 우선순위를 흐리지 않습니다." },
+  ];
+
   return (
     <div className="space-y-64 pb-120">
       
@@ -228,6 +270,109 @@ import { ButtonGroup } from "@/components/ui/button-group"
       <section className="space-y-16">
         <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">Usage</h2>
         <CodeBlock code={usageCode} />
+      </section>
+
+      {/* 7. Documentation Blueprint */}
+      <section className="space-y-48">
+        <div className="space-y-8">
+          <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Documentation Blueprint</h2>
+          <p className="fs-16 text-integra-gray-500">
+            Codeit/Button 상세 문서 흐름을 벤치마크해 필수/선택 정보와 상태/스펙/사용 가이드를 분리했습니다.
+          </p>
+        </div>
+
+        <section className="space-y-16">
+          <h3 className="fs-20 font-bold text-integra-gray-900">Essential vs Optional</h3>
+          <div className="grid gap-16 md:grid-cols-2">
+            <div className="rounded-12 border border-integra-gray-200 p-20 bg-white space-y-12">
+              <Badge variant="outline" className="border-emerald-200 text-emerald-700 bg-emerald-50">Essential</Badge>
+              <ul className="list-disc pl-20 space-y-6 fs-14 text-integra-gray-700">
+                {essentials.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-12 border border-integra-gray-200 p-20 bg-white space-y-12">
+              <Badge variant="outline" className="border-slate-200 text-slate-700 bg-slate-50">Optional</Badge>
+              <ul className="list-disc pl-20 space-y-6 fs-14 text-integra-gray-700">
+                {optionals.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="space-y-16">
+          <h3 className="fs-20 font-bold text-integra-gray-900">Properties</h3>
+          <div className="rounded-12 border border-integra-gray-100 overflow-hidden">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-integra-gray-50 border-b border-integra-gray-100">
+                <tr className="fs-12 font-bold uppercase tracking-1 text-integra-gray-500">
+                  <th className="px-20 py-14">Property</th>
+                  <th className="px-20 py-14">Values</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-integra-gray-100 bg-white">
+                {properties.map((item) => (
+                  <tr key={item.property}>
+                    <td className="px-20 py-14 fs-14 font-semibold text-integra-gray-900">{item.property}</td>
+                    <td className="px-20 py-14 fs-14 text-integra-gray-700">{item.values}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="space-y-16">
+          <h3 className="fs-20 font-bold text-integra-gray-900">States</h3>
+          <div className="rounded-12 border border-integra-gray-100 overflow-hidden">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-integra-gray-50 border-b border-integra-gray-100">
+                <tr className="fs-12 font-bold uppercase tracking-1 text-integra-gray-500">
+                  <th className="px-20 py-14">State</th>
+                  <th className="px-20 py-14">Description</th>
+                  <th className="px-20 py-14">Intent</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-integra-gray-100 bg-white">
+                {states.map((item) => (
+                  <tr key={item.state}>
+                    <td className="px-20 py-14 fs-14 font-semibold text-integra-gray-900">{item.state}</td>
+                    <td className="px-20 py-14 fs-14 text-integra-gray-700">{item.description}</td>
+                    <td className="px-20 py-14 fs-14 text-integra-gray-500">{item.intent}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="space-y-16">
+          <h3 className="fs-20 font-bold text-integra-gray-900">Spec</h3>
+          <div className="grid gap-12 md:grid-cols-2">
+            {specs.map((item) => (
+              <div key={item.key} className="rounded-12 border border-integra-gray-200 bg-white p-16 space-y-6">
+                <p className="fs-12 uppercase tracking-1 text-integra-gray-500">{item.key}</p>
+                <p className="fs-18 font-bold text-integra-gray-900">{item.value}</p>
+                <p className="fs-13 text-integra-gray-600">{item.note}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-16">
+          <h3 className="fs-20 font-bold text-integra-gray-900">Usage (Do / Don&apos;t)</h3>
+          <div className="grid gap-12 md:grid-cols-2">
+            {usageGuide.map((item, index) => (
+              <div key={`${item.type}-${index}`} className="rounded-12 border border-integra-gray-200 bg-white p-16 space-y-6">
+                <p className={`fs-12 uppercase tracking-1 ${item.type === "Do" ? "text-emerald-700" : "text-rose-700"}`}>{item.type}</p>
+                <p className="fs-14 text-integra-gray-700">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </section>
 
     </div>
