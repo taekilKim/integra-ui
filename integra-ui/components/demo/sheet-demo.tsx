@@ -21,9 +21,9 @@ export function SheetDemo() {
   return (
     <Card className="p-24 md:p-40 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
       {/* 프리뷰 영역 */}
-      <div className="min-h-240 flex flex-col items-center justify-center gap-24 rounded-12 border border-integra-gray-200 bg-integra-gray-50 border-dashed p-24">
+      <div className="min-h-240 flex flex-col items-center justify-center gap-24 rounded-12 border border-integra-gray-200 border-dashed p-24">
         <div className="flex flex-wrap gap-16 justify-center">
-          {["상단에서 열리기", "하단에서 열리기", "왼쪽에서 열리기", "오른쪽에서 열리기"].map((side) => (
+          {["top", "bottom", "left", "right"].map((side) => (
             <Sheet key={side}>
               <SheetTrigger asChild>
                 <Button size="medium" variant="tertiary" appearance="outlined">
@@ -39,11 +39,11 @@ export function SheetDemo() {
                 </SheetHeader>
                 <div className="grid gap-24 py-24">
                   <div className="space-y-8">
-                    <Label htmlFor="name" className="fs-14">Name</Label>
+                    <Label htmlFor="name" className="fs-14">이름</Label>
                     <Input id="name" defaultValue="Integra UI" />
                   </div>
                   <div className="space-y-8">
-                    <Label htmlFor="username" className="fs-14">Username</Label>
+                    <Label htmlFor="username" className="fs-14">별명</Label>
                     <Input id="username" defaultValue="@integra" />
                   </div>
                 </div>
