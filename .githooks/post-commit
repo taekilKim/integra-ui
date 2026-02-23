@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -u
+
+repo_root="$(git rev-parse --show-toplevel)"
+script="$repo_root/scripts/post-commit-roadmap.sh"
+
+if [[ -x "$script" ]]; then
+  "$script" || true
+else
+  echo "post-commit roadmap script not executable: $script"
+fi

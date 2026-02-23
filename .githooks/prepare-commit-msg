@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+msg_file="${1:-}"
+source_type="${2:-}"
+
+if [[ -z "$msg_file" ]]; then
+  exit 0
+fi
+
+# merge/squash 메시지는 자동 제안을 붙이지 않음
+case "$source_type" in
+  merge|squash)
+    exit 0
+    ;;
+esac
+
+repo_root="$(git rev-parse --show-toplevel)"
+hints_file="$repo_root/.roadmaps/latest-commit-hints.txt"
+marker="# Roadmap Suggestions (auto)"
+
+if [[ ! -f "$hints_file" ]]; then
+  exit 0
+fi
+
+if grep -q "Roadmap Suggestions (auto)" "$msg_file"; then
+  exit 0
+fi
+
+{
+  echo ""
+  echo "$marker"
+  while IFS= read -r line; do
+    [[ -n "$line" ]] && echo "# - $line"
+  done < "$hints_file"
+} >> "$msg_file"

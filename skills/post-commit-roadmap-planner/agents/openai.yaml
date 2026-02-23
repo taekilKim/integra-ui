@@ -1,0 +1,4 @@
+interface:
+  display_name: "Post-Commit Planner"
+  short_description: "Plan next tasks after each commit"
+  default_prompt: "Use $post-commit-roadmap-planner to create the next-step roadmap from my latest commit."
