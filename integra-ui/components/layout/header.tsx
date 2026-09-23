@@ -43,17 +43,23 @@ export function Header() {
             >
               문서
             </Link>
-            <Link 
-              href="/docs/foundations" 
+            <Link
+              href="/docs/learn"
               className="transition-colors hover:text-primary text-integra-gray-500"
             >
-              Foundations
+              Learn
             </Link>
             <Link 
               href="/docs/components" 
               className="transition-colors hover:text-primary text-integra-gray-500"
             >
               Components
+            </Link>
+            <Link
+              href="/docs/customize"
+              className="transition-colors hover:text-primary text-integra-gray-500"
+            >
+              Customize
             </Link>
           </nav>
         </div>

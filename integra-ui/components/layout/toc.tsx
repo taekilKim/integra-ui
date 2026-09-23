@@ -16,8 +16,8 @@ export function TableOfContents() {
 
   React.useEffect(() => {
     const updateHeadings = () => {
-      // 1. main 영역 내의 h2, h3만 선택
-      const rawElements = Array.from(document.querySelectorAll("main h2, main h3"));
+      // 1. 문서 본문 영역 내의 h2, h3만 선택
+      const rawElements = Array.from(document.querySelectorAll("[data-docs-content] h2, [data-docs-content] h3"));
       
       // ✨ 2. 필터링: 버튼을 포함한 헤더(Accordion 등)나 제외 속성이 있는 요소 제거
       const elements = rawElements.filter((el) => {
@@ -28,14 +28,28 @@ export function TableOfContents() {
         return true;
       });
 
-      const headingData = elements.map((el) => {
-        if (!el.id) {
-          // ID가 없으면 텍스트 내용을 기반으로 생성 (공백 -> 하이픈)
-          el.id = el.textContent?.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-") || "";
+      const usedIds = new Set<string>();
+      const headingData = elements.map((el, index) => {
+        const text = el.textContent?.trim() || "";
+        const baseId = el.id || text
+          .normalize("NFKC")
+          .toLowerCase()
+          .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
+          .replace(/^-+|-+$/g, "") || `section-${index + 1}`;
+        let uniqueId = baseId;
+        let duplicateIndex = 2;
+
+        while (usedIds.has(uniqueId)) {
+          uniqueId = `${baseId}-${duplicateIndex}`;
+          duplicateIndex += 1;
         }
+
+        usedIds.add(uniqueId);
+        el.id = uniqueId;
+
         return {
-          id: el.id,
-          text: el.textContent || "",
+          id: uniqueId,
+          text,
           level: Number(el.tagName.replace("H", "")),
         };
       });
@@ -80,7 +94,7 @@ export function TableOfContents() {
             )}
             onClick={(e) => {
               e.preventDefault();
-              document.querySelector(`#${heading.id}`)?.scrollIntoView({
+              document.getElementById(heading.id)?.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
               });

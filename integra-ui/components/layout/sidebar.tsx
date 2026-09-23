@@ -18,25 +18,50 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
     {
       title: "Foundations",
       items: [
+        { name: "Overview", href: "/docs/foundations" },
         { name: "Design Tokens", href: "/docs/foundations/design-tokens" },
         { name: "Colors", href: "/docs/foundations/colors" },
         { name: "Typography", href: "/docs/foundations/typography" },
       ],
     },
     {
+      title: "Learn",
+      items: [
+        { name: "Overview", href: "/docs/learn" },
+      ],
+    },
+    {
       title: "Components",
       items: [
+        { name: "Overview", href: "/docs/components" },
         "accordion", "alert", "avatar", "badge", "breadcrumb", "button",
         "calendar", "card", "checkbox", "date-picker", "dialog",
         "dropdown-menu", "input", "item", "label", "pagination", "popover",
         "radio-group", "scroll-area", "select", "separator", "sheet",
         "skeleton", "slider", "switch", "table", "tabs", "textarea",
         "toast", "toggle", "tooltip"
-      ].map(item => ({
-        // 하이픈 제거 및 첫 글자 대문자화 (예: radio-group -> Radio Group)
+      ].map(item => typeof item === "string" ? ({
         name: item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
         href: `/docs/components/${item}`
-      })),
+      }) : item),
+    },
+    {
+      title: "Customize",
+      items: [
+        { name: "Overview", href: "/docs/customize" },
+      ],
+    },
+    {
+      title: "Utilities",
+      items: [
+        { name: "Overview", href: "/docs/utilities" },
+      ],
+    },
+    {
+      title: "Advanced",
+      items: [
+        { name: "Overview", href: "/docs/advanced" },
+      ],
     },
   ];
 

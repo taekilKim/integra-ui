@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Integra UI | 한국형 아토믹 디자인 시스템",
-  description: "한국 메이커를 위한 가장 직관적인 아토믹 디자인 시스템 가이드입니다.",
+  title: "Integra UI | 이해하고 커스터마이징하는 디자인 시스템",
+  description: "한국 UI 디자이너가 디자인 시스템과 React 구조를 이해하고 자기 제품에 맞게 활용하도록 돕습니다.",
   // 파비콘 및 아이콘 설정
   icons: {
     icon: [

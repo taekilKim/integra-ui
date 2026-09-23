@@ -25,8 +25,8 @@ export default function IntroductionPage() {
         </Breadcrumb>
         <h1 className="fs-40 font-bold leading-48 text-integra-gray-900">Integra UI 소개</h1>
         <p className="fs-20 text-integra-gray-500 leading-32">
-          한국 메이커를 위한, 가장 직관적인 <strong>아토믹 디자인 시스템</strong> 가이드입니다.<br />
-          디자인의 원칙과 코드의 구현이 하나로 통합되는 최적의 환경을 제공합니다.
+          한국 UI 디자이너가 현대적인 디자인 시스템과 React 구조를 이해하고,<br />
+          자기 제품에 맞게 커스터마이징할 수 있도록 돕는 한국어 기반 UI 시스템입니다.
         </p>
       </div>
       
@@ -38,42 +38,42 @@ export default function IntroductionPage() {
         <section className="space-y-16">
             <h3 className="fs-24 font-bold leading-32 tracking--2 text-integra-gray-900">왜 Integra 인가요?</h3>
             <p className="fs-16 text-integra-gray-600 leading-28 tracking--1">
-              기존의 UI 라이브러리는 너무 방대하거나, 국내 웹 환경(폰트, 디자인 트렌드)과 맞지 않는 경우가 많았습니다.<br />
-              Integra UI는 컴포넌트를 만들기 전에 **곡률, 간격, 폰트 크기, 행간**을 독립적인 원자(Atoms)로 정의하는<br />
-              <strong> 아토믹 토큰 시스템</strong>을 채택하여 디자인과 개발의 언어를 하나로 통합합니다.
+              기존 UI 라이브러리는 설치와 사용법은 잘 알려주지만, 왜 이런 속성과 구조를 선택했는지는 개발자 관점에서 설명하는 경우가 많습니다.<br />
+              Integra UI는 컴포넌트의 모양뿐 아니라 <strong>규칙, 상태, 토큰, 코드와 커스터마이징 범위</strong>를 함께 설명합니다.<br />
+              사람이 이해하기 쉬운 규칙을 먼저 만들고, Figma와 React가 그 규칙을 공유하도록 연결합니다.
             </p>
         </section>
 
         {/* 핵심 특징 섹션: bg-integra-gray-50 및 border-integra-gray-100 적용 */}
         <section className="space-y-24">
-            <h3 className="fs-24 font-bold leading-32 tracking--2 text-primary italic underline underline-offset-8">Core Features</h3>
+            <h3 className="fs-24 font-bold leading-32 tracking--2 text-integra-gray-900">Integra가 제공하는 것</h3>
             <div className="grid gap-24 md:grid-cols-2">
                 <div className="p-24 rounded-12 border border-integra-gray-100 bg-integra-gray-50 space-y-8 leading-24 tracking--1">
-                    <h4 className="font-bold fs-18 text-integra-gray-900">Pretendard First</h4>
+                    <h4 className="font-bold fs-18 text-integra-gray-900">Learn</h4>
                     <p className="fs-14 text-integra-gray-600">
-                      한글 가독성에 최적화된 Pretendard 폰트가 기본 탑재되어<br />
-                      별도의 설정 없이 아름다운 텍스트를 제공합니다.
+                      Design Token, Variant, State 같은 표준 용어를<br />
+                      실제 UI 사례와 함께 한국어로 이해합니다.
                     </p>
                 </div>
                 <div className="p-24 rounded-12 border border-integra-gray-100 bg-integra-gray-50 space-y-8 leading-24 tracking--1">
-                    <h4 className="font-bold fs-18 text-integra-gray-900">Atomic Token System</h4>
+                    <h4 className="font-bold fs-18 text-integra-gray-900">Design to Code</h4>
                     <p className="fs-14 text-integra-gray-600">
-                      추상적인 명칭 대신 픽셀 수치 기반의 토큰을 사용하여<br />
-                      디자이너의 의도를 코드로 100% 재현합니다.
+                      Figma Property, React Props, Design Token이<br />
+                      어떻게 같은 규칙을 표현하는지 연결해 보여줍니다.
                     </p>
                 </div>
                 <div className="p-24 rounded-12 border border-integra-gray-100 bg-integra-gray-50 space-y-8 leading-24 tracking--1">
-                    <h4 className="font-bold fs-18 text-integra-gray-900">4px Grid Philosophy</h4>
+                    <h4 className="font-bold fs-18 text-integra-gray-900">Customize</h4>
                     <p className="fs-14 text-integra-gray-600">
-                      모든 수치는 4px 단위로 설계되어 질서 있는 여백과<br />
-                      정교한 레이아웃을 보장합니다.
+                      브랜드 표현은 유연하게 바꾸고 접근성과<br />
+                      상호작용의 약속은 유지하는 방법을 안내합니다.
                     </p>
                 </div>
                 <div className="p-24 rounded-12 border border-integra-gray-100 bg-integra-gray-50 space-y-8 leading-24 tracking--1">
-                    <h4 className="font-bold fs-18 text-integra-gray-900">Copy & Paste DX</h4>
+                    <h4 className="font-bold fs-18 text-integra-gray-900">Advanced</h4>
                     <p className="fs-14 text-integra-gray-600">
-                      shadcn 아키텍처를 따라 필요한 컴포넌트 코드만 프로젝트에 복사하여<br />
-                      가볍고 자유롭게 커스텀할 수 있습니다.
+                      명확해진 문서와 API를 기반으로 접근성 검증과<br />
+                      machine-readable·AI-readable 구조를 실험합니다.
                     </p>
                 </div>
             </div>

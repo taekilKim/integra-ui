@@ -25,12 +25,12 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         - mx-auto: 중앙 정렬
         - py-80, px-64: 4px 그리드 기반의 최적화된 여백
       */}
-      <main className="flex-1 min-w-0">
-        <div className="mx-auto max-w-960 px-24 py-48 md:px-48 md:py-80 lg:px-64">
+      <div className="flex-1 min-w-0">
+        <div data-docs-content className="mx-auto max-w-960 px-24 py-48 md:px-48 md:py-80 lg:px-64">
           {children}
           <DocsContentExtensions />
         </div>
-      </main>
+      </div>
 
       {/* 
         3. 우측 TOC (Table of Contents)
