@@ -198,7 +198,7 @@ function ComponentDocumentationExtension({ slug }: { slug: string }) {
       <div className="space-y-8">
         <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Documentation Blueprint</h2>
         <p className="fs-16 text-integra-gray-500">
-          Material 3 스타일의 문서 흐름을 참고해 필수 정보와 확장 정보를 분리했습니다.
+          Wanted Montage의 상세 문서 패턴을 참고해 속성, 상태, 활용 가이드를 같은 흐름으로 정리했습니다.
         </p>
       </div>
 

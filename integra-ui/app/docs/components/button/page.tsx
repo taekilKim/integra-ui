@@ -80,46 +80,49 @@ import { ButtonGroup } from "@/components/ui/button-group"
   <Button>완료</Button>
 </ButtonGroup>`;
 
-  const essentials = [
-    "CTA 우선순위(Primary 1개)를 먼저 고정합니다.",
-    "버튼 레이블은 행동 중심 동사로 짧게 작성합니다.",
-    "파괴적 액션은 반드시 Destructive 위계로 분리합니다.",
+  const anatomy = [
+    { part: "Container", description: "버튼의 배경, 모서리, 경계선을 정의하는 외곽 영역" },
+    { part: "Label", description: "행동을 설명하는 텍스트 레이어" },
+    { part: "Icon", description: "행동을 보조하거나 버튼 유형을 빠르게 인지시키는 보조 요소" },
   ];
 
-  const optionals = [
-    "아이콘 전용 버튼은 툴팁 또는 aria-label을 필수로 제공합니다.",
-    "ButtonGroup 비율(5:5, 3:7)은 특정 플로우에서만 사용합니다.",
-    "로딩 스피너는 제출형 버튼에서만 사용합니다.",
-  ];
-
-  const properties = [
-    { property: "Type", values: "Primary / Secondary / Tertiary / Text / Icon" },
-    { property: "Size", values: "L / M / S" },
-    { property: "State", values: "default / hover / disabled / loading" },
-    { property: "Color", values: "default / invert" },
-    { property: "Icon", values: "left / right / none" },
+  const variants = [
+    { name: "Primary", usage: "가장 중요한 CTA. 화면당 1개 사용 권장" },
+    { name: "Secondary", usage: "주 액션을 보조하는 동등 레벨의 액션" },
+    { name: "Tertiary / Text", usage: "부가 액션, 링크성 행동, 저강도 인터랙션" },
+    { name: "Icon", usage: "공간 제약이 있고 의미가 명확한 경우" },
   ];
 
   const states = [
-    { state: "Default", description: "중립/기본 상호작용", intent: "일상 작업" },
-    { state: "Hover / Focus", description: "행동 가능성 강조", intent: "탐색 보조" },
-    { state: "Pressed", description: "입력 처리 중 피드백", intent: "즉각 반응" },
-    { state: "Loading", description: "중복 제출 방지", intent: "처리 상태 전달" },
-    { state: "Disabled", description: "조건 미충족", intent: "오입력 예방" },
+    { state: "Default", description: "기본 대비와 색상 위계가 유지되는 상태", intent: "일반 상호작용" },
+    { state: "Hover / Focus", description: "행동 가능성을 강화하는 반응 상태", intent: "탐색 보조" },
+    { state: "Pressed", description: "직접 입력이 발생했음을 즉시 전달", intent: "행동 확인" },
+    { state: "Disabled", description: "현재 조건에서 실행이 불가능한 상태", intent: "오입력 방지" },
   ];
 
-  const specs = [
-    { key: "Height", value: "32 / 48 / 56", note: "Small / Medium / Default" },
-    { key: "Min Width", value: "80", note: "텍스트 버튼 기준" },
-    { key: "Icon Gap", value: "8", note: "텍스트-아이콘 간격" },
-    { key: "Corner Radius", value: "8 / 12 / 16", note: "크기와 비례" },
+  const sizes = [
+    { name: "L", spec: "56px", usage: "강한 CTA, 랜딩/주요 전환 플로우" },
+    { name: "M", spec: "48px", usage: "일반 폼, 카드, 설정 화면" },
+    { name: "S", spec: "32px", usage: "밀도 높은 테이블, 툴바, 보조 액션" },
+  ];
+
+  const applicationRules = [
+    "Primary 버튼은 화면당 하나를 기본값으로 둡니다.",
+    "Cancel, Back, Dismiss는 Secondary 또는 Text 계열에 배치합니다.",
+    "파괴적 액션은 색상뿐 아니라 문맥과 위치로도 위험성을 전달합니다.",
+  ];
+
+  const hierarchyRules = [
+    "Primary > Secondary > Tertiary 순서로 시각적 강조를 설계합니다.",
+    "동일 영역에서 버튼 위계는 최대 3단계 이내로 제한합니다.",
+    "다이얼로그/카드 푸터에서는 부모 컨텍스트의 중요도보다 액션 우선순위를 먼저 반영합니다.",
   ];
 
   const usageGuide = [
-    { type: "Do", text: "버튼 레이블은 수행할 행동을 바로 이해할 수 있게 작성합니다." },
-    { type: "Do", text: "주요 액션은 한 화면에서 하나의 Primary만 유지합니다." },
-    { type: "Don't", text: "Tertiary/Text 버튼을 full width 핵심 CTA로 사용하지 않습니다." },
-    { type: "Don't", text: "버튼 위계를 3단계 이상 혼용해 우선순위를 흐리지 않습니다." },
+    { type: "Do", text: "행동 중심 동사를 사용해 버튼의 결과를 즉시 이해할 수 있게 작성합니다." },
+    { type: "Do", text: "레이아웃별로 버튼 폭 정책(single-fill, double-fit 등)을 명확히 고정합니다." },
+    { type: "Don't", text: "Text/Tertiary 버튼을 메인 전환 CTA로 사용하지 않습니다." },
+    { type: "Don't", text: "아이콘만으로 중요한 행동을 표현하고 라벨을 생략하지 않습니다." },
   ];
 
   return (
@@ -272,52 +275,42 @@ import { ButtonGroup } from "@/components/ui/button-group"
         <CodeBlock code={usageCode} />
       </section>
 
-      {/* 7. Documentation Blueprint */}
+      {/* 7. Montage Design Guide */}
       <section className="space-y-48">
         <div className="space-y-8">
-          <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Documentation Blueprint</h2>
+          <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Montage Design Guide</h2>
           <p className="fs-16 text-integra-gray-500">
-            Codeit/Button 상세 문서 흐름을 벤치마크해 필수/선택 정보와 상태/스펙/사용 가이드를 분리했습니다.
+            원티드 Montage의 Button 상세 문서처럼 Anatomy, Variants, States, Size, Application 흐름으로 버튼 가이드를 정리했습니다.
           </p>
         </div>
 
         <section className="space-y-16">
-          <h3 className="fs-20 font-bold text-integra-gray-900">Essential vs Optional</h3>
-          <div className="grid gap-16 md:grid-cols-2">
-            <div className="rounded-12 border border-integra-gray-200 p-20 bg-white space-y-12">
-              <Badge variant="outline" className="border-emerald-200 text-emerald-700 bg-emerald-50">Essential</Badge>
-              <ul className="list-disc pl-20 space-y-6 fs-14 text-integra-gray-700">
-                {essentials.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-12 border border-integra-gray-200 p-20 bg-white space-y-12">
-              <Badge variant="outline" className="border-slate-200 text-slate-700 bg-slate-50">Optional</Badge>
-              <ul className="list-disc pl-20 space-y-6 fs-14 text-integra-gray-700">
-                {optionals.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+          <h3 className="fs-20 font-bold text-integra-gray-900">Anatomy</h3>
+          <div className="grid gap-16 md:grid-cols-3">
+            {anatomy.map((item) => (
+              <div key={item.part} className="rounded-12 border border-integra-gray-200 p-20 bg-white space-y-8">
+                <p className="fs-12 uppercase tracking-1 text-integra-gray-400">{item.part}</p>
+                <p className="fs-14 leading-24 text-integra-gray-700">{item.description}</p>
+              </div>
+            ))}
           </div>
         </section>
 
         <section className="space-y-16">
-          <h3 className="fs-20 font-bold text-integra-gray-900">Properties</h3>
+          <h3 className="fs-20 font-bold text-integra-gray-900">Variants</h3>
           <div className="rounded-12 border border-integra-gray-100 overflow-hidden">
             <table className="w-full text-left border-collapse">
               <thead className="bg-integra-gray-50 border-b border-integra-gray-100">
                 <tr className="fs-12 font-bold uppercase tracking-1 text-integra-gray-500">
-                  <th className="px-20 py-14">Property</th>
-                  <th className="px-20 py-14">Values</th>
+                  <th className="px-20 py-14">Variant</th>
+                  <th className="px-20 py-14">Usage</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-integra-gray-100 bg-white">
-                {properties.map((item) => (
-                  <tr key={item.property}>
-                    <td className="px-20 py-14 fs-14 font-semibold text-integra-gray-900">{item.property}</td>
-                    <td className="px-20 py-14 fs-14 text-integra-gray-700">{item.values}</td>
+                {variants.map((item) => (
+                  <tr key={item.name}>
+                    <td className="px-20 py-14 fs-14 font-semibold text-integra-gray-900">{item.name}</td>
+                    <td className="px-20 py-14 fs-14 text-integra-gray-700">{item.usage}</td>
                   </tr>
                 ))}
               </tbody>
@@ -350,20 +343,58 @@ import { ButtonGroup } from "@/components/ui/button-group"
         </section>
 
         <section className="space-y-16">
-          <h3 className="fs-20 font-bold text-integra-gray-900">Spec</h3>
-          <div className="grid gap-12 md:grid-cols-2">
-            {specs.map((item) => (
-              <div key={item.key} className="rounded-12 border border-integra-gray-200 bg-white p-16 space-y-6">
-                <p className="fs-12 uppercase tracking-1 text-integra-gray-500">{item.key}</p>
-                <p className="fs-18 font-bold text-integra-gray-900">{item.value}</p>
-                <p className="fs-13 text-integra-gray-600">{item.note}</p>
+          <h3 className="fs-20 font-bold text-integra-gray-900">Size</h3>
+          <div className="grid gap-12 md:grid-cols-3">
+            {sizes.map((item) => (
+              <div key={item.name} className="rounded-12 border border-integra-gray-200 bg-white p-16 space-y-6">
+                <p className="fs-12 uppercase tracking-1 text-integra-gray-500">{item.name}</p>
+                <p className="fs-18 font-bold text-integra-gray-900">{item.spec}</p>
+                <p className="fs-13 text-integra-gray-600">{item.usage}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="space-y-16">
-          <h3 className="fs-20 font-bold text-integra-gray-900">Usage (Do / Don&apos;t)</h3>
+          <h3 className="fs-20 font-bold text-integra-gray-900">Application</h3>
+          <div className="grid gap-16 md:grid-cols-2">
+            <div className="rounded-12 border border-integra-gray-200 bg-white p-20 space-y-10">
+              <p className="fs-12 uppercase tracking-1 text-integra-gray-400">Hierarchy</p>
+              <ul className="list-disc pl-20 space-y-6 fs-14 text-integra-gray-700">
+                {hierarchyRules.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-12 border border-integra-gray-200 bg-white p-20 space-y-10">
+              <p className="fs-12 uppercase tracking-1 text-integra-gray-400">Usage</p>
+              <ul className="list-disc pl-20 space-y-6 fs-14 text-integra-gray-700">
+                {applicationRules.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="space-y-16">
+          <h3 className="fs-20 font-bold text-integra-gray-900">Button Layout</h3>
+          <div className="grid gap-12 md:grid-cols-2">
+            {buttonGroupLayouts.map((item) => (
+              <div key={item.layout} className="rounded-12 border border-integra-gray-200 bg-white p-16 space-y-8">
+                <p className="fs-14 font-semibold text-integra-gray-900">{item.title}</p>
+                <p className="fs-13 leading-22 text-integra-gray-600">
+                  {item.layout === "double-fit"
+                    ? "카드/패널 푸터에서 보조 액션과 확인 액션을 자연 폭으로 배치할 때 사용합니다."
+                    : "컨텍스트의 우선순위와 가용 폭에 따라 균등 또는 비균등하게 액션을 배분합니다."}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-16">
+          <h3 className="fs-20 font-bold text-integra-gray-900">How To Use</h3>
           <div className="grid gap-12 md:grid-cols-2">
             {usageGuide.map((item, index) => (
               <div key={`${item.type}-${index}`} className="rounded-12 border border-integra-gray-200 bg-white p-16 space-y-6">

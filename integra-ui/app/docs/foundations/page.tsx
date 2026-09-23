@@ -1,24 +1,80 @@
 "use client"
 
-import Link from "next/link";
+import Link from "next/link"
 import {
   Breadcrumb,
-  BreadcrumbList,
   BreadcrumbItem,
+  BreadcrumbList,
   BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
-import { Card } from "@/components/ui/card";
-import { Palette, TextAa, Ruler, ArrowRight, Stack, Cube } from "@phosphor-icons/react";
+} from "@/components/ui/breadcrumb"
+import { Card } from "@/components/ui/card"
+import { ArrowRight, Palette, TextAa, Ruler, GridFour } from "@phosphor-icons/react"
 
-/**
- * [Integra UI - Foundations Intro SAI Version]
- * 시스템의 근간이 되는 원자(Color, Typo, Tokens)를 소개하고 네비게이션을 제공합니다.
- */
+const baseMaterials = [
+  {
+    title: "Color",
+    href: "/docs/foundations/colors",
+    description: "Primitive palette와 semantic token을 함께 다뤄 제품 전반의 색상 역할을 정의합니다.",
+    icon: Palette,
+    preview: (
+      <div className="flex gap-8">
+        <div className="h-20 w-20 rounded-full bg-primary" />
+        <div className="h-20 w-20 rounded-full bg-integra-gray-900" />
+        <div className="h-20 w-20 rounded-full bg-integra-red-500" />
+        <div className="h-20 w-20 rounded-full bg-integra-green-500" />
+      </div>
+    ),
+  },
+  {
+    title: "Typography",
+    href: "/docs/foundations/typography",
+    description: "기본 타이포 원칙, 줄바꿈 규칙, 스타일 테이블을 통해 읽기 경험을 통일합니다.",
+    icon: TextAa,
+    preview: (
+      <div className="flex items-end gap-8 font-bold text-integra-gray-900">
+        <span className="fs-32">Aa</span>
+        <span className="fs-20 text-integra-gray-500">Aa</span>
+        <span className="fs-14 text-integra-gray-400">Aa</span>
+      </div>
+    ),
+  },
+  {
+    title: "Design Tokens",
+    href: "/docs/foundations/design-tokens",
+    description: "Spacing, radius, size, elevation처럼 모든 UI가 공유하는 수치 기반 재료를 정의합니다.",
+    icon: Ruler,
+    preview: (
+      <div className="flex gap-8">
+        <div className="h-20 w-20 rounded-4 border border-integra-gray-300" />
+        <div className="h-20 w-20 rounded-12 border border-integra-gray-300" />
+        <div className="h-20 w-20 rounded-full border border-integra-gray-300" />
+      </div>
+    ),
+  },
+]
+
+const overviewSteps = [
+  {
+    title: "Base Material",
+    description: "Color, Typography, Token을 분리해서 각 재료가 담당하는 역할을 먼저 정의합니다.",
+  },
+  {
+    title: "Semantic Mapping",
+    description: "Primitive 값을 직접 쓰지 않고 컴포넌트에서 사용할 역할 이름으로 재매핑합니다.",
+  },
+  {
+    title: "Component Adoption",
+    description: "Buttons, Inputs, Dialogs 같은 컴포넌트는 재료를 조합해 같은 패턴으로 소비합니다.",
+  },
+  {
+    title: "Utility Alignment",
+    description: "Spacing, Layout, Overlay 규칙은 Utilities에서 재사용해 조합 일관성을 유지합니다.",
+  },
+]
+
 export default function FoundationsIntro() {
   return (
     <div className="space-y-64 pb-120">
-      
-      {/* 1. Header Section */}
       <div className="space-y-16">
         <Breadcrumb>
           <BreadcrumbList>
@@ -28,133 +84,68 @@ export default function FoundationsIntro() {
           </BreadcrumbList>
         </Breadcrumb>
         <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">Foundations</h1>
-        <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
-          Integra UI의 모든 구성 요소는 엄격한 시각적 원칙 위에 세워집니다.<br />
-          시스템의 뼈대가 되는 3가지 핵심 기둥을 확인하세요.
+        <p className="max-w-800 fs-20 leading-32 tracking--1 text-integra-gray-500">
+          원티드 Montage처럼 파운데이션을 Base Material 관점으로 나눠,
+          <br />
+          컴포넌트보다 먼저 색상, 타이포, 토큰의 역할과 소비 방식을 정의합니다.
         </p>
       </div>
 
       <hr className="border-integra-gray-100" />
 
-      {/* 2. Core Pillars (Navigation Cards) */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-24">
-        
-        {/* Colors */}
-        <Link href="/docs/foundations/colors" className="group">
-          <Card className="h-full border-integra-gray-200 shadow-sm hover:border-primary/50 hover:shadow-md transition-all p-32 space-y-24 bg-white">
-            <div className="flex items-start justify-between">
-              <div className="p-12 rounded-12 bg-integra-blue-50 text-primary">
-                <Palette className="w-24 h-24" />
-              </div>
-              <ArrowRight className="w-20 h-20 text-integra-gray-300 group-hover:text-primary transition-colors" />
-            </div>
-            <div className="space-y-8">
-              <h3 className="fs-20 font-bold text-integra-gray-900 group-hover:text-primary transition-colors">Colors</h3>
-              <p className="fs-14 text-integra-gray-500 leading-24">
-                Figma 데이터와 100% 일치하는 정밀한 HSL/HEX 컬러 팔레트와 의미론적(Semantic) 토큰 시스템입니다.
-              </p>
-            </div>
-            {/* Visual Preview */}
-            <div className="flex gap-8 pt-8">
-               <div className="w-24 h-24 rounded-full bg-primary" />
-               <div className="w-24 h-24 rounded-full bg-integra-gray-900" />
-               <div className="w-24 h-24 rounded-full bg-integra-red-500" />
-               <div className="w-24 h-24 rounded-full bg-integra-green-500" />
-            </div>
-          </Card>
-        </Link>
-
-        {/* Typography */}
-        <Link href="/docs/foundations/typography" className="group">
-          <Card className="h-full border-integra-gray-200 shadow-sm hover:border-primary/50 hover:shadow-md transition-all p-32 space-y-24 bg-white">
-            <div className="flex items-start justify-between">
-              <div className="p-12 rounded-12 bg-integra-gray-100 text-integra-gray-700">
-                <TextAa className="w-24 h-24" />
-              </div>
-              <ArrowRight className="w-20 h-20 text-integra-gray-300 group-hover:text-primary transition-colors" />
-            </div>
-            <div className="space-y-8">
-              <h3 className="fs-20 font-bold text-integra-gray-900 group-hover:text-primary transition-colors">Typography</h3>
-              <p className="fs-14 text-integra-gray-500 leading-24">
-                한글 가독성에 최적화된 2px 단위의 폰트 스케일과 행간(Leading) 규칙을 정의합니다.
-              </p>
-            </div>
-            {/* Visual Preview */}
-            <div className="flex items-baseline gap-8 pt-8 text-integra-gray-900 font-bold">
-               <span className="fs-32">Aa</span>
-               <span className="fs-24 text-integra-gray-500">Aa</span>
-               <span className="fs-16 text-integra-gray-400">Aa</span>
-            </div>
-          </Card>
-        </Link>
-
-        {/* Design Tokens */}
-        <Link href="/docs/foundations/design-tokens" className="group">
-          <Card className="h-full border-integra-gray-200 shadow-sm hover:border-primary/50 hover:shadow-md transition-all p-32 space-y-24 bg-white">
-            <div className="flex items-start justify-between">
-              <div className="p-12 rounded-12 bg-integra-gray-100 text-integra-gray-700">
-                <Ruler className="w-24 h-24" />
-              </div>
-              <ArrowRight className="w-20 h-20 text-integra-gray-300 group-hover:text-primary transition-colors" />
-            </div>
-            <div className="space-y-8">
-              <h3 className="fs-20 font-bold text-integra-gray-900 group-hover:text-primary transition-colors">Design Tokens</h3>
-              <p className="fs-14 text-integra-gray-500 leading-24">
-                곡률(Radius), 간격(Spacing), 크기(Size) 등 4px 그리드 기반의 모든 아토믹 수치 명세입니다.
-              </p>
-            </div>
-            {/* Visual Preview */}
-            <div className="flex gap-8 pt-8">
-               <div className="w-24 h-24 rounded-4 border border-integra-gray-300" />
-               <div className="w-24 h-24 rounded-8 border border-integra-gray-300" />
-               <div className="w-24 h-24 rounded-full border border-integra-gray-300" />
-            </div>
-          </Card>
-        </Link>
-
-      </section>
-
-      {/* 3. The Atomic Workflow (철학 설명) */}
-      <section className="space-y-32">
-        <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900 border-l-4 border-primary pl-16">
-          The Atomic Workflow
-        </h2>
-        
-        <div className="grid gap-24 md:grid-cols-2">
-          {/* Principle 1 */}
-          <div className="p-32 rounded-16 bg-integra-gray-50 border border-integra-gray-100 space-y-16">
-            <div className="flex items-center gap-12">
-                <Stack className="w-20 h-20 text-primary" />
-                <h3 className="fs-18 font-bold text-integra-gray-900">감각이 아닌 수치로</h3>
-            </div>
-            <p className="fs-15 text-integra-gray-600 leading-24">
-              "조금만 더 넓게"라는 모호한 표현 대신 <strong>"padding-24"</strong>라는 명확한 언어를 사용합니다. 
-              Integra UI의 모든 디자인 결정은 수학적으로 계산된 4px 그리드 위에서 이루어집니다.
-            </p>
+      <section className="space-y-24">
+        <div className="flex items-center justify-between">
+          <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Base Material</h2>
+          <div className="flex items-center gap-8 rounded-full bg-integra-gray-50 px-14 py-8 text-integra-gray-500">
+            <GridFour className="h-16 w-16" />
+            <span className="fs-13 font-medium">Montage-style IA</span>
           </div>
-          
-          {/* Principle 2 */}
-          <div className="p-32 rounded-16 bg-integra-gray-50 border border-integra-gray-100 space-y-16">
-            <div className="flex items-center gap-12">
-                <Cube className="w-20 h-20 text-primary" />
-                <h3 className="fs-18 font-bold text-integra-gray-900">예측 가능한 확장</h3>
-            </div>
-            <p className="fs-15 text-integra-gray-600 leading-24">
-              기본 토큰을 조합하여 새로운 컴포넌트를 만들 때도 일관성이 유지됩니다. 
-              버튼의 높이(40px)와 인풋의 높이(40px)가 일치하는 것은 우연이 아니라 설계된 규칙입니다.
-            </p>
-          </div>
+        </div>
+        <div className="grid gap-20 md:grid-cols-3">
+          {baseMaterials.map((item) => {
+            const Icon = item.icon
+
+            return (
+              <Link key={item.title} href={item.href} className="group block">
+                <Card className="h-full border-integra-gray-200 bg-white p-28 transition-all hover:border-primary/40 hover:shadow-md">
+                  <div className="flex items-start justify-between">
+                    <div className="rounded-12 bg-integra-gray-50 p-12 text-primary">
+                      <Icon className="h-24 w-24" />
+                    </div>
+                    <ArrowRight className="h-18 w-18 text-integra-gray-300 transition-colors group-hover:text-primary" />
+                  </div>
+                  <div className="mt-20 space-y-8">
+                    <h3 className="fs-20 font-bold text-integra-gray-900">{item.title}</h3>
+                    <p className="fs-14 leading-24 text-integra-gray-500">{item.description}</p>
+                  </div>
+                  <div className="mt-20 border-t border-integra-gray-100 pt-20">{item.preview}</div>
+                </Card>
+              </Link>
+            )
+          })}
         </div>
       </section>
 
-      {/* 4. Bottom Note */}
-      <section className="p-40 rounded-24 border border-dashed border-integra-gray-200 text-center bg-white">
-        <p className="fs-16 text-integra-gray-500 leading-24">
-          모든 파운데이션은 <code>tailwind.config.ts</code>와 <code>globals.css</code>에 
-          <strong>Variable</strong> 형태로 내장되어 있어, 코드 한 줄 수정으로 시스템 전체를 제어할 수 있습니다.
-        </p>
+      <section className="space-y-24">
+        <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Documentation Flow</h2>
+        <div className="grid gap-16 md:grid-cols-2">
+          {overviewSteps.map((step, index) => (
+            <Card key={step.title} className="border-integra-gray-200 p-24 space-y-10">
+              <p className="fs-12 uppercase tracking-2 text-integra-gray-400">Step {index + 1}</p>
+              <h3 className="fs-18 font-bold text-integra-gray-900">{step.title}</h3>
+              <p className="fs-14 leading-24 text-integra-gray-600">{step.description}</p>
+            </Card>
+          ))}
+        </div>
       </section>
 
+      <section className="rounded-24 border border-dashed border-integra-gray-200 bg-white p-32">
+        <p className="fs-16 leading-28 text-integra-gray-600">
+          원티드의 문서 구조에서 유효한 점은 단순 토큰 나열이 아니라
+          <code>Base Material -&gt; Semantic Mapping -&gt; Component Application</code> 순서로 정보 밀도를 쌓는 점입니다.
+          Integra UI도 같은 흐름으로 각 문서의 읽는 순서를 고정합니다.
+        </p>
+      </section>
     </div>
-  );
+  )
 }
