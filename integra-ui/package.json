@@ -2,11 +2,16 @@
   "name": "integra-ui",
   "version": "0.1.0",
   "private": true,
+  "workspaces": ["packages/*"],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "pack:tokens": "npm pack --dry-run ./packages/tokens",
+    "pack:react": "npm pack --dry-run ./packages/react"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
@@ -47,8 +52,12 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@storybook/addon-a11y": "10.6.0",
+    "@storybook/nextjs": "10.6.0",
+    "@storybook/react": "10.6.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "storybook": "10.6.0",
     "typescript": "^5"
   }
 }

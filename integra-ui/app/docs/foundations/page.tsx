@@ -72,6 +72,25 @@ const overviewSteps = [
   },
 ]
 
+const principles = [
+  {
+    title: "역할을 먼저 이름 붙입니다",
+    description: "색상과 수치를 직접 고르기 전에 배경, 본문, 경계, 행동처럼 UI에서 맡는 역할을 정의합니다.",
+  },
+  {
+    title: "상태도 컴포넌트의 일부입니다",
+    description: "기본 화면만 만들지 않습니다. 오류, 로딩, 비활성, 포커스와 복구 방법까지 하나의 사양으로 다룹니다.",
+  },
+  {
+    title: "반응에는 이유가 있어야 합니다",
+    description: "Hover, Press, Motion은 장식이 아니라 입력이 전달됐고 다음 상태로 이동했음을 알려주는 피드백입니다.",
+  },
+  {
+    title: "바꿔도 무너지지 않게 만듭니다",
+    description: "브랜드 표현은 교체할 수 있지만 대비, 터치 영역, 키보드 동작 같은 사용성의 약속은 유지합니다.",
+  },
+]
+
 export default function FoundationsIntro() {
   return (
     <div className="space-y-64 pb-120">
@@ -85,20 +104,36 @@ export default function FoundationsIntro() {
         </Breadcrumb>
         <h1 className="fs-40 font-bold leading-48 text-integra-gray-900 tracking--4">Foundations</h1>
         <p className="max-w-800 fs-20 leading-32 tracking--1 text-integra-gray-500">
-          원티드 Montage처럼 파운데이션을 Base Material 관점으로 나눠,
+          화면의 인상보다 먼저 반복 가능한 판단 기준을 세우고,
           <br />
-          컴포넌트보다 먼저 색상, 타이포, 토큰의 역할과 소비 방식을 정의합니다.
+          색상, 타이포, 토큰이 제품 안에서 맡는 역할을 정의합니다.
         </p>
       </div>
 
       <hr className="border-integra-gray-100" />
 
       <section className="space-y-24">
+        <div className="space-y-8">
+          <p className="fs-12 font-bold uppercase tracking-2 text-primary">Principles</p>
+          <h2 className="fs-28 font-bold tracking--2 text-integra-gray-900">판단을 반복 가능하게 만드는 네 가지 원칙</h2>
+        </div>
+        <div className="grid gap-16 md:grid-cols-2">
+          {principles.map((principle, index) => (
+            <Card key={principle.title} className="border-integra-gray-200 p-24">
+              <p className="fs-12 font-semibold text-primary">0{index + 1}</p>
+              <h3 className="mt-12 fs-18 font-bold text-integra-gray-900">{principle.title}</h3>
+              <p className="mt-8 fs-14 leading-24 text-integra-gray-600">{principle.description}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-24">
         <div className="flex items-center justify-between">
           <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Base Material</h2>
           <div className="flex items-center gap-8 rounded-full bg-integra-gray-50 px-14 py-8 text-integra-gray-500">
             <GridFour className="h-16 w-16" />
-            <span className="fs-13 font-medium">Montage-style IA</span>
+            <span className="fs-13 font-medium">Role-based foundation</span>
           </div>
         </div>
         <div className="grid gap-20 md:grid-cols-3">
@@ -141,9 +176,8 @@ export default function FoundationsIntro() {
 
       <section className="rounded-24 border border-dashed border-integra-gray-200 bg-white p-32">
         <p className="fs-16 leading-28 text-integra-gray-600">
-          원티드의 문서 구조에서 유효한 점은 단순 토큰 나열이 아니라
-          <code>Base Material -&gt; Semantic Mapping -&gt; Component Application</code> 순서로 정보 밀도를 쌓는 점입니다.
-          Integra UI도 같은 흐름으로 각 문서의 읽는 순서를 고정합니다.
+          Integra UI는 <code>Base Material -&gt; Semantic Mapping -&gt; Component Application</code> 순서로
+          값이 역할을 얻고 실제 제품에 적용되는 과정을 추적합니다.
         </p>
       </section>
     </div>

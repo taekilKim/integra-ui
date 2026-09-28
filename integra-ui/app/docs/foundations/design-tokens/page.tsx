@@ -20,21 +20,15 @@ export default function DesignTokensPage() {
     { name: "bold", value: 700 },
   ];
 
-  const letterSpacings = [
-    { token: "0", value: "0em", desc: "기본값" },
-    { token: "-1", value: "-0.01em", desc: "미세 보정" },
-    { token: "-2", value: "-0.02em", desc: "본문 권장" },
-    { token: "-3", value: "-0.03em", desc: "제목 권장" },
-    { token: "-4", value: "-0.04em", desc: "대제목 권장" },
-  ];
-
   const semanticTokens = [
-    { name: "primary", desc: "브랜드 주조색 (버튼 배경, 핵심 아이콘 등)", role: "Main Action" },
-    { name: "primary-hover", desc: "주조색의 상호작용 상태 (한 단계 어두운 명도)", role: "Interaction" },
-    { name: "primary-foreground", desc: "주조색 배경 위에서 사용되는 대비색 (텍스트/아이콘)", role: "Contrast" },
-    { name: "primary-subtle", desc: "보조 위계용 연한 배경색 (틴트 컬러)", role: "Secondary" },
-    { name: "primary-subtle-hover", desc: "연한 배경색의 호버 상태", role: "Interaction" },
-    { name: "primary-subtle-foreground", desc: "연한 배경 위에서 사용되는 브랜드 강조색", role: "Accent" },
+    { name: "surface-canvas", desc: "페이지의 가장 아래에 놓이는 기본 배경", role: "Surface" },
+    { name: "surface-raised", desc: "Dialog와 Card처럼 떠 있는 영역의 배경", role: "Surface" },
+    { name: "content-primary", desc: "제목과 핵심 정보를 전달하는 전경색", role: "Content" },
+    { name: "content-secondary", desc: "설명과 보조 정보를 전달하는 전경색", role: "Content" },
+    { name: "line-default", desc: "입력 필드와 영역을 구분하는 기본 경계", role: "Boundary" },
+    { name: "line-focus", desc: "키보드 포커스를 명확히 보여주는 경계", role: "Accessibility" },
+    { name: "feedback-negative", desc: "오류와 파괴적 결과를 알리는 전경색", role: "Feedback" },
+    { name: "feedback-positive", desc: "완료와 성공 상태를 알리는 전경색", role: "Feedback" },
   ];
 
   return (
@@ -65,7 +59,7 @@ export default function DesignTokensPage() {
       <section className="space-y-48">
         <div className="space-y-8">
             <h2 className="fs-32 font-bold leading-40 tracking--2 text-integra-gray-900">1. Semantic Tokens</h2>
-            <p className="fs-16 text-integra-gray-500 italic">특정 수치(Atoms)가 UI에서 어떤 '역할'을 수행하는지 정의합니다.</p>
+            <p className="fs-16 text-integra-gray-500 italic">특정 수치(Atoms)가 UI에서 어떤 &lsquo;역할&rsquo;을 수행하는지 정의합니다.</p>
         </div>
 
         <Card className="p-32 bg-integra-gray-50 border-integra-gray-100 shadow-none space-y-24">

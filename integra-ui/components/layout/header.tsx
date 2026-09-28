@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 /**
  * [Integra UI - Header SAI Version]
@@ -9,7 +10,7 @@ import { Button } from "@/components/ui/button";
  */
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-integra-gray-100 bg-white backdrop-blur h-56">
+    <header className="sticky top-0 z-50 h-56 w-full border-b border-line bg-surface-canvas backdrop-blur">
       {/* px-20, md:px-32: 4px 그리드 기반 좌우 여백 적용 */}
       <div className="flex h-56 items-center w-full px-20 md:px-32">
         
@@ -30,7 +31,7 @@ export function Header() {
                - fs-16: 사용자 지정 규격 적용
                - tracking--4: 대문자/제목용 타이포그래피 보정
             */}
-            <span className="font-bold fs-16 tracking--4 text-integra-gray-900 leading-none group-hover:text-primary transition-colors">
+            <span className="font-bold fs-16 tracking--4 text-content-primary leading-none group-hover:text-primary transition-colors">
               Integra UI
             </span>
           </Link>
@@ -39,27 +40,15 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-24 fs-14 font-medium">
             <Link 
               href="/docs" 
-              className="transition-colors hover:text-primary text-integra-gray-500"
+              className="transition-colors hover:text-primary text-content-secondary"
             >
               문서
             </Link>
-            <Link
-              href="/docs/learn"
-              className="transition-colors hover:text-primary text-integra-gray-500"
-            >
-              Learn
-            </Link>
             <Link 
               href="/docs/components" 
-              className="transition-colors hover:text-primary text-integra-gray-500"
+              className="transition-colors hover:text-primary text-content-secondary"
             >
               Components
-            </Link>
-            <Link
-              href="/docs/customize"
-              className="transition-colors hover:text-primary text-integra-gray-500"
-            >
-              Customize
             </Link>
           </nav>
         </div>
@@ -67,6 +56,7 @@ export function Header() {
         {/* 오른쪽 영역: 액션 버튼 그룹 */}
         <div className="flex flex-1 items-center justify-end">
           <nav className="flex items-center gap-8">
+            <ThemeToggle />
             {/* 깃허브 링크: tertiary 변형 사용 */}
             <Link href="https://github.com" target="_blank" rel="noreferrer">
               <Button appearance="default" variant="tertiary" size="small">

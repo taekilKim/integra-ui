@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CodeBlock } from "@/components/layout/code-block"; // ✨ 추가
-import { EnvelopeSimple, Lock } from "@phosphor-icons/react";
+import { EnvelopeSimple } from "@phosphor-icons/react";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -23,9 +23,11 @@ import {
  */
 export default function InputDocsPage() {
   const baseTokens = [
-    { property: "Height (높이)", class: "h-40", value: "40px" },
-    { property: "Font Size (글자)", class: "fs-14", value: "14px" },
-    { property: "Border Radius (곡률)", class: "rounded-8", value: "8px" },
+    { property: "Min Height (높이)", class: "min-h-control-md", value: "44px" },
+    { property: "Font Size (글자)", class: "fs-15", value: "15px" },
+    { property: "Border Radius (곡률)", class: "rounded-control", value: "12px" },
+    { property: "Default Border", class: "border-line", value: "Semantic" },
+    { property: "Error Border", class: "border-feedback-negative", value: "Semantic" },
   ];
 
   const patternTokens = [
@@ -39,7 +41,13 @@ export default function InputDocsPage() {
   
   const baseUsageCode = `<div className="grid w-full max-w-320 items-center gap-8">
   <Label htmlFor="email">Email</Label>
-  <Input type="email" id="email" placeholder="Email Address" />
+  <Input type="email" id="email" placeholder="name@example.com" />
+</div>
+
+<div className="grid gap-8">
+  <Label htmlFor="email-error">이메일 주소</Label>
+  <Input id="email-error" invalid aria-describedby="email-message" />
+  <p id="email-message" role="alert">이메일 형식을 확인해 주세요.</p>
 </div>`;
 
   const authPatternCode = `/* Icon + Input (Email/Password) */

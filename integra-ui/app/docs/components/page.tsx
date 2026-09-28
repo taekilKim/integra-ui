@@ -12,37 +12,41 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
-import { Slider } from "@/components/ui/slider"
-import { Switch } from "@/components/ui/switch"
+import { Item } from "@/components/ui/item"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 const categories = [
   {
-    title: "Action",
-    description: "사용자 행동을 발생시키는 컨트롤. 원티드 Montage는 이 카테고리에서 Button, Floating Action 등 트리거 컴포넌트를 모아 설명합니다.",
+    title: "Action & feedback",
+    description: "행동을 시작하고 결과를 확인하는 핵심 컴포넌트입니다.",
     items: [
       { name: "Button", href: "/docs/components/button", preview: <Button size="small">Primary</Button> },
-      { name: "Toggle", href: "/docs/components/toggle", preview: <Button size="small" appearance="text" variant="secondary">Toggle</Button> },
       { name: "Dialog", href: "/docs/components/dialog", preview: <Button size="small" variant="tertiary">Modal</Button> },
     ],
   },
   {
     title: "Selection & Input",
-    description: "입력과 선택을 다루는 컴포넌트. Input, Switch, Checkbox처럼 상태를 주고받는 요소를 묶어 봅니다.",
+    description: "값을 입력하고 선택하는 과정에서 기본·오류·비활성 상태를 일관되게 다룹니다.",
     items: [
       { name: "Input", href: "/docs/components/input", preview: <Input placeholder="name@example.com" className="h-40 w-full max-w-180 bg-white" /> },
-      { name: "Switch", href: "/docs/components/switch", preview: <Switch checked /> },
-      { name: "Checkbox", href: "/docs/components/checkbox", preview: <Checkbox checked /> },
+      {
+        name: "Select",
+        href: "/docs/components/select",
+        preview: (
+          <Select defaultValue="medium">
+            <SelectTrigger className="max-w-180 bg-white"><SelectValue /></SelectTrigger>
+            <SelectContent><SelectItem value="medium">보통</SelectItem></SelectContent>
+          </Select>
+        ),
+      },
     ],
   },
   {
-    title: "Data & Navigation",
-    description: "정보 구조와 이동 흐름을 담당하는 컴포넌트. Table, Tabs, Pagination처럼 큰 레이아웃 맥락에서 소비됩니다.",
+    title: "Content",
+    description: "반복되는 정보를 스캔하기 쉬운 구조로 표현합니다.",
     items: [
-      { name: "Tabs", href: "/docs/components/tabs", preview: <div className="rounded-8 border border-integra-gray-200 px-12 py-8 fs-13 text-integra-gray-700">Tabs</div> },
-      { name: "Pagination", href: "/docs/components/pagination", preview: <div className="rounded-8 border border-integra-gray-200 px-12 py-8 fs-13 text-integra-gray-700">1 2 3</div> },
-      { name: "Slider", href: "/docs/components/slider", preview: <div className="w-160"><Slider defaultValue={[35]} max={100} step={1} /></div> },
+      { name: "Item", href: "/docs/components/item", preview: <Item className="max-w-180 bg-white">최근 예약</Item> },
     ],
   },
 ]
@@ -70,9 +74,9 @@ export default function ComponentsIntro() {
         </Breadcrumb>
         <h1 className="fs-40 font-bold leading-48 tracking--4 text-integra-gray-900">Components</h1>
         <p className="max-w-800 fs-20 leading-32 tracking--1 text-integra-gray-500">
-          원티드 Montage처럼 컴포넌트 문서를 카테고리 중심으로 정리하고,
+          제품 경험을 만드는 데 가장 자주 쓰는 다섯 가지 컴포넌트에 집중합니다.
           <br />
-          각 상세 페이지에서는 Design 기준의 Anatomy/Variants/States 흐름을 따르도록 재구성했습니다.
+          넓은 목록보다 상태, 접근성, 실제 적용 맥락을 깊게 다룹니다.
         </p>
       </div>
 
@@ -81,7 +85,7 @@ export default function ComponentsIntro() {
       <section className="space-y-32">
         <div className="flex items-center justify-between">
           <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Categories</h2>
-          <Badge variant="outline" className="border-integra-gray-200 text-integra-gray-500">Montage benchmark</Badge>
+          <Badge variant="outline" className="border-integra-gray-200 text-integra-gray-500">Core 5</Badge>
         </div>
         <div className="space-y-20">
           {categories.map((category) => (

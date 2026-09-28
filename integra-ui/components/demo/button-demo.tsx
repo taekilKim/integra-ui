@@ -8,11 +8,20 @@ import { Playground } from "@/components/layout/playground" // ✨ 필수: Playg
 import { Plus } from "@phosphor-icons/react"
 
 export function ButtonDemo() {
-  const [appearance, setAppearance] = React.useState<any>("default")
-  const [variant, setVariant] = React.useState<any>("default")
-  const [size, setSize] = React.useState<any>("default")
-  const [shape, setShape] = React.useState<any>("default") // ✨ 신규: Shape 상태 추가
+  const [appearance, setAppearance] = React.useState<"default" | "outlined" | "destructive" | "text">("default")
+  const [variant, setVariant] = React.useState<"default" | "secondary" | "tertiary">("default")
+  const [size, setSize] = React.useState<"default" | "medium" | "small">("default")
+  const [shape, setShape] = React.useState<"default" | "square" | "circle">("default")
   const [isDisabled, setIsDisabled] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false)
+  const outputCode = `<Button
+  shape="${shape}"
+  size="${size}"
+  appearance="${appearance}"
+  variant="${variant}"${isDisabled ? "\n  disabled" : ""}${isLoading ? "\n  loading" : ""}
+>
+  ${shape === "default" ? "버튼 라벨" : "<아이콘 />"}
+</Button>`
 
   return (
     <Card className="p-24 md:p-40 flex flex-col gap-32 w-full max-w-960 mx-auto border border-integra-gray-200 shadow-integra rounded-16 bg-white">
@@ -25,14 +34,16 @@ export function ButtonDemo() {
           size={size} 
           shape={shape} // ✨ Shape 적용
           disabled={isDisabled}
+          loading={isLoading}
+          aria-label={shape === "default" ? undefined : "새 항목 추가"}
         >
           {/* Shape가 default(직사각형)면 텍스트, 아니면 아이콘 렌더링 */}
           {shape === "default" ? "버튼 라벨" : <Plus />}
         </Button>
       </Playground>
 
-      {/* 2. 컨트롤러 영역: 5열 그리드로 확장하여 모든 옵션 수용 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-24 pt-24 border-t border-integra-gray-100">
+      {/* 2. 컨트롤러 영역 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 pt-24 border-t border-integra-gray-100">
         
         {/* Shape Control (New) */}
         <div className="space-y-8">
@@ -40,7 +51,7 @@ export function ButtonDemo() {
           <select 
             className="w-full h-40 rounded-8 border border-integra-gray-200 bg-white px-12 py-8 fs-14 text-integra-gray-900 outline-none focus:ring-2 focus:ring-primary transition-all"
             value={shape}
-            onChange={(e) => setShape(e.target.value)}
+            onChange={(e) => setShape(e.target.value as typeof shape)}
           >
             <option value="default">직사각형</option>
             <option value="square">스퀘클 (아이콘)</option>
@@ -54,11 +65,11 @@ export function ButtonDemo() {
           <select 
             className="w-full h-40 rounded-8 border border-integra-gray-200 bg-white px-12 py-8 fs-14 text-integra-gray-900 outline-none focus:ring-2 focus:ring-primary transition-all"
             value={size}
-            onChange={(e) => setSize(e.target.value)}
+            onChange={(e) => setSize(e.target.value as typeof size)}
           >
-            <option value="default">기본 (56px)</option>
-            <option value="medium">중간 (48px)</option>
-            <option value="small">소형 (32px)</option>
+            <option value="default">대형 (52px)</option>
+            <option value="medium">중형 (44px)</option>
+            <option value="small">소형 (40px)</option>
           </select>
         </div>
 
@@ -68,7 +79,7 @@ export function ButtonDemo() {
           <select 
             className="w-full h-40 rounded-8 border border-integra-gray-200 bg-white px-12 py-8 fs-14 text-integra-gray-900 outline-none focus:ring-2 focus:ring-primary transition-all"
             value={appearance}
-            onChange={(e) => setAppearance(e.target.value)}
+            onChange={(e) => setAppearance(e.target.value as typeof appearance)}
           >
             <option value="default">기본 (솔리드)</option>
             <option value="outlined">아웃라인</option>
@@ -83,7 +94,7 @@ export function ButtonDemo() {
           <select
             className="w-full h-40 rounded-8 border border-integra-gray-200 bg-white px-12 py-8 fs-14 text-integra-gray-900 outline-none focus:ring-2 focus:ring-primary transition-all"
             value={variant}
-            onChange={(e) => setVariant(e.target.value)}
+            onChange={(e) => setVariant(e.target.value as typeof variant)}
           >
             <option value="default">기본</option>
             <option value="secondary">보조</option>
@@ -111,22 +122,28 @@ export function ButtonDemo() {
           </div>
         </div>
 
+        <div className="space-y-8">
+          <Label className="fs-12 font-bold text-integra-gray-400 uppercase tracking-1">진행 상태</Label>
+          <div className="flex items-center gap-8 h-40 px-4">
+            <input
+              type="checkbox"
+              id="demo-loading-toggle"
+              checked={isLoading}
+              onChange={(e) => setIsLoading(e.target.checked)}
+              className="w-16 h-16 accent-primary cursor-pointer"
+            />
+            <label htmlFor="demo-loading-toggle" className="fs-14 cursor-pointer select-none font-medium text-integra-gray-700">
+              로딩
+            </label>
+          </div>
+        </div>
+
       </div>
 
       {/* 3. 코드 복사 영역 */}
       <div className="rounded-12 bg-integra-gray-900 p-24 overflow-x-auto relative shadow-2xl">
-        <div className="fs-12 text-integra-gray-500 mb-12 font-mono tracking-1 uppercase">// JSX 출력 예시</div>
-        <code className="text-white fs-14 font-mono leading-24">
-          &lt;Button <br/>
-          &nbsp;&nbsp;shape="{shape}" <br/>
-          &nbsp;&nbsp;size="{size}" <br/>
-          &nbsp;&nbsp;appearance="{appearance}" <br/>
-          &nbsp;&nbsp;variant="{variant}"<br/>
-          &nbsp;&nbsp;{isDisabled ? 'disabled' : ''} <br/>
-          &gt;<br/>
-          &nbsp;&nbsp;{shape === 'default' ? '버튼 라벨' : '<아이콘 />'}<br/>
-          &lt;/Button&gt;
-        </code>
+        <div className="fs-12 text-integra-gray-500 mb-12 font-mono tracking-1 uppercase">JSX 출력 예시</div>
+        <pre className="text-white fs-14 font-mono leading-24"><code>{outputCode}</code></pre>
       </div>
     </Card>
   )

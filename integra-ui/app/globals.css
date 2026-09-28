@@ -6,6 +6,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     /* --- 1. Gray Scale --- */
     --gray-50: #f9fafb;
     --gray-100: #f2f4f6;
@@ -113,6 +114,77 @@
     --ring: var(--primary);
     --radius: 8px; /* Layout Radius 2 (8px) */
     --overlay: rgba(0, 0, 0, 0.5); /* Overlay background for modals/sheets */
+
+    /* --- 8. Semantic Surface & Content --- */
+    --surface-canvas: #ffffff;
+    --surface-raised: #ffffff;
+    --surface-subtle: var(--gray-50);
+    --surface-inverse: var(--gray-900);
+    --content-primary: var(--gray-900);
+    --content-secondary: var(--gray-600);
+    --content-tertiary: var(--gray-500);
+    --content-inverse: #ffffff;
+    --line-default: var(--gray-200);
+    --line-strong: var(--gray-400);
+    --line-focus: var(--blue-500);
+    --feedback-negative: var(--red-500);
+    --feedback-negative-subtle: var(--red-50);
+    --feedback-positive: var(--green-600);
+    --feedback-positive-subtle: var(--green-50);
+
+    /* --- 9. Semantic Geometry & Motion --- */
+    --space-control-x: 16px;
+    --space-control-y: 12px;
+    --space-content-gap: 24px;
+    --space-section-gap: 64px;
+    --size-control-sm: 40px;
+    --size-control-md: 44px;
+    --size-control-lg: 52px;
+    --radius-control: 12px;
+    --radius-card: 20px;
+    --radius-dialog: 24px;
+    --motion-fast: 120ms;
+    --motion-standard: 200ms;
+    --motion-emphasized: 320ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  [data-theme="dark"],
+  .dark {
+    color-scheme: dark;
+    --background: #111318;
+    --foreground: #f4f6f8;
+    --border: #303640;
+    --input: #3a414c;
+    --surface-canvas: #111318;
+    --surface-raised: #1b1f26;
+    --surface-subtle: #242a33;
+    --surface-inverse: #f4f6f8;
+    --content-primary: #f4f6f8;
+    --content-secondary: #c5ccd5;
+    --content-tertiary: #929ba8;
+    --content-inverse: #191f28;
+    --line-default: #303640;
+    --line-strong: #596270;
+    --line-focus: var(--blue-300);
+    --primary: var(--blue-300);
+    --primary-hover: var(--blue-200);
+    --primary-active: var(--blue-100);
+    --primary-foreground: #101726;
+    --primary-subtle: #172a4f;
+    --primary-subtle-hover: #203866;
+    --primary-subtle-foreground: var(--blue-200);
+    --destructive: var(--red-300);
+    --destructive-hover: var(--red-200);
+    --destructive-foreground: #2d0b0f;
+    --destructive-subtle: #42191e;
+    --destructive-subtle-hover: #572027;
+    --feedback-negative: var(--red-300);
+    --feedback-negative-subtle: #42191e;
+    --feedback-positive: var(--green-300);
+    --feedback-positive-subtle: #103d34;
+    --overlay: rgba(0, 0, 0, 0.72);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -123,7 +195,8 @@
 @layer base {
   body { 
     /* 1. Tailwind 기본 유틸리티는 @apply 유지 */
-    @apply bg-background text-integra-gray-900 antialiased font-sans;
+    @apply bg-background antialiased font-sans;
+    color: var(--content-primary);
     
     /* 2. 커스텀/동적 유틸리티는 표준 CSS로 직접 작성 (에러 방지) */
     font-size: 16px;       /* == fs-16 */

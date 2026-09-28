@@ -9,13 +9,13 @@ import { DocsContentExtensions } from "@/components/layout/docs-content-extensio
  */
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen w-full bg-white">
+    <div className="flex min-h-screen w-full bg-surface-canvas">
       {/* 
         1. 좌측 사이드바 
         - w-280: 280px 고정 너비 (SAI 수치 토큰)
         - border-integra-gray-100: 시스템 표준 경계선
       */}
-      <aside className="hidden lg:block w-280 shrink-0 border-r border-integra-gray-100 sticky top-56 h-[calc(100vh-56px)] bg-white">
+      <aside className="hidden lg:block w-280 shrink-0 border-r border-line sticky top-56 h-[calc(100vh-56px)] bg-surface-canvas">
         <Sidebar />
       </aside>
 
@@ -37,7 +37,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         - w-240: 240px 고정 너비
         - border-integra-gray-100: 시스템 표준 경계선
       */}
-      <aside className="hidden xl:block w-240 shrink-0 sticky top-56 h-[calc(100vh-56px)] overflow-y-auto px-24 border-l border-integra-gray-100 bg-white">
+      <aside className="hidden xl:block w-240 shrink-0 sticky top-56 h-[calc(100vh-56px)] overflow-y-auto px-24 border-l border-line bg-surface-canvas">
         <TableOfContents />
       </aside>
     </div>

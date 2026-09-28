@@ -5,7 +5,6 @@ type OverviewItem = {
   title: string
   description: string
   href?: string
-  status?: "준비됨" | "작성 예정" | "실험"
 }
 
 type DocsSectionOverviewProps = {
@@ -23,6 +22,8 @@ export function DocsSectionOverview({
   principle,
   items,
 }: DocsSectionOverviewProps) {
+  const publishedItems = items.filter((item) => item.href)
+
   return (
     <div className="space-y-64 pb-80">
       <header className="space-y-16">
@@ -38,20 +39,20 @@ export function DocsSectionOverview({
 
       <section className="space-y-24">
         <div className="space-y-8">
-          <h2 className="fs-28 font-bold leading-36 tracking--2 text-integra-gray-900">콘텐츠 로드맵</h2>
+          <h2 className="fs-28 font-bold leading-36 tracking--2 text-integra-gray-900">준비된 가이드</h2>
           <p className="fs-16 leading-24 text-integra-gray-500">
-            제목을 선택하면 준비된 문서로 이동합니다. 작성 예정 항목은 이 섹션의 다음 작업 순서입니다.
+            지금 바로 읽고 적용할 수 있는 문서만 보여줍니다.
           </p>
         </div>
 
         <div className="grid gap-16 md:grid-cols-2">
-          {items.map((item) => {
+          {publishedItems.map((item) => {
             const content = (
               <>
                 <div className="flex items-start justify-between gap-16">
                   <h3 className="fs-18 font-bold leading-24 tracking--1 text-integra-gray-900">{item.title}</h3>
                   <span className="shrink-0 rounded-full bg-integra-gray-50 px-10 py-4 fs-11 font-semibold text-integra-gray-500">
-                    {item.status ?? "작성 예정"}
+                    준비됨
                   </span>
                 </div>
                 <p className="fs-14 leading-24 text-integra-gray-600">{item.description}</p>

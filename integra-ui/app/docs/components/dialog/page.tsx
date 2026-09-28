@@ -18,10 +18,12 @@ import {
 export default function DialogDocsPage() {
   // 1. 다이얼로그 전용 디자인 토큰 데이터
   const designTokens = [
-    { property: "Max Width (최대 너비)", class: "max-w-400", value: "400px" },
+    { property: "Max Width (최대 너비)", class: "max-w-440", value: "440px" },
     { property: "Padding (내부 여백)", class: "p-24", value: "24px" },
     { property: "Element Gap (요소 간격)", class: "gap-16", value: "16px" },
-    { property: "Border Radius (곡률)", class: "rounded-24", value: "24px" },
+    { property: "Border Radius (곡률)", class: "rounded-dialog", value: "24px" },
+    { property: "Surface", class: "bg-surface-raised", value: "Semantic" },
+    { property: "Motion", class: "duration-emphasized", value: "320ms" },
     { property: "Title Font Size (제목)", class: "fs-20", value: "20px" },
     { property: "Description Font Size (설명)", class: "fs-16", value: "16px" },
   ];
@@ -97,7 +99,7 @@ import { ButtonGroup } from "@/components/ui/button-group"`;
         
         <p className="fs-20 text-integra-gray-500 leading-32 tracking--1">
           사용자의 집중이 필요한 중요한 작업을 수행하거나 정보를 표시할 때 사용하는 오버레이 컴포넌트입니다.<br />
-          화면의 흐름을 명확히 제어하며 아토믹 토큰의 정밀한 정렬을 공유합니다.
+          포커스 이동, 닫기 동작, 모바일 여백과 액션 순서를 하나의 상호작용 계약으로 관리합니다.
         </p>
       </div>
 
@@ -116,7 +118,7 @@ import { ButtonGroup } from "@/components/ui/button-group"`;
       <section className="space-y-24">
         <div className="space-y-8">
             <h2 className="fs-24 font-bold tracking--2 leading-32 text-integra-gray-900">디자인 토큰</h2>
-            <p className="fs-16 text-integra-gray-500">다이얼로그의 안정적인 비례를 결정하는 아토믹 클래스와 실제 수치 명세입니다.</p>
+            <p className="fs-16 text-integra-gray-500">다이얼로그의 비례와 레이어, 모션을 결정하는 semantic token 명세입니다.</p>
         </div>
         <div className="rounded-12 border border-integra-gray-100 overflow-hidden shadow-sm">
             <table className="w-full text-left border-collapse">
@@ -176,9 +178,10 @@ import { ButtonGroup } from "@/components/ui/button-group"`;
         <div className="space-y-12 fs-15 text-integra-gray-600 leading-24 tracking--1">
             <p>다이얼로그는 시각적 집중도와 레이어의 위계를 원자 단위로 관리합니다.</p>
             <ul className="list-disc pl-20 space-y-4">
-                <li><strong>Width Constraint:</strong> 기본 400px(max-w-400)로 제한하여 정보 전달의 효율성과 가독성 범위를 확보합니다.</li>
+                <li><strong>Width Constraint:</strong> 최대 440px로 제한하고 모바일에서는 화면 좌우 16px의 안전 여백을 유지합니다.</li>
                 <li><strong>Spacing System:</strong> 카드 시스템과 동일한 24px(p-24) 여백을 사용하여 조형적 통일성을 유지합니다.</li>
-                <li><strong>Depth Vision:</strong> 24px(rounded-24) 곡률과 <code>shadow-integra</code> 토큰을 통해 본문과 분리된 명확한 레이어를 형성합니다.</li>
+                <li><strong>Depth Vision:</strong> <code>rounded-dialog</code>, <code>surface-raised</code>, <code>shadow-integra</code>로 본문과 분리된 레이어를 형성합니다.</li>
+                <li><strong>Focus Contract:</strong> 열릴 때 내부로 포커스를 이동하고, 닫힌 뒤 트리거로 되돌립니다.</li>
             </ul>
         </div>
       </section>

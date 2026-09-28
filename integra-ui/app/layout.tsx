@@ -16,15 +16,18 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `(function(){try{var saved=localStorage.getItem('integra-theme');var dark=saved?saved==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=dark?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}})()`;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <head>
         {/* globals.css에서 Pretendard를 @import로 불러오므로 추가 설정은 생략합니다. */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       {/* 
          [SAI Standard Body]
@@ -33,7 +36,7 @@ export default function RootLayout({
          - text-integra-gray-900: 시스템 표준 기본 텍스트 컬러
          - bg-white: 시스템 표준 배경색
       */}
-      <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-integra-gray-900 fs-16 leading-24 tracking-0">
+      <body className="font-sans antialiased min-h-screen flex flex-col bg-surface-canvas text-content-primary fs-16 leading-24 tracking-0">
         
         {/* 상단 전역 헤더 */}
         <Header />

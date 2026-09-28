@@ -16,18 +16,19 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-40 w-full items-center justify-between rounded-8 border px-12 py-8 transition-all",
-      "fs-14 border-integra-gray-200 bg-white text-integra-gray-900 ring-offset-background",
-      "placeholder:text-integra-gray-400",
-      "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
-      "disabled:cursor-not-allowed disabled:bg-integra-gray-50 disabled:text-integra-gray-400",
+      "flex min-h-control-md w-full items-center justify-between rounded-control border px-control-x py-control-y transition-[border-color,box-shadow,background-color] duration-fast",
+      "fs-15 border-line bg-surface-raised text-content-primary ring-offset-surface-canvas",
+      "data-[placeholder]:text-content-tertiary",
+      "hover:border-line-strong focus:outline-none focus:ring-2 focus:ring-line-focus focus:ring-offset-2",
+      "aria-[invalid=true]:border-feedback-negative aria-[invalid=true]:ring-1 aria-[invalid=true]:ring-feedback-negative",
+      "disabled:cursor-not-allowed disabled:bg-surface-subtle disabled:text-content-tertiary",
       className
     )}
     {...props}
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <CaretDown className="h-16 w-16 text-integra-gray-400" />
+      <CaretDown className="h-16 w-16 text-content-tertiary" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ))
@@ -41,7 +42,7 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "relative z-50 max-h-96 min-w-128 overflow-hidden rounded-8 border border-integra-gray-100 bg-white text-integra-gray-900 shadow-integra",
+        "relative z-50 max-h-96 min-w-128 overflow-hidden rounded-control border border-line bg-surface-raised text-content-primary shadow-integra",
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
         position === "popper" &&
           "data-[side=bottom]:translate-y-4 data-[side=left]:-translate-x-4 data-[side=right]:translate-x-4 data-[side=top]:-translate-y-4",
@@ -72,8 +73,8 @@ const SelectItem = React.forwardRef<
     ref={ref}
     className={cn(
       "relative flex w-full cursor-default select-none items-center rounded-4 py-8 pl-32 pr-8 transition-colors outline-none",
-      "fs-14 text-integra-gray-700 focus:bg-integra-gray-50 focus:text-integra-gray-900",
-      "data-[disabled]:pointer-events-none data-[disabled]:text-integra-gray-300",
+      "fs-14 text-content-secondary focus:bg-surface-subtle focus:text-content-primary",
+      "data-[disabled]:pointer-events-none data-[disabled]:text-content-tertiary",
       className
     )}
     {...props}

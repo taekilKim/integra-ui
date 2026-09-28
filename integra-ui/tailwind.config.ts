@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
+import animate from "tailwindcss-animate";
 
 // 2px 단위로 스케일을 생성하는 함수 (0px ~ 400px)
 const generate2pxScale = (maxPx: number) => {
@@ -13,6 +14,7 @@ const generate2pxScale = (maxPx: number) => {
 };
 
 const config: Config = {
+  darkMode: ["class", '[data-theme="dark"]'],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -29,6 +31,10 @@ const config: Config = {
   theme: {
     spacing: {
       ...generate2pxScale(400),
+      "control-x": "var(--space-control-x)",
+      "control-y": "var(--space-control-y)",
+      "content-gap": "var(--space-content-gap)",
+      "section-gap": "var(--space-section-gap)",
       "full": "100%",
       "screen": "100vh",
       "min": "min-content",
@@ -55,7 +61,24 @@ const config: Config = {
       },
       borderRadius: { 
         ...generate2pxScale(80), 
+        control: "var(--radius-control)",
+        card: "var(--radius-card)",
+        dialog: "var(--radius-dialog)",
         full: "9999px" 
+      },
+      minHeight: {
+        "control-sm": "var(--size-control-sm)",
+        "control-md": "var(--size-control-md)",
+        "control-lg": "var(--size-control-lg)",
+      },
+      transitionDuration: {
+        fast: "var(--motion-fast)",
+        standard: "var(--motion-standard)",
+        emphasized: "var(--motion-emphasized)",
+      },
+      transitionTimingFunction: {
+        standard: "var(--ease-standard)",
+        emphasized: "var(--ease-emphasized)",
       },
       colors: {
         // ✨ [수정됨] hsl() 래퍼를 제거하고 var(...)를 직접 호출합니다.
@@ -82,6 +105,29 @@ const config: Config = {
           subtle: "var(--destructive-subtle)",
           "subtle-hover": "var(--destructive-subtle-hover)",
         },
+        surface: {
+          canvas: "var(--surface-canvas)",
+          raised: "var(--surface-raised)",
+          subtle: "var(--surface-subtle)",
+          inverse: "var(--surface-inverse)",
+        },
+        content: {
+          primary: "var(--content-primary)",
+          secondary: "var(--content-secondary)",
+          tertiary: "var(--content-tertiary)",
+          inverse: "var(--content-inverse)",
+        },
+        line: {
+          DEFAULT: "var(--line-default)",
+          strong: "var(--line-strong)",
+          focus: "var(--line-focus)",
+        },
+        feedback: {
+          negative: "var(--feedback-negative)",
+          "negative-subtle": "var(--feedback-negative-subtle)",
+          positive: "var(--feedback-positive)",
+          "positive-subtle": "var(--feedback-positive-subtle)",
+        },
         muted: {
           DEFAULT: "var(--muted)",
           foreground: "var(--muted-foreground)",
@@ -105,7 +151,7 @@ const config: Config = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
+    animate,
     plugin(function({ addUtilities }) {
       const fsUtils: Record<string, { fontSize: string }> = {};
       for (let i = 12; i <= 160; i += 2) {

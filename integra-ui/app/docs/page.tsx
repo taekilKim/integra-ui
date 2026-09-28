@@ -69,13 +69,6 @@ export default function IntroductionPage() {
                       상호작용의 약속은 유지하는 방법을 안내합니다.
                     </p>
                 </div>
-                <div className="p-24 rounded-12 border border-integra-gray-100 bg-integra-gray-50 space-y-8 leading-24 tracking--1">
-                    <h4 className="font-bold fs-18 text-integra-gray-900">Advanced</h4>
-                    <p className="fs-14 text-integra-gray-600">
-                      명확해진 문서와 API를 기반으로 접근성 검증과<br />
-                      machine-readable·AI-readable 구조를 실험합니다.
-                    </p>
-                </div>
             </div>
         </section>
       </div>

@@ -21,18 +21,18 @@ export default function ButtonDocsPage() {
   
   // 1. 레이아웃 및 형태 관련 토큰 (Geometry)
   const layoutTokens = [
-    { property: "Height (높이)", class: "h-{px}", default: "h-56", medium: "h-48", small: "h-32" },
-    { property: "Padding X (Rect Shape)", class: "px-{px}", default: "px-20", medium: "px-12", small: "px-8" },
-    { property: "Width (Icon Shape)", class: "w-{px}", default: "w-56", medium: "w-48", small: "w-32" },
-    { property: "Radius (Rect/Square)", class: "rounded-{px}", default: "rounded-16", medium: "rounded-12", small: "rounded-8" },
+    { property: "Min Height (높이)", class: "min-h-control-{size}", default: "52px", medium: "44px", small: "40px" },
+    { property: "Padding X (Rect Shape)", class: "px-{px}", default: "px-20", medium: "px-16", small: "px-12" },
+    { property: "Width (Icon Shape)", class: "aspect-square", default: "52px", medium: "44px", small: "40px" },
+    { property: "Radius (Rect/Square)", class: "rounded-control", default: "12px", medium: "12px", small: "10px" },
     { property: "Radius (Circle)", class: "rounded-full", default: "9999px", medium: "9999px", small: "9999px" },
   ];
 
   // 2. 타이포그래피 및 콘텐츠 관련 토큰 (Content)
   const contentTokens = [
-    { property: "Font Size", class: "fs-{px}", default: "fs-18", medium: "fs-16", small: "fs-12" },
-    { property: "Line Height", class: "leading-{px}", default: "leading-24", medium: "leading-20", small: "leading-16" },
-    { property: "Icon Size (SVG)", class: "w-{px} h-{px}", default: "24px", medium: "20px", small: "16px" },
+    { property: "Font Size", class: "fs-{px}", default: "fs-16", medium: "fs-15", small: "fs-14" },
+    { property: "Line Height", class: "leading-{px}", default: "leading-24", medium: "leading-20", small: "leading-20" },
+    { property: "Icon Size (SVG)", class: "w-{px} h-{px}", default: "22px", medium: "20px", small: "18px" },
     { property: "Font Weight", class: "font-{weight}", default: "Semibold", medium: "Semibold", small: "Semibold" },
   ];
 
@@ -67,10 +67,13 @@ export default function ButtonDocsPage() {
 import { ButtonGroup } from "@/components/ui/button-group"
 
 // Text Button (Solid)
-<Button appearance="default" variant="default">Confirm</Button>
+<Button appearance="default" variant="default">예약하기</Button>
+
+// Loading state prevents duplicate submissions
+<Button loading loadingLabel="예약 처리 중">예약하기</Button>
 
 // Icon Button (Squircle / Secondary)
-<Button shape="square" appearance="default" variant="secondary">
+<Button shape="square" appearance="default" variant="secondary" aria-label="항목 추가">
   <Icon />
 </Button>
 
@@ -97,13 +100,14 @@ import { ButtonGroup } from "@/components/ui/button-group"
     { state: "Default", description: "기본 대비와 색상 위계가 유지되는 상태", intent: "일반 상호작용" },
     { state: "Hover / Focus", description: "행동 가능성을 강화하는 반응 상태", intent: "탐색 보조" },
     { state: "Pressed", description: "직접 입력이 발생했음을 즉시 전달", intent: "행동 확인" },
+    { state: "Loading", description: "라벨 폭을 유지하며 진행 상태를 알리고 중복 실행을 막는 상태", intent: "처리 상태 전달" },
     { state: "Disabled", description: "현재 조건에서 실행이 불가능한 상태", intent: "오입력 방지" },
   ];
 
   const sizes = [
-    { name: "L", spec: "56px", usage: "강한 CTA, 랜딩/주요 전환 플로우" },
-    { name: "M", spec: "48px", usage: "일반 폼, 카드, 설정 화면" },
-    { name: "S", spec: "32px", usage: "밀도 높은 테이블, 툴바, 보조 액션" },
+    { name: "L", spec: "52px", usage: "강한 CTA, 랜딩/주요 전환 플로우" },
+    { name: "M", spec: "44px", usage: "일반 폼, 카드, 설정 화면과 터치 입력" },
+    { name: "S", spec: "40px", usage: "밀도 높은 데스크톱 툴바와 보조 액션" },
   ];
 
   const applicationRules = [
@@ -179,9 +183,9 @@ import { ButtonGroup } from "@/components/ui/button-group"
                         <tr className="fs-12 font-bold text-integra-gray-400">
                             <th className="px-24 py-16">Property</th>
                             <th className="px-24 py-16">Class Syntax</th>
-                            <th className="px-24 py-16">Default (56)</th>
-                            <th className="px-24 py-16">Medium (48)</th>
-                            <th className="px-24 py-16">Small (32)</th>
+                            <th className="px-24 py-16">Large (52)</th>
+                            <th className="px-24 py-16">Medium (44)</th>
+                            <th className="px-24 py-16">Small (40)</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y border-integra-gray-100 fs-14">
@@ -208,9 +212,9 @@ import { ButtonGroup } from "@/components/ui/button-group"
                         <tr className="fs-12 font-bold text-integra-gray-400">
                             <th className="px-24 py-16">Property</th>
                             <th className="px-24 py-16">Class Syntax</th>
-                            <th className="px-24 py-16">Default (56)</th>
-                            <th className="px-24 py-16">Medium (48)</th>
-                            <th className="px-24 py-16">Small (32)</th>
+                            <th className="px-24 py-16">Large (52)</th>
+                            <th className="px-24 py-16">Medium (44)</th>
+                            <th className="px-24 py-16">Small (40)</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y border-integra-gray-100 fs-14">
@@ -275,12 +279,12 @@ import { ButtonGroup } from "@/components/ui/button-group"
         <CodeBlock code={usageCode} />
       </section>
 
-      {/* 7. Montage Design Guide */}
+      {/* 7. Design Guide */}
       <section className="space-y-48">
         <div className="space-y-8">
-          <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Montage Design Guide</h2>
+          <h2 className="fs-24 font-bold tracking--2 text-integra-gray-900">Design Guide</h2>
           <p className="fs-16 text-integra-gray-500">
-            원티드 Montage의 Button 상세 문서처럼 Anatomy, Variants, States, Size, Application 흐름으로 버튼 가이드를 정리했습니다.
+            Anatomy, Variants, States, Size, Application 순서로 선택의 이유와 실제 동작을 연결합니다.
           </p>
         </div>
 

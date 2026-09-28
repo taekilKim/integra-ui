@@ -2,37 +2,26 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  invalid?: boolean
+}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, type, invalid = false, ...props }, ref) => {
     return (
       <input
         type={type}
         className={cn(
-          // [Base Layout] h-40, rounded-8, px-12, py-8: 4px 그리드 준수
-          "flex h-40 w-full rounded-8 border px-12 py-8 transition-all tracking-0 leading-24",
-          
-          // [Colors & Typography] SAI 원칙 적용
-          // fs-14: 수치형 폰트 토큰
-          // border-integra-gray-200: 표준 경계선 색상
-          "fs-14 border-integra-gray-200 bg-white text-integra-gray-900",
-          
-          // [File Input Styling]
-          "file:border-0 file:bg-transparent file:fs-14 file:font-medium file:text-integra-gray-900",
-          
-          // [Placeholder]
-          "placeholder:text-integra-gray-400",
-          
-          // [States] focus 시 브랜드 컬러(primary) 링 적용
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-          
-          // [Disabled] 비활성 시 배경색 gray-50 적용하여 시각적 구분
-          "disabled:cursor-not-allowed disabled:bg-integra-gray-50 disabled:text-integra-gray-400 disabled:opacity-100",
-          
+          "flex min-h-control-md w-full rounded-control border border-line bg-surface-raised px-control-x py-control-y fs-15 leading-20 tracking-0 text-content-primary transition-[border-color,box-shadow,background-color] duration-fast ease-standard",
+          "file:border-0 file:bg-transparent file:fs-14 file:font-medium file:text-content-primary",
+          "placeholder:text-content-tertiary",
+          "hover:border-line-strong focus-visible:border-line-focus focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-line-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface-canvas",
+          "aria-[invalid=true]:border-feedback-negative aria-[invalid=true]:ring-1 aria-[invalid=true]:ring-feedback-negative",
+          "disabled:cursor-not-allowed disabled:bg-surface-subtle disabled:text-content-tertiary disabled:opacity-100",
           className
         )}
         ref={ref}
+        aria-invalid={invalid || undefined}
         {...props}
       />
     )

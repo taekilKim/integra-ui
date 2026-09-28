@@ -25,53 +25,24 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
       ],
     },
     {
-      title: "Learn",
-      items: [
-        { name: "Overview", href: "/docs/learn" },
-      ],
-    },
-    {
       title: "Components",
       items: [
         { name: "Overview", href: "/docs/components" },
-        "accordion", "alert", "avatar", "badge", "breadcrumb", "button",
-        "calendar", "card", "checkbox", "date-picker", "dialog",
-        "dropdown-menu", "input", "item", "label", "pagination", "popover",
-        "radio-group", "scroll-area", "select", "separator", "sheet",
-        "skeleton", "slider", "switch", "table", "tabs", "textarea",
-        "toast", "toggle", "tooltip"
+        "button", "input", "select", "dialog", "item"
       ].map(item => typeof item === "string" ? ({
         name: item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
         href: `/docs/components/${item}`
       }) : item),
     },
-    {
-      title: "Customize",
-      items: [
-        { name: "Overview", href: "/docs/customize" },
-      ],
-    },
-    {
-      title: "Utilities",
-      items: [
-        { name: "Overview", href: "/docs/utilities" },
-      ],
-    },
-    {
-      title: "Advanced",
-      items: [
-        { name: "Overview", href: "/docs/advanced" },
-      ],
-    },
   ];
 
   return (
-    <div className={cn("relative w-280 border-r border-integra-gray-100 min-h-screen bg-white", className)}>
+    <div className={cn("relative min-h-screen w-280 border-r border-line bg-surface-canvas", className)}>
       <div className="sticky top-56 h-[calc(100vh-56px)] overflow-y-auto scrollbar-hide mask-dissolve py-32 px-24">
         <div className="space-y-32 pb-48">
           {sections.map((section) => (
             <div key={section.title} className="space-y-8">
-              <h2 className="px-8 fs-12 font-semibold tracking-2 text-integra-gray-500 uppercase">
+              <h2 className="px-8 fs-12 font-semibold tracking-2 text-content-tertiary uppercase">
                 {section.title}
               </h2>
               <div className="flex flex-col gap-4">
@@ -84,8 +55,8 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
                       className={cn(
                         "group flex w-full items-center rounded-8 px-8 py-8 fs-14 transition-all font-medium",
                         isActive
-                          ? "bg-integra-gray-50 text-integra-gray-900"
-                          : "text-integra-gray-600 hover:bg-integra-gray-50 hover:text-integra-gray-900"
+                          ? "bg-primary-subtle text-primary-subtle-foreground"
+                          : "text-content-secondary hover:bg-surface-subtle hover:text-content-primary"
                       )}
                     >
                       {item.name}
